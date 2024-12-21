@@ -1,0 +1,61 @@
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
+import { MessageService } from 'src/app/_services/message.service';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+
+@Component({
+  selector: 'app-message',
+  templateUrl: './message.component.html',
+  styleUrls: ['./message.component.css']
+})
+export class MessageComponent {
+  messageForm: FormGroup;
+  submitted: boolean;
+  optionsSelect: Array<any>;
+
+  constructor(public formBuilder: FormBuilder, private router: Router, private messageService: MessageService) { }
+
+  ngOnInit() {
+    this.messageForm = this.formBuilder.group({
+      txtName: ['', Validators.required],
+      txtEmail: ['', [Validators.required, Validators.email]],
+      txtPhone: ['', Validators.required],
+      txtMsg: ['', Validators.required]
+    })
+  }
+
+  // convenience getter for easy access to form fields
+  get f() { return this.messageForm.controls; }
+
+  fnSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.messageForm.invalid) {
+      return;
+    }
+
+    // Construct Body
+    let body = {
+      "name": this.f['txtName'].value,
+      "email": this.f['txtEmail'].value,
+      "phone": this.f['txtPhone'].value,
+      "message": this.f['txtMsg'].value
+    }
+
+    this.messageService.sendMessage(body).subscribe(
+      result => {
+        Swal.fire('Message', 'Sent successfully..!', 'success');
+        this.fnCancel();
+      },
+      error => {
+        Swal.fire('Sending message.!', error.message, 'error');
+      });
+  }
+
+  fnCancel() {
+    this.submitted = false;
+    this.messageForm.reset();
+  }
+}

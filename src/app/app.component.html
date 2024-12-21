@@ -1,0 +1,213 @@
+<nav *ngIf="displayMenu" class="navbar navbar-custom navbar-expand-lg fixed-top">
+  <div class="container-fluid">
+    <a routerLink="home"><img src="../assets/images/companylogo.png" style="width: 25%;" /></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu"
+      aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a routerLink="home" class="nav-link"> Home</a>
+        </li>
+
+        <li class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a class="nav-link dropdown-toggle" id="menuAbout" role="button" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="true">About</a>
+          <ul class="dropdown-menu" aria-labelledby="menuAbout">
+            <li><a class="dropdown-item" routerLink="/about"> &nbsp;About International Ecademy
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/vision"> &nbsp;Our Vision, Mission & Goal
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/staff"> &nbsp;Our Resource (Team)
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/accredit"> &nbsp;Accredited for OSSD Credits
+              </a></li>
+              <!-- <li>
+                <div class="dropdown-divider"></div>
+              </li>
+              <li><a class="dropdown-item" routerLink="/test"> &nbsp;Test
+              </a></li> -->
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a class="nav-link dropdown-toggle" id="menuStudents" role="button" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="true">Students</a>
+          <ul class="dropdown-menu" aria-labelledby="menuStudents">
+            <li><a class="dropdown-item" routerLink="/handbook"> &nbsp;Student Hand Book
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/support"> &nbsp;Student Support
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/policy"> &nbsp;Acceptable Use Policy
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/safety"> &nbsp;Student Safety
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/faqs"> &nbsp;Frequently Asked Questions
+              </a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a class="nav-link dropdown-toggle" id="menuCourses" role="button" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="true">Courses</a>
+          <ul class="dropdown-menu" aria-labelledby="menuCourses">
+            <li><a class="dropdown-item" routerLink="/grade11"> &nbsp;Grade 11
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/grade12"> &nbsp;Grade 12
+              </a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="calendar" class="nav-link">Calendar</a>
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="register" class="nav-link text-success">Register</a>
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="contact" class="nav-link">Contact</a>
+        </li>
+
+        <li *ngIf="loginUser != null" class="nav-item dropdown" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">
+          <a class="nav-link dropdown-toggle" id="menuAdmin" role="button" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="true">[{{loginUser}}]
+            <i class="fa fa-user-circle fa-1x" title="User Profile"></i></a>
+          <ul class="dropdown-menu" aria-labelledby="menuAdmin">
+            <li>
+              <span class="dropdown-item"><small class="text-success"><i class="fa fa-user fa-lg"></i> &nbsp; {{
+                  loginUser
+                  }} - [User]</small></span>
+            </li>
+            <li>
+              <span class="dropdown-item"><small class="text-success"><i class="fa fa-gear fa-lg"></i> &nbsp;{{
+                  loginUserRole }} - [Role]</small></span>
+            </li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/students"> &nbsp;Students Data
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/role">
+                &nbsp;Role
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/fees">
+                &nbsp;Exam Level Fees
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/user">
+                &nbsp;Users
+              </a></li>
+          </ul>
+        </li>
+
+        <li *ngIf="loginUser == null" class="nav-item">
+          <a routerLink="login" class="nav-link text-danger">Login</a>
+        </li>
+
+        <li *ngIf="loginUser != null" class="nav-item">
+          <a routerLink="home" (click)="fnLogout()" class="nav-link text-danger">Signout</a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>
+<div>
+  <router-outlet></router-outlet>
+</div>
+<div *ngIf="displayMenu" class="footer-style">
+  <div class="container mt-3 mb-3">
+    <div class="row">
+      <div class="col-md-2 text-start">
+        <br>
+        <p>
+          <img src="../assets/images/logo.png" style="width: 100%;" />
+        </p>
+      </div>
+      <div class="col-md-5 text-start">
+        <table class="table table-bordered table-center border-gray text-primary" style="border-color: #F7F6F6;">
+          <tbody>
+            <tr>
+              <td colspan="2" style="font-size: 17pt; font-weight: bold; color: green;">CONTACT DETAILS</td>
+            </tr>
+            <tr>
+              <th class="text-start text-success"><i class="fa fa-volume-control-phone fa-lg"></i></th>
+              <td class="text-start"> <b> +91 70935 41984, &nbsp; <i class="fa fa-whatsapp fa-lg text-success"></i>
+                +1 (647) 641-3585.</b></td>
+            </tr>
+            <tr>
+              <th class="text-start text-success"><i class="fa fa-envelope fa-1x text-success"></i></th>
+              <td class="text-start"><b>internationalecademy&#64;gmail.com</b></td>
+            </tr>
+            <tr>
+              <th class="text-start text-success"><i class="fa fa-map-marker fa-lg"></i></th>
+              <td class="text-start"><b> Plot No. 21, 1st Floor, Paigah Colony Near by Anand Theater,<br>
+                  S.P. Road, Secunderabad - 500003. Telangana, India.</b></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-5">
+        <app-message></app-message>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-6 text-start">
+        Copyrights &copy; {{ year }}, {{ title }}, &reg; All Rights Reserved.
+      </div>
+      <div class="col-md-6 text-end">
+        <p>Follows Us - <a href="#" target="_blank" title="Facebook Page"><i
+              class="fa fa-facebook fa-lg"></i></a>&nbsp;&nbsp;
+          <a href="#" target="_blank" title="Youtube Page">
+            <i class="fa fa-youtube-play fa-lg"></i></a>&nbsp;&nbsp;
+          <a href="#" target="_blank" title="Twitter Page"><i class="fa fa-twitter fa-lg"></i></a>&nbsp;&nbsp;
+          <a href="#" target="_blank" title="Instagram Page"><i class="fa fa-instagram fa-lg"></i></a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <button class="scroll-top" *ngIf="isBtnShow" (click)="goTop()" title="Go to top"><i
+      class="fa fa-chevron-up"></i></button>
+</div>

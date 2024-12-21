@@ -1,0 +1,347 @@
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { formatDate } from '@angular/common'
+import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import { FeesService } from 'src/app/_services/fees.service';
+import { StudentService } from 'src/app/_services/student.service';
+
+import * as xls from 'xlsx';
+
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
+@Component({
+  selector: 'app-students',
+  templateUrl: './students.component.html',
+  styleUrls: ['./students.component.css']
+})
+export class StudentsComponent {
+
+  datePickerConfig: Partial<BsDatepickerConfig>;
+  showAddEditForm = false;
+  showSearch = true;
+  selAction = "";
+  formHeader = "View Data";
+
+  active = [
+    { id: 1, name: 'Yes' },
+    { id: 2, name: 'No' }
+  ];
+
+  grade = [
+    { id: 1, name: '5 th' },
+    { id: 2, name: '6 th' },
+    { id: 3, name: '7 th' },
+    { id: 4, name: '8 th' },
+    { id: 5, name: '9 th' },
+    { id: 6, name: '10 th' },
+    { id: 7, name: 'Inter-I' },
+    { id: 8, name: 'Inter-II' },
+    { id: 9, name: 'Graduation' }
+  ];
+
+  studentsForm: FormGroup;
+  examLevelFees: any;
+  students: any;
+  dupRecord: any;
+  displayColumns: any = ['#', 'Id', 'StuName', 'FatherName', 'Grade', 'Phone', 'Email', 'DOR', 'School', 'Area', 'ExamLevel', 'Exam', 'Reg.Amt', 'Tuition.Amt', 'Total.Amt', 'Active'];
+  rowCount: number;
+  submitted = false;
+  loginUserName: any;
+  loginUserRoleId: any;
+
+  constructor(private formBuilder: FormBuilder, private feesService: FeesService, private studentService: StudentService, private router: Router) {
+    this.fnExamLevelFees();
+    this.loginUserName = localStorage.getItem('loginUser');
+    this.loginUserRoleId = localStorage.getItem('loginUserRoleId');
+
+    // setting the datepicker
+    this.datePickerConfig = Object.assign({},
+      {
+        dateInputFormat: 'DD-MMM-YYYY',
+        containerClass: 'theme-dark-blue',
+        showWeekNumbers: false,
+        //minDate: new Date(2021, 0, 1),
+        //maxDate: new Date(2021, 11, 31),  
+      }
+    );
+  }
+
+  ngOnInit(): void {
+    this.students = 0;
+    this.studentsForm = this.formBuilder.group(
+      {
+        txtFromDate: [formatDate(new Date(), 'dd-MMM-yyyy', 'en_US')],
+        txtToDate: [formatDate(new Date(), 'dd-MMM-yyyy', 'en_US')],
+        txtSearchExamLevel: [''],
+        txtSearchGrade: [''],
+        txtStuId: ['', [Validators.required]],
+        txtStuName: ['', [Validators.required, Validators.maxLength(50)]],
+        txtFName: ['', [Validators.required, Validators.maxLength(50)]],
+        txtGrade: ['', [Validators.required]],
+        txtPhone: ['', [Validators.required, Validators.maxLength(15)]],
+        txtEmail: ['', [Validators.required, Validators.maxLength(50)]],
+        txtSchool: ['', [Validators.required, Validators.maxLength(50)]],
+        txtDOR: ['', [Validators.required, Validators.maxLength(12)]],
+        txtArea: ['', [Validators.required, Validators.maxLength(50)]],
+        txtExamLevel: ['', [Validators.required]],
+        txtRegistrationAmt: ['', [Validators.required]],
+        txtTuitionAmt: ['', [Validators.required]],
+        txtTotalAmt: ['', [Validators.required]],
+        txtActive: ['', Validators.required],
+        txtCreated: [''],
+        txtModified: ['']
+      });
+  }
+
+  fnExamLevelFees() {
+    this.feesService.getAll().subscribe(
+      result => {
+        this.examLevelFees = result[0];
+      },
+      error => {
+        Swal.fire('@ Retrive Grades..! ', error.message, 'error');
+      });
+  }
+
+  get f(): { [key: string]: AbstractControl } {
+    return this.studentsForm.controls;
+  }
+
+  fnExamLevelSelected(event) {
+    this.feesService.getById(this.f['txtExamLevel'].value).subscribe(
+      result => {
+        var data = result[0];
+        if (result[0].length > 0) { 
+          this.studentsForm.patchValue({
+            txtRegistrationAmt: data[0].RegistrationAmt,
+            txtTuitionAmt: data[0].TuitionAmt,
+            txtTotalAmt: (+(data[0].RegistrationAmt) + +(data[0].TuitionAmt)).toString()
+          });
+        }
+      },
+      error => {
+        Swal.fire('@ Retrive selected Exam data..! ', error.message, 'error');
+      });
+  }
+
+  fnGetAll() {
+    this.studentService.getAll().subscribe(
+      result => {
+        this.students = result[0];
+
+        if (this.students.length == 0) {
+          Swal.fire('No data found..!', result.message, 'info');
+        }
+      },
+      error => {
+        Swal.fire('@ Retrive data..! ', error.message, 'error');
+      });
+  }
+
+  fnSearch() {
+    let examLevel: any;
+    let grade: any;
+
+    if (this.f['txtFromDate'].value == null || this.f['txtFromDate'].value == "") {
+      Swal.fire('Validation', 'Please select the from Date..! it should not be empty..!', 'warning');
+      return;
+    }
+    if (this.f['txtToDate'].value == null || this.f['txtToDate'].value == "") {
+      Swal.fire('Validation', 'Please select the to Date..! it should not be empty..!', 'warning');
+      return;
+    }
+
+    if ((this.f['txtSearchExamLevel'].value == null || this.f['txtSearchExamLevel'].value == "")) {
+      examLevel = 0;
+    }
+    else {
+      examLevel = this.f['txtSearchExamLevel'].value;
+    }
+
+    if ((this.f['txtSearchGrade'].value == null || this.f['txtSearchGrade'].value == "")) {
+      grade = 0;
+    }
+    else {
+      grade = this.f['txtSearchGrade'].value;
+    }
+
+    this.fnGetByQuery(formatDate(this.f['txtFromDate'].value, 'dd-MMM-yyyy', 'en_US'), formatDate(this.f['txtToDate'].value, 'dd-MMM-yyyy', 'en_US'), examLevel, grade);
+  }
+
+  fnGetByQuery(fromDate, toDate, examLevel, grade) {
+    //this.fnGetAll();
+    this.studentService.getByQuery(fromDate, toDate, examLevel, grade).subscribe(
+      result => {
+        this.students = result[0];
+
+        if(this.students.length == 0) {
+          Swal.fire('No data found..!', result.message, 'info');
+        }
+      },
+      error => {
+        Swal.fire('@ Retrive data..! ', error.message, 'error');
+      });
+  }
+
+  fnClear() {
+    this.ngOnInit();
+  }
+
+  fnView(data: any) {
+    this.selAction = "View";
+    this.formHeader = "View Data";
+    this.fnOpenAddEditForm(data);
+    this.showAddEditForm = true;
+    this.showSearch = false;
+  }
+
+  fnEdit(data: any) {
+    this.selAction = "Edit";
+    this.formHeader = "Modify Data";
+    this.fnOpenAddEditForm(data);
+    this.showAddEditForm = true;
+    this.showSearch = false;
+  }
+
+  fnDelete(id) {
+    Swal.fire({
+      title: 'Are You Sure to Delete..?',
+      text: 'You will not be able to recover this..!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No'
+    }).then((result) => {
+      if (result.value) {
+        this.studentService.delete(id).subscribe(
+          result => {
+            this.fnSearch();
+            Swal.fire('Deleted', result.message, 'success');
+          },
+          error => {
+            Swal.fire('@ Delete data..!', error.message, 'error');
+          });
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        //Swal.fire('Cancelled', '', 'error');
+      }
+    });
+  }
+
+  fnOpenAddEditForm(data = null) {
+    this.showAddEditForm = true;
+    if (data) {
+      // display data on the form
+      this.studentsForm.patchValue({
+        txtStuId: data.StuId,
+        txtStuName: data.StuName,
+        txtFName: data.FName,
+        txtGrade: data.Grade,
+        txtPhone: data.Phone,
+        txtEmail: data.Email,
+        txtDOR: formatDate(data.DOR, 'dd-MMM-yyyy', 'en_US'),
+        txtSchool: data.School,
+        txtArea: data.Area,
+        txtExamLevel: data.ExamLevel,
+        txtRegistrationAmt: data.RegistrationAmt,
+        txtTuitionAmt: data.TuitionAmt,
+        txtTotalAmt: data.RegistrationAmt,
+        txtActive: data.Active,
+        txtCreated: data.Created,
+        txtModified: data.Modified
+      });
+    }
+  }
+
+  fnEditSave(id, data: any) {
+    this.studentService.update(id, data).subscribe(
+      result => {
+        Swal.fire('Update', result.message, 'success');
+        this.fnGetAll();
+        this.fnAddEditFormClose();
+      },
+      error => {
+        Swal.fire('@ Edit Save..!', error.message, 'error');
+      });
+  }
+
+  fnAddEditFormSave() {
+    this.submitted = true;
+    // stop here if form is invalid
+    if (this.studentsForm.invalid) {
+      return;
+    }
+    else {
+      let body = {
+        "stuId": this.f['txtStuId'].value,
+        "stuName": this.f['txtStuName'].value,
+        "fName": this.f['txtFName'].value,
+        "grade": this.f['txtGrade'].value,
+        "phone": this.f['txtPhone'].value,
+        "email": this.f['txtEmail'].value,
+        "dor": formatDate(this.f['txtDOR'].value, 'dd-MMM-yyyy', 'en_US'),
+        "school": this.f['txtSchool'].value,
+        "area": this.f['txtArea'].value,
+        "examLevel": this.f['txtExamLevel'].value,
+        "registrationAmt": this.f['txtRegistrationAmt'].value,
+        "tuitionAmt": this.f['txtTuitionAmt'].value,
+        "totalAmt": this.f['txtTotalAmt'].value,
+        "active": this.f['txtActive'].value,
+        "created": this.f['txtCreated'].value,
+        "modified": this.f['txtModified'].value
+      }
+
+      if (this.selAction == "Edit") {
+        // updating the modified column with modified message
+        body['modified'] = "By: " + this.loginUserName + ", On - " + formatDate(new Date(), 'dd-MMM-yyyy' + ' @ ' + 'hh:mm:ss a', 'en_US');
+        this.fnEditSave(this.f['txtStuId'].value, body);
+      }
+    }
+  }
+
+  fnAddEditFormClose() {
+    this.selAction = "";
+    this.formHeader = "View Data";
+    this.showAddEditForm = false;
+    this.showSearch = true;
+    this.submitted = false;
+    this.ngOnInit();
+  }
+
+  fnPrint() {
+    //window.print();
+    this.fnGeneratePDF();
+  }
+
+  fnGeneratePDF() {
+    let docDefinition = {
+      header: 'Printing to PDF File',
+      content: 'Sorry we are working on this, Comming Soon..!'
+    };
+
+    pdfMake.createPdf(docDefinition).open();
+  }
+
+  /** Detault name for excel file when download **/
+  fileName = "EmployesData.xlsx";
+
+  fnExportToExcel() {
+
+    Swal.fire('Export to excel', 'Sorry we are working on this, Comming soon..!', 'info');
+
+    // /** Passing the table id **/
+    // let data = document.getElementById("employes-data");
+    // const ws: xls.WorkSheet = xls.utils.table_to_sheet(data);
+
+    // /** Generate workbook and add the worksheet **/
+    // const wb: xls.WorkBook = xls.utils.book_new();
+    // xls.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+    // /** Save to  file **/
+    // xls.writeFile(wb, this.fileName);
+  }
+
+}

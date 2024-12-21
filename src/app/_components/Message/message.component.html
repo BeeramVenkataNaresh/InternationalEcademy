@@ -1,0 +1,66 @@
+<div>
+    <form [formGroup]="messageForm" (ngSubmit)="fnSubmit()">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="input-group">
+                        <label for="txtName" class="input-group-text"><i class="fa fa-user-circle"></i></label>
+                        <input type="text" formControlName="txtName" id="txtName" placeholder="Your Name"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f['txtName'].errors }" />
+                        <div *ngIf="submitted && f['txtName'].errors" class="invalid-feedback">
+                            <div *ngIf="f['txtName'].errors['required']">Req.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="input-group">
+                        <label for="txtEmail" class="input-group-text"><i class="fa fa-at"></i></label>
+                        <input type="text" formControlName="txtEmail" id="txtEmail" placeholder="Email-Id"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f['txtEmail'].errors }" />
+                        <div *ngIf="submitted && f['txtEmail'].errors" class="invalid-feedback">
+                            <div *ngIf="f['txtEmail'].errors['required']">Req.</div>
+                            <div *ngIf="f['txtEmail'].errors['Email']">Must be a valid Email Aaddress</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <div class="input-group">
+                        <label for="txtPhone" class="input-group-text"><i class="fa fa-phone-square"></i></label>
+                        <input type="text" formControlName="txtPhone" id="txtPhone" placeholder="Phone No."
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f['txtPhone'].errors }" />
+                        <div *ngIf="submitted && f['txtPhone'].errors" class="invalid-feedback">
+                            <div *ngIf="f['txtPhone'].errors['required']">Req.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-md-9">
+                <div class="form-group">
+                    <div class="input-group">
+                        <label for="txtMsg" class="input-group-text"><i class="fa fa-comments"></i></label>
+                        <textarea formControlName="txtMsg" id="txtMsg" placeholder="Message" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f['txtMsg'].errors }"></textarea>
+                        <div *ngIf="submitted && f['txtMsg'].errors" class="invalid-feedback">
+                            <div *ngIf="f['txtMsg'].errors['required']">Req.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 text-end small">
+                <br>
+                <button class="btn btn-primary mr-1" title="Submit"><small><i class="fa fa-check fa-1x"></i></small></button> &nbsp;
+                <button class="btn btn-secondary" type="reset" (click)="fnCancel()" title="Clear"><small><i class="fa fa-refresh fa-1x"></i></small></button>
+            </div>
+        </div>
+    </form>
+</div>

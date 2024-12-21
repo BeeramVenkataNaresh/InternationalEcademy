@@ -1,0 +1,56 @@
+<div class="page-position">
+    <h1 class="text-center text-primary mb-3">Payment Gateway</h1>
+    <div class="container">
+        <div class="card border-primary">
+            <form [formGroup]="paymentgatewayForm">
+                <div class="card-header">
+                    <i class="fa fa-money fa-lg text-success"></i>&nbsp;&nbsp;<b class="text-danger">Payment</b>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            &nbsp;
+                        </div>
+                        <div class="col-md-4">
+                            <label class="bold col-form-label-sm" for="txtAmt">Pay.Amt:</label><span
+                            style="color: red;"> *</span>
+                        </div>
+                        <div class="col-md-4">
+                            &nbsp;
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            &nbsp;
+                        </div>
+                        <div class="col-md-4">
+                            <input readonly type="text" formControlName="txtAmt" placeholder="Pay Amount"
+                                class="form-control form-control-sm" style="background-color: rgb(226, 226, 226);" [ngClass]="{ 'is-invalid': submitted && f['txtAmt'].errors }"/>
+                                <div *ngIf="submitted && f['txtAmt'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['txtAmt'].errors['required']"><small>Req.</small></div>
+                                </div>
+                        </div>
+                        <div class="col-md-4">
+                            &nbsp;
+                        </div>
+                    </div>
+                    <div class="row mt-4 text-center">
+                        <div class="col-md-4">
+                            &nbsp;
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" class="a-list-primay btn btn-secondary" (click)="fnSubmit()"
+                                title="Search"><small><i class="fa fa-check fa-1x"></i>
+                                    Pay</small> </button> &nbsp;
+                            <button type="button" class="a-list-primay btn btn-success" (click)="fnBack()"
+                                title="Clear"><i class="fa fa-arrow-left fa-1x"></i><small>&nbsp; Back</small></button>
+                        </div>
+                        <div class="col-md-4">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

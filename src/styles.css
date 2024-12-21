@@ -1,0 +1,243 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* For Ng Select component */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+.lbl-req {
+    color: red;
+}
+
+.center-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 94vh;
+    padding: 15px;
+}
+
+.center-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.page-position {
+    padding-top: 105px;
+    padding-bottom: 20px;
+}
+
+.table-appearance {
+    font-size: 9pt;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.footer-style {
+    background-color: #F7F6F6;
+    padding: 3px 0;
+    border-top: solid 1px lightgrey;
+    border-bottom: solid 1px lightgrey;
+}
+
+/* For multi level dropdown sub Nenus */
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: none;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+/* End of multi level dropdown sub menus */
+
+/* Scrolling to Top Button */
+
+.scroll-top {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 50px;
+    border-color: #C5C6C6;
+    outline: none;
+    background: #0086CA;
+    color: #fff;
+    transition: background 0.5s;
+    padding: 6px 12px 9px 12px;
+}
+
+.scroll-top:focus {
+    background: #0086CA;
+    color: #fff;
+    outline: none;
+}
+
+.scroll-top:hover {
+    background: #E51A4B;
+    color: #fff;
+}
+
+/* End of Scrolling to Top Button */
+
+/* form-wrapper, form-addedit, group, form-control etc classes styling */
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 100;
+}
+
+.form-addedit-600 {
+    background-color: white;
+    width: 600px;
+    padding: 20px 40px;
+    border-radius: 5px;
+}
+
+.form-addedit-800 {
+    background-color: white;
+    width: 800px;
+    padding: 20px 40px;
+    border-radius: 5px;
+}
+
+.form-addedit-1000 {
+    background-color: white;
+    width: 1000px;
+    padding: 20px 40px;
+    border-radius: 5px;
+}
+
+.form-addedit-1200 {
+    background-color: white;
+    width: 1200px;
+    padding: 20px 40px;
+    border-radius: 5px;
+}
+
+.group {
+    display: flex;
+    margin: 15px 0;
+}
+
+.group label {
+    width: 110px;
+    line-height: 40px;
+    height: 40px;
+}
+
+.action {
+    display: flex;
+    justify-content: end;
+    gap: 15px;
+}
+
+/* End of form-wrapper, form-addedit, group, form-control etc classes styling */
+
+.imgShadow-AllSides {
+    border: 5px solid #fff;
+    box-shadow: 0 0 15px #ccc;
+    -moz-box-shadow: 0 0 15px #ccc;
+    -webkit-box-shadow: 0 0 15px #ccc;
+    -o-box-shadow: 0 0 15px #ccc;
+}
+
+/* Gallery Img Css Style - 1 */
+
+.a-img-btn {
+    opacity: 1;
+  }
+  
+  .a-img-btn:hover {
+    opacity: 0.75;
+    cursor: pointer;
+  }
+  
+  /* End of Gallery Img Css Style - 1 */
+
+  /* Gallery Img Css Style - 2 */
+
+.thumb-item {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .thumb-item-image {
+    width: 50%100%;
+  }
+  
+  .thumb-item-info {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    box-sizing: border-box;
+    color: #fff;
+    padding: 20px 20px;
+  }
+  .thumb-item-info h5 {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+  }
+  .thumb-item-info p {
+    font-size: 14px;
+    margin: 4px 0 14px;
+  }
+  
+  .thumb-item:hover .thumb-item-info {
+    background-color: black;
+    border: 2px solid rgb(254, 133, 6);
+    color: white;
+    opacity: .75;
+    bottom: -5px;
+    transition: opacity 1s;
+  }
+  
+  /* End Gallery Img Css Style - 2 */

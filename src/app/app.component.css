@@ -1,0 +1,132 @@
+a {
+    text-decoration: none;
+  }
+  
+  .navbar-custom {
+    background: white; /* #fff; */
+   /* border-bottom: solid 1px rgb(0,69,140); */
+  }
+  
+  .navbar-custom .navbar-brand {
+      margin: 1px;
+      padding: 1px;
+  }
+  
+  .navbar-custom .navbar-nav .nav-link {
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14pt;
+    font-weight: Normal;
+    padding: 18px 18px;
+  }
+  
+  .navbar-custom .nav-item.active .nav-link,
+  .navbar-custom .nav-item:hover .nav-link {
+      color:  blue;
+      cursor: pointer;
+  }
+  
+  .sub-menu-bar {
+    display: none;
+  }
+  
+  .sub-menu-bar ul li {
+    list-style: none;
+  }
+  
+  .navbar-custom ul li:hover .sub-menu-bar {
+    display: block;
+    position: absolute;
+    background: blue;
+  }
+  
+  .navbar-custom ul li:hover .sub-menu-bar ul {
+    display: block;
+  }
+  .navbar-custom ul li:hover .sub-menu-bar ul li {
+    width: auto;
+    padding: 3px;
+    border-bottom: 1px dotted #fff;
+    background: transparent;
+    border-radius: 0px;
+    text-align: left; 
+  }
+  .navbar-custom ul li:hover .sub-menu-bar ul li:last-child {
+    border-bottom: none;
+  }
+  
+  .sub-menu-bar-sub-menu {
+    display: none
+  }
+  
+  .sub-menu-hover-me:hover .sub-menu-bar-sub-menu {
+    position: absolute;
+    display: block;
+    background: #fe8400;
+  }
+  
+   /* dropdown */
+  
+   .dropdown-menu {
+    background: white;
+    color: black;
+    left: 0;
+    position: absolute;
+    top: 5;
+     margin-top: -1px; 
+      }
+  
+  .dropdown-item {
+    color: black;
+    font-size: 13pt;
+    font-weight: normal;
+  }
+  
+  .dropdown-item:hover {
+    background-color: white;
+    color: blue;
+    cursor: pointer; 
+  }
+  
+  /* When Mouse Over the Dropdown then this screen will appier */
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  } 
+  /* End of dropdown-submenu */
+  /* dropdown-submenu */
+  
+  .dropdown-submenu {
+    position: relative;
+  }
+  
+  .dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: 0px;
+    margin-left: 0px;
+  }
+  
+  .dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+  }
+  
+  .dropdown-submenu > a.dropdown-item:after {
+    font-family: FontAwesome;
+    content: "\f054";
+    float: right;
+  }
+  
+  .dropdown-submenu > a.dropdown-item:after {
+    content: ">";
+    float: right;
+  }
+  
+  /* End of dropdown-submenu */
+  
+  @media (min-width: 992px){
+      .navbar-expand-lg .navbar-nav .nav-link {
+          padding: .5rem;
+          margin: 8px;
+      }
+  }
+  
