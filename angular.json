@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "InternationalAcademy": {
+    "InternationalEcademy": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/InternationalAcademy",
+            "outputPath": "dist/InternationalEcademy",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -76,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "InternationalAcademy:build:production"
+              "buildTarget": "InternationalEcademy:build:production"
             },
             "development": {
-              "buildTarget": "InternationalAcademy:build:development"
+              "buildTarget": "InternationalEcademy:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "InternationalAcademy:build"
+            "buildTarget": "InternationalEcademy:build"
           }
         },
         "test": {

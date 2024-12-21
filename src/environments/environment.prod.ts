@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  title: "InternationalAcademy",
+  title: "InternationalEcademy",
   apiPath: "http://localhost:7099",
 
   // Mail settings
