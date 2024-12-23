@@ -28,6 +28,11 @@
                         <img class="imgShadow-AllSides" src="assets/images/home/5.jpg" alt="" title="">
                     </div>
                 </ng-template>
+                <ng-template carouselSlide>
+                    <div class="slide center-item">
+                        <img class="imgShadow-AllSides" src="assets/images/home/6.jpg" alt="" title="">
+                    </div>
+                </ng-template>
             </owl-carousel-o>
         </div>
     </div>
@@ -399,52 +404,33 @@
         <h1 class="text-primary text-center">ADMISSION IN UNIVERSITIES</h1>
         <!-- Carousel Section -->
         <div class="row mt-5">
-            <owl-carousel-o [options]="owlOptions2">
-                <ng-template carouselSlide>
-                    <div class="imgShadow-AllSides">
-                        <img src="../assets/images/partners/inprocess.jpg" title="" style="width: 100%;" />
-                    </div>
-                </ng-template>
-
-                <ng-template carouselSlide>
-                    <div class="imgShadow-AllSides">
-                        <img src="../assets/images/partners/inprocess.jpg" title="" style="width: 100%;" />
-                    </div>
-                </ng-template>
-
-                <ng-template carouselSlide>
-                    <div class="imgShadow-AllSides">
-                        <img src="../assets/images/partners/inprocess.jpg" title="" style="width: 100%;" />
-                    </div>
-                </ng-template>
-
-                <ng-template carouselSlide>
-                    <div class="imgShadow-AllSides">
-                        <img src="../assets/images/partners/inprocess.jpg" title="" style="width: 100%;" />
-                    </div>
-                </ng-template>
-
-                <ng-template carouselSlide>
-                    <div class="imgShadow-AllSides">
-                        <img src="../assets/images/partners/inprocess.jpg" title="" style="width: 100%;" />
-                    </div>
-                </ng-template>
-
-                <ng-template carouselSlide>
-                    <div class="imgShadow-AllSides">
-                        <img src="../assets/images/partners/inprocess.jpg" title="" style="width: 100%;" />
-                    </div>
-                </ng-template>
-
-            </owl-carousel-o>
-
             <!-- <owl-carousel-o [options]="owlOptions2">
+                <ng-template carouselSlide>
+                    <div class="imgShadow-AllSides">
+                        <img src="../assets/images/partners/inprocess.jpg" title="" style="width: 100%;" />
+                    </div>
+                </ng-template>
+
+                <ng-template carouselSlide>
+                    <div class="imgShadow-AllSides">
+                        <img src="../assets/images/partners/inprocess.jpg" title="" style="width: 100%;" />
+                    </div>
+                </ng-template>
+
+                <ng-template carouselSlide>
+                    <div class="imgShadow-AllSides">
+                        <img src="../assets/images/partners/inprocess.jpg" title="" style="width: 100%;" />
+                    </div>
+                </ng-template>
+            </owl-carousel-o> -->
+
+            <owl-carousel-o [options]="owlOptions2">
                 <ng-template carouselSlide>
                     <table class="table text-center imgShadow-AllSides" style="border-color: #f1f1f1">
                         <thead style="background-color:#f1f1f1">
                             <tr>
                                 <th>
-                                    <h3 class="text-primary">
+                                    <h3 class="text-success">
                                         York University
                                     </h3>
                                 </th>
@@ -457,20 +443,6 @@
                                         style="width: 61%;" />
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="text-success">
-                                        Student - Sara K.
-                                    </h5>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="text-danger">
-                                        Programe - Schulish School of Business
-                                    </h5>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </ng-template>
@@ -480,8 +452,8 @@
                         <thead style="background-color:#f1f1f1">
                             <tr>
                                 <th>
-                                    <h3 class="text-primary">
-                                        Western University
+                                    <h3 class="text-success">
+                                        University Of Waterloo
                                     </h3>
                                 </th>
                             </tr>
@@ -489,22 +461,8 @@
                         <tbody>
                             <tr>
                                 <td class="center-item">
-                                    <img src="../assets/images/universites/western.jpg" title="Western University"
-                                        style="width: 85%;" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="text-success">
-                                        Student - Stefano B.
-                                    </h5>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="text-danger">
-                                        Programe - Business
-                                    </h5>
+                                    <img src="../assets/images/universites/waterloo.jpg" title="University Of Waterloo"
+                                        style="width: 65%;" />
                                 </td>
                             </tr>
                         </tbody>
@@ -516,7 +474,7 @@
                         <thead style="background-color:#f1f1f1">
                             <tr>
                                 <th>
-                                    <h3 class="text-primary">
+                                    <h3 class="text-success">
                                         University of Toronto
                                     </h3>
                                 </th>
@@ -529,18 +487,26 @@
                                         style="width: 30%;" />
                                 </td>
                             </tr>
+                        </tbody>
+                    </table>
+                </ng-template>
+
+                <ng-template carouselSlide>
+                    <table class="table text-center imgShadow-AllSides" style="border-color: #f1f1f1">
+                        <thead style="background-color:#f1f1f1">
                             <tr>
-                                <td>
-                                    <h5 class="text-success">
-                                        Student - Madelene B.
-                                    </h5>
-                                </td>
+                                <th>
+                                    <h4 class="text-success">
+                                        Toronto Metropolitan University
+                                    </h4>
+                                </th>
                             </tr>
+                        </thead>
+                        <tbody>
                             <tr>
-                                <td>
-                                    <h5 class="text-danger">
-                                        Programe - Life Sciences
-                                    </h5>
+                                <td class="center-item">
+                                    <img src="../assets/images/universites/torontometropolitan.jpg" title="Toronto Metropolitan University"
+                                        style="width: 40%;" />
                                 </td>
                             </tr>
                         </tbody>
@@ -552,8 +518,8 @@
                         <thead style="background-color:#f1f1f1">
                             <tr>
                                 <th>
-                                    <h3 class="text-primary">
-                                        Ryerson University
+                                    <h3 class="text-success">
+                                        Ontario Tech University
                                     </h3>
                                 </th>
                             </tr>
@@ -561,70 +527,21 @@
                         <tbody>
                             <tr>
                                 <td class="center-item">
-                                    <img src="../assets/images/universites/ryerson.jpg" title="Ryerson University"
-                                        style="width: 41%;" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="text-success">
-                                        Student - Giulia G.
-                                    </h5>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="text-danger">
-                                        Programe - Business Managment
-                                    </h5>
+                                    <img src="../assets/images/universites/ontariotech.jpg" title="Ontario Tech University"
+                                        style="width: 85%;" />
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </ng-template>
 
-                <ng-template carouselSlide>
-                    <table class="table text-center imgShadow-AllSides" style="border-color: #f1f1f1">
-                        <thead style="background-color:#f1f1f1">
-                            <tr>
-                                <th>
-                                    <h3 class="text-primary">
-                                        Queen's University
-                                    </h3>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="center-item">
-                                    <img src="../assets/images/universites/queens.jpg" title="Queen's University"
-                                        style="width: 32%;" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="text-success">
-                                        Student - Tiger I.
-                                    </h5>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="text-danger">
-                                        Programe - Business
-                                    </h5>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </ng-template>
 
                 <ng-template carouselSlide>
                     <table class="table text-center imgShadow-AllSides" style="border-color: #f1f1f1">
                         <thead style="background-color:#f1f1f1">
                             <tr>
                                 <th>
-                                    <h3 class="text-primary">
+                                    <h3 class="text-success">
                                         McMaster University
                                     </h3>
                                 </th>
@@ -637,18 +554,50 @@
                                         style="width: 37%;" />
                                 </td>
                             </tr>
+                        </tbody>
+                    </table>
+                </ng-template>
+
+
+                <ng-template carouselSlide>
+                    <table class="table text-center imgShadow-AllSides" style="border-color: #f1f1f1">
+                        <thead style="background-color:#f1f1f1">
                             <tr>
-                                <td>
-                                    <h5 class="text-success">
-                                        Student - Stuti M.
-                                    </h5>
+                                <th>
+                                    <h3 class="text-success">
+                                        Western University
+                                    </h3>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center-item">
+                                    <img src="../assets/images/universites/western.jpg" title="Western University"
+                                        style="width: 85%;" />
                                 </td>
                             </tr>
+                        </tbody>
+                    </table>
+                </ng-template>
+
+                
+                <ng-template carouselSlide>
+                    <table class="table text-center imgShadow-AllSides" style="border-color: #f1f1f1">
+                        <thead style="background-color:#f1f1f1">
                             <tr>
-                                <td>
-                                    <h5 class="text-danger">
-                                        Programe - Life Scince
-                                    </h5>
+                                <th>
+                                    <h3 class="text-success">
+                                        Ryerson University
+                                    </h3>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center-item">
+                                    <img src="../assets/images/universites/ryerson.jpg" title="Ryerson University"
+                                        style="width: 41%;" />
                                 </td>
                             </tr>
                         </tbody>
@@ -660,7 +609,29 @@
                         <thead style="background-color:#f1f1f1">
                             <tr>
                                 <th>
-                                    <h3 class="text-primary">
+                                    <h3 class="text-success">
+                                        Queen's University
+                                    </h3>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="center-item">
+                                    <img src="../assets/images/universites/queens.jpg" title="Queen's University"
+                                        style="width: 32%;" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </ng-template>
+
+                <ng-template carouselSlide>
+                    <table class="table text-center imgShadow-AllSides" style="border-color: #f1f1f1">
+                        <thead style="background-color:#f1f1f1">
+                            <tr>
+                                <th>
+                                    <h3 class="text-success">
                                         McGill University
                                     </h3>
                                 </th>
@@ -673,20 +644,6 @@
                                         style="width: 65%;" />
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="text-success">
-                                        Student - David P.
-                                    </h5>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="text-danger">
-                                        Programe - Education
-                                    </h5>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </ng-template>
@@ -696,7 +653,7 @@
                         <thead style="background-color:#f1f1f1">
                             <tr>
                                 <th>
-                                    <h3 class="text-primary">
+                                    <h3 class="text-success">
                                         University of Guelph
                                     </h3>
                                 </th>
@@ -709,25 +666,11 @@
                                         style="width: 63%;" />
                                 </td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="text-success">
-                                        Student - Carly T.
-                                    </h5>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <h5 class="text-danger">
-                                        Programe - Economics and Finance
-                                    </h5>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </ng-template>
 
-            </owl-carousel-o> -->
+            </owl-carousel-o>
         
         </div>
         <!-- End of Carousel Section -->
