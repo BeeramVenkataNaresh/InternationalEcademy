@@ -28,7 +28,12 @@ import { Grade11Component } from './_components/Grade11/grade11.component';
 import { Grade12Component } from './_components/Grade12/grade12.component';
 import { VisionComponent } from './_components/Vision/vision.component';
 import { TestComponent } from './_components/Test/test.component';
-import { CalendarComponent } from './_components/Calendar/calendar.component';
+import { BcmitComponent } from './_components/BrainCheckerMIT/bcmit.component';
+import { BcciqtComponent } from './_components/BrainCheckerCIQT/bcciqt.component';
+import { BcbrainstaminaComponent } from './_components/BrainCheckerBrainStamina/bcbrainstamina.component';
+import { BcbcpaComponent } from './_components/BrainCheckerBCPA/bcbcpa.component';
+import { BcbestComponent } from './_components/BrainCheckerBEST/bcbest.component';
+import { BcigniteComponent } from './_components/BrainCheckerIgnite/bcignite.component';
 
 
 @NgModule({ 
@@ -39,7 +44,12 @@ import { CalendarComponent } from './_components/Calendar/calendar.component';
     VisionComponent,
     Grade11Component,
     Grade12Component,
-    CalendarComponent,
+    BcmitComponent,
+    BcciqtComponent,
+    BcbrainstaminaComponent,
+    BcbcpaComponent,
+    BcbestComponent,
+    BcigniteComponent,
     ContactComponent,
     RegisterComponent,
     LoginComponent,

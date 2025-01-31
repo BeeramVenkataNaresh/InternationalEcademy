@@ -24,8 +24,13 @@ import { SafetyComponent } from './_components/Safety/safety.component';
 import { PolicyComponent } from './_components/Policy/policy.component';
 import { SupportComponent } from './_components/Support/support.component';
 import { HandbookComponent } from './_components/Handbook/handbook.component';
-import { CalendarComponent } from './_components/Calendar/calendar.component';
 import { TestComponent } from './_components/Test/test.component';
+import { BcmitComponent } from './_components/BrainCheckerMIT/bcmit.component';
+import { BcciqtComponent } from './_components/BrainCheckerCIQT/bcciqt.component';
+import { BcbrainstaminaComponent } from './_components/BrainCheckerBrainStamina/bcbrainstamina.component';
+import { BcbcpaComponent } from './_components/BrainCheckerBCPA/bcbcpa.component';
+import { BcbestComponent } from './_components/BrainCheckerBEST/bcbest.component';
+import { BcigniteComponent } from './_components/BrainCheckerIgnite/bcignite.component';
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -40,7 +45,12 @@ const routes: Routes = [
   { path: "faqs", component: FaqsComponent },
   { path: "grade11", component: Grade11Component },
   { path: "grade12", component: Grade12Component },
-  { path: "calendar", component: CalendarComponent },
+  { path: "bcmit", component: BcmitComponent },
+  { path: "bcciqt", component: BcciqtComponent },
+  { path: "bcbrainstamina", component: BcbrainstaminaComponent },
+  { path: "bcbcpa", component: BcbcpaComponent },
+  { path: "bcbest", component: BcbestComponent },
+  { path: "bcignite", component: BcigniteComponent },
   { path: "contact", component: ContactComponent },
   { path: "register", component: RegisterComponent },
   { path: "login", component: LoginComponent },
