@@ -34,7 +34,7 @@
             </li>
             <li><a class="dropdown-item" routerLink="/accredit"> &nbsp;Accredited for OSSD Credits
               </a></li>
-              <!-- <li>
+            <!-- <li>
                 <div class="dropdown-divider"></div>
               </li>
               <li><a class="dropdown-item" routerLink="/test"> &nbsp;Test
@@ -85,8 +85,38 @@
           </ul>
         </li>
 
-        <li class="nav-item">
-          <a routerLink="calendar" class="nav-link">Calendar</a>
+        <li class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <a class="nav-link dropdown-toggle" id="menuBrainChecker" role="button" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="true">BrainChecker</a>
+          <ul class="dropdown-menu" aria-labelledby="menuBrainChecker">
+            <li><a class="dropdown-item" routerLink="/calendar"> &nbsp;MIT
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/calendar"> &nbsp;CIQT
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/calendar"> &nbsp;Brain Stamina
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/calendar"> &nbsp;BCPA
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/calendar"> &nbsp;BEST
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/calendar"> &nbsp;Ignite
+              </a></li>
+          </ul>
         </li>
 
         <li class="nav-item">
@@ -172,7 +202,7 @@
             <tr>
               <th class="text-start text-success"><i class="fa fa-volume-control-phone fa-lg"></i></th>
               <td class="text-start"> <b> +91 70935 41984, &nbsp; <i class="fa fa-whatsapp fa-lg text-success"></i>
-                +1 (647) 641-3585.</b></td>
+                  +1 (647) 641-3585.</b></td>
             </tr>
             <tr>
               <th class="text-start text-success"><i class="fa fa-envelope fa-1x text-success"></i></th>
