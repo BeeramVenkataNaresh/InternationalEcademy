@@ -20,10 +20,6 @@ import { VisionComponent } from './_components/Vision/vision.component';
 import { StaffComponent } from './_components/Staff/staff.component';
 import { AccreditComponent } from './_components/Accredit/accredit.component';
 import { FaqsComponent } from './_components/Faqs/faqs.component';
-import { SafetyComponent } from './_components/Safety/safety.component';
-import { PolicyComponent } from './_components/Policy/policy.component';
-import { SupportComponent } from './_components/Support/support.component';
-import { HandbookComponent } from './_components/Handbook/handbook.component';
 import { TestComponent } from './_components/Test/test.component';
 import { BcmitComponent } from './_components/BrainCheckerMIT/bcmit.component';
 import { BcciqtComponent } from './_components/BrainCheckerCIQT/bcciqt.component';
@@ -38,10 +34,6 @@ const routes: Routes = [
   { path: "vision", component: VisionComponent },
   { path: "staff", component: StaffComponent },
   { path: "accredit", component: AccreditComponent },
-  { path: "handbook", component: HandbookComponent },
-  { path: "support", component: SupportComponent },
-  { path: "policy", component: PolicyComponent },
-  { path: "safety", component: SafetyComponent },
   { path: "faqs", component: FaqsComponent },
   { path: "grade11", component: Grade11Component },
   { path: "grade12", component: Grade12Component },
