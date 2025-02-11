@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   title: any;
 
-  owlOptions1: OwlOptions = {
+  owlMain: OwlOptions = {
     autoWidth: true,
     loop: true,
     margin: 2,
@@ -31,10 +31,10 @@ export class HomeComponent implements OnInit {
     },
   }
 
-  owlOptions2: OwlOptions = {
+  owlAdmissions: OwlOptions = {
     autoWidth: true,
     loop: true,
-    margin: 40,
+    margin: 30,
     autoplay: true,
     autoplayTimeout: 5000,
     mouseDrag: true,
@@ -56,7 +56,36 @@ export class HomeComponent implements OnInit {
       },
       3: {
         items: 3
+      }
+    },
+  }
+
+  owlPartnerships: OwlOptions = {
+    autoWidth: true,
+    loop: true,
+    margin: 30,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: true,
+    nav: false, //true,
+    navSpeed: 1000,
+    navText: ['<i class="fa fa-arrow-left fa-lg text-primary"></i>','<i class="fa fa-arrow-right fa-lg text-primary"></i>'],
+    responsive: {
+      0: {
+        items: 0
       },
+      1: {
+        items: 1
+      },
+      2: {
+        items: 2
+      },
+      3: {
+        items: 3
+      }
     },
   }
 
