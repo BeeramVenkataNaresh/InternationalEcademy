@@ -31,6 +31,35 @@ export class HomeComponent implements OnInit {
     },
   }
 
+  owlTestimonials: OwlOptions = {
+    autoWidth: true,
+    loop: true,
+    margin: 30,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: true,
+    nav: false, //true,
+    navSpeed: 1000,
+    navText: ['<i class="fa fa-arrow-left fa-lg text-primary"></i>','<i class="fa fa-arrow-right fa-lg text-primary"></i>'],
+    responsive: {
+      0: {
+        items: 0
+      },
+      1: {
+        items: 1
+      },
+      2: {
+        items: 2
+      },
+      3: {
+        items: 3
+      }
+    },
+  }
+
   owlAdmissions: OwlOptions = {
     autoWidth: true,
     loop: true,
