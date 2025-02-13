@@ -26,6 +26,12 @@
     text-align: justify;
 }
 
+.sideHeading {
+    font-size: 16pt;
+    font-weight: bold;
+    color: blue;
+}
+
 .page-position {
     padding-top: 80px;
     padding-bottom: 20px;

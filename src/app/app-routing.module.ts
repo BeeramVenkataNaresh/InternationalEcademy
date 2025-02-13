@@ -18,7 +18,6 @@ import { Grade11Component } from './_components/Grade11/grade11.component';
 import { Grade12Component } from './_components/Grade12/grade12.component';
 import { VisionComponent } from './_components/Vision/vision.component';
 import { StaffComponent } from './_components/Staff/staff.component';
-import { AccreditComponent } from './_components/Accredit/accredit.component';
 import { FaqsComponent } from './_components/Faqs/faqs.component';
 import { TestComponent } from './_components/Test/test.component';
 import { BcmitComponent } from './_components/BrainCheckerMIT/bcmit.component';
@@ -27,16 +26,17 @@ import { BcbrainstaminaComponent } from './_components/BrainCheckerBrainStamina/
 import { BcbcpaComponent } from './_components/BrainCheckerBCPA/bcbcpa.component';
 import { BcbestComponent } from './_components/BrainCheckerBEST/bcbest.component';
 import { BcigniteComponent } from './_components/BrainCheckerIgnite/bcignite.component';
+import { EnglishacademyComponent } from './_components/Englishacademy/englishacademy.component';
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "about", component: AboutComponent },
   { path: "vision", component: VisionComponent },
   { path: "staff", component: StaffComponent },
-  { path: "accredit", component: AccreditComponent },
   { path: "faqs", component: FaqsComponent },
   { path: "grade11", component: Grade11Component },
   { path: "grade12", component: Grade12Component },
+  { path: "englishacademy", component: EnglishacademyComponent },
   { path: "bcmit", component: BcmitComponent },
   { path: "bcciqt", component: BcciqtComponent },
   { path: "bcbrainstamina", component: BcbrainstaminaComponent },
