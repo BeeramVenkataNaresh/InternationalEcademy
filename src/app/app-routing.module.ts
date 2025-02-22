@@ -27,6 +27,7 @@ import { BcbcpaComponent } from './_components/BrainCheckerBCPA/bcbcpa.component
 import { BcbestComponent } from './_components/BrainCheckerBEST/bcbest.component';
 import { BcigniteComponent } from './_components/BrainCheckerIgnite/bcignite.component';
 import { EnglishacademyComponent } from './_components/Englishacademy/englishacademy.component';
+import { CourseComponent } from './_components/Course/course.component';
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -53,6 +54,7 @@ const routes: Routes = [
   { path: "students", component: StudentsComponent },
   { path: "paymentgateway/:amt", component: PaymentgatewayComponent },
   { path: "message", component: MessageComponent },
+  { path: "course", component: CourseComponent },
   { path: "test", component: TestComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];

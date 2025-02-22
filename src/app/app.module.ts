@@ -34,6 +34,7 @@ import { BcbrainstaminaComponent } from './_components/BrainCheckerBrainStamina/
 import { BcbcpaComponent } from './_components/BrainCheckerBCPA/bcbcpa.component';
 import { BcbestComponent } from './_components/BrainCheckerBEST/bcbest.component';
 import { BcigniteComponent } from './_components/BrainCheckerIgnite/bcignite.component';
+import { CourseComponent } from './_components/Course/course.component';
 
 
 @NgModule({ 
@@ -60,9 +61,10 @@ import { BcigniteComponent } from './_components/BrainCheckerIgnite/bcignite.com
     StudentsComponent,
     PaymentgatewayComponent,
     MessageComponent,
-    TestComponent
-
+    TestComponent,
+    CourseComponent
   ],
+
   imports: [
     CarouselModule,
     BrowserModule,
