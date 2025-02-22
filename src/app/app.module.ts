@@ -34,7 +34,6 @@ import { BcbrainstaminaComponent } from './_components/BrainCheckerBrainStamina/
 import { BcbcpaComponent } from './_components/BrainCheckerBCPA/bcbcpa.component';
 import { BcbestComponent } from './_components/BrainCheckerBEST/bcbest.component';
 import { BcigniteComponent } from './_components/BrainCheckerIgnite/bcignite.component';
-import { CourseComponent } from './_components/Course/course.component';
 
 
 @NgModule({ 
@@ -61,8 +60,7 @@ import { CourseComponent } from './_components/Course/course.component';
     StudentsComponent,
     PaymentgatewayComponent,
     MessageComponent,
-    TestComponent,
-    CourseComponent
+    TestComponent
   ],
 
   imports: [

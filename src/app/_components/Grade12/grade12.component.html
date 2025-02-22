@@ -1,7 +1,7 @@
 <div class="page-position">
     <img class="imgShadow-AllSides" src="assets/images/services.jpg" alt="" title="" style="width: 100%;">
-    <h1 class="text-center text-primary mt-2 mb-3">Grade 12 Course</h1>
-    <div class="container mt-5 mb-5">
+    <h1 class="text-center text-primary mt-2 mb-3">Course - Grade 12</h1>
+    <div class="container mt-4">
         <div class="row">
             <div class="col-md-12">
                 <table class="table table-bordered text-center table-center imgShadow-AllSides"
@@ -18,125 +18,20 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="text-primary">
-                            <td>1</td>
-                            <td>ENG4U</td>
-                            <td>English</td>
-                            <td>1</td>
-                            <td>12</td>
-                            <td>University</td>
-                            <td> <a (click)="fnEnglishShow()" type="button" title="">Read More .. <i
-                                        class="fa fa-arrow-circle-right"></i></a></td>
-                        </tr>
-                        <tr class="text-primary">
-                            <td>2</td>
-                            <td>MFH4U</td>
-                            <td>Advanced Functions</td>
-                            <td>1</td>
-                            <td>12</td>
-                            <td>University</td>
-                            <td> <a (click)="fnEnglishShow()" type="button" title="">Read More .. <i
-                                        class="fa fa-arrow-circle-right"></i></a></td>
-                        </tr>
-                        <tr class="text-primary">
-                            <td>3</td>
-                            <td>MCV4U</td>
-                            <td>Calculus & Vectors</td>
-                            <td>1</td>
-                            <td>12</td>
-                            <td>University</td>
-                            <td> <a (click)="fnEnglishShow()" type="button" title="">Read More .. <i
-                                        class="fa fa-arrow-circle-right"></i></a></td>
-                        </tr>
-                        <tr class="text-primary">
-                            <td>4</td>
-                            <td>MDM4U</td>
-                            <td>Mathematics of Data Management</td>
-                            <td>1</td>
-                            <td>12</td>
-                            <td>University</td>
-                            <td> <a (click)="fnEnglishShow()" type="button" title="">Read More .. <i
-                                        class="fa fa-arrow-circle-right"></i></a></td>
-                        </tr>
-                        <tr class="text-primary">
-                            <td>5</td>
-                            <td>SPH4U</td>
-                            <td>Physics</td>
-                            <td>1</td>
-                            <td>12</td>
-                            <td>University</td>
-                            <td> <a (click)="fnEnglishShow()" type="button" title="">Read More .. <i
-                                        class="fa fa-arrow-circle-right"></i></a></td>
-                        </tr>
-                        <tr class="text-primary">
-                            <td>6</td>
-                            <td>SCH4U</td>
-                            <td>Chemistry</td>
-                            <td>1</td>
-                            <td>12</td>
-                            <td>University</td>
-                            <td> <a (click)="fnEnglishShow()" type="button" title="">Read More .. <i
-                                        class="fa fa-arrow-circle-right"></i></a></td>
-                        </tr>
-                        <tr class="text-primary">
-                            <td>7</td>
-                            <td>ICS4U</td>
-                            <td>Computer Science</td>
-                            <td>1</td>
-                            <td>12</td>
-                            <td>University</td>
-                            <td> <a (click)="fnEnglishShow()" type="button" title="">Read More .. <i
-                                        class="fa fa-arrow-circle-right"></i></a></td>
-                        </tr>
-                        <tr class="text-primary">
-                            <td>8</td>
-                            <td>SES4U</td>
-                            <td>Earth & Space Science</td>
-                            <td>1</td>
-                            <td>12</td>
-                            <td>University</td>
-                            <td> <a (click)="fnEnglishShow()" type="button" title="">Read More .. <i
-                                        class="fa fa-arrow-circle-right"></i></a></td>
-                        </tr>
-                        <tr class="text-primary">
-                            <td>9</td>
-                            <td>PSK4U</td>
-                            <td>Intro to Kinesiology</td>
-                            <td>1</td>
-                            <td>12</td>
-                            <td>University</td>
-                            <td> <a (click)="fnEnglishShow()" type="button" title="">Read More .. <i
-                                        class="fa fa-arrow-circle-right"></i></a></td>
-                        </tr>
-                        <tr class="text-primary">
-                            <td>10</td>
-                            <td>HFA4U</td>
-                            <td>Nutrition & Health</td>
-                            <td>1</td>
-                            <td>12</td>
-                            <td>University</td>
-                            <td> <a (click)="fnEnglishShow()" type="button" title="">Read More .. <i
-                                        class="fa fa-arrow-circle-right"></i></a></td>
-                        </tr>
-                        <tr class="text-primary">
-                            <td>11</td>
-                            <td>CGW4U</td>
-                            <td>Canadian & World Issues</td>
-                            <td>1</td>
-                            <td>12</td>
-                            <td>University</td>
-                            <td> <a (click)="fnEnglishShow()" type="button" title="">Read More .. <i
-                                        class="fa fa-arrow-circle-right"></i></a></td>
-                        </tr>
-                        <tr class="text-primary">
-                            <td>12</td>
-                            <td>CLN4U</td>
-                            <td>Canadian & International Law</td>
-                            <td>1</td>
-                            <td>12</td>
-                            <td>University</td>
-                            <td> <a (click)="fnEnglishShow()" type="button" title="">Read More .. <i
-                                        class="fa fa-arrow-circle-right"></i></a></td>
+                        <tr class="text-primary"
+                            *ngFor="let item of courses; let rowIndex = index">
+                            <td>{{item.id}}</td>
+                            <td>{{item.code}}</td>
+                            <td>{{item.subject}}</td>
+                            <td>{{item.credits}}</td>
+                            <td>{{item.grade}}</td>
+                            <td>{{item.pathway}}</td>
+                            <td>
+                                <a type="button" class="a-img-btn" (click)="open(content,item)"
+                                    title="{{item.code}} - {{item.subject}}" style="text-decoration: none;">
+                                    Read More .. <i class="fa fa-arrow-circle-right"></i>
+                                </a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -145,16 +40,16 @@
     </div>
 </div>
 
-<!-- English -->
-
-<div class="form-wrapper" *ngIf="showEnglish">
-    <div class="form-addedit-800">
+<ng-template #content let-modal>
+    <a type="button" class="btn close text-end" aria-label="Close" (click)="modal.dismiss('Cross click')"><i
+            class="fa fa-times-circle fa-lg"></i> </a>
+    <div class="modal-body modalFormBgColor text-center">
         <table class="table table-bordered text-center table-center imgShadow-AllSides"
             style="border-color:  rgb(246, 247, 247);">
             <thead style="background-color:#e7e7e7">
                 <tr class="text-success">
-                    <th>Subject</th>
                     <th>Code</th>
+                    <th>Subject</th>
                     <th>Credits</th>
                     <th>Grade</th>
                     <th>Pathway</th>
@@ -162,30 +57,18 @@
             </thead>
             <tbody>
                 <tr class="text-primary">
-                    <td>English</td>
-                    <td>ENG4U</td>
-                    <td>1</td>
-                    <td>12</td>
-                    <td>University</td>
+                    <td>{{selectedItem['code']}}</td>
+                    <td>{{selectedItem['subject']}}</td>
+                    <td>{{selectedItem['credits']}}</td>
+                    <td>{{selectedItem['grade']}}</td>
+                    <td>{{selectedItem['pathway']}}</td>
                 </tr>
                 <tr>
-                    <td colspan="5" class="text-justify"><b class="text-danger">Description - </b> This course
-                        emphasizes the development of literacy, communication, and critical and creative thinking skills
-                        necessary for success in academic and daily life. You will analyse challenging literary texts
-                        from various periods, countries, and cultures, as well as a range of informational and graphic
-                        texts, and create written and media texts in a variety of forms. An important focus will be on
-                        using language with precision and clarity and incorporating stylistic devices appropriately and
-                        effectively.</td>
+                    <td colspan="5" class="text-justify"><b class="text-danger">Description - </b>
+                        {{selectedItem['description']}}
+                    </td>
                 </tr>
             </tbody>
         </table>
-        <div class="mt-3 text-end">
-            <button class="btn btn-success" (click)="fnClose()"><i class="fa fa-check fa-1x"></i><small>&nbsp;Ok</small>
-            </button>
-            &nbsp;
-            <button class="btn btn-danger" (click)="fnClose()"><i
-                    class="fa fa-close fa-1x"></i><small>&nbsp;Close</small>
-            </button>
-        </div>
     </div>
-</div>
+</ng-template>
