@@ -151,32 +151,32 @@
     -o-box-shadow: 0 0 15px #ccc;
 }
 
-/* Gallery Img Css Style - 1 */
+/* Anchor Style Dull - 1 */
 
-.a-img-btn {
+.a-dull-style {
     opacity: 1;
   }
   
-  .a-img-btn:hover {
+  .a-dull-style:hover {
     opacity: 0.75;
     cursor: pointer;
   }
   
-  /* End of Gallery Img Css Style - 1 */
+  /* End of Anchor Style Dull - 1 */
 
-  /* Gallery Img Css Style - 2 */
+  /* Anchor Style Info - 2 */
 
-.thumb-item {
+.a-info-style {
     width: 100%;
     position: relative;
     overflow: hidden;
   }
   
-  .thumb-item-image {
+  .a-info-style-image {
     width: 50%100%;
   }
   
-  .thumb-item-info {
+  .a-info-style-info {
     position: absolute;
     bottom: -30px;
     left: 0;
@@ -186,18 +186,18 @@
     color: #fff;
     padding: 20px 20px;
   }
-  .thumb-item-info h5 {
+  .a-info-style-info h5 {
     font-size: 18px;
     margin: 0;
     padding: 0;
     font-weight: bold;
   }
-  .thumb-item-info p {
+  .a-info-style-info p {
     font-size: 14px;
     margin: 4px 0 14px;
   }
   
-  .thumb-item:hover .thumb-item-info {
+  .a-info-style:hover .a-info-style-info {
     background-color: black;
     border: 2px solid rgb(254, 133, 6);
     color: white;
@@ -206,4 +206,16 @@
     transition: opacity 1s;
   }
   
-  /* End Gallery Img Css Style - 2 */
+  /* End of Anchor Style Info - 2 */
+
+  /* Anchor Style Enlarge - 3 */
+
+.a-enlarge-style {
+    transition: transform .2s; /* Animation */
+  }
+  
+  .a-enlarge-style:hover {
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+  
+  /* End of Anchor Style Enlarge - 3 */
