@@ -34,6 +34,7 @@ import { BcbrainstaminaComponent } from './_components/BrainCheckerBrainStamina/
 import { BcbcpaComponent } from './_components/BrainCheckerBCPA/bcbcpa.component';
 import { BcbestComponent } from './_components/BrainCheckerBEST/bcbest.component';
 import { BcigniteComponent } from './_components/BrainCheckerIgnite/bcignite.component';
+import { BchpactComponent } from './_components/BrainCheckerHPact/bchpact.component';
 
 
 @NgModule({ 
@@ -45,9 +46,10 @@ import { BcigniteComponent } from './_components/BrainCheckerIgnite/bcignite.com
     Grade11Component,
     Grade12Component,
     BcmitComponent,
+    BcbcpaComponent,
+    BchpactComponent,
     BcciqtComponent,
     BcbrainstaminaComponent,
-    BcbcpaComponent,
     BcbestComponent,
     BcigniteComponent,
     ContactComponent,

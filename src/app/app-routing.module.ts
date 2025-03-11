@@ -27,6 +27,7 @@ import { BcbcpaComponent } from './_components/BrainCheckerBCPA/bcbcpa.component
 import { BcbestComponent } from './_components/BrainCheckerBEST/bcbest.component';
 import { BcigniteComponent } from './_components/BrainCheckerIgnite/bcignite.component';
 import { EnglishacademyComponent } from './_components/Englishacademy/englishacademy.component';
+import { BchpactComponent } from './_components/BrainCheckerHPact/bchpact.component';
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -38,9 +39,10 @@ const routes: Routes = [
   { path: "grade12", component: Grade12Component },
   { path: "englishacademy", component: EnglishacademyComponent },
   { path: "bcmit", component: BcmitComponent },
+  { path: "bcbcpa", component: BcbcpaComponent },
+  { path: "bchpact", component: BchpactComponent },
   { path: "bcciqt", component: BcciqtComponent },
   { path: "bcbrainstamina", component: BcbrainstaminaComponent },
-  { path: "bcbcpa", component: BcbcpaComponent },
   { path: "bcbest", component: BcbestComponent },
   { path: "bcignite", component: BcigniteComponent },
   { path: "contact", component: ContactComponent },
