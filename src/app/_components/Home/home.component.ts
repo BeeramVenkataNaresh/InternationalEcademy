@@ -54,9 +54,6 @@ export class HomeComponent implements OnInit {
       2: {
         items: 2
       },
-      3: {
-        items: 3
-      }
     },
   }
 
