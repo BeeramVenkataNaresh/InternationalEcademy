@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FeesService } from 'src/app/_services/fees.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { formatDate } from '@angular/common';
@@ -38,7 +37,7 @@ export class RegisterComponent {
   submitted = false;
   loginUserRoleId: any;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private feesService: FeesService, private studentService: StudentService) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private studentService: StudentService) {
     this.loginUserRoleId = localStorage.getItem('loginUserRoleId');
     // this.fnExamLevelFees();
 
@@ -66,7 +65,6 @@ export class RegisterComponent {
         txtSchool: ['', [Validators.required, Validators.maxLength(50)]],
         txtDOR: [formatDate(new Date(), 'dd-MMM-yyyy', 'en_US'), [Validators.required, Validators.maxLength(12)]],
         txtArea: ['', [Validators.required, Validators.maxLength(50)]],
-        txtExamLevel: ['', [Validators.required]],
         txtRegistrationAmt: ['', [Validators.required]],
         txtTuitionAmt: ['', [Validators.required]],
         txtTotalAmt: ['', [Validators.required]],
@@ -76,39 +74,12 @@ export class RegisterComponent {
       });
   }
 
-  fnExamLevelFees() {
-    this.feesService.getAll().subscribe(
-      result => {
-        this.examLevelFees = result[0];
-      },
-      error => {
-        Swal.fire('@ Retrive Grades..! ', error.message, 'error');
-      });
-  }
-
   get f(): { [key: string]: AbstractControl } {
     return this.registerForm.controls;
   }
 
   fnClose() {
     this.showRegisterForm = false;
-  }
-
-  fnExamLevelSelected(event) {
-    this.feesService.getById(this.f['txtExamLevel'].value).subscribe(
-      result => {
-        var data = result[0];
-        if (result[0].length > 0) {
-          this.registerForm.patchValue({
-            txtRegistrationAmt: data[0].RegistrationAmt,
-            txtTuitionAmt: data[0].TuitionAmt,
-            txtTotalAmt: (+(data[0].RegistrationAmt) + +(data[0].TuitionAmt)).toString()
-          });
-        } 
-      },
-      error => {
-        Swal.fire('@ Retrive selected Exam data..! ', error.message, 'error');
-      });
   }
 
   fnPayment() {
@@ -135,7 +106,6 @@ export class RegisterComponent {
         "dor": formatDate(this.f['txtDOR'].value, 'dd-MMM-yyyy', 'en_US'),
         "area": this.f['txtArea'].value,
         "school": this.f['txtSchool'].value,
-        "examLevel": this.f['txtExamLevel'].value,
         "registrationAmt": this.f['txtRegistrationAmt'].value,
         "tuitionAmt": this.f['txtTuitionAmt'].value,
         "totalAmt": this.f['txtTotalAmt'].value,

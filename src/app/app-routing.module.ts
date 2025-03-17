@@ -10,7 +10,6 @@ import { RegisterComponent } from './_components/Register/register.component';
 import { RoleComponent } from './_components/Role/role.component';
 import { UserComponent } from './_components/User/user.component';
 import { DashboardComponent } from './_components/Dashboard/dashboard.component';
-import { FeesComponent } from './_components/Fees/fees.component';
 import { StudentsComponent } from './_components/Students/students.component';
 import { MessageComponent } from './_components/Message/message.component';
 import { PaymentgatewayComponent } from './_components/Paymentgateway/paymentgateway.component';
@@ -51,7 +50,6 @@ const routes: Routes = [
   { path: "dashboard", component: DashboardComponent },
   { path: "role", component: RoleComponent },
   { path: "user", component: UserComponent },
-  { path: "fees", component: FeesComponent },
   { path: "students", component: StudentsComponent },
   { path: "paymentgateway/:amt", component: PaymentgatewayComponent },
   { path: "message", component: MessageComponent },

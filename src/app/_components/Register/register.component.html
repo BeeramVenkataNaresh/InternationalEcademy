@@ -175,22 +175,6 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label for="txtExamLevel" class="col-form-label-sm">ExamLevel:<span class="lbl-req">
-                                    *</span></label>
-                            <ng-select class="input-group small" formControlName="txtExamLevel"
-                                (change)='fnExamLevelSelected($event)'
-                                [ngClass]="{ 'is-invalid': submitted && f['txtGrade'].errors }">
-                                <ng-option *ngFor="let item of examLevelFees"
-                                    [value]="item.FeesId">{{item.ExamLevel}}</ng-option>
-                            </ng-select>
-                            <div *ngIf="submitted && f['txtExamLevel'].errors" class="invalid-feedback">
-                                <div *ngIf="f['txtExamLevel'].errors['required']"><small>Req.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
                             <label class="bold col-form-label-sm" for="txtRegistrationAmt">Reg.Books.Amt:<span
                                     style="color: red;"> *</span></label>
                             <input readonly type="text" formControlName="txtRegistrationAmt"

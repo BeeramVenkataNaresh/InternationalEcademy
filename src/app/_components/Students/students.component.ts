@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
-import { FeesService } from 'src/app/_services/fees.service';
 import { StudentService } from 'src/app/_services/student.service';
 
 import * as xls from 'xlsx';
@@ -44,17 +43,15 @@ export class StudentsComponent {
   ];
 
   studentsForm: FormGroup;
-  examLevelFees: any;
   students: any;
   dupRecord: any;
-  displayColumns: any = ['#', 'Id', 'StuName', 'FatherName', 'Grade', 'Phone', 'Email', 'DOR', 'School', 'Area', 'ExamLevel', 'Exam', 'Reg.Amt', 'Tuition.Amt', 'Total.Amt', 'Active'];
+  displayColumns: any = ['#', 'Id', 'StuName', 'FatherName', 'Grade', 'Phone', 'Email', 'DOR', 'School', 'Area', 'Reg.Amt', 'Tuition.Amt', 'Total.Amt', 'Active'];
   rowCount: number;
   submitted = false;
   loginUserName: any;
   loginUserRoleId: any;
 
-  constructor(private formBuilder: FormBuilder, private feesService: FeesService, private studentService: StudentService, private router: Router) {
-    this.fnExamLevelFees();
+  constructor(private formBuilder: FormBuilder, private studentService: StudentService, private router: Router) {
     this.loginUserName = localStorage.getItem('loginUser');
     this.loginUserRoleId = localStorage.getItem('loginUserRoleId');
 
@@ -97,35 +94,8 @@ export class StudentsComponent {
       });
   }
 
-  fnExamLevelFees() {
-    this.feesService.getAll().subscribe(
-      result => {
-        this.examLevelFees = result[0];
-      },
-      error => {
-        Swal.fire('@ Retrive Grades..! ', error.message, 'error');
-      });
-  }
-
   get f(): { [key: string]: AbstractControl } {
     return this.studentsForm.controls;
-  }
-
-  fnExamLevelSelected(event) {
-    this.feesService.getById(this.f['txtExamLevel'].value).subscribe(
-      result => {
-        var data = result[0];
-        if (result[0].length > 0) { 
-          this.studentsForm.patchValue({
-            txtRegistrationAmt: data[0].RegistrationAmt,
-            txtTuitionAmt: data[0].TuitionAmt,
-            txtTotalAmt: (+(data[0].RegistrationAmt) + +(data[0].TuitionAmt)).toString()
-          });
-        }
-      },
-      error => {
-        Swal.fire('@ Retrive selected Exam data..! ', error.message, 'error');
-      });
   }
 
   fnGetAll() {
@@ -155,13 +125,6 @@ export class StudentsComponent {
       return;
     }
 
-    if ((this.f['txtSearchExamLevel'].value == null || this.f['txtSearchExamLevel'].value == "")) {
-      examLevel = 0;
-    }
-    else {
-      examLevel = this.f['txtSearchExamLevel'].value;
-    }
-
     if ((this.f['txtSearchGrade'].value == null || this.f['txtSearchGrade'].value == "")) {
       grade = 0;
     }
@@ -169,12 +132,12 @@ export class StudentsComponent {
       grade = this.f['txtSearchGrade'].value;
     }
 
-    this.fnGetByQuery(formatDate(this.f['txtFromDate'].value, 'dd-MMM-yyyy', 'en_US'), formatDate(this.f['txtToDate'].value, 'dd-MMM-yyyy', 'en_US'), examLevel, grade);
+    this.fnGetByQuery(formatDate(this.f['txtFromDate'].value, 'dd-MMM-yyyy', 'en_US'), formatDate(this.f['txtToDate'].value, 'dd-MMM-yyyy', 'en_US'), grade);
   }
 
-  fnGetByQuery(fromDate, toDate, examLevel, grade) {
+  fnGetByQuery(fromDate, toDate, grade) {
     //this.fnGetAll();
-    this.studentService.getByQuery(fromDate, toDate, examLevel, grade).subscribe(
+    this.studentService.getByQuery(fromDate, toDate, grade).subscribe(
       result => {
         this.students = result[0];
 
@@ -245,7 +208,6 @@ export class StudentsComponent {
         txtDOR: formatDate(data.DOR, 'dd-MMM-yyyy', 'en_US'),
         txtSchool: data.School,
         txtArea: data.Area,
-        txtExamLevel: data.ExamLevel,
         txtRegistrationAmt: data.RegistrationAmt,
         txtTuitionAmt: data.TuitionAmt,
         txtTotalAmt: data.RegistrationAmt,
@@ -285,7 +247,6 @@ export class StudentsComponent {
         "dor": formatDate(this.f['txtDOR'].value, 'dd-MMM-yyyy', 'en_US'),
         "school": this.f['txtSchool'].value,
         "area": this.f['txtArea'].value,
-        "examLevel": this.f['txtExamLevel'].value,
         "registrationAmt": this.f['txtRegistrationAmt'].value,
         "tuitionAmt": this.f['txtTuitionAmt'].value,
         "totalAmt": this.f['txtTotalAmt'].value,

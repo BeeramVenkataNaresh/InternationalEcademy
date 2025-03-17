@@ -1,5 +1,5 @@
 <div class="page-position">
-    <h1 class="text-center text-primary mt-4 mb-4">Students Information</h1>
+    <h1 class="text-center text-primary">Students Information</h1>
     <div class="container">
         <div class="card border-primary">
             <form [formGroup]="studentsForm" (ngSubmit)="fnAddEditFormSave()">
@@ -168,22 +168,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label for="txtExamLevel" class="col-form-label-sm">ExamLevel:<span class="lbl-req">
-                                            *</span></label>
-                                    <ng-select class="input-group small" formControlName="txtExamLevel"
-                                        (change)='fnExamLevelSelected($event)'
-                                        [ngClass]="{ 'is-invalid': submitted && f['txtGrade'].errors }">
-                                        <ng-option *ngFor="let item of examLevelFees"
-                                            [value]="item.FeesId">{{item.ExamLevel}}</ng-option>
-                                    </ng-select>
-                                    <div *ngIf="submitted && f['txtExamLevel'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['txtExamLevel'].errors['required']"><small>Req.</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label class="bold col-form-label-sm" for="txtRegistrationAmt">Registration &
@@ -262,7 +246,7 @@
                         </div>
                     </div>
                     <div *ngIf="showSearch">
-                        <div class="row mt-2">
+                        <div class="row">
                             <td class="col-md-2">
                                 <div class="form-group">
                                     <label for="txtFromDate" class="col-form-label-sm">From.Date:<span class="lbl-req">
@@ -301,18 +285,6 @@
                             </td>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="txtSearchExamLevel" class="col-form-label-sm">Exam Level:<span
-                                            class="lbl-req">
-                                            *</span></label>
-                                    <ng-select class="input-group small" formControlName="txtSearchExamLevel"
-                                        [ngClass]="{ 'is-invalid': submitted && f['txtSearchExamLevel'].errors }">
-                                        <ng-option *ngFor="let item of examLevelFees"
-                                            [value]="item.FeesId">{{item.ExamLevel}}</ng-option>
-                                    </ng-select>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
                                     <label for="txtSearchGrade" class="col-form-label-sm">Grade:<span class="lbl-req">
                                             *</span></label>
                                     <ng-select class="input-group small" formControlName="txtSearchGrade"
@@ -322,7 +294,7 @@
                                     </ng-select>
                                 </div>
                             </div>
-                            <div class="col-md-4 text-end">
+                            <div class="col-md-6 text-end">
                                 <br>
                                 <button type="button" class="a-list-primay btn btn-secondary" (click)="fnSearch()"
                                     title="Search"><small><i class="fa fa-search fa-1x"></i>
@@ -391,12 +363,6 @@
                                             </td>
                                             <td>{{ (item['Area'] == null || item['Area'] == "") ? "-":
                                                 item['Area']
-                                                }}</td>
-                                            <td>{{ (item['ExamLevel'] == null || item['ExamLevel'] == "") ? "-":
-                                                item['ExamLevel']
-                                                }}</td>
-                                            <td>{{ (item['Exam'] == null || item['Exam'] == "") ? "-":
-                                                item['Exam']
                                                 }}</td>
                                             <td>{{ (item['RegistrationAmt'] == null || item['RegistrationAmt'] == "") ?
                                                 "-":

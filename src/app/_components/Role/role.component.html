@@ -1,5 +1,5 @@
 <div class="page-position">
-    <h1 class="text-center text-primary mt-4 mb-4">Role</h1>
+    <h1 class="text-center text-primary">Role</h1>
     <div class="container">
         <div class="card border-primary">
             <form [formGroup]="roleForm">
@@ -25,7 +25,7 @@
                                 title="Clear"><i class="fa fa-refresh fa-1x"></i><small>&nbsp;Clear</small></button>
                         </div>
                         <div class="col-md-4">
-                            <button type="button" class="a-list-primay btn btn-primary float-end" (click)="fnAdd()"
+                            <button type="button" class="a-list-primay btn btn-primary float-end" (click)="fnAdd(content)"
                                 title="Add"><i class="fa fa-plus-square fa-1x">
                                     <small>&nbsp;Add</small></i></button>
                         </div>
@@ -56,11 +56,11 @@
                                         }}
                                     </td>
                                     <td>
-                                        <a class="link-primary" type="button" (click)="fnView(item)" title="View"><i
+                                        <a class="link-primary" type="button" (click)="fnView(content,item)" title="View"><i
                                                 class="fa fa-eye fa-lg"></i></a>
                                     </td>
                                     <td *ngIf="loginUserRoleId < 3">
-                                        <a class="link-success" type="button" (click)="fnEdit(item)" title="Edit"><i
+                                        <a class="link-success" type="button" (click)="fnEdit(content,item)" title="Edit"><i
                                                 class="fa fa-edit fa-lg"></i></a>
                                     </td>
                                     <td>
@@ -82,8 +82,8 @@
     </div>
 </div>
 
-<div class="form-wrapper" *ngIf="showAddEditForm">
-    <div class="form-addedit-600">
+<ng-template #content let-modal>
+    <div class="modal-body modalFormBgColor text-center">
         <h2 class="text-center text-primary mb-3">{{formHeader}}</h2>
         <div *ngIf="selAction != 'Add'" class="group">
             <label for="txtRoleId" class="col-form-label-sm">Id:<span class="lbl-req"> *</span></label>
@@ -135,9 +135,9 @@
             <button *ngIf="selAction == 'Add'" class="btn btn-success clear" (click)="fnAddEditFormClear()"><i
                     class="fa fa-refresh fa-1x"></i><small>&nbsp;Clear</small>
             </button>
-            <button class="btn btn-danger close" (click)="fnAddEditFormClose()"><i
+            <button class="btn btn-danger close" (click)="modal.dismiss('Cross click')"><i
                     class="fa fa-close fa-1x"></i><small>&nbsp;Close</small>
             </button>
         </div>
     </div>
-</div>
+</ng-template>

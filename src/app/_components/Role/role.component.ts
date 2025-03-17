@@ -4,7 +4,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { Router } from '@angular/router';
 import { RoleService } from 'src/app/_services/role.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
-
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-role',
@@ -34,8 +34,10 @@ export class RoleComponent {
   submitted = false;
   loginUserName: any;
   loginUserRoleId: any;
+  selectedItem: any;
+  closeResult: string;
 
-  constructor(private formBuilder: FormBuilder, private roleService: RoleService, private router: Router) {
+  constructor(private modalService: NgbModal, private formBuilder: FormBuilder, private roleService: RoleService, private router: Router) {
     this.loginUserName = localStorage.getItem('loginUser');
     this.loginUserRoleId = localStorage.getItem('loginUserRoleId');
   }
@@ -80,22 +82,48 @@ export class RoleComponent {
     this.ngOnInit();
   }
 
-  fnAdd() {
+  fnAdd(content) {
     this.selAction = "Add";
     this.formHeader = "Add New Data";
-    this.openAddEditForm();
+    this.modalService.open(content, { centered: true }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
   }
 
-  fnView(data: any) {
-    this.selAction = "View";
-    this.formHeader = "View Data";
-    this.openAddEditForm(data);
-  }
-
-  fnEdit(data: any) {
+  fnEdit(content, data) {
     this.selAction = "Edit";
     this.formHeader = "Modify Data";
-    this.openAddEditForm(data);
+
+    this.txtRoleId = data.RoleId;
+    this.txtRoleName = data.RoleName;
+    this.txtActive = data.Active;
+    this.txtCreated = data.Created;
+    this.txtModified = data.Modified;
+
+    this.modalService.open(content, { centered: true }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  fnView(content, data: any) {
+    this.selAction = "View";
+    this.formHeader = "View Data";
+    
+    this.txtRoleId = data.RoleId;
+    this.txtRoleName = data.RoleName;
+    this.txtActive = data.Active;
+    this.txtCreated = data.Created;
+    this.txtModified = data.Modified;
+
+    this.modalService.open(content, { centered: true }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
   }
 
   fnDelete(id) {
@@ -122,23 +150,12 @@ export class RoleComponent {
     });
   }
 
-  openAddEditForm(data = null) {
-    this.showAddEditForm = true;
-    if (data) {
-      this.txtRoleId = data.RoleId;
-      this.txtRoleName = data.RoleName;
-      this.txtActive = data.Active;
-      this.txtCreated = data.Created;
-      this.txtModified = data.Modified
-    }
-  }
-
   fnNewSave(data: any) {
     this.roleService.create(data).subscribe(
       result => {
         Swal.fire('Insert', result.message, 'success');
         this.fnGetAll();
-        this.fnAddEditFormClose();
+        this.fnClose();
       },
       error => {
         Swal.fire('@ Add Save..!', error.message, 'error');
@@ -150,7 +167,7 @@ export class RoleComponent {
       result => {
         Swal.fire('Update', result.message, 'success');
         this.fnGetAll();
-        this.fnAddEditFormClose();
+        this.fnClose();
       },
       error => {
         Swal.fire('@ Edit Save..!', error.message, 'error');
@@ -158,9 +175,13 @@ export class RoleComponent {
   }
 
   fnAddEditFormSave() {
-    if (this.txtRoleName == "" || this.txtActive == "") {
+    if (this.txtRoleName == "" || this.txtRoleName == null || this.txtActive == "" || this.txtActive == null ) {
       if (this.txtRoleName == "" || this.txtRoleName == null) {
         Swal.fire('Validation', 'Role Name should not be empty..!', 'warning');
+        return;
+      }
+      if (this.txtActive == "" || this.txtActive == null) {
+        Swal.fire('Validation', 'Please Select Active..!', 'warning');
         return;
       }
     }
@@ -214,16 +235,25 @@ export class RoleComponent {
   }
 
   fnAddEditFormClear() {
-    this.txtRoleId = null;
     this.txtRoleName = null;
     this.txtActive = null;
     this.txtCreated = null;
     this.txtModified = null;
   }
 
-  fnAddEditFormClose() {
+  fnClose() {
     this.selAction = "";
-    this.showAddEditForm = false;
     this.fnAddEditFormClear();
+  }
+  
+  private getDismissReason(reason: any): string {
+    this.fnClose();
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 }
