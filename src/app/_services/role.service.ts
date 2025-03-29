@@ -22,11 +22,6 @@ export class RoleService {
     return this.httpClient.get(apiPath + '/getAll');
   }
 
-  // Get Roles
-  getRoles(): Observable<any> {
-    return this.httpClient.get(apiPath + '/getRoles');
-  }
-
   // Get By Name
   getByName(name): Observable<any> {
     return this.httpClient.get(apiPath + '/getByName/' + name);

@@ -34,6 +34,8 @@ import { BcbcpaComponent } from './_components/BrainCheckerBCPA/bcbcpa.component
 import { BcbestComponent } from './_components/BrainCheckerBEST/bcbest.component';
 import { BcigniteComponent } from './_components/BrainCheckerIgnite/bcignite.component';
 import { BchpactComponent } from './_components/BrainCheckerHPact/bchpact.component';
+import { ProductComponent } from './_components/Product/product.component';
+import { GradeComponent } from './_components/Grade/grade.component';
 
 
 @NgModule({ 
@@ -57,6 +59,8 @@ import { BchpactComponent } from './_components/BrainCheckerHPact/bchpact.compon
     DashboardComponent,
     RoleComponent,
     UserComponent,
+    ProductComponent,
+    GradeComponent,
     StudentsComponent,
     PaymentgatewayComponent,
     MessageComponent,

@@ -27,6 +27,8 @@ import { BcbestComponent } from './_components/BrainCheckerBEST/bcbest.component
 import { BcigniteComponent } from './_components/BrainCheckerIgnite/bcignite.component';
 import { EnglishacademyComponent } from './_components/Englishacademy/englishacademy.component';
 import { BchpactComponent } from './_components/BrainCheckerHPact/bchpact.component';
+import { ProductComponent } from './_components/Product/product.component';
+import { GradeComponent } from './_components/Grade/grade.component';
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -51,6 +53,8 @@ const routes: Routes = [
   { path: "role", component: RoleComponent },
   { path: "user", component: UserComponent },
   { path: "students", component: StudentsComponent },
+  { path: "product", component: ProductComponent },
+  { path: "grade", component: GradeComponent },
   { path: "paymentgateway/:amt", component: PaymentgatewayComponent },
   { path: "message", component: MessageComponent },
   { path: "test", component: TestComponent },

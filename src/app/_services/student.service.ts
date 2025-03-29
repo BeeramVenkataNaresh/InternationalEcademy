@@ -29,8 +29,8 @@ export class StudentService {
   }
 
   // Get By Query
-  getByQuery(fromDate, toDate, grade): Observable<any> {
-    return this.httpClient.get(apiPath + '/getByQuery/' + fromDate + '/' + toDate + '/' + grade);
+  getByQuery(fromDate, toDate, productId, gradeId): Observable<any> {
+    return this.httpClient.get(apiPath + '/getByQuery/' + fromDate + '/' + toDate + '/' + productId + '/' + gradeId);
   }
 
   // Create new data

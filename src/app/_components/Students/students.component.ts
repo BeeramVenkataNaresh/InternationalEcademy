@@ -5,11 +5,13 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { StudentService } from 'src/app/_services/student.service';
+import { ProductService } from 'src/app/_services/product.service';
 
 import * as xls from 'xlsx';
 
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
+import { GradeService } from 'src/app/_services/grade.service';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
@@ -30,30 +32,21 @@ export class StudentsComponent {
     { id: 2, name: 'No' }
   ];
 
-  grade = [
-    { id: 1, name: '5 th' },
-    { id: 2, name: '6 th' },
-    { id: 3, name: '7 th' },
-    { id: 4, name: '8 th' },
-    { id: 5, name: '9 th' },
-    { id: 6, name: '10 th' },
-    { id: 7, name: 'Inter-I' },
-    { id: 8, name: 'Inter-II' },
-    { id: 9, name: 'Graduation' }
-  ];
-
   studentsForm: FormGroup;
+  products: any;
+  grade: any;
   students: any;
   dupRecord: any;
-  displayColumns: any = ['#', 'Id', 'StuName', 'FatherName', 'Grade', 'Phone', 'Email', 'DOR', 'School', 'Area', 'Reg.Amt', 'Tuition.Amt', 'Total.Amt', 'Active'];
+  displayColumns: any = ['#', 'Id', 'StuName', 'FatherName', 'ProductId', 'ProductName', 'Phone', 'Email', 'Dt.Of.Birth', 'Dt.Of,Join', 'GradeId', 'GradeName','School', 'Address', 'Reference', 'Active'];
   rowCount: number;
   submitted = false;
   loginUserName: any;
   loginUserRoleId: any;
 
-  constructor(private formBuilder: FormBuilder, private studentService: StudentService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private productService: ProductService, private gradeService: GradeService, private studentService: StudentService, private router: Router) {
     this.loginUserName = localStorage.getItem('loginUser');
     this.loginUserRoleId = localStorage.getItem('loginUserRoleId');
+    this.fnGetProducts();
 
     // setting the datepicker
     this.datePickerConfig = Object.assign({},
@@ -75,6 +68,7 @@ export class StudentsComponent {
         txtToDate: [formatDate(new Date(), 'dd-MMM-yyyy', 'en_US')],
         txtSearchExamLevel: [''],
         txtSearchGrade: [''],
+        txtSearchProductId: [''],
         txtStuId: ['', [Validators.required]],
         txtStuName: ['', [Validators.required, Validators.maxLength(50)]],
         txtFName: ['', [Validators.required, Validators.maxLength(50)]],
@@ -91,6 +85,34 @@ export class StudentsComponent {
         txtActive: ['', Validators.required],
         txtCreated: [''],
         txtModified: ['']
+      });
+  }
+
+  fnGetProducts() {
+    this.productService.getAll().subscribe(
+      result => {
+        this.products = result[0];
+
+        if (this.products.length == 0) {
+          Swal.fire('No data found..!', result.message, 'info');
+        }
+      },
+      error => {
+        Swal.fire('@ Retrive data..! ', error.message, 'error');
+      });
+  }
+
+  fnGetGrades() {
+    this.gradeService.getAll().subscribe(
+      result => {
+        this.grade = result[0];
+
+        if (this.grade.length == 0) {
+          Swal.fire('No data found..!', result.message, 'info');
+        }
+      },
+      error => {
+        Swal.fire('@ Retrive data..! ', error.message, 'error');
       });
   }
 
@@ -113,7 +135,7 @@ export class StudentsComponent {
   }
 
   fnSearch() {
-    let examLevel: any;
+    let productId: any;
     let grade: any;
 
     if (this.f['txtFromDate'].value == null || this.f['txtFromDate'].value == "") {
@@ -125,6 +147,13 @@ export class StudentsComponent {
       return;
     }
 
+    if ((this.f['txtSearchProductId'].value == null || this.f['txtSearchProductId'].value == "")) {
+      productId = 0;
+    }
+    else {
+      productId = this.f['txtSearchProductId'].value;
+    }
+
     if ((this.f['txtSearchGrade'].value == null || this.f['txtSearchGrade'].value == "")) {
       grade = 0;
     }
@@ -132,12 +161,12 @@ export class StudentsComponent {
       grade = this.f['txtSearchGrade'].value;
     }
 
-    this.fnGetByQuery(formatDate(this.f['txtFromDate'].value, 'dd-MMM-yyyy', 'en_US'), formatDate(this.f['txtToDate'].value, 'dd-MMM-yyyy', 'en_US'), grade);
+    this.fnGetByQuery(formatDate(this.f['txtFromDate'].value, 'dd-MMM-yyyy', 'en_US'), formatDate(this.f['txtToDate'].value, 'dd-MMM-yyyy', 'en_US'), productId, grade);
   }
 
-  fnGetByQuery(fromDate, toDate, grade) {
+  fnGetByQuery(fromDate, toDate, productId, grade) {
     //this.fnGetAll();
-    this.studentService.getByQuery(fromDate, toDate, grade).subscribe(
+    this.studentService.getByQuery(fromDate, toDate, productId, grade).subscribe(
       result => {
         this.students = result[0];
 
@@ -152,6 +181,13 @@ export class StudentsComponent {
 
   fnClear() {
     this.ngOnInit();
+  }
+
+  fnAdd() {
+    this.selAction = "Add";
+    this.formHeader = "Add New Data";
+    this.showAddEditForm = true;
+    this.showSearch = false;
   }
 
   fnView(data: any) {

@@ -285,16 +285,27 @@
                             </td>
                             <div class="col-md-2">
                                 <div class="form-group">
+                                    <label for="txtSearchProductId" class="col-form-label-sm">Product:<span class="lbl-req">
+                                            *</span></label>
+                                    <ng-select class="input-group small" formControlName="txtSearchProductId"
+                                        [ngClass]="{ 'is-invalid': submitted && f['txtSearchProductId'].errors }">
+                                        <ng-option *ngFor="let item of products"
+                                            [value]="item.ProductId">{{item.ProductName}}</ng-option>
+                                    </ng-select>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
                                     <label for="txtSearchGrade" class="col-form-label-sm">Grade:<span class="lbl-req">
                                             *</span></label>
                                     <ng-select class="input-group small" formControlName="txtSearchGrade"
                                         [ngClass]="{ 'is-invalid': submitted && f['txtSearchGrade'].errors }">
                                         <ng-option *ngFor="let item of grade"
-                                            [value]="item.id">{{item.name}}</ng-option>
+                                            [value]="item.gradeId">{{item.gradeName}}</ng-option>
                                     </ng-select>
                                 </div>
                             </div>
-                            <div class="col-md-6 text-end">
+                            <div class="col-md-2">
                                 <br>
                                 <button type="button" class="a-list-primay btn btn-secondary" (click)="fnSearch()"
                                     title="Search"><small><i class="fa fa-search fa-1x"></i>
@@ -309,6 +320,14 @@
                                     (click)="fnExportToExcel()" title="To Excel"><small><i
                                             class="fa fa-download fa-1x"></i>
                                         To Excel</small> </button>
+                            </div>
+                            <div class="col-md-2">
+                                <br>
+                                <div class="float-end">
+                                    <button type="button" class="a-list-primay btn btn-primary" (click)="fnAdd()"
+                                        title="Add"><i class="fa fa-plus-square fa-1x">
+                                            <small>&nbsp;Add</small></i></button>
+                                </div>
                             </div>
                         </div>
                         <div class="row mt-3">

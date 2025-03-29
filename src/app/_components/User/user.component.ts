@@ -63,7 +63,7 @@ export class UserComponent {
   }
 
   fnGetRoles() {
-    this.roleService.getRoles().subscribe(
+    this.roleService.getAll().subscribe(
       result => {
         this.role = result[0];
       },

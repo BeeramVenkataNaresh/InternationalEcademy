@@ -1,22 +1,22 @@
+import { Component } from '@angular/core';
 import { formatDate } from '@angular/common';
-import { Component, OnInit, NgModule } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RoleService } from 'src/app/_services/role.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { GradeService } from 'src/app/_services/grade.service';
 
 @Component({
-  selector: 'app-role',
-  templateUrl: './role.component.html',
-  styleUrls: ['./role.component.css']
+  selector: 'app-grade',
+  templateUrl: './grade.component.html',
+  styleUrls: ['./grade.component.css']
 })
-export class RoleComponent {
-  showAddEditForm = false;
+export class GradeComponent {
+showAddEditForm = false;
   selAction = "";
   formHeader = "";
-  txtRoleId = "";
-  txtRoleName = "";
+  txtGradeId = "";
+  txtGradeName = "";
   txtActive = "";
   txtCreated = "";
   txtModified = "";
@@ -26,9 +26,9 @@ export class RoleComponent {
     { id: 2, name: 'No' }
   ];
 
-  roleForm: FormGroup;
-  role: any;
-  originalRole: any;
+  gradeForm: FormGroup;
+  grade: any;
+  originalGrade: any;
   dupRecord: any;
   displayColumns: any = ['#', 'Id', 'Role', 'Active'];
   submitted = false;
@@ -37,29 +37,29 @@ export class RoleComponent {
   selectedItem: any;
   closeResult: string;
 
-  constructor(private modalService: NgbModal, private formBuilder: FormBuilder, private roleService: RoleService, private router: Router) {
+  constructor(private modalService: NgbModal, private formBuilder: FormBuilder, private gradeService: GradeService, private router: Router) {
     this.loginUserName = localStorage.getItem('loginUser');
     this.loginUserRoleId = localStorage.getItem('loginUserRoleId');
   }
 
   ngOnInit(): void {
-    this.role = 0;
-    this.roleForm = this.formBuilder.group({
+    this.grade = 0;
+    this.gradeForm = this.formBuilder.group({
       txtSearch: ['']
     });
   }
 
   get f(): { [key: string]: AbstractControl } {
-    return this.roleForm.controls;
+    return this.gradeForm.controls;
   }
 
   fnGetAll() {
-    this.roleService.getAll().subscribe(
+    this.gradeService.getAll().subscribe(
       result => {
-        this.role = result[0];
-        this.originalRole = result[0];
+        this.grade = result[0];
+        this.originalGrade = result[0];
 
-        if (this.role.length == 0) {
+        if (this.grade.length == 0) {
           Swal.fire('No data found..!', result.message, 'info');
         }
       },
@@ -73,8 +73,8 @@ export class RoleComponent {
       this.fnGetAll();
     }
     else if (this.f['txtSearch'].value != null) {
-      this.role = this.originalRole;
-      this.role = this.role.filter((role) => role.RoleName == this.f['txtSearch'].value)
+      this.grade = this.originalGrade;
+      this.grade = this.grade.filter((grade) => grade.GradeName == this.f['txtSearch'].value)
     }
   }
 
@@ -96,8 +96,8 @@ export class RoleComponent {
     this.selAction = "Edit";
     this.formHeader = "Modify Data";
 
-    this.txtRoleId = data.RoleId;
-    this.txtRoleName = data.RoleName;
+    this.txtGradeId = data.GradeId;
+    this.txtGradeName = data.GradeName;
     this.txtActive = data.Active;
     this.txtCreated = data.Created;
     this.txtModified = data.Modified;
@@ -113,8 +113,8 @@ export class RoleComponent {
     this.selAction = "View";
     this.formHeader = "View Data";
     
-    this.txtRoleId = data.RoleId;
-    this.txtRoleName = data.RoleName;
+    this.txtGradeId = data.GradeId;
+    this.txtGradeName = data.GradeName;
     this.txtActive = data.Active;
     this.txtCreated = data.Created;
     this.txtModified = data.Modified;
@@ -136,7 +136,7 @@ export class RoleComponent {
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
-        this.roleService.delete(id).subscribe(
+        this.gradeService.delete(id).subscribe(
           result => {
             this.fnSearch();
             Swal.fire('Deleted', result.message, 'success');
@@ -151,7 +151,7 @@ export class RoleComponent {
   }
 
   fnNewSave(data: any) {
-    this.roleService.create(data).subscribe(
+    this.gradeService.create(data).subscribe(
       result => {
         Swal.fire('Insert', result.message, 'success');
         this.fnGetAll();
@@ -163,11 +163,11 @@ export class RoleComponent {
   }
 
   fnEditSave(id, data: any) {
-    this.roleService.update(id, data).subscribe(
+    this.gradeService.update(id, data).subscribe(
       result => {
         Swal.fire('Update', result.message, 'success');
         this.fnGetAll();
-        this.fnAddEditFormClear()
+        this.fnAddEditFormClear();
       },
       error => {
         Swal.fire('@ Edit Save..!', error.message, 'error');
@@ -175,8 +175,8 @@ export class RoleComponent {
   }
 
   fnAddEditFormSave() {
-    if (this.txtRoleName == "" || this.txtRoleName == null || this.txtActive == "" || this.txtActive == null ) {
-      if (this.txtRoleName == "" || this.txtRoleName == null) {
+    if (this.txtGradeName == "" || this.txtGradeName == null || this.txtActive == "" || this.txtActive == null ) {
+      if (this.txtGradeName == "" || this.txtGradeName == null) {
         Swal.fire('Validation', 'Role Name should not be empty..!', 'warning');
         return;
       }
@@ -187,15 +187,15 @@ export class RoleComponent {
     }
     else {
       let body = {
-        "roleId": this.txtRoleId,
-        "roleName": this.txtRoleName,
+        "gradeId": this.txtGradeId,
+        "gradeName": this.txtGradeName,
         "active": this.txtActive,
         "created": this.txtCreated,
         "modified": this.txtModified
       }
 
       // check for duplicate
-      this.roleService.getByName(this.txtRoleName).subscribe(
+      this.gradeService.getByName(this.txtGradeName).subscribe(
         result => {
           this.dupRecord = result[0];
           if (result[0].length == 0) {
@@ -208,7 +208,7 @@ export class RoleComponent {
             if (this.selAction == "Edit") {
               // updating the modified column with modified message
               body['modified'] = "By: " + this.loginUserName + ", On - " + formatDate(new Date(), 'dd-MMM-yyyy' + ' @ ' + 'hh:mm:ss a', 'en_US');
-              this.fnEditSave(this.txtRoleId, body);
+              this.fnEditSave(this.txtGradeId, body);
             }
           }
           else if (result[0].length > 0) {
@@ -216,13 +216,13 @@ export class RoleComponent {
               Swal.fire('Duplicate', 'It is existing please check it..!', 'info');
             }
             if (this.selAction == "Edit") {
-              if (this.dupRecord[0].RoleId != this.txtRoleId) {
+              if (this.dupRecord[0].RoleId != this.txtGradeId) {
                 Swal.fire('Duplicate', 'It is existing please check it..!', 'info');
               }
-              else if (this.dupRecord[0].RoleId == this.txtRoleId) {
+              else if (this.dupRecord[0].RoleId == this.txtGradeId) {
                 // updating the modified column with modified message
                 body['modified'] = "By: " + this.loginUserName + ", On - " + formatDate(new Date(), 'dd-MMM-yyyy' + ' @ ' + 'hh:mm:ss a', 'en_US');
-                this.fnEditSave(this.txtRoleId, body);
+                this.fnEditSave(this.txtGradeId, body);
               }
             }
           }
@@ -235,7 +235,7 @@ export class RoleComponent {
   }
 
   fnAddEditFormClear() {
-    this.txtRoleName = null;
+    this.txtGradeName = null;
     this.txtActive = null;
     this.txtCreated = null;
     this.txtModified = null;
