@@ -34,7 +34,7 @@ export class StudentsComponent {
 
   studentsForm: FormGroup;
   products: any;
-  grade: any;
+  grades: any;
   students: any;
   dupRecord: any;
   displayColumns: any = ['#', 'Id', 'StuName', 'FatherName', 'ProductId', 'ProductName', 'Phone', 'Email', 'Dt.Of.Birth', 'Dt.Of,Join', 'GradeId', 'GradeName','School', 'Address', 'Reference', 'Active'];
@@ -47,6 +47,7 @@ export class StudentsComponent {
     this.loginUserName = localStorage.getItem('loginUser');
     this.loginUserRoleId = localStorage.getItem('loginUserRoleId');
     this.fnGetProducts();
+    this.fnGetGrades();
 
     // setting the datepicker
     this.datePickerConfig = Object.assign({},
@@ -105,9 +106,9 @@ export class StudentsComponent {
   fnGetGrades() {
     this.gradeService.getAll().subscribe(
       result => {
-        this.grade = result[0];
+        this.grades = result[0];
 
-        if (this.grade.length == 0) {
+        if (this.grades.length == 0) {
           Swal.fire('No data found..!', result.message, 'info');
         }
       },
@@ -136,7 +137,7 @@ export class StudentsComponent {
 
   fnSearch() {
     let productId: any;
-    let grade: any;
+    let gradeId: any;
 
     if (this.f['txtFromDate'].value == null || this.f['txtFromDate'].value == "") {
       Swal.fire('Validation', 'Please select the from Date..! it should not be empty..!', 'warning');
@@ -155,18 +156,18 @@ export class StudentsComponent {
     }
 
     if ((this.f['txtSearchGrade'].value == null || this.f['txtSearchGrade'].value == "")) {
-      grade = 0;
+      gradeId = 0;
     }
     else {
-      grade = this.f['txtSearchGrade'].value;
+      gradeId = this.f['txtSearchGrade'].value;
     }
 
-    this.fnGetByQuery(formatDate(this.f['txtFromDate'].value, 'dd-MMM-yyyy', 'en_US'), formatDate(this.f['txtToDate'].value, 'dd-MMM-yyyy', 'en_US'), productId, grade);
+    this.fnGetByQuery(formatDate(this.f['txtFromDate'].value, 'dd-MMM-yyyy', 'en_US'), formatDate(this.f['txtToDate'].value, 'dd-MMM-yyyy', 'en_US'), productId, gradeId);
   }
 
-  fnGetByQuery(fromDate, toDate, productId, grade) {
+  fnGetByQuery(fromDate, toDate, productId, gradeId) {
     //this.fnGetAll();
-    this.studentService.getByQuery(fromDate, toDate, productId, grade).subscribe(
+    this.studentService.getByQuery(fromDate, toDate, productId, gradeId).subscribe(
       result => {
         this.students = result[0];
 

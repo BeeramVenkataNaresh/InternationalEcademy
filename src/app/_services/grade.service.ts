@@ -5,7 +5,6 @@ import { environment } from 'src/environments/environment';
 
 const apiPath = environment.apiPath + 'grade';
 
-
 @Injectable({
   providedIn: 'root'
 })

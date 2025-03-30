@@ -159,8 +159,8 @@
                                             *</span></label>
                                     <ng-select class="input-group small" formControlName="txtGrade"
                                         [ngClass]="{ 'is-invalid': submitted && f['txtGrade'].errors }">
-                                        <ng-option *ngFor="let item of grade"
-                                            [value]="item.id">{{item.name}}</ng-option>
+                                        <ng-option *ngFor="let item of grades"
+                                            [value]="item.GradeId">{{item.GradeName}}</ng-option>
                                     </ng-select>
                                     <div *ngIf="submitted && f['txtGrade'].errors" class="invalid-feedback">
                                         <div *ngIf="f['txtGrade'].errors['required']"><small>Req.</small>
@@ -300,8 +300,8 @@
                                             *</span></label>
                                     <ng-select class="input-group small" formControlName="txtSearchGrade"
                                         [ngClass]="{ 'is-invalid': submitted && f['txtSearchGrade'].errors }">
-                                        <ng-option *ngFor="let item of grade"
-                                            [value]="item.gradeId">{{item.gradeName}}</ng-option>
+                                        <ng-option *ngFor="let item of grades"
+                                            [value]="item.GradeId">{{item.GradeName}}</ng-option>
                                     </ng-select>
                                 </div>
                             </div>
