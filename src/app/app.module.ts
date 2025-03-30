@@ -36,6 +36,8 @@ import { BcigniteComponent } from './_components/BrainCheckerIgnite/bcignite.com
 import { BchpactComponent } from './_components/BrainCheckerHPact/bchpact.component';
 import { ProductComponent } from './_components/Product/product.component';
 import { GradeComponent } from './_components/Grade/grade.component';
+import { AccountsComponent } from './_components/Accounts/accounts.component';
+import { PaymentmodeComponent } from './_components/Paymentmode/paymentmode.component';
 
 
 @NgModule({ 
@@ -59,6 +61,8 @@ import { GradeComponent } from './_components/Grade/grade.component';
     DashboardComponent,
     RoleComponent,
     UserComponent,
+    AccountsComponent,
+    PaymentmodeComponent,
     ProductComponent,
     GradeComponent,
     StudentsComponent,

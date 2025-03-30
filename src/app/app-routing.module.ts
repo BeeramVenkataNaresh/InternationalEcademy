@@ -29,6 +29,8 @@ import { EnglishacademyComponent } from './_components/Englishacademy/englishaca
 import { BchpactComponent } from './_components/BrainCheckerHPact/bchpact.component';
 import { ProductComponent } from './_components/Product/product.component';
 import { GradeComponent } from './_components/Grade/grade.component';
+import { AccountsComponent } from './_components/Accounts/accounts.component';
+import { PaymentmodeComponent } from './_components/Paymentmode/paymentmode.component';
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -52,6 +54,8 @@ const routes: Routes = [
   { path: "dashboard", component: DashboardComponent },
   { path: "role", component: RoleComponent },
   { path: "user", component: UserComponent },
+  { path: "accounts", component: AccountsComponent },
+  { path: "paymentmode", component: PaymentmodeComponent },
   { path: "students", component: StudentsComponent },
   { path: "product", component: ProductComponent },
   { path: "grade", component: GradeComponent },
