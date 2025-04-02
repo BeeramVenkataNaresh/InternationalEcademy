@@ -3,12 +3,12 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-const apiPath = environment.apiPath + 'accounts';
+const apiPath = environment.apiPath + 'account';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AccountsService {
+export class AccountService {
 
   httpOptions = {
     headers: new HttpHeaders({

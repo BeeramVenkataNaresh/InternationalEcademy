@@ -1,22 +1,22 @@
-import { Component } from '@angular/core';
 import { formatDate } from '@angular/common';
+import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AccountService } from 'src/app/_services/account.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { GradeService } from 'src/app/_services/grade.service';
 
 @Component({
-  selector: 'app-grade',
-  templateUrl: './grade.component.html',
-  styleUrls: ['./grade.component.css']
+  selector: 'app-account',
+  templateUrl: './account.component.html',
+  styleUrls: ['./account.component.css']
 })
-export class GradeComponent {
-showAddEditForm = false;
+export class AccountComponent {
+  showAddEditForm = false;
   selAction = "";
   formHeader = "";
-  txtGradeId = "";
-  txtGradeName = "";
+  txtAccId = "";
+  txtAccName = "";
   txtActive = "";
   txtCreated = "";
   txtModified = "";
@@ -26,40 +26,40 @@ showAddEditForm = false;
     { id: 2, name: 'No' }
   ];
 
-  gradeForm: FormGroup;
-  grade: any;
-  originalGrade: any;
+  accountForm: FormGroup;
+  account: any;
+  originalAccount: any;
   dupRecord: any;
-  displayColumns: any = ['#', 'Id', 'Grade', 'Active'];
+  displayColumns: any = ['#', 'Id', 'Account', 'Active'];
   submitted = false;
   loginUserName: any;
   loginUserRoleId: any;
   selectedItem: any;
   closeResult: string;
 
-  constructor(private modalService: NgbModal, private formBuilder: FormBuilder, private gradeService: GradeService, private router: Router) {
+  constructor(private modalService: NgbModal, private formBuilder: FormBuilder, private accountService: AccountService, private router: Router) {
     this.loginUserName = localStorage.getItem('loginUser');
     this.loginUserRoleId = localStorage.getItem('loginUserRoleId');
   }
 
   ngOnInit(): void {
-    this.grade = 0;
-    this.gradeForm = this.formBuilder.group({
+    this.account = 0;
+    this.accountForm = this.formBuilder.group({
       txtSearch: ['']
     });
   }
 
   get f(): { [key: string]: AbstractControl } {
-    return this.gradeForm.controls;
+    return this.accountForm.controls;
   }
 
   fnGetAll() {
-    this.gradeService.getAll().subscribe(
+    this.accountService.getAll().subscribe(
       result => {
-        this.grade = result[0];
-        this.originalGrade = result[0];
+        this.account = result[0];
+        this.originalAccount = result[0];
 
-        if (this.grade.length == 0) {
+        if (this.account.length == 0) {
           Swal.fire('No data found..!', result.message, 'info');
         }
       },
@@ -73,8 +73,8 @@ showAddEditForm = false;
       this.fnGetAll();
     }
     else if (this.f['txtSearch'].value != null) {
-      this.grade = this.originalGrade;
-      this.grade = this.grade.filter((grade) => grade.GradeName == this.f['txtSearch'].value)
+      this.account = this.originalAccount;
+      this.account = this.account.filter((account) => account.AccName == this.f['txtSearch'].value)
     }
   }
 
@@ -96,8 +96,8 @@ showAddEditForm = false;
     this.selAction = "Edit";
     this.formHeader = "Modify Data";
 
-    this.txtGradeId = data.GradeId;
-    this.txtGradeName = data.GradeName;
+    this.txtAccId = data.AccId;
+    this.txtAccName = data.AccName;
     this.txtActive = data.Active;
     this.txtCreated = data.Created;
     this.txtModified = data.Modified;
@@ -113,8 +113,8 @@ showAddEditForm = false;
     this.selAction = "View";
     this.formHeader = "View Data";
     
-    this.txtGradeId = data.GradeId;
-    this.txtGradeName = data.GradeName;
+    this.txtAccId = data.AccId;
+    this.txtAccName = data.AccName;
     this.txtActive = data.Active;
     this.txtCreated = data.Created;
     this.txtModified = data.Modified;
@@ -136,7 +136,7 @@ showAddEditForm = false;
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
-        this.gradeService.delete(id).subscribe(
+        this.accountService.delete(id).subscribe(
           result => {
             this.fnSearch();
             Swal.fire('Deleted', result.message, 'success');
@@ -151,7 +151,7 @@ showAddEditForm = false;
   }
 
   fnNewSave(data: any) {
-    this.gradeService.create(data).subscribe(
+    this.accountService.create(data).subscribe(
       result => {
         Swal.fire('Insert', result.message, 'success');
         this.fnGetAll();
@@ -163,7 +163,7 @@ showAddEditForm = false;
   }
 
   fnEditSave(id, data: any) {
-    this.gradeService.update(id, data).subscribe(
+    this.accountService.update(id, data).subscribe(
       result => {
         Swal.fire('Update', result.message, 'success');
         this.fnGetAll();
@@ -175,9 +175,9 @@ showAddEditForm = false;
   }
 
   fnAddEditFormSave() {
-    if (this.txtGradeName == "" || this.txtGradeName == null || this.txtActive == "" || this.txtActive == null ) {
-      if (this.txtGradeName == "" || this.txtGradeName == null) {
-        Swal.fire('Validation', 'Grade Name should not be empty..!', 'warning');
+    if (this.txtAccName == "" || this.txtAccName == null || this.txtActive == "" || this.txtActive == null ) {
+      if (this.txtAccName == "" || this.txtAccName == null) {
+        Swal.fire('Validation', 'Account Name should not be empty..!', 'warning');
         return;
       }
       if (this.txtActive == "" || this.txtActive == null) {
@@ -187,15 +187,15 @@ showAddEditForm = false;
     }
     else {
       let body = {
-        "gradeId": this.txtGradeId,
-        "gradeName": this.txtGradeName,
+        "accId": this.txtAccId,
+        "accName": this.txtAccName,
         "active": this.txtActive,
         "created": this.txtCreated,
         "modified": this.txtModified
       }
 
       // check for duplicate
-      this.gradeService.getByName(this.txtGradeName).subscribe(
+      this.accountService.getByName(this.txtAccName).subscribe(
         result => {
           this.dupRecord = result[0];
           if (result[0].length == 0) {
@@ -208,7 +208,7 @@ showAddEditForm = false;
             if (this.selAction == "Edit") {
               // updating the modified column with modified message
               body['modified'] = "By: " + this.loginUserName + ", On - " + formatDate(new Date(), 'dd-MMM-yyyy' + ' @ ' + 'hh:mm:ss a', 'en_US');
-              this.fnEditSave(this.txtGradeId, body);
+              this.fnEditSave(this.txtAccId, body);
             }
           }
           else if (result[0].length > 0) {
@@ -216,13 +216,13 @@ showAddEditForm = false;
               Swal.fire('Duplicate', 'It is existing please check it..!', 'info');
             }
             if (this.selAction == "Edit") {
-              if (this.dupRecord[0].GradeId != this.txtGradeId) {
+              if (this.dupRecord[0].AccId != this.txtAccId) {
                 Swal.fire('Duplicate', 'It is existing please check it..!', 'info');
               }
-              else if (this.dupRecord[0].GradeId == this.txtGradeId) {
+              else if (this.dupRecord[0].AccId == this.txtAccId) {
                 // updating the modified column with modified message
                 body['modified'] = "By: " + this.loginUserName + ", On - " + formatDate(new Date(), 'dd-MMM-yyyy' + ' @ ' + 'hh:mm:ss a', 'en_US');
-                this.fnEditSave(this.txtGradeId, body);
+                this.fnEditSave(this.txtAccId, body);
               }
             }
           }
@@ -235,7 +235,7 @@ showAddEditForm = false;
   }
 
   fnAddEditFormClear() {
-    this.txtGradeName = null;
+    this.txtAccName = null;
     this.txtActive = null;
     this.txtCreated = null;
     this.txtModified = null;

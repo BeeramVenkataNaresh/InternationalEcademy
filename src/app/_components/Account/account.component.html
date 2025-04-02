@@ -1,8 +1,8 @@
 <div class="page-position">
-    <h1 class="text-center text-primary">Payment Mode</h1>
+    <h1 class="text-center text-primary">Accounts</h1>
     <div class="container">
         <div class="card border-primary">
-            <form [formGroup]="paymentmodeForm">
+            <form [formGroup]="accountForm">
                 <div class="card-header">
                     <i class="fa fa-eye fa-lg text-danger"></i>&nbsp;&nbsp;<b class="text-danger">View</b>
                     <!-- <a type="button" class="a-list-primay float-end" routerLink="/country-add"
@@ -14,7 +14,7 @@
                             <label class="bold col-form-label-sm" for="txtSearch">Search Value:</label>
                         </div>
                         <div class="col-md-3">
-                            <input type="text" formControlName="txtSearch" placeholder="PayMode Name"
+                            <input type="text" formControlName="txtSearch" placeholder="Account Name"
                                 class="form-control form-control-sm" />
                         </div>
                         <div class="col-md-3">
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <br>
-                    <div *ngIf="paymentmode.length > 0" class="table-responsive">
+                    <div *ngIf="account.length > 0" class="table-responsive">
                         <table class="table -sm table-sm table-hover table-bordered text-center"
                             style="font-size: 10pt;">
                             <thead class="bg-light">
@@ -43,10 +43,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let item of paymentmode; let i = index;">
+                                <tr *ngFor="let item of account; let i = index;">
                                     <td>{{ i+1 }}</td>
-                                    <td>{{ item['PayModeId']}}</td>
-                                    <td>{{ item['PayModeName']}}</td>
+                                    <td>{{ item['AccId']}}</td>
+                                    <td>{{ item['AccName']}}</td>
                                     <!-- <td><input type="checkbox" [checked]="item['Active']" disabled="false" /></td> -->
                                     <td>{{ (item['Active'] == 1) ? "Yes" : "No" }}</td>
                                     <td *ngIf="loginUserRoleId < 3">{{ (item['Created'] == null || item['Created'] ==
@@ -64,14 +64,14 @@
                                                 class="fa fa-edit fa-lg"></i></a>
                                     </td>
                                     <td>
-                                        <a class="link-danger" type="button" (click)="fnDelete(item['PayModeId'])"
+                                        <a class="link-danger" type="button" (click)="fnDelete(item['AccId'])"
                                             title="Delete"><i class="fa fa-trash-o fa-lg"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="10" class="text-left">{{ paymentmode.length }} Row(s)</td>
+                                    <td colspan="10" class="text-left">{{ account.length }} Row(s)</td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -86,23 +86,23 @@
     <div class="modal-body modalFormBgColor text-center">
         <h2 class="text-center text-primary mb-3">{{formHeader}}</h2>
         <div *ngIf="selAction != 'Add'" class="group">
-            <label for="txtPayModeId" class="col-form-label-sm">Id:<span class="lbl-req"> *</span></label>
-            <input [readonly]="selAction != 'Add' ? 'readonly' : null" type="text" id="txtPayModeId" name="txtPayModeId"
-                [(ngModel)]="txtPayModeId" placeholder="paymentmode Id" class="form-control form-control-sm"
+            <label for="txtAccId" class="col-form-label-sm">Id:<span class="lbl-req"> *</span></label>
+            <input [readonly]="selAction != 'Add' ? 'readonly' : null" type="text" id="txtAccId" name="txtAccId"
+                [(ngModel)]="txtAccId" placeholder="Account Id" class="form-control form-control-sm"
                 style="background-color: rgb(229, 235, 235);"
-                [ngClass]="{ 'is-invalid': submitted && f['txtPayModeId'].errors }" />
-            <div *ngIf="submitted && f['txtPayModeId'].errors" class="invalid-feedback">
-                <div *ngIf="f['txtPayModeId'].errors['required']">Req.</div>
+                [ngClass]="{ 'is-invalid': submitted && f['txtAccId'].errors }" />
+            <div *ngIf="submitted && f['txtAccId'].errors" class="invalid-feedback">
+                <div *ngIf="f['txtAccId'].errors['required']">Req.</div>
             </div>
         </div>
         <div class="group">
-            <label for="txtPayModeName" class="col-form-label-sm">PayMode:<span class="lbl-req"> *</span></label>
-            <input type="text" id="txtPayModeName" name="txtPayModeName" [(ngModel)]="txtPayModeName" placeholder="PayMode Name"
+            <label for="txtAccName" class="col-form-label-sm">Account:<span class="lbl-req"> *</span></label>
+            <input type="text" id="txtAccName" name="txtAccName" [(ngModel)]="txtAccName" placeholder="Account Name"
                 class="form-control form-control-sm" required="Req."
-                [ngClass]="{ 'is-invalid': submitted && f['txtPayModeName'].errors }" />
-            <div *ngIf="submitted && f['txtPayModeName'].errors" class="invalid-feedback">
-                <div *ngIf="f['txtPayModeName'].errors['required']">Req.</div>
-                <div *ngIf="f['txtPayModeName'].errors['maxlength']">Maximum 25 Char</div>
+                [ngClass]="{ 'is-invalid': submitted && f['txtAccName'].errors }" />
+            <div *ngIf="submitted && f['txtAccName'].errors" class="invalid-feedback">
+                <div *ngIf="f['txtAccName'].errors['required']">Req.</div>
+                <div *ngIf="f['txtAccName'].errors['maxlength']">Maximum 25 Char</div>
             </div>
         </div>
         <div class="group">
@@ -141,5 +141,4 @@
         </div>
     </div>
 </ng-template>
-
 

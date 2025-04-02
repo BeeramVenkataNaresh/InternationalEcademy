@@ -2,21 +2,23 @@ import { formatDate } from '@angular/common';
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProductService } from 'src/app/_services/product.service';
+import { CustomerService } from 'src/app/_services/customer.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-accounts',
-  templateUrl: './accounts.component.html',
-  styleUrls: ['./accounts.component.css']
+  selector: 'app-customer',
+  templateUrl: './customer.component.html',
+  styleUrls: ['./customer.component.css']
 })
-export class AccountsComponent {
+export class CustomerComponent {
 showAddEditForm = false;
   selAction = "";
   formHeader = "";
-  txtProductId = "";
-  txtProductName = "";
+  txtCustId = "";
+  txtCustName = "";
+  txtCustPhone = "";
+  txtCustEmail = "";
   txtActive = "";
   txtCreated = "";
   txtModified = "";
@@ -26,40 +28,40 @@ showAddEditForm = false;
     { id: 2, name: 'No' }
   ];
 
-  productForm: FormGroup;
-  product: any;
-  originalProduct: any;
+  customerForm: FormGroup;
+  customer: any;
+  originalCustomer: any;
   dupRecord: any;
-  displayColumns: any = ['#', 'Id', 'Role', 'Active'];
+  displayColumns: any = ['#', 'Id', 'Customer', 'Phone', 'Email-Id', 'Active'];
   submitted = false;
   loginUserName: any;
   loginUserRoleId: any;
   selectedItem: any;
   closeResult: string;
 
-  constructor(private modalService: NgbModal, private formBuilder: FormBuilder, private productService: ProductService, private router: Router) {
+  constructor(private modalService: NgbModal, private formBuilder: FormBuilder, private customerService: CustomerService, private router: Router) {
     this.loginUserName = localStorage.getItem('loginUser');
     this.loginUserRoleId = localStorage.getItem('loginUserRoleId');
   }
 
   ngOnInit(): void {
-    this.product = 0;
-    this.productForm = this.formBuilder.group({
+    this.customer = 0;
+    this.customerForm = this.formBuilder.group({
       txtSearch: ['']
     });
   }
 
   get f(): { [key: string]: AbstractControl } {
-    return this.productForm.controls;
+    return this.customerForm.controls;
   }
 
   fnGetAll() {
-    this.productService.getAll().subscribe(
+    this.customerService.getAll().subscribe(
       result => {
-        this.product = result[0];
-        this.originalProduct = result[0];
+        this.customer = result[0];
+        this.originalCustomer = result[0];
 
-        if (this.product.length == 0) {
+        if (this.customer.length == 0) {
           Swal.fire('No data found..!', result.message, 'info');
         }
       },
@@ -73,8 +75,8 @@ showAddEditForm = false;
       this.fnGetAll();
     }
     else if (this.f['txtSearch'].value != null) {
-      this.product = this.originalProduct;
-      this.product = this.product.filter((product) => product.RoleName == this.f['txtSearch'].value)
+      this.customer = this.originalCustomer;
+      this.customer = this.customer.filter((customer) => customer.CustName == this.f['txtSearch'].value)
     }
   }
 
@@ -96,8 +98,10 @@ showAddEditForm = false;
     this.selAction = "Edit";
     this.formHeader = "Modify Data";
 
-    this.txtProductId = data.RoleId;
-    this.txtProductName = data.RoleName;
+    this.txtCustId = data.CustId;
+    this.txtCustName = data.CustName;
+    this.txtCustPhone = data.CustPhone;
+    this.txtCustEmail = data.CustEmail;
     this.txtActive = data.Active;
     this.txtCreated = data.Created;
     this.txtModified = data.Modified;
@@ -113,8 +117,10 @@ showAddEditForm = false;
     this.selAction = "View";
     this.formHeader = "View Data";
     
-    this.txtProductId = data.RoleId;
-    this.txtProductName = data.RoleName;
+    this.txtCustId = data.CustId;
+    this.txtCustName = data.CustName;
+    this.txtCustPhone = data.CustPhone;
+    this.txtCustEmail = data.CustEmail;
     this.txtActive = data.Active;
     this.txtCreated = data.Created;
     this.txtModified = data.Modified;
@@ -136,7 +142,7 @@ showAddEditForm = false;
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
-        this.productService.delete(id).subscribe(
+        this.customerService.delete(id).subscribe(
           result => {
             this.fnSearch();
             Swal.fire('Deleted', result.message, 'success');
@@ -151,7 +157,7 @@ showAddEditForm = false;
   }
 
   fnNewSave(data: any) {
-    this.productService.create(data).subscribe(
+    this.customerService.create(data).subscribe(
       result => {
         Swal.fire('Insert', result.message, 'success');
         this.fnGetAll();
@@ -163,7 +169,7 @@ showAddEditForm = false;
   }
 
   fnEditSave(id, data: any) {
-    this.productService.update(id, data).subscribe(
+    this.customerService.update(id, data).subscribe(
       result => {
         Swal.fire('Update', result.message, 'success');
         this.fnGetAll();
@@ -175,9 +181,9 @@ showAddEditForm = false;
   }
 
   fnAddEditFormSave() {
-    if (this.txtProductName == "" || this.txtProductName == null || this.txtActive == "" || this.txtActive == null ) {
-      if (this.txtProductName == "" || this.txtProductName == null) {
-        Swal.fire('Validation', 'Role Name should not be empty..!', 'warning');
+    if (this.txtCustName == "" || this.txtCustName == null || this.txtActive == "" || this.txtActive == null ) {
+      if (this.txtCustName == "" || this.txtCustName == null) {
+        Swal.fire('Validation', 'Customer Name should not be empty..!', 'warning');
         return;
       }
       if (this.txtActive == "" || this.txtActive == null) {
@@ -187,15 +193,17 @@ showAddEditForm = false;
     }
     else {
       let body = {
-        "productId": this.txtProductId,
-        "productName": this.txtProductName,
+        "custId": this.txtCustId,
+        "custName": this.txtCustName,
+        "custPhone": this.txtCustPhone,
+        "custEmail": this.txtCustEmail,
         "active": this.txtActive,
         "created": this.txtCreated,
         "modified": this.txtModified
       }
 
       // check for duplicate
-      this.productService.getByName(this.txtProductName).subscribe(
+      this.customerService.getByName(this.txtCustName).subscribe(
         result => {
           this.dupRecord = result[0];
           if (result[0].length == 0) {
@@ -208,7 +216,7 @@ showAddEditForm = false;
             if (this.selAction == "Edit") {
               // updating the modified column with modified message
               body['modified'] = "By: " + this.loginUserName + ", On - " + formatDate(new Date(), 'dd-MMM-yyyy' + ' @ ' + 'hh:mm:ss a', 'en_US');
-              this.fnEditSave(this.txtProductId, body);
+              this.fnEditSave(this.txtCustId, body);
             }
           }
           else if (result[0].length > 0) {
@@ -216,13 +224,13 @@ showAddEditForm = false;
               Swal.fire('Duplicate', 'It is existing please check it..!', 'info');
             }
             if (this.selAction == "Edit") {
-              if (this.dupRecord[0].RoleId != this.txtProductId) {
+              if (this.dupRecord[0].CustId != this.txtCustId) {
                 Swal.fire('Duplicate', 'It is existing please check it..!', 'info');
               }
-              else if (this.dupRecord[0].RoleId == this.txtProductId) {
+              else if (this.dupRecord[0].CustId == this.txtCustId) {
                 // updating the modified column with modified message
                 body['modified'] = "By: " + this.loginUserName + ", On - " + formatDate(new Date(), 'dd-MMM-yyyy' + ' @ ' + 'hh:mm:ss a', 'en_US');
-                this.fnEditSave(this.txtProductId, body);
+                this.fnEditSave(this.txtCustId, body);
               }
             }
           }
@@ -235,7 +243,9 @@ showAddEditForm = false;
   }
 
   fnAddEditFormClear() {
-    this.txtProductName = null;
+    this.txtCustName = null;
+    this.txtCustPhone = null;
+    this.txtCustEmail = null;
     this.txtActive = null;
     this.txtCreated = null;
     this.txtModified = null;

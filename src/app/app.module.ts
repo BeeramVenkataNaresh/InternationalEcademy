@@ -36,8 +36,11 @@ import { BcigniteComponent } from './_components/BrainCheckerIgnite/bcignite.com
 import { BchpactComponent } from './_components/BrainCheckerHPact/bchpact.component';
 import { ProductComponent } from './_components/Product/product.component';
 import { GradeComponent } from './_components/Grade/grade.component';
-import { AccountsComponent } from './_components/Accounts/accounts.component';
+import { AccountComponent } from './_components/Account/account.component';
 import { PaymentmodeComponent } from './_components/Paymentmode/paymentmode.component';
+import { CustomerComponent } from './_components/Customer/customer.component';
+import { ReceiptComponent } from './_components/Receipt/receipt.component';
+import { PaymentComponent } from './_components/Payment/payment.component';
 
 
 @NgModule({ 
@@ -61,11 +64,14 @@ import { PaymentmodeComponent } from './_components/Paymentmode/paymentmode.comp
     DashboardComponent,
     RoleComponent,
     UserComponent,
-    AccountsComponent,
+    AccountComponent,
     PaymentmodeComponent,
     ProductComponent,
     GradeComponent,
+    CustomerComponent,
     StudentsComponent,
+    ReceiptComponent,
+    PaymentComponent,
     PaymentgatewayComponent,
     MessageComponent,
     TestComponent

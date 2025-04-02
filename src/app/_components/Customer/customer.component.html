@@ -1,8 +1,8 @@
 <div class="page-position">
-    <h1 class="text-center text-primary">Accounts</h1>
+    <h1 class="text-center text-primary">Customers</h1>
     <div class="container">
         <div class="card border-primary">
-            <form [formGroup]="productForm">
+            <form [formGroup]="customerForm">
                 <div class="card-header">
                     <i class="fa fa-eye fa-lg text-danger"></i>&nbsp;&nbsp;<b class="text-danger">View</b>
                     <!-- <a type="button" class="a-list-primay float-end" routerLink="/country-add"
@@ -14,7 +14,7 @@
                             <label class="bold col-form-label-sm" for="txtSearch">Search Value:</label>
                         </div>
                         <div class="col-md-3">
-                            <input type="text" formControlName="txtSearch" placeholder="Product Name"
+                            <input type="text" formControlName="txtSearch" placeholder="Customer Name"
                                 class="form-control form-control-sm" />
                         </div>
                         <div class="col-md-3">
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <br>
-                    <div *ngIf="product.length > 0" class="table-responsive">
+                    <div *ngIf="customer.length > 0" class="table-responsive">
                         <table class="table -sm table-sm table-hover table-bordered text-center"
                             style="font-size: 10pt;">
                             <thead class="bg-light">
@@ -43,10 +43,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let item of product; let i = index;">
+                                <tr *ngFor="let item of customer; let i = index;">
                                     <td>{{ i+1 }}</td>
-                                    <td>{{ item['ProductId']}}</td>
-                                    <td>{{ item['ProductName']}}</td>
+                                    <td>{{ item['CustId']}}</td>
+                                    <td>{{ item['CustName']}}</td>
+                                    <td>{{ (item['CustPhone'] == null || item['CustPhone'] ==
+                                        "") ? "-": item['CustPhone'] }}</td>
+                                    <td>{{ (item['CustEmail'] == null || item['CustEmail'] ==
+                                        "") ? "-": item['CustEmail'] }}</td>
                                     <!-- <td><input type="checkbox" [checked]="item['Active']" disabled="false" /></td> -->
                                     <td>{{ (item['Active'] == 1) ? "Yes" : "No" }}</td>
                                     <td *ngIf="loginUserRoleId < 3">{{ (item['Created'] == null || item['Created'] ==
@@ -64,14 +68,14 @@
                                                 class="fa fa-edit fa-lg"></i></a>
                                     </td>
                                     <td>
-                                        <a class="link-danger" type="button" (click)="fnDelete(item['ProductId'])"
+                                        <a class="link-danger" type="button" (click)="fnDelete(item['CustId'])"
                                             title="Delete"><i class="fa fa-trash-o fa-lg"></i></a>
                                     </td>
                                 </tr>
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="10" class="text-left">{{ product.length }} Row(s)</td>
+                                    <td colspan="10" class="text-left">{{ customer.length }} Row(s)</td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -86,23 +90,43 @@
     <div class="modal-body modalFormBgColor text-center">
         <h2 class="text-center text-primary mb-3">{{formHeader}}</h2>
         <div *ngIf="selAction != 'Add'" class="group">
-            <label for="txtProductId" class="col-form-label-sm">Id:<span class="lbl-req"> *</span></label>
-            <input [readonly]="selAction != 'Add' ? 'readonly' : null" type="text" id="txtProductId" name="txtProductId"
-                [(ngModel)]="txtProductId" placeholder="Product Id" class="form-control form-control-sm"
+            <label for="txtCustId" class="col-form-label-sm">Id:<span class="lbl-req"> *</span></label>
+            <input [readonly]="selAction != 'Add' ? 'readonly' : null" type="text" id="txtCustId" name="txtCustId"
+                [(ngModel)]="txtCustId" placeholder="Customer Id" class="form-control form-control-sm"
                 style="background-color: rgb(229, 235, 235);"
-                [ngClass]="{ 'is-invalid': submitted && f['txtProductId'].errors }" />
-            <div *ngIf="submitted && f['txtProductId'].errors" class="invalid-feedback">
-                <div *ngIf="f['txtProductId'].errors['required']">Req.</div>
+                [ngClass]="{ 'is-invalid': submitted && f['txtCustId'].errors }" />
+            <div *ngIf="submitted && f['txtCustId'].errors" class="invalid-feedback">
+                <div *ngIf="f['txtCustId'].errors['required']">Req.</div>
             </div>
         </div>
         <div class="group">
-            <label for="txtProductName" class="col-form-label-sm">Product:<span class="lbl-req"> *</span></label>
-            <input type="text" id="txtProductName" name="txtProductName" [(ngModel)]="txtProductName" placeholder="Product Name"
+            <label for="txtCustName" class="col-form-label-sm">Customer:<span class="lbl-req"> *</span></label>
+            <input type="text" id="txtCustName" name="txtCustName" [(ngModel)]="txtCustName" placeholder="Customer Name"
                 class="form-control form-control-sm" required="Req."
-                [ngClass]="{ 'is-invalid': submitted && f['txtProductName'].errors }" />
-            <div *ngIf="submitted && f['txtProductName'].errors" class="invalid-feedback">
-                <div *ngIf="f['txtProductName'].errors['required']">Req.</div>
-                <div *ngIf="f['txtProductName'].errors['maxlength']">Maximum 25 Char</div>
+                [ngClass]="{ 'is-invalid': submitted && f['txtCustName'].errors }" />
+            <div *ngIf="submitted && f['txtCustName'].errors" class="invalid-feedback">
+                <div *ngIf="f['txtCustName'].errors['required']">Req.</div>
+                <div *ngIf="f['txtCustName'].errors['maxlength']">Maximum 25 Char</div>
+            </div>
+        </div>
+        <div class="group">
+            <label for="txtCustPhone" class="col-form-label-sm">Phone:</label>
+            <input type="text" id="txtCustPhone" name="txtCustPhone" [(ngModel)]="txtCustPhone" placeholder="Phone"
+                class="form-control form-control-sm" required="Req."
+                [ngClass]="{ 'is-invalid': submitted && f['txtCustPhone'].errors }" />
+            <div *ngIf="submitted && f['txtCustPhone'].errors" class="invalid-feedback">
+                <div *ngIf="f['txtCustPhone'].errors['required']">Req.</div>
+                <div *ngIf="f['txtCustPhone'].errors['maxlength']">Maximum 15 Char</div>
+            </div>
+        </div>
+        <div class="group">
+            <label for="txtCustEmail" class="col-form-label-sm">Email:</label>
+            <input type="text" id="txtCustEmail" name="txtCustEmail" [(ngModel)]="txtCustEmail" placeholder="Email"
+                class="form-control form-control-sm" required="Req."
+                [ngClass]="{ 'is-invalid': submitted && f['txtCustEmail'].errors }" />
+            <div *ngIf="submitted && f['txtCustEmail'].errors" class="invalid-feedback">
+                <div *ngIf="f['txtCustEmail'].errors['required']">Req.</div>
+                <div *ngIf="f['txtCustEmail'].errors['maxlength']">Maximum 25 Char</div>
             </div>
         </div>
         <div class="group">
@@ -141,4 +165,5 @@
         </div>
     </div>
 </ng-template>
+
 

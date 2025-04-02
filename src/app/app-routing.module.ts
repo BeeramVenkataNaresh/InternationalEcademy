@@ -29,8 +29,12 @@ import { EnglishacademyComponent } from './_components/Englishacademy/englishaca
 import { BchpactComponent } from './_components/BrainCheckerHPact/bchpact.component';
 import { ProductComponent } from './_components/Product/product.component';
 import { GradeComponent } from './_components/Grade/grade.component';
-import { AccountsComponent } from './_components/Accounts/accounts.component';
+import { AccountComponent } from './_components/Account/account.component';
 import { PaymentmodeComponent } from './_components/Paymentmode/paymentmode.component';
+import { CustomerComponent } from './_components/Customer/customer.component';
+import { ReceiptComponent } from './_components/Receipt/receipt.component';
+import { PaymentComponent } from './_components/Payment/payment.component';
+
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -54,11 +58,14 @@ const routes: Routes = [
   { path: "dashboard", component: DashboardComponent },
   { path: "role", component: RoleComponent },
   { path: "user", component: UserComponent },
-  { path: "accounts", component: AccountsComponent },
+  { path: "account", component: AccountComponent },
   { path: "paymentmode", component: PaymentmodeComponent },
   { path: "students", component: StudentsComponent },
   { path: "product", component: ProductComponent },
   { path: "grade", component: GradeComponent },
+  { path: "customer", component: CustomerComponent },
+  { path: "receipt", component: ReceiptComponent },
+  { path: "payment", component: PaymentComponent },
   { path: "paymentgateway/:amt", component: PaymentgatewayComponent },
   { path: "message", component: MessageComponent },
   { path: "test", component: TestComponent },

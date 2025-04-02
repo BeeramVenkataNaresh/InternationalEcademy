@@ -30,7 +30,7 @@ showAddEditForm = false;
   product: any;
   originalProduct: any;
   dupRecord: any;
-  displayColumns: any = ['#', 'Id', 'Role', 'Active'];
+  displayColumns: any = ['#', 'Id', 'Product', 'Active'];
   submitted = false;
   loginUserName: any;
   loginUserRoleId: any;
@@ -74,7 +74,7 @@ showAddEditForm = false;
     }
     else if (this.f['txtSearch'].value != null) {
       this.product = this.originalProduct;
-      this.product = this.product.filter((product) => product.RoleName == this.f['txtSearch'].value)
+      this.product = this.product.filter((product) => product.ProductName == this.f['txtSearch'].value)
     }
   }
 
@@ -96,8 +96,8 @@ showAddEditForm = false;
     this.selAction = "Edit";
     this.formHeader = "Modify Data";
 
-    this.txtProductId = data.RoleId;
-    this.txtProductName = data.RoleName;
+    this.txtProductId = data.ProductId;
+    this.txtProductName = data.ProductName;
     this.txtActive = data.Active;
     this.txtCreated = data.Created;
     this.txtModified = data.Modified;
@@ -113,8 +113,8 @@ showAddEditForm = false;
     this.selAction = "View";
     this.formHeader = "View Data";
     
-    this.txtProductId = data.RoleId;
-    this.txtProductName = data.RoleName;
+    this.txtProductId = data.ProductId;
+    this.txtProductName = data.ProductName;
     this.txtActive = data.Active;
     this.txtCreated = data.Created;
     this.txtModified = data.Modified;
@@ -177,7 +177,7 @@ showAddEditForm = false;
   fnAddEditFormSave() {
     if (this.txtProductName == "" || this.txtProductName == null || this.txtActive == "" || this.txtActive == null ) {
       if (this.txtProductName == "" || this.txtProductName == null) {
-        Swal.fire('Validation', 'Role Name should not be empty..!', 'warning');
+        Swal.fire('Validation', 'Product Name should not be empty..!', 'warning');
         return;
       }
       if (this.txtActive == "" || this.txtActive == null) {
@@ -216,10 +216,10 @@ showAddEditForm = false;
               Swal.fire('Duplicate', 'It is existing please check it..!', 'info');
             }
             if (this.selAction == "Edit") {
-              if (this.dupRecord[0].RoleId != this.txtProductId) {
+              if (this.dupRecord[0].ProductId != this.txtProductId) {
                 Swal.fire('Duplicate', 'It is existing please check it..!', 'info');
               }
-              else if (this.dupRecord[0].RoleId == this.txtProductId) {
+              else if (this.dupRecord[0].ProductId == this.txtProductId) {
                 // updating the modified column with modified message
                 body['modified'] = "By: " + this.loginUserName + ", On - " + formatDate(new Date(), 'dd-MMM-yyyy' + ' @ ' + 'hh:mm:ss a', 'en_US');
                 this.fnEditSave(this.txtProductId, body);
