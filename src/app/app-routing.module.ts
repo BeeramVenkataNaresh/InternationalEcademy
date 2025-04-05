@@ -34,6 +34,7 @@ import { PaymentmodeComponent } from './_components/Paymentmode/paymentmode.comp
 import { CustomerComponent } from './_components/Customer/customer.component';
 import { ReceiptComponent } from './_components/Receipt/receipt.component';
 import { PaymentComponent } from './_components/Payment/payment.component';
+import { EroboticsComponent } from './_components/Erobotics/erobotics.component';
 
 
 const routes: Routes = [
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: "grade11", component: Grade11Component },
   { path: "grade12", component: Grade12Component },
   { path: "englishacademy", component: EnglishacademyComponent },
+  { path: "erobotics", component: EroboticsComponent },
   { path: "bcmit", component: BcmitComponent },
   { path: "bcbcpa", component: BcbcpaComponent },
   { path: "bchpact", component: BchpactComponent },

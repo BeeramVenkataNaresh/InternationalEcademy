@@ -3,8 +3,11 @@ import { formatDate } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RoleService } from 'src/app/_services/role.service';
-import { UserService } from 'src/app/_services/user.service';
+import { AccountService } from 'src/app/_services/account.service';
+import { CustomerService } from 'src/app/_services/customer.service';
+import { PaymentmodeService } from 'src/app/_services/paymentmode.service';
+import { ProductService } from 'src/app/_services/product.service';
+import { ReceiptService } from 'src/app/_services/receipt.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
@@ -25,27 +28,30 @@ export class ReceiptComponent {
     { id: 2, name: 'No' }
   ];
 
-  usersForm: FormGroup;
-  role: any;
-  module: any;
-  unit: any;
-  region: any;
-  users: any;
-  originalUsers: any;
+  receiptsForm: FormGroup;
+  accounts: any;
+  customers: any;
+  paymodes: any;
+  products: any;
+  receipts: any;
+  originalReceipts: any;
   dupRecord: any;
-  displayColumns: any = ['#', 'Id', 'UserName', 'Password', 'FirstName', 'LastName', 'Phone', 'Email', 'RoleId', 'Role', 'Active'];
+  displayColumns: any = ['#', 'Id', 'RectDt', 'AccId', 'CustId', 'PayModeId', 'ProductId', 'Amount', 'Remarks', 'Active'];
   rowCount: number;
   submitted = false;
   loginUserName: any;
   loginUserRoleId: any;
 
-  constructor(private formBuilder: FormBuilder, private roleService: RoleService, private userService: UserService, private router: Router) {
-    this.fnGetRoles();
+  constructor(private formBuilder: FormBuilder, private accountService: AccountService, private customerService: CustomerService, private paymodeService: PaymentmodeService, private productService: ProductService, private receiptService: ReceiptService, private router: Router) {
+    this.fnGetAccounts();
+    this.fnGetCustomers();
+    this.fnGetPayModes();
+    this.fnGetProducts();
     this.loginUserName = localStorage.getItem('loginUser');
     this.loginUserRoleId = localStorage.getItem('loginUserRoleId');
 
-     // setting the datepicker
-     this.datePickerConfig = Object.assign({},
+    // setting the datepicker
+    this.datePickerConfig = Object.assign({},
       {
         dateInputFormat: 'DD-MMM-YYYY',
         containerClass: 'theme-dark-blue',
@@ -57,49 +63,126 @@ export class ReceiptComponent {
   }
 
   ngOnInit(): void {
-    this.users = 0;
-    this.usersForm = this.formBuilder.group(
+    this.receipts = 0;
+    this.receiptsForm = this.formBuilder.group(
       {
         txtFromDate: [formatDate(new Date(), 'dd-MMM-yyyy', 'en_US')],
         txtToDate: [formatDate(new Date(), 'dd-MMM-yyyy', 'en_US')],
-        txtSearch: [''],
-        txtUserId: [''],
-        txtUserName: ['', [Validators.required, Validators.maxLength(15)]],
-        txtPassword: ['', [Validators.required, Validators.maxLength(15)]],
-        txtFirstName: ['', [Validators.required, Validators.maxLength(50)]],
-        txtLastName: ['', [Validators.maxLength(50)]],
-        txtPhone: ['', [Validators.required, Validators.maxLength(15)]],
-        txtEmail: ['', [Validators.required, Validators.maxLength(50)]],
-        txtRoleName: ['', [Validators.required]],
+        txtSearchAccId: [''],
+        txtSearchCustId: [''],
+        txtSearchPayModeId: [''],
+        txtSearchProductId: [''],
+        txtRectDt: [formatDate(new Date(), 'dd-MMM-yyyy', 'en_US')],
+        txtAccId: ['', Validators.required],
+        txtCustId: ['', Validators.required],
+        txtPayModeId: ['', Validators.required],
+        txtProductId: ['', Validators.required],
+        txtAmount: ['', Validators.required, Validators.maxLength(12)],
+        txtRemarks: ['', Validators.required, Validators.maxLength(100)],
         txtActive: ['', Validators.required],
         txtCreated: [''],
         txtModified: ['']
       });
   }
 
-  fnGetRoles() {
-    this.roleService.getAll().subscribe(
+  fnGetAccounts() {
+    this.accountService.getAll().subscribe(
       result => {
-        this.role = result[0];
+        this.accounts = result[0];
       },
       error => {
-        Swal.fire('@ Retrive Roles..! ', error.message, 'error');
+        Swal.fire('@ Retrive Accounts..! ', error.message, 'error');
+      });
+  }
+
+  fnGetCustomers() {
+    this.customerService.getAll().subscribe(
+      result => {
+        this.customers = result[0];
+      },
+      error => {
+        Swal.fire('@ Retrive Customers..! ', error.message, 'error');
+      });
+  }
+
+  fnGetPayModes() {
+    this.paymodeService.getAll().subscribe(
+      result => {
+        this.paymodes = result[0];
+      },
+      error => {
+        Swal.fire('@ Retrive Pay Modes..! ', error.message, 'error');
+      });
+  }
+
+  fnGetProducts() {
+    this.productService.getAll().subscribe(
+      result => {
+        this.products = result[0];
+      },
+      error => {
+        Swal.fire('@ Retrive Products..! ', error.message, 'error');
       });
   }
 
 
   get f(): { [key: string]: AbstractControl } {
-    return this.usersForm.controls;
+    return this.receiptsForm.controls;
+  }
+
+  fnSearch() {
+    let accId: any;
+    let custId: any;
+    let paymodeId: any;
+    let productId: any;
+
+    if (this.f['txtFromDate'].value == null || this.f['txtFromDate'].value == "") {
+      Swal.fire('Validation', 'Please select the from Date..! it should not be empty..!', 'warning');
+      return;
+    }
+    if (this.f['txtToDate'].value == null || this.f['txtToDate'].value == "") {
+      Swal.fire('Validation', 'Please select the to Date..! it should not be empty..!', 'warning');
+      return;
+    }
+
+    if ((this.f['txtSearchAccId'].value == null || this.f['txtSearchAccId'].value == "")) {
+      accId = 0;
+    }
+    else {
+      accId = this.f['txtSearchAccId'].value;
+    }
+
+    if ((this.f['txtSearchCustId'].value == null || this.f['txtSearchCustId'].value == "")) {
+      custId = 0;
+    }
+    else {
+      custId = this.f['txtSearchCustId'].value;
+    }
+
+    if ((this.f['txtSearchPayModeId'].value == null || this.f['txtSearchPayModeId'].value == "")) {
+      paymodeId = 0;
+    }
+    else {
+      paymodeId = this.f['txtSearchPayModeId'].value;
+    }
+
+    if ((this.f['txtSearchProductId'].value == null || this.f['txtSearchProductId'].value == "")) {
+      productId = 0;
+    }
+    else {
+      productId = this.f['txtSearchProductId'].value;
+    }
+
+    this.fnGetByQuery(formatDate(this.f['txtFromDate'].value, 'dd-MMM-yyyy', 'en_US'), formatDate(this.f['txtToDate'].value, 'dd-MMM-yyyy', 'en_US'), accId, custId, paymodeId, productId)
   }
 
 
-  fnGetAll() {
-    this.userService.getAll().subscribe(
+  fnGetByQuery(fromDate, toDate, accId, custId, paymodeId, productId) {
+    this.receiptService.getByQuery(fromDate, toDate, accId, custId, paymodeId, productId).subscribe(
       result => {
-        this.users = result[0];
-        this.originalUsers = result[0];
+        this.receipts = result[0];
 
-        if (this.users.length == 0) {
+        if (this.receipts.length == 0) {
           Swal.fire('No data found..!', result.message, 'info');
         }
       },
@@ -108,15 +191,6 @@ export class ReceiptComponent {
       });
   }
 
-  fnSearch() {
-    if (this.f['txtSearch'].value == null || this.f['txtSearch'].value == '') {
-      this.fnGetAll();
-    }
-    else if (this.f['txtSearch'].value != null) {
-      this.users = this.originalUsers;
-      this.users = this.users.filter((users) => users.UserName == this.f['txtSearch'].value)
-    }
-  }
 
   fnClear() {
     this.ngOnInit();
@@ -155,7 +229,7 @@ export class ReceiptComponent {
       cancelButtonText: 'No'
     }).then((result) => {
       if (result.value) {
-        this.userService.delete(id).subscribe(
+        this.receiptService.delete(id).subscribe(
           result => {
             this.fnSearch();
             Swal.fire('Deleted', result.message, 'success');
@@ -173,15 +247,15 @@ export class ReceiptComponent {
     this.showAddEditForm = true;
     if (data) {
       // display data on the form
-      this.usersForm.patchValue({
-        txtUserId: data.UserId,
-        txtUserName: data.UserName,
-        txtPassword: data.Password,
-        txtFirstName: data.FirstName,
-        txtLasttName: data.LastName,
-        txtPhone: data.Phone,
-        txtEmail: data.Email,
-        txtRoleName: data.RoleId,
+      this.receiptsForm.patchValue({
+        txtRectId: data.RectId,
+        txtRectDt: data.RectDt,
+        txtAccId: data.AccId,
+        txtCustId: data.CustId,
+        txtPayModeId: data.PaymodeId,
+        txtProductId: data.ProductId,
+        txtAmount: data.Amount,
+        txtRemarks: data.Remarks,
         txtActive: data.Active,
         txtCreated: data.Created,
         txtModified: data.Modified
@@ -190,10 +264,9 @@ export class ReceiptComponent {
   }
 
   fnNewSave(data: any) {
-    this.userService.create(data).subscribe(
+    this.receiptService.create(data).subscribe(
       result => {
         Swal.fire('Insert', result.message, 'success');
-        this.fnGetAll();
         this.fnAddEditFormClose();
       },
       error => {
@@ -202,10 +275,9 @@ export class ReceiptComponent {
   }
 
   fnEditSave(id, data: any) {
-    this.userService.update(id, data).subscribe(
+    this.receiptService.update(id, data).subscribe(
       result => {
         Swal.fire('Update', result.message, 'success');
-        this.fnGetAll();
         this.fnAddEditFormClose();
       },
       error => {
@@ -216,61 +288,35 @@ export class ReceiptComponent {
   fnAddEditFormSave() {
     this.submitted = true;
     // stop here if form is invalid
-    if (this.usersForm.invalid) {
+    if (this.receiptsForm.invalid) {
       return;
     }
     else {
       let body = {
-        "userId": this.f['txtUserId'].value,
-        "userName": this.f['txtUserName'].value,
-        "password": this.f['txtPassword'].value,
-        "firstName": this.f['txtFirstName'].value,
-        "lastName": this.f['txtLastName'].value,
-        "phone": this.f['txtPhone'].value,
-        "email": this.f['txtEmail'].value,
-        "roleId": this.f['txtRoleName'].value,
+        "rectId": this.f['txtRectId'].value,
+        "rectDt": this.f['txtRectDt'].value,
+        "accId": this.f['txtAccId'].value,
+        "custId": this.f['txtCustId'].value,
+        "paymodeId": this.f['txtPayModeId'].value,
+        "productId": this.f['txtProductId'].value,
+        "amount": this.f['txtAmount'].value,
+        "remarks": this.f['txtRemarks'].value,
         "active": this.f['txtActive'].value,
         "created": this.f['txtCreated'].value,
         "modified": this.f['txtModified'].value
       }
 
-      // check for duplicate
-      this.userService.getByName(this.f['txtUserName'].value).subscribe(
-        result => {
-          this.dupRecord = result[0];
-          if (result[0].length == 0) {
-            // Action
-            if (this.selAction == "Add") {
-              // updating the created column with created message
-              body['created'] = "By: " + this.loginUserName + ", On - " + formatDate(new Date(), 'dd-MMM-yyyy' + ' @ ' + 'hh:mm:ss a', 'en_US');
-              this.fnNewSave(body);
-            }
-            if (this.selAction == "Edit") {
-              // updating the modified column with modified message
-              body['modified'] = "By: " + this.loginUserName + ", On - " + formatDate(new Date(), 'dd-MMM-yyyy' + ' @ ' + 'hh:mm:ss a', 'en_US');
-              this.fnEditSave(this.f['txtUserId'].value, body);
-            }
-          }
-          else if (result[0].length > 0) {
-            if (this.selAction == "Add") {
-              Swal.fire('Duplicate', 'It is existing please check it..!', 'info');
-            }
-            if (this.selAction == "Edit") {
-              if (this.dupRecord[0].UserId != this.f['txtUserId'].value) {
-                Swal.fire('Duplicate', 'It is existing please check it..!', 'info');
-              }
-              else if (this.dupRecord[0].UserId == this.f['txtUserId'].value) {
-                // updating the modified column with modified message
-                body['modified'] = "By: " + this.loginUserName + ", On - " + formatDate(new Date(), 'dd-MMM-yyyy' + ' @ ' + 'hh:mm:ss a', 'en_US');
-                this.fnEditSave(this.f['txtUserId'].value, body);
-              }
-            }
-          }
-        },
-        error => {
-          Swal.fire('@ Check for duplicate..!', error.message, 'error');
-        }
-      );
+      // Action
+      if (this.selAction == "Add") {
+        // updating the created column with created message
+        body['created'] = "By: " + this.loginUserName + ", On - " + formatDate(new Date(), 'dd-MMM-yyyy' + ' @ ' + 'hh:mm:ss a', 'en_US');
+        this.fnNewSave(body);
+      }
+      if (this.selAction == "Edit") {
+        // updating the modified column with modified message
+        body['modified'] = "By: " + this.loginUserName + ", On - " + formatDate(new Date(), 'dd-MMM-yyyy' + ' @ ' + 'hh:mm:ss a', 'en_US');
+        this.fnEditSave(this.f['txtRectId'].value, body);
+      }
     }
   }
 

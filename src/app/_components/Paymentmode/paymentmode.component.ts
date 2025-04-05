@@ -177,7 +177,7 @@ showAddEditForm = false;
   fnAddEditFormSave() {
     if (this.txtPayModeName == "" || this.txtPayModeName == null || this.txtActive == "" || this.txtActive == null ) {
       if (this.txtPayModeName == "" || this.txtPayModeName == null) {
-        Swal.fire('Validation', 'Role Name should not be empty..!', 'warning');
+        Swal.fire('Validation', 'PayMode Name should not be empty..!', 'warning');
         return;
       }
       if (this.txtActive == "" || this.txtActive == null) {

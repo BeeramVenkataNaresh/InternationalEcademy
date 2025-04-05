@@ -2,128 +2,131 @@
     <h1 class="text-center text-primary">Receipts</h1>
     <div class="container">
         <div class="card border-primary">
-            <form [formGroup]="usersForm" (ngSubmit)="fnAddEditFormSave()">
+            <form [formGroup]="receiptsForm" (ngSubmit)="fnAddEditFormSave()">
                 <div class="card-header">
                     <i class="fa fa-file text-danger"></i>&nbsp;&nbsp;<b class="text-danger">{{formHeader}}</b>
                 </div>
                 <div class="card-body">
                     <div *ngIf="showAddEditForm">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label *ngIf="selAction != 'Add'" class="bold col-form-label-sm"
-                                        for="txtUserId">Id:<span style="color: red;"> *</span></label>
+                                        for="txtRectId">Id:<span style="color: red;"> *</span></label>
                                     <input *ngIf="selAction != 'Add'"
                                         [readonly]="selAction != 'Add' ? 'readonly' : null" type="text"
-                                        formControlName="txtUserId" placeholder="User ID"
+                                        formControlName="txtRectId" placeholder="Rect ID"
                                         class="form-control form-control-sm"
-                                        [ngClass]="{ 'is-invalid': submitted && f['txtUserId'].errors }" />
-                                    <div *ngIf="submitted && f['txtUserId'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['txtUserId'].errors['required']"><small>Req.</small></div>
+                                        [ngClass]="{ 'is-invalid': submitted && f['txtRectId'].errors }" />
+                                    <div *ngIf="submitted && f['txtRectId'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['txtRectId'].errors['required']"><small>Req.</small></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
-                                    <label class="bold col-form-label-sm" for="txtUserName">User.Name:<span
-                                            style="color: red;"> *</span></label>
-                                    <input type="text" formControlName="txtUserName" placeholder="User Name"
-                                        class="form-control form-control-sm"
-                                        [ngClass]="{ 'is-invalid': submitted && f['txtUserName'].errors }" />
-                                    <div *ngIf="submitted && f['txtUserName'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['txtUserName'].errors['required']"><small>Req.</small></div>
-                                        <div *ngIf="f['txtUserName'].errors['maxlength']"><small>Maximum 15 Char</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="bold col-form-label-sm" for="txtPassword">Password:<span
-                                            style="color: red;"> *</span></label>
-                                    <input type="password" formControlName="txtPassword" placeholder="Password"
-                                        class="form-control form-control-sm"
-                                        [ngClass]="{ 'is-invalid': submitted && f['txtPassword'].errors }" />
-                                    <div *ngIf="submitted && f['txtPassword'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['txtPassword'].errors['required']"><small>Req.</small></div>
-                                        <div *ngIf="f['txtPassword'].errors['maxlength']"><small>Maximum 15 Char</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="txtFirstName" class="col-form-label-sm">FirstName:<span class="lbl-req">
+                                    <label for="txtRectDt" class="col-form-label-sm">Rect.Dt:<span class="lbl-req">
                                             *</span></label>
-                                    <input type="text" formControlName="txtFirstName" placeholder="First Name"
-                                        class="form-control form-control-sm"
-                                        [ngClass]="{ 'is-invalid': submitted && f['txtFirstName'].errors }" />
-                                    <div *ngIf="submitted && f['txtFirstName'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['txtFirstName'].errors['required']"><small>Req.</small></div>
-                                        <div *ngIf="f['txtFirstName'].errors['maxlength']"><small>Maximum 50
+                                    <div class="input-group">
+                                        <input type="text" formControlName="txtRectDt" placeholder="Receipt Date"
+                                            class="form-control form-control-sm" bsDatepicker #dpDOR="bsDatepicker"
+                                            [bsConfig]="datePickerConfig"
+                                            [ngClass]="{ 'is-invalid': submitted && f['txtRectDt'].errors }" />
+                                        <button type="button" class="input-group-text" (click)="dpDOR.show()"><i
+                                                class="fa fa-calendar"></i></button>
+                                        <div *ngIf="submitted && f['txtRectDt'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['txtRectDt'].errors['required']"><small>Req.</small>
+                                            </div>
+                                            <div *ngIf="f['txtRectDt'].errors['maxlength']"><small>Maximum 12
+                                                    Char</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="bold col-form-label-sm" for="txtAccId">Account:<span
+                                            style="color: red;"> *</span></label>
+                                    <ng-select class="input-group small" formControlName="txtAccId"
+                                        [ngClass]="{ 'is-invalid': submitted && f['txtAccId'].errors }">
+                                        <ng-option *ngFor="let item of accounts"
+                                            [value]="item.AccId">{{item.AccName}}</ng-option>
+                                    </ng-select>
+                                    <div *ngIf="submitted && f['txtAccId'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['txtAccId'].errors['required']"><small>Req.</small></div>
+                                        <div *ngIf="f['txtAccId'].errors['maxlength']"><small>Maximum 15 Char</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="txtCustId" class="col-form-label-sm">Customer:<span class="lbl-req">
+                                            *</span></label>
+                                    <ng-select class="input-group small" formControlName="txtCustId"
+                                        [ngClass]="{ 'is-invalid': submitted && f['txtCustId'].errors }">
+                                        <ng-option *ngFor="let item of customers"
+                                            [value]="item.CustId">{{item.CustName}}</ng-option>
+                                    </ng-select>
+                                    <div *ngIf="submitted && f['txtCustId'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['txtCustId'].errors['required']"><small>Req.</small></div>
+                                        <div *ngIf="f['txtCustId'].errors['maxlength']"><small>Maximum 50
                                                 Char</small>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="txtLastName" class="col-form-label-sm">LastName:</label>
-                                    <input type="text" formControlName="txtLastName" placeholder="Last Name"
-                                        class="form-control form-control-sm"
-                                        [ngClass]="{ 'is-invalid': submitted && f['txtLastName'].errors }" />
-                                    <div *ngIf="submitted && f['txtLastName'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['txtLastName'].errors['required']"><small>Req.</small></div>
-                                        <div *ngIf="f['txtLastName'].errors['maxlength']"><small>Maximum 50 Char</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="txtPhone" class="col-form-label-sm">Phone:<span class="lbl-req">
-                                            *</span></label>
-                                    <input type="text" formControlName="txtPhone" placeholder="Phone"
-                                        class="form-control form-control-sm"
-                                        [ngClass]="{ 'is-invalid': submitted && f['txtPhone'].errors }" />
-                                    <div *ngIf="submitted && f['txtPhone'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['txtPhone'].errors['required']"><small>Req.</small></div>
-                                        <div *ngIf="f['txtPhone'].errors['maxlength']"><small>Maximum 15 Char</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="row mt-2">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="txtEmail" class="col-form-label-sm">Email:<span class="lbl-req">
-                                            *</span></label>
-                                    <input type="text" formControlName="txtEmail" placeholder="Email"
-                                        class="form-control form-control-sm"
-                                        [ngClass]="{ 'is-invalid': submitted && f['txtEmail'].errors }" />
-                                    <div *ngIf="submitted && f['txtEmail'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['txtEmail'].errors['required']"><small>Req.</small></div>
-                                        <div *ngIf="f['txtEmail'].errors['maxlength']"><small>Maximum 50 Char</small>
+                                    <label for="txtPayModeId" class="col-form-label-sm">PayMode:</label>
+                                    <ng-select class="input-group small" formControlName="txtCustId"
+                                        [ngClass]="{ 'is-invalid': submitted && f['txtPayModeId'].errors }">
+                                        <ng-option *ngFor="let item of paymodes"
+                                            [value]="item.PayModeId">{{item.PayModeName}}</ng-option>
+                                    </ng-select>
+                                    <div *ngIf="submitted && f['txtPayModeId'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['txtPayModeId'].errors['required']"><small>Req.</small></div>
+                                        <div *ngIf="f['txtPayModeId'].errors['maxlength']"><small>Maximum 50
+                                                Char</small>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="txtRoleName" class="col-form-label-sm">Role:<span class="lbl-req">
+                                    <label for="txtProductId" class="col-form-label-sm">Product:<span class="lbl-req">
                                             *</span></label>
-                                    <ng-select class="input-group small" formControlName="txtRoleName"
-                                        [ngClass]="{ 'is-invalid': submitted && f['txtRoleName'].errors }">
-                                        <ng-option *ngFor="let item of role"
-                                            [value]="item.RoleId">{{item.RoleName}}</ng-option>
-                                        <!-- <div *ngIf="f['txtRoleName'].errors['required']">Req.</div> -->
+                                    <ng-select class="input-group small" formControlName="txtCustId"
+                                        [ngClass]="{ 'is-invalid': submitted && f['txtPayModeId'].errors }">
+                                        <ng-option *ngFor="let item of products"
+                                            [value]="item.ProductId">{{item.ProductName}}</ng-option>
                                     </ng-select>
+                                    <div *ngIf="submitted && f['txtProductId'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['txtProductId'].errors['required']"><small>Req.</small></div>
+                                        <div *ngIf="f['txtProductId'].errors['maxlength']"><small>Maximum 15
+                                                Char</small>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="txtAmount" class="col-form-label-sm">Amount:<span class="lbl-req">
+                                            *</span></label>
+                                    <input type="text" formControlName="txtAmount" placeholder="Amount"
+                                        class="form-control form-control-sm"
+                                        [ngClass]="{ 'is-invalid': submitted && f['txtAmount'].errors }" />
+                                    <div *ngIf="submitted && f['txtAmount'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['txtAmount'].errors['required']"><small>Req.</small></div>
+                                        <div *ngIf="f['txtAmount'].errors['maxlength']"><small>Maximum 12 Char</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="txtActive" class="col-form-label-sm">Active:<span class="lbl-req">
                                             *</span></label>
@@ -136,7 +139,22 @@
                             </div>
                         </div>
                         <div class="row mt-2">
-                            
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="txtRemarks" class="col-form-label-sm">Remarks:<span class="lbl-req">
+                                            *</span></label>
+                                    <input type="text" formControlName="txtRemarks" placeholder="Remarks"
+                                        class="form-control form-control-sm"
+                                        [ngClass]="{ 'is-invalid': submitted && f['txtRemarks'].errors }" />
+                                    <div *ngIf="submitted && f['txtRemarks'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['txtRemarks'].errors['required']"><small>Req.</small></div>
+                                        <div *ngIf="f['txtRemarks'].errors['maxlength']"><small>Maximum 100 Char</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label *ngIf="loginUserRoleId < 3" for="txtCreated"
@@ -176,11 +194,23 @@
                         </div>
                     </div>
                     <div *ngIf="showSearch">
-                        <div class="row form-group">
-                            <td class="col-md-2">
-                                <div class="form-group">
-                                    <label for="txtFromDate" class="col-form-label-sm">From.Date:<span class="lbl-req">
-                                        *</span></label>
+                        <table class="table -sm table-sm table-bordered" style="font-size: 10pt;">
+                            <thead class="bg-light text-center">
+                                <tr>
+                                    <th colspan="2">From.Date <span class="lbl-req">
+                                            *</span></th>
+                                    <th colspan="2">To.Date <span class="lbl-req">
+                                            *</span></th>
+                                    <th colspan="1">Account</th>
+                                    <th colspan="1">Customer</th>
+                                    <th colspan="1">PayMode</th>
+                                    <th colspan="1">Product</th>
+                                    <th colspan="4">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2" style="width: 12%;">
                                         <div class="input-group">
                                             <input type="text" formControlName="txtFromDate" placeholder="From Date"
                                                 class="form-control form-control-sm" bsDatepicker
@@ -193,52 +223,85 @@
                                                 <div *ngIf="f['txtFromDate'].errors['maxlength']">Maximum 12 Char</div>
                                             </div>
                                         </div>
-                                </div>
-                            </td>
-                            <td class="col-md-2">
-                                <div class="form-group">
-                                    <label for="txtToDate" class="col-form-label-sm">To.Date:<span class="lbl-req">
-                                            *</span></label>
-                                    <div class="input-group">
-                                        <input type="text" formControlName="txtToDate" placeholder="To Date"
-                                            class="form-control form-control-sm" bsDatepicker #toDate="bsDatepicker"
-                                            [bsConfig]="datePickerConfig" required="Req."
-                                            [ngClass]="{ 'is-invalid': submitted && f['txtToDate'].errors }" />
-                                        <button type="button" class="input-group-text" (click)="toDate.show()"><i
-                                                class="fa fa-calendar"></i></button>
-                                        <div *ngIf="submitted && f['txtToDate'].errors" class="invalid-feedback">
-                                            <div *ngIf="f['txtToDate'].errors['required']">Req.</div>
-                                            <div *ngIf="f['txtToDate'].errors['maxlength']">Maximum 12 Char</div>
+                                    </td>
+                                    <td colspan="2" style="width: 12%;">
+                                        <div class="input-group">
+                                            <input type="text" formControlName="txtToDate" placeholder="To Date"
+                                                class="form-control form-control-sm" bsDatepicker #toDate="bsDatepicker"
+                                                [bsConfig]="datePickerConfig" required="Req."
+                                                [ngClass]="{ 'is-invalid': submitted && f['txtToDate'].errors }" />
+                                            <button type="button" class="input-group-text" (click)="toDate.show()"><i
+                                                    class="fa fa-calendar"></i></button>
+                                            <div *ngIf="submitted && f['txtToDate'].errors" class="invalid-feedback">
+                                                <div *ngIf="f['txtToDate'].errors['required']">Req.</div>
+                                                <div *ngIf="f['txtToDate'].errors['maxlength']">Maximum 12 Char</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <div class="col-md-2 text-end">
-                                <label class="bold col-form-label-sm" for="txtSearch">Search Value:</label>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="text" formControlName="txtSearch" placeholder="User Name"
-                                    class="form-control form-control-sm" />
-                            </div>
-                            <div class="col-md-3">
-                                <button type="button" class="a-list-primay btn btn-secondary" (click)="fnSearch()"
-                                    title="Search"><small><i class="fa fa-search fa-1x"></i>
-                                        Search</small> </button> &nbsp;
-                                <button type="reset" class="a-list-primay btn btn-success" (click)="fnClear()"
-                                    title="Clear"><i class="fa fa-refresh fa-1x"></i><small>&nbsp;Clear</small></button>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="float-end">
-                                    <button type="button" class="a-list-primay btn btn-primary" (click)="fnAdd()"
-                                        title="Add"><i class="fa fa-plus-square fa-1x">
-                                            <small>&nbsp;Add</small></i></button>
-                                </div>
-                            </div>
-                        </div>
+                                    </td>
+                                    <td colspan="1" style="width: 15%;">
+                                        <ng-select class="input-group small" formControlName="txtSearchAccId"
+                                            [ngClass]="{ 'is-invalid': submitted && f['txtSearchAccId'].errors }">
+                                            <ng-option *ngFor="let item of accounts"
+                                                [value]="item.AccId">{{item.AccName}}</ng-option>
+                                        </ng-select>
+                                        <div *ngIf="submitted && f['txtSearchAccId'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['txtSearchAccId'].errors['required']">Req.</div>
+                                        </div>
+                                    </td>
+                                    <td colspan="1" style="width: 15%;">
+                                        <ng-select class="input-group small" formControlName="txtSearchCustId"
+                                            [ngClass]="{ 'is-invalid': submitted && f['txtSearchCustId'].errors }">
+                                            <ng-option *ngFor="let item of customers"
+                                                [value]="item.CustId">{{item.CustName}}</ng-option>
+                                            <!-- <div *ngIf="f['txtRoleName'].errors['required']">Req.</div> -->
+                                        </ng-select>
+                                        <div *ngIf="submitted && f['txtSearchCustId'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['txtSearchCustId'].errors['required']">Req.</div>
+                                        </div>
+                                    </td>
+                                    <td colspan="1" style="width: 12%;">
+                                        <ng-select class="input-group small" formControlName="txtSearchPayModeId"
+                                            [ngClass]="{ 'is-invalid': submitted && f['txtSearchPayModeId'].errors }">
+                                            <ng-option *ngFor="let item of paymodes"
+                                                [value]="item.PayModeId">{{item.PayModeName}}</ng-option>
+                                            <!-- <div *ngIf="f['txtRoleName'].errors['required']">Req.</div> -->
+                                        </ng-select>
+                                        <div *ngIf="submitted && f['txtSearchPayModeId'].errors"
+                                            class="invalid-feedback">
+                                            <div *ngIf="f['txtSearchPayModeId'].errors['required']">Req.</div>
+                                        </div>
+                                    </td>
+                                    <td colspan="1" style="width: 15%;">
+                                        <ng-select class="input-group small" formControlName="txtSearchProductId"
+                                            [ngClass]="{ 'is-invalid': submitted && f['txtSearchProductId'].errors }">
+                                            <ng-option *ngFor="let item of products"
+                                                [value]="item.ProductId">{{item.ProductName}}</ng-option>
+                                        </ng-select>
+                                        <div *ngIf="submitted && f['txtSearchProductId'].errors"
+                                            class="invalid-feedback">
+                                            <div *ngIf="f['txtSearchProductId'].errors['required']">Req.</div>
+                                        </div>
+                                    </td>
+                                    <td class="text-start" colspan="4">
+                                        <button type="button" class="a-list-primay btn btn-secondary"
+                                            (click)="fnSearch()" title="Search"><small><i
+                                                    class="fa fa-search fa-1x"></i>
+                                                Find</small> </button> &nbsp;
+                                        <button type="reset" class="a-list-primay btn btn-success" (click)="fnClear()"
+                                            title="Clear"><i
+                                                class="fa fa-refresh fa-1x"></i><small>&nbsp;Clear</small></button>
+                                        <button type="button" class="a-list-primay btn btn-primary float-end" (click)="fnAdd()"
+                                            title="Add"><i class="fa fa-plus-square fa-1x">
+                                                <small>&nbsp;Add</small></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
                         <div class="row mt-3">
-                            <div *ngIf="users.length > 0" class="table-responsive">
-                                <table
-                                    class="table -sm table-sm table-hover table-bordered text-center"  style="font-size: 10pt;">
+                            <div *ngIf="receipts.length > 0" class="table-responsive">
+                                <table class="table -sm table-sm table-hover table-bordered text-center"
+                                    style="font-size: 10pt;">
                                     <thead class="bg-light">
                                         <tr>
                                             <th *ngFor="let col of displayColumns"> <b>{{ col }}</b></th>
@@ -248,36 +311,35 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let item of users; let i = index;">
+                                        <tr *ngFor="let item of receipts; let i = index;">
                                             <td>{{ i+1 }}</td>
-                                            <td>{{ (item['UserId'] == null || item['UserId'] == "") ? "-":
-                                                item['UserId']
+                                            <td>{{ (item['RectId'] == null || item['RectId'] == "") ? "-":
+                                                item['RectId']
                                                 }}
                                             </td>
-                                            <td>{{ (item['UserName'] == null || item['UserName'] == "") ? "-":
-                                                item['UserName']
+                                            <td>{{ (item['RectDt'] == null || item['RectDt'] == "") ? "-":
+                                                item['RectDt']
                                                 }}
                                             </td>
-                                            <td>{{ (item['Password'] == null || item['Password'] == "") ? "-":
-                                                item['Password'] }}
+                                            <td>{{ (item['AccId'] == null || item['AccId'] == "") ? "-":
+                                                item['AccId'] }}
                                             </td>
-                                            <td>{{ (item['FirstName'] == null || item['FirstName'] == "") ? "-":
-                                                item['FirstName']
+                                            <td>{{ (item['AccName'] == null || item['AccName'] == "") ? "-":
+                                                item['AccName']
                                                 }}</td>
-                                            <td>{{ (item['LastName'] == null || item['LastName'] == "") ? "-":
-                                                item['LastName'] }}</td>
-                                            <td>{{ (item['Phone'] == null || item['Phone'] == "") ? "-": item['Phone']
-                                                }}
-                                            </td>
-                                            <td>{{ (item['Email'] == null || item['Email'] == "") ? "-": item['Email']
-                                                }}
-                                            </td>
-                                            <td>{{ (item['RoleId'] == null || item['RoleId'] == "") ? "-":
-                                                item['RoleId'] }}
-                                            </td>
-                                            <td>{{ (item['RoleName'] == null || item['RoleName'] == "") ? "-":
-                                                item['RoleName']
+                                            <td>{{ (item['CustId'] == null || item['CustId'] == "") ? "-":
+                                                item['CustId']
                                                 }}</td>
+                                            <td>{{ (item['PayModeId'] == null || item['PayModeId'] == "") ? "-":
+                                                item['PayModeId'] }}</td>
+                                            <td>{{ (item['ProductId'] == null || item['ProductId'] == "") ? "-":
+                                                item['ProductId']
+                                                }}
+                                            </td>
+                                            <td>{{ (item['Amount'] == null || item['Amount'] == "") ? "-":
+                                                item['Amount']
+                                                }}
+                                            </td>
                                             <!-- <td><input type="checkbox" [checked]="item['Active']" disabled="false" /></td> -->
                                             <td>{{ (item['Active'] == 1) ? "Yes" : "No" }}</td>
                                             <td *ngIf="loginUserRoleId < 3">{{ (item['Created'] == null ||
@@ -299,14 +361,14 @@
                                                     title="Edit"><i class="fa fa-edit fa-lg"></i></a>
                                             </td>
                                             <td *ngIf="loginUserRoleId < 3">
-                                                <a class="link-danger" type="button" (click)="fnDelete(item['UserId'])"
+                                                <a class="link-danger" type="button" (click)="fnDelete(item['RectId'])"
                                                     title="Delete"><i class="fa fa-trash-o fa-lg"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <td colspan="24" class="text-left">{{ users.length }} Row(s)</td>
+                                            <td colspan="24" class="text-left">{{ receipts.length }} Row(s)</td>
                                         </tr>
                                     </tfoot>
                                 </table>

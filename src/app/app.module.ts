@@ -41,6 +41,8 @@ import { PaymentmodeComponent } from './_components/Paymentmode/paymentmode.comp
 import { CustomerComponent } from './_components/Customer/customer.component';
 import { ReceiptComponent } from './_components/Receipt/receipt.component';
 import { PaymentComponent } from './_components/Payment/payment.component';
+import { EnglishacademyComponent } from './_components/Englishacademy/englishacademy.component';
+import { EroboticsComponent } from './_components/Erobotics/erobotics.component';
 
 
 @NgModule({ 
@@ -51,6 +53,8 @@ import { PaymentComponent } from './_components/Payment/payment.component';
     VisionComponent,
     Grade11Component,
     Grade12Component,
+    EnglishacademyComponent,
+    EroboticsComponent,
     BcmitComponent,
     BcbcpaComponent,
     BchpactComponent,
