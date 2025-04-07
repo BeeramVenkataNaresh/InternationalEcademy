@@ -166,7 +166,7 @@ export class StudentsComponent {
   }
 
   fnGetByQuery(fromDate, toDate, productId, gradeId) {
-    //this.fnGetAll();
+    this.fnGetAll();
     this.studentService.getByQuery(fromDate, toDate, productId, gradeId).subscribe(
       result => {
         this.students = result[0];
