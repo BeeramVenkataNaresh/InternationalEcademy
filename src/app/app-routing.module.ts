@@ -16,7 +16,7 @@ import { PaymentgatewayComponent } from './_components/Paymentgateway/paymentgat
 import { Grade11Component } from './_components/Grade11/grade11.component';
 import { Grade12Component } from './_components/Grade12/grade12.component';
 import { VisionComponent } from './_components/Vision/vision.component';
-import { StaffComponent } from './_components/Staff/staff.component';
+import { ManagementComponent } from './_components/Management/management.component';
 import { FaqsComponent } from './_components/Faqs/faqs.component';
 import { TestComponent } from './_components/Test/test.component';
 import { BcmitComponent } from './_components/BrainCheckerMIT/bcmit.component';
@@ -41,7 +41,7 @@ const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "about", component: AboutComponent },
   { path: "vision", component: VisionComponent },
-  { path: "staff", component: StaffComponent },
+  { path: "management", component: ManagementComponent },
   { path: "faqs", component: FaqsComponent },
   { path: "grade11", component: Grade11Component },
   { path: "grade12", component: Grade12Component },

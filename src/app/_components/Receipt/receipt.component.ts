@@ -72,13 +72,14 @@ export class ReceiptComponent {
         txtSearchCustId: [''],
         txtSearchPayModeId: [''],
         txtSearchProductId: [''],
+        txtRectId: [''],
         txtRectDt: [formatDate(new Date(), 'dd-MMM-yyyy', 'en_US')],
         txtAccId: ['', Validators.required],
         txtCustId: ['', Validators.required],
         txtPayModeId: ['', Validators.required],
         txtProductId: ['', Validators.required],
-        txtAmount: ['', Validators.required, Validators.maxLength(12)],
-        txtRemarks: ['', Validators.required, Validators.maxLength(100)],
+        txtAmount: ['', [Validators.required, Validators.maxLength(12)]],
+        txtRemarks: ['', [Validators.required, Validators.maxLength(100)]],
         txtActive: ['', Validators.required],
         txtCreated: [''],
         txtModified: ['']
@@ -305,6 +306,8 @@ export class ReceiptComponent {
         "created": this.f['txtCreated'].value,
         "modified": this.f['txtModified'].value
       }
+
+      alert(body);
 
       // Action
       if (this.selAction == "Add") {

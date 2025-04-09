@@ -43,6 +43,7 @@ import { ReceiptComponent } from './_components/Receipt/receipt.component';
 import { PaymentComponent } from './_components/Payment/payment.component';
 import { EnglishacademyComponent } from './_components/Englishacademy/englishacademy.component';
 import { EroboticsComponent } from './_components/Erobotics/erobotics.component';
+import { ManagementComponent } from './_components/Management/management.component';
 
 
 @NgModule({ 
@@ -78,6 +79,7 @@ import { EroboticsComponent } from './_components/Erobotics/erobotics.component'
     PaymentComponent,
     PaymentgatewayComponent,
     MessageComponent,
+    ManagementComponent,
     TestComponent
   ],
 
