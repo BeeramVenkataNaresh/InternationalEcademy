@@ -29,8 +29,8 @@ export class ReceiptService {
     }
   
     // Get By Query
-    getByQuery(fromDate, toDate, accId, custId, paymodeId, productId): Observable<any> {
-      return this.httpClient.get(apiPath + '/getByQuery/' + fromDate + '/' + toDate + '/' + accId + '/' + custId + '/' + paymodeId + '/' + productId);
+    getByQuery(fromDate, toDate, custId, productId, accId, paymodeId): Observable<any> {
+      return this.httpClient.get(apiPath + '/getByQuery/' + fromDate + '/' + toDate + '/' + custId + '/' + productId + '/' + accId + '/' + paymodeId);
     }
   
     // Create new data

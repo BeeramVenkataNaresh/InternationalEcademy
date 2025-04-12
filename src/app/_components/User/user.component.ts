@@ -28,8 +28,8 @@ export class UserComponent {
   module: any;
   unit: any;
   region: any;
-  users: any;
-  originalUsers: any;
+  users: any | null;
+  originalUsers: any | null;
   dupRecord: any;
   displayColumns: any = ['#', 'Id', 'UserName', 'Password', 'FirstName', 'LastName', 'Phone', 'Email', 'RoleId', 'Role', 'Active'];
   rowCount: number;
@@ -44,7 +44,6 @@ export class UserComponent {
   }
 
   ngOnInit(): void {
-    this.users = 0;
     this.usersForm = this.formBuilder.group(
       {
         txtSearch: [''],
@@ -84,7 +83,7 @@ export class UserComponent {
         this.users = result[0];
         this.originalUsers = result[0];
 
-        if (this.users.length == 0) {
+        if (this.users == null) {
           Swal.fire('No data found..!', result.message, 'info');
         }
       },

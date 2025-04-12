@@ -33,20 +33,22 @@ export class ReceiptComponent {
   customers: any;
   paymodes: any;
   products: any;
-  receipts: any;
-  originalReceipts: any;
+  receipts: any | null;
+  originalReceipts: any | null;
   dupRecord: any;
-  displayColumns: any = ['#', 'Id', 'RectDt', 'AccId', 'CustId', 'PayModeId', 'ProductId', 'Amount', 'Remarks', 'Active'];
+  displayColumns: any = ['#', 'Id', 'RectDt', 'CustId', 'CustName', 'ProductId', 'ProductName', 'AccId', 'AccName', 'PayModeId', 'PayModeName', 'Amount', 'Remarks', 'Active'];
   rowCount: number;
   submitted = false;
   loginUserName: any;
   loginUserRoleId: any;
 
   constructor(private formBuilder: FormBuilder, private accountService: AccountService, private customerService: CustomerService, private paymodeService: PaymentmodeService, private productService: ProductService, private receiptService: ReceiptService, private router: Router) {
-    this.fnGetAccounts();
+    
     this.fnGetCustomers();
-    this.fnGetPayModes();
     this.fnGetProducts();
+    this.fnGetAccounts();
+    this.fnGetPayModes();
+
     this.loginUserName = localStorage.getItem('loginUser');
     this.loginUserRoleId = localStorage.getItem('loginUserRoleId');
 
@@ -63,7 +65,6 @@ export class ReceiptComponent {
   }
 
   ngOnInit(): void {
-    this.receipts = 0;
     this.receiptsForm = this.formBuilder.group(
       {
         txtFromDate: [formatDate(new Date(), 'dd-MMM-yyyy', 'en_US')],
@@ -74,10 +75,10 @@ export class ReceiptComponent {
         txtSearchProductId: [''],
         txtRectId: [''],
         txtRectDt: [formatDate(new Date(), 'dd-MMM-yyyy', 'en_US')],
-        txtAccId: ['', Validators.required],
         txtCustId: ['', Validators.required],
-        txtPayModeId: ['', Validators.required],
         txtProductId: ['', Validators.required],
+        txtAccId: ['', Validators.required],
+        txtPayModeId: ['', Validators.required],
         txtAmount: ['', [Validators.required, Validators.maxLength(12)]],
         txtRemarks: ['', [Validators.required, Validators.maxLength(100)]],
         txtActive: ['', Validators.required],
@@ -86,16 +87,7 @@ export class ReceiptComponent {
       });
   }
 
-  fnGetAccounts() {
-    this.accountService.getAll().subscribe(
-      result => {
-        this.accounts = result[0];
-      },
-      error => {
-        Swal.fire('@ Retrive Accounts..! ', error.message, 'error');
-      });
-  }
-
+ 
   fnGetCustomers() {
     this.customerService.getAll().subscribe(
       result => {
@@ -103,16 +95,6 @@ export class ReceiptComponent {
       },
       error => {
         Swal.fire('@ Retrive Customers..! ', error.message, 'error');
-      });
-  }
-
-  fnGetPayModes() {
-    this.paymodeService.getAll().subscribe(
-      result => {
-        this.paymodes = result[0];
-      },
-      error => {
-        Swal.fire('@ Retrive Pay Modes..! ', error.message, 'error');
       });
   }
 
@@ -126,17 +108,36 @@ export class ReceiptComponent {
       });
   }
 
+  fnGetAccounts() {
+    this.accountService.getAll().subscribe(
+      result => {
+        this.accounts = result[0];
+      },
+      error => {
+        Swal.fire('@ Retrive Accounts..! ', error.message, 'error');
+      });
+  }
+
+  fnGetPayModes() {
+    this.paymodeService.getAll().subscribe(
+      result => {
+        this.paymodes = result[0];
+      },
+      error => {
+        Swal.fire('@ Retrive Pay Modes..! ', error.message, 'error');
+      });
+  }
 
   get f(): { [key: string]: AbstractControl } {
     return this.receiptsForm.controls;
   }
 
   fnSearch() {
-    let accId: any;
     let custId: any;
-    let paymodeId: any;
     let productId: any;
-
+    let accId: any;
+    let paymodeId: any;
+   
     if (this.f['txtFromDate'].value == null || this.f['txtFromDate'].value == "") {
       Swal.fire('Validation', 'Please select the from Date..! it should not be empty..!', 'warning');
       return;
@@ -145,26 +146,12 @@ export class ReceiptComponent {
       Swal.fire('Validation', 'Please select the to Date..! it should not be empty..!', 'warning');
       return;
     }
-
-    if ((this.f['txtSearchAccId'].value == null || this.f['txtSearchAccId'].value == "")) {
-      accId = 0;
-    }
-    else {
-      accId = this.f['txtSearchAccId'].value;
-    }
-
+    
     if ((this.f['txtSearchCustId'].value == null || this.f['txtSearchCustId'].value == "")) {
       custId = 0;
     }
     else {
       custId = this.f['txtSearchCustId'].value;
-    }
-
-    if ((this.f['txtSearchPayModeId'].value == null || this.f['txtSearchPayModeId'].value == "")) {
-      paymodeId = 0;
-    }
-    else {
-      paymodeId = this.f['txtSearchPayModeId'].value;
     }
 
     if ((this.f['txtSearchProductId'].value == null || this.f['txtSearchProductId'].value == "")) {
@@ -174,16 +161,30 @@ export class ReceiptComponent {
       productId = this.f['txtSearchProductId'].value;
     }
 
-    this.fnGetByQuery(formatDate(this.f['txtFromDate'].value, 'dd-MMM-yyyy', 'en_US'), formatDate(this.f['txtToDate'].value, 'dd-MMM-yyyy', 'en_US'), accId, custId, paymodeId, productId)
+    if ((this.f['txtSearchAccId'].value == null || this.f['txtSearchAccId'].value == "")) {
+      accId = 0;
+    }
+    else {
+      accId = this.f['txtSearchAccId'].value;
+    }
+
+    if ((this.f['txtSearchPayModeId'].value == null || this.f['txtSearchPayModeId'].value == "")) {
+      paymodeId = 0;
+    }
+    else {
+      paymodeId = this.f['txtSearchPayModeId'].value;
+    }
+
+    this.fnGetByQuery(formatDate(this.f['txtFromDate'].value, 'dd-MMM-yyyy', 'en_US'), formatDate(this.f['txtToDate'].value, 'dd-MMM-yyyy', 'en_US'), custId, productId, accId, paymodeId)
   }
 
 
-  fnGetByQuery(fromDate, toDate, accId, custId, paymodeId, productId) {
-    this.receiptService.getByQuery(fromDate, toDate, accId, custId, paymodeId, productId).subscribe(
+  fnGetByQuery(fromDate, toDate, custId, productId, accId, paymodeId) {
+    this.receiptService.getByQuery(fromDate, toDate, custId, productId, accId, paymodeId).subscribe(
       result => {
         this.receipts = result[0];
 
-        if (this.receipts.length == 0) {
+        if (this.receipts == null) {
           Swal.fire('No data found..!', result.message, 'info');
         }
       },

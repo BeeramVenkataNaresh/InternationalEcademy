@@ -27,8 +27,8 @@ showAddEditForm = false;
   ];
 
   paymentmodeForm: FormGroup;
-  paymentmode: any;
-  originalProduct: any;
+  paymentmode: any | null;
+  originalProduct: any | null;
   dupRecord: any;
   displayColumns: any = ['#', 'Id', 'PayMode', 'Active'];
   submitted = false;
@@ -43,7 +43,6 @@ showAddEditForm = false;
   }
 
   ngOnInit(): void {
-    this.paymentmode = 0;
     this.paymentmodeForm = this.formBuilder.group({
       txtSearch: ['']
     });
@@ -59,7 +58,7 @@ showAddEditForm = false;
         this.paymentmode = result[0];
         this.originalProduct = result[0];
 
-        if (this.paymentmode.length == 0) {
+        if (this.paymentmode == null) {
           Swal.fire('No data found..!', result.message, 'info');
         }
       },

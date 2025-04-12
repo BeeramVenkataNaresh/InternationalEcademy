@@ -27,8 +27,8 @@ showAddEditForm = false;
   ];
 
   gradeForm: FormGroup;
-  grade: any;
-  originalGrade: any;
+  grade: any | null;
+  originalGrade: any | null;
   dupRecord: any;
   displayColumns: any = ['#', 'Id', 'Grade', 'Active'];
   submitted = false;
@@ -43,7 +43,6 @@ showAddEditForm = false;
   }
 
   ngOnInit(): void {
-    this.grade = 0;
     this.gradeForm = this.formBuilder.group({
       txtSearch: ['']
     });
@@ -59,7 +58,7 @@ showAddEditForm = false;
         this.grade = result[0];
         this.originalGrade = result[0];
 
-        if (this.grade.length == 0) {
+        if (this.grade == null) {
           Swal.fire('No data found..!', result.message, 'info');
         }
       },

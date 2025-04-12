@@ -35,7 +35,7 @@ export class StudentsComponent {
   studentsForm: FormGroup;
   products: any;
   grades: any;
-  students: any;
+  students: any | null;
   dupRecord: any;
   displayColumns: any = ['#', 'Id', 'StuName', 'FatherName', 'ProductId', 'ProductName', 'Phone', 'Email', 'Dt.Of.Birth', 'Dt.Of,Join', 'GradeId', 'GradeName','School', 'Address', 'Reference', 'Active'];
   rowCount: number;
@@ -62,7 +62,6 @@ export class StudentsComponent {
   }
 
   ngOnInit(): void {
-    this.students = 0;
     this.studentsForm = this.formBuilder.group(
       {
         txtFromDate: [formatDate(new Date(), 'dd-MMM-yyyy', 'en_US')],
@@ -94,7 +93,7 @@ export class StudentsComponent {
       result => {
         this.products = result[0];
 
-        if (this.products.length == 0) {
+        if (this.products == null) {
           Swal.fire('No data found..!', result.message, 'info');
         }
       },

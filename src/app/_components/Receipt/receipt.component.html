@@ -201,10 +201,10 @@
                                             *</span></th>
                                     <th colspan="2">To.Date <span class="lbl-req">
                                             *</span></th>
-                                    <th colspan="1">Account</th>
                                     <th colspan="1">Customer</th>
-                                    <th colspan="1">PayMode</th>
                                     <th colspan="1">Product</th>
+                                    <th colspan="1">Account</th>
+                                    <th colspan="1">PayMode</th>
                                     <th colspan="4">Actions</th>
                                 </tr>
                             </thead>
@@ -239,16 +239,6 @@
                                         </div>
                                     </td>
                                     <td colspan="1" style="width: 15%;">
-                                        <ng-select class="input-group small" formControlName="txtSearchAccId"
-                                            [ngClass]="{ 'is-invalid': submitted && f['txtSearchAccId'].errors }">
-                                            <ng-option *ngFor="let item of accounts"
-                                                [value]="item.AccId">{{item.AccName}}</ng-option>
-                                        </ng-select>
-                                        <div *ngIf="submitted && f['txtSearchAccId'].errors" class="invalid-feedback">
-                                            <div *ngIf="f['txtSearchAccId'].errors['required']">Req.</div>
-                                        </div>
-                                    </td>
-                                    <td colspan="1" style="width: 15%;">
                                         <ng-select class="input-group small" formControlName="txtSearchCustId"
                                             [ngClass]="{ 'is-invalid': submitted && f['txtSearchCustId'].errors }">
                                             <ng-option *ngFor="let item of customers"
@@ -257,6 +247,27 @@
                                         </ng-select>
                                         <div *ngIf="submitted && f['txtSearchCustId'].errors" class="invalid-feedback">
                                             <div *ngIf="f['txtSearchCustId'].errors['required']">Req.</div>
+                                        </div>
+                                    </td>
+                                    <td colspan="1" style="width: 15%;">
+                                        <ng-select class="input-group small" formControlName="txtSearchProductId"
+                                            [ngClass]="{ 'is-invalid': submitted && f['txtSearchProductId'].errors }">
+                                            <ng-option *ngFor="let item of products"
+                                                [value]="item.ProductId">{{item.ProductName}}</ng-option>
+                                        </ng-select>
+                                        <div *ngIf="submitted && f['txtSearchProductId'].errors"
+                                            class="invalid-feedback">
+                                            <div *ngIf="f['txtSearchProductId'].errors['required']">Req.</div>
+                                        </div>
+                                    </td>
+                                    <td colspan="1" style="width: 15%;">
+                                        <ng-select class="input-group small" formControlName="txtSearchAccId"
+                                            [ngClass]="{ 'is-invalid': submitted && f['txtSearchAccId'].errors }">
+                                            <ng-option *ngFor="let item of accounts"
+                                                [value]="item.AccId">{{item.AccName}}</ng-option>
+                                        </ng-select>
+                                        <div *ngIf="submitted && f['txtSearchAccId'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['txtSearchAccId'].errors['required']">Req.</div>
                                         </div>
                                     </td>
                                     <td colspan="1" style="width: 12%;">
@@ -271,17 +282,7 @@
                                             <div *ngIf="f['txtSearchPayModeId'].errors['required']">Req.</div>
                                         </div>
                                     </td>
-                                    <td colspan="1" style="width: 15%;">
-                                        <ng-select class="input-group small" formControlName="txtSearchProductId"
-                                            [ngClass]="{ 'is-invalid': submitted && f['txtSearchProductId'].errors }">
-                                            <ng-option *ngFor="let item of products"
-                                                [value]="item.ProductId">{{item.ProductName}}</ng-option>
-                                        </ng-select>
-                                        <div *ngIf="submitted && f['txtSearchProductId'].errors"
-                                            class="invalid-feedback">
-                                            <div *ngIf="f['txtSearchProductId'].errors['required']">Req.</div>
-                                        </div>
-                                    </td>
+
                                     <td class="text-start" colspan="4">
                                         <button type="button" class="a-list-primay btn btn-secondary"
                                             (click)="fnSearch()" title="Search"><small>
@@ -291,17 +292,17 @@
                                             title="Clear">
                                             <!-- <i class="fa fa-refresh fa-1x"></i> -->
                                             <small>Clear</small></button>
-                                        <button type="button" class="a-list-primay btn btn-primary float-end" (click)="fnAdd()"
-                                            title="Add">
+                                        <button type="button" class="a-list-primay btn btn-primary float-end"
+                                            (click)="fnAdd()" title="Add">
                                             <!-- <i class="fa fa-plus-square fa-1x"></i> -->
-                                                <small>Add</small></button>
+                                            <small>Add</small></button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
 
                         <div class="row mt-3">
-                            <div *ngIf="receipts.length > 0" class="table-responsive">
+                            <div *ngIf="receipts != null" class="table-responsive">
                                 <table class="table -sm table-sm table-hover table-bordered text-center"
                                     style="font-size: 10pt;">
                                     <thead class="bg-light">
@@ -323,21 +324,30 @@
                                                 item['RectDt']
                                                 }}
                                             </td>
+                                            <td>{{ (item['CustId'] == null || item['CustId'] == "") ? "-":
+                                                item['CustId']
+                                                }}</td>
+                                            <td>{{ (item['CustName'] == null || item['CustName'] == "") ? "-":
+                                                item['CustName']
+                                                }}</td>
+                                            <td>{{ (item['ProductId'] == null || item['ProductId'] == "") ? "-":
+                                                item['ProductId']
+                                                }}
+                                            </td>
+                                            <td>{{ (item['ProductName'] == null || item['ProductName'] == "") ? "-":
+                                                item['ProductName']
+                                                }}</td>
                                             <td>{{ (item['AccId'] == null || item['AccId'] == "") ? "-":
                                                 item['AccId'] }}
                                             </td>
                                             <td>{{ (item['AccName'] == null || item['AccName'] == "") ? "-":
                                                 item['AccName']
                                                 }}</td>
-                                            <td>{{ (item['CustId'] == null || item['CustId'] == "") ? "-":
-                                                item['CustId']
-                                                }}</td>
                                             <td>{{ (item['PayModeId'] == null || item['PayModeId'] == "") ? "-":
                                                 item['PayModeId'] }}</td>
-                                            <td>{{ (item['ProductId'] == null || item['ProductId'] == "") ? "-":
-                                                item['ProductId']
-                                                }}
-                                            </td>
+                                            <td>{{ (item['PayModeName'] == null || item['PayModeName'] == "") ? "-":
+                                                item['PayModeName']
+                                                }}</td>
                                             <td>{{ (item['Amount'] == null || item['Amount'] == "") ? "-":
                                                 item['Amount']
                                                 }}

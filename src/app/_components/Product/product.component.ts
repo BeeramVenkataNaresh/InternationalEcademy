@@ -27,8 +27,8 @@ showAddEditForm = false;
   ];
 
   productForm: FormGroup;
-  product: any;
-  originalProduct: any;
+  product: any | null;
+  originalProduct: any | null;
   dupRecord: any;
   displayColumns: any = ['#', 'Id', 'Product', 'Active'];
   submitted = false;
@@ -43,7 +43,6 @@ showAddEditForm = false;
   }
 
   ngOnInit(): void {
-    this.product = 0;
     this.productForm = this.formBuilder.group({
       txtSearch: ['']
     });
@@ -59,7 +58,7 @@ showAddEditForm = false;
         this.product = result[0];
         this.originalProduct = result[0];
 
-        if (this.product.length == 0) {
+        if (this.product == null) {
           Swal.fire('No data found..!', result.message, 'info');
         }
       },
