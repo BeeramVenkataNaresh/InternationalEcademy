@@ -29,8 +29,8 @@ showAddEditForm = false;
   ];
 
   customerForm: FormGroup;
-  customer: any | null;
-  originalCustomer: any | null;
+  customer: any;
+  originalCustomer: any;
   dupRecord: any;
   displayColumns: any = ['#', 'Id', 'Customer', 'Phone', 'Email-Id', 'Active'];
   submitted = false;
@@ -45,6 +45,7 @@ showAddEditForm = false;
   }
 
   ngOnInit(): void {
+    this.customer = 0;
     this.customerForm = this.formBuilder.group({
       txtSearch: ['']
     });
@@ -60,7 +61,7 @@ showAddEditForm = false;
         this.customer = result[0];
         this.originalCustomer = result[0];
 
-        if (this.customer == null) {
+        if (this.customer.length == 0) {
           Swal.fire('No data found..!', result.message, 'info');
         }
       },

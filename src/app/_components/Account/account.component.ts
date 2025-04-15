@@ -27,8 +27,8 @@ export class AccountComponent {
   ];
 
   accountForm: FormGroup;
-  account: any | null;
-  originalAccount: any | null;
+  account: any;
+  originalAccount: any;
   dupRecord: any;
   displayColumns: any = ['#', 'Id', 'Account', 'Active'];
   submitted = false;
@@ -43,6 +43,7 @@ export class AccountComponent {
   }
 
   ngOnInit(): void {
+    this.account = 0;
     this.accountForm = this.formBuilder.group({
       txtSearch: ['']
     });
@@ -58,7 +59,7 @@ export class AccountComponent {
         this.account = result[0];
         this.originalAccount = result[0];
 
-        if (this.account == null) {
+        if (this.account.length == 0) {
           Swal.fire('No data found..!', result.message, 'info');
         }
       },

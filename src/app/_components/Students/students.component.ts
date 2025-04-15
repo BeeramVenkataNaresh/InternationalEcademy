@@ -35,7 +35,7 @@ export class StudentsComponent {
   studentsForm: FormGroup;
   products: any;
   grades: any;
-  students: any | null;
+  students: any;
   dupRecord: any;
   displayColumns: any = ['#', 'Id', 'StuName', 'FatherName', 'ProductId', 'ProductName', 'Phone', 'Email', 'Dt.Of.Birth', 'Dt.Of,Join', 'GradeId', 'GradeName','School', 'Address', 'Reference', 'Active'];
   rowCount: number;
@@ -62,6 +62,7 @@ export class StudentsComponent {
   }
 
   ngOnInit(): void {
+    this.students = 0
     this.studentsForm = this.formBuilder.group(
       {
         txtFromDate: [formatDate(new Date(), 'dd-MMM-yyyy', 'en_US')],

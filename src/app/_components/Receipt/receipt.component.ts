@@ -33,8 +33,8 @@ export class ReceiptComponent {
   customers: any;
   paymodes: any;
   products: any;
-  receipts: any | null;
-  originalReceipts: any | null;
+  receipts: any;
+  originalReceipts: any;
   dupRecord: any;
   displayColumns: any = ['#', 'Id', 'RectDt', 'CustId', 'CustName', 'ProductId', 'ProductName', 'AccId', 'AccName', 'PayModeId', 'PayModeName', 'Amount', 'Remarks', 'Active'];
   rowCount: number;
@@ -65,6 +65,7 @@ export class ReceiptComponent {
   }
 
   ngOnInit(): void {
+    this.receipts = 0;
     this.receiptsForm = this.formBuilder.group(
       {
         txtFromDate: [formatDate(new Date(), 'dd-MMM-yyyy', 'en_US')],
@@ -184,7 +185,7 @@ export class ReceiptComponent {
       result => {
         this.receipts = result[0];
 
-        if (this.receipts == null) {
+        if (this.receipts.length == 0) {
           Swal.fire('No data found..!', result.message, 'info');
         }
       },

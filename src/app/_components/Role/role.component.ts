@@ -27,7 +27,7 @@ export class RoleComponent {
   ];
 
   roleForm: FormGroup;
-  role: any | null;
+  role: any;
   originalRole: any;
   dupRecord: any;
   displayColumns: any = ['#', 'Id', 'Role', 'Active'];
@@ -43,6 +43,7 @@ export class RoleComponent {
   }
 
   ngOnInit(): void {
+    this.role = 0;
     this.roleForm = this.formBuilder.group({
       txtSearch: ['']
     });
@@ -58,7 +59,7 @@ export class RoleComponent {
         this.role = result[0];
         this.originalRole = result[0];
 
-        if (this.role == null) {
+        if (this.role.length == 0) {
           Swal.fire('No data found..!', result.message, 'info');
         }
       },
