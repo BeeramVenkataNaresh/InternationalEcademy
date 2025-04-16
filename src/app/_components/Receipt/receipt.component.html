@@ -46,6 +46,42 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
+                                    <label for="txtCustId" class="col-form-label-sm">Customer:<span class="lbl-req">
+                                            *</span></label>
+                                    <ng-select class="input-group small" formControlName="txtCustId"
+                                        [ngClass]="{ 'is-invalid': submitted && f['txtCustId'].errors }">
+                                        <ng-option *ngFor="let item of customers"
+                                            [value]="item.CustId">{{item.CustName}}</ng-option>
+                                    </ng-select>
+                                    <div *ngIf="submitted && f['txtCustId'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['txtCustId'].errors['required']"><small>Req.</small></div>
+                                        <div *ngIf="f['txtCustId'].errors['maxlength']"><small>Maximum 50
+                                                Char</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="txtProductId" class="col-form-label-sm">Product:<span class="lbl-req">
+                                            *</span></label>
+                                    <ng-select class="input-group small" formControlName="txtProductId"
+                                        [ngClass]="{ 'is-invalid': submitted && f['txtProductId'].errors }">
+                                        <ng-option *ngFor="let item of products"
+                                            [value]="item.ProductId">{{item.ProductName}}</ng-option>
+                                    </ng-select>
+                                    <div *ngIf="submitted && f['txtProductId'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['txtProductId'].errors['required']"><small>Req.</small></div>
+                                        <div *ngIf="f['txtProductId'].errors['maxlength']"><small>Maximum 15
+                                                Char</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-3">
+                                <div class="form-group">
                                     <label class="bold col-form-label-sm" for="txtAccId">Account:<span
                                             style="color: red;"> *</span></label>
                                     <ng-select class="input-group small" formControlName="txtAccId"
@@ -62,27 +98,8 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="txtCustId" class="col-form-label-sm">Customer:<span class="lbl-req">
-                                            *</span></label>
-                                    <ng-select class="input-group small" formControlName="txtCustId"
-                                        [ngClass]="{ 'is-invalid': submitted && f['txtCustId'].errors }">
-                                        <ng-option *ngFor="let item of customers"
-                                            [value]="item.CustId">{{item.CustName}}</ng-option>
-                                    </ng-select>
-                                    <div *ngIf="submitted && f['txtCustId'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['txtCustId'].errors['required']"><small>Req.</small></div>
-                                        <div *ngIf="f['txtCustId'].errors['maxlength']"><small>Maximum 50
-                                                Char</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-md-3">
-                                <div class="form-group">
                                     <label for="txtPayModeId" class="col-form-label-sm">PayMode:</label>
-                                    <ng-select class="input-group small" formControlName="txtCustId"
+                                    <ng-select class="input-group small" formControlName="txtPayModeId"
                                         [ngClass]="{ 'is-invalid': submitted && f['txtPayModeId'].errors }">
                                         <ng-option *ngFor="let item of paymodes"
                                             [value]="item.PayModeId">{{item.PayModeName}}</ng-option>
@@ -90,23 +107,6 @@
                                     <div *ngIf="submitted && f['txtPayModeId'].errors" class="invalid-feedback">
                                         <div *ngIf="f['txtPayModeId'].errors['required']"><small>Req.</small></div>
                                         <div *ngIf="f['txtPayModeId'].errors['maxlength']"><small>Maximum 50
-                                                Char</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="txtProductId" class="col-form-label-sm">Product:<span class="lbl-req">
-                                            *</span></label>
-                                    <ng-select class="input-group small" formControlName="txtCustId"
-                                        [ngClass]="{ 'is-invalid': submitted && f['txtPayModeId'].errors }">
-                                        <ng-option *ngFor="let item of products"
-                                            [value]="item.ProductId">{{item.ProductName}}</ng-option>
-                                    </ng-select>
-                                    <div *ngIf="submitted && f['txtProductId'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['txtProductId'].errors['required']"><small>Req.</small></div>
-                                        <div *ngIf="f['txtProductId'].errors['maxlength']"><small>Maximum 15
                                                 Char</small>
                                         </div>
                                     </div>
@@ -350,6 +350,10 @@
                                                 }}</td>
                                             <td>{{ (item['Amount'] == null || item['Amount'] == "") ? "-":
                                                 item['Amount']
+                                                }}
+                                            </td>
+                                            <td>{{ (item['Remarks'] == null || item['Remarks'] == "") ? "-":
+                                                item['Remarks']
                                                 }}
                                             </td>
                                             <!-- <td><input type="checkbox" [checked]="item['Active']" disabled="false" /></td> -->

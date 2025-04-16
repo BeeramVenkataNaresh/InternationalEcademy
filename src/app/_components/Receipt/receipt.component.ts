@@ -29,10 +29,10 @@ export class ReceiptComponent {
   ];
 
   receiptsForm: FormGroup;
-  accounts: any;
   customers: any;
-  paymodes: any;
   products: any;
+  accounts: any;
+  paymodes: any;
   receipts: any;
   originalReceipts: any;
   dupRecord: any;
@@ -253,10 +253,10 @@ export class ReceiptComponent {
       this.receiptsForm.patchValue({
         txtRectId: data.RectId,
         txtRectDt: data.RectDt,
-        txtAccId: data.AccId,
         txtCustId: data.CustId,
-        txtPayModeId: data.PaymodeId,
         txtProductId: data.ProductId,
+        txtAccId: data.AccId,
+        txtPayModeId: data.PayModeId,
         txtAmount: data.Amount,
         txtRemarks: data.Remarks,
         txtActive: data.Active,
@@ -298,10 +298,10 @@ export class ReceiptComponent {
       let body = {
         "rectId": this.f['txtRectId'].value,
         "rectDt": this.f['txtRectDt'].value,
-        "accId": this.f['txtAccId'].value,
         "custId": this.f['txtCustId'].value,
-        "paymodeId": this.f['txtPayModeId'].value,
         "productId": this.f['txtProductId'].value,
+        "accId": this.f['txtAccId'].value,
+        "payModeId": this.f['txtPayModeId'].value,
         "amount": this.f['txtAmount'].value,
         "remarks": this.f['txtRemarks'].value,
         "active": this.f['txtActive'].value,
@@ -309,7 +309,8 @@ export class ReceiptComponent {
         "modified": this.f['txtModified'].value
       }
 
-      alert(body);
+      console.log(body);
+      console.log(this.selAction);
 
       // Action
       if (this.selAction == "Add") {
