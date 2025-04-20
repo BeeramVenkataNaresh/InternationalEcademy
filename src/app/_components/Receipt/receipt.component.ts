@@ -309,9 +309,6 @@ export class ReceiptComponent {
         "modified": this.f['txtModified'].value
       }
 
-      console.log(body);
-      console.log(this.selAction);
-
       // Action
       if (this.selAction == "Add") {
         // updating the created column with created message
