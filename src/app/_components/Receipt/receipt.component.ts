@@ -315,6 +315,7 @@ export class ReceiptComponent {
         body['created'] = "By: " + this.loginUserName + ", On - " + formatDate(new Date(), 'dd-MMM-yyyy' + ' @ ' + 'hh:mm:ss a', 'en_US');
         this.fnNewSave(body);
       }
+      
       if (this.selAction == "Edit") {
         // updating the modified column with modified message
         body['modified'] = "By: " + this.loginUserName + ", On - " + formatDate(new Date(), 'dd-MMM-yyyy' + ' @ ' + 'hh:mm:ss a', 'en_US');

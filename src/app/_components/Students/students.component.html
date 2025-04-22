@@ -1,5 +1,5 @@
 <div class="page-position">
-    <h1 class="text-center text-primary">Students Information</h1>
+    <h1 class="text-center text-primary">Students</h1>
     <div class="container">
         <div class="card border-primary">
             <form [formGroup]="studentsForm" (ngSubmit)="fnAddEditFormSave()">
@@ -27,12 +27,12 @@
                                 <div class="form-group">
                                     <label class="bold col-form-label-sm" for="txtStuName">Stu.Name:<span
                                             style="color: red;"> *</span></label>
-                                    <input type="text" formControlName="txtStuName" placeholder="User Name"
+                                    <input type="text" formControlName="txtStuName" placeholder="Student Name"
                                         class="form-control form-control-sm"
                                         [ngClass]="{ 'is-invalid': submitted && f['txtStuName'].errors }" />
                                     <div *ngIf="submitted && f['txtStuName'].errors" class="invalid-feedback">
                                         <div *ngIf="f['txtStuName'].errors['required']"><small>Req.</small></div>
-                                        <div *ngIf="f['txtStuName'].errors['maxlength']"><small>Maximum 15 Char</small>
+                                        <div *ngIf="f['txtStuName'].errors['maxlength']"><small>Maximum 50 Char</small>
                                         </div>
                                     </div>
                                 </div>
@@ -54,21 +54,17 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="txtDOR" class="col-form-label-sm">Dt.Reg.:<span class="lbl-req">
+                                    <label for="txtProductId" class="col-form-label-sm">Product:<span class="lbl-req">
                                             *</span></label>
-                                    <div class="input-group">
-                                        <input type="text" formControlName="txtDOR" placeholder="Date of Registration"
-                                            class="form-control form-control-sm" bsDatepicker #dpDOR="bsDatepicker"
-                                            [bsConfig]="datePickerConfig"
-                                            [ngClass]="{ 'is-invalid': submitted && f['txtDOR'].errors }" />
-                                        <button type="button" class="input-group-text" (click)="dpDOR.show()"><i
-                                                class="fa fa-calendar"></i></button>
-                                        <div *ngIf="submitted && f['txtDOR'].errors" class="invalid-feedback">
-                                            <div *ngIf="f['txtDOR'].errors['required']"><small>Req.</small>
-                                            </div>
-                                            <div *ngIf="f['txtDOR'].errors['maxlength']"><small>Maximum 12
-                                                    Char</small>
-                                            </div>
+                                    <ng-select class="input-group small" formControlName="txtProductId"
+                                        [ngClass]="{ 'is-invalid': submitted && f['txtProductId'].errors }">
+                                        <ng-option *ngFor="let item of products"
+                                            [value]="item.ProductId">{{item.ProductName}}</ng-option>
+                                    </ng-select>
+                                    <div *ngIf="submitted && f['txtProductId'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['txtProductId'].errors['required']"><small>Req.</small></div>
+                                        <div *ngIf="f['txtProductId'].errors['maxlength']"><small>Maximum 15
+                                                Char</small>
                                         </div>
                                     </div>
                                 </div>
@@ -107,9 +103,66 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label class="bold col-form-label-sm" for="txtSchool">School:<span
-                                            style="color: red;">
+                                    <label for="txtDOB" class="col-form-label-sm">DOB:<span class="lbl-req">
                                             *</span></label>
+                                    <div class="input-group">
+                                        <input type="text" formControlName="txtDOB" placeholder="Date of Birth"
+                                            class="form-control form-control-sm" bsDatepicker #dpDOB="bsDatepicker"
+                                            [bsConfig]="datePickerConfig"
+                                            [ngClass]="{ 'is-invalid': submitted && f['txtDOB'].errors }" />
+                                        <button type="button" class="input-group-text" (click)="dpDOB.show()"><i
+                                                class="fa fa-calendar"></i></button>
+                                        <div *ngIf="submitted && f['txtDOB'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['txtDOB'].errors['required']"><small>Req.</small>
+                                            </div>
+                                            <div *ngIf="f['txtDOB'].errors['maxlength']"><small>Maximum 12
+                                                    Char</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="txtDOJ" class="col-form-label-sm">Dt.Join:<span class="lbl-req">
+                                            *</span></label>
+                                    <div class="input-group">
+                                        <input type="text" formControlName="txtDOJ" placeholder="Date of Join"
+                                            class="form-control form-control-sm" bsDatepicker #dpDOJ="bsDatepicker"
+                                            [bsConfig]="datePickerConfig"
+                                            [ngClass]="{ 'is-invalid': submitted && f['txtDOJ'].errors }" />
+                                        <button type="button" class="input-group-text" (click)="dpDOJ.show()"><i
+                                                class="fa fa-calendar"></i></button>
+                                        <div *ngIf="submitted && f['txtDOJ'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['txtDOJ'].errors['required']"><small>Req.</small>
+                                            </div>
+                                            <div *ngIf="f['txtDOJ'].errors['maxlength']"><small>Maximum 12
+                                                    Char</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="txtGradeId" class="col-form-label-sm">Grade:<span class="lbl-req">
+                                            *</span></label>
+                                    <ng-select class="input-group small" formControlName="txtGradeId"
+                                        [ngClass]="{ 'is-invalid': submitted && f['txtGradeId'].errors }">
+                                        <ng-option *ngFor="let item of grades"
+                                            [value]="item.GradeId">{{item.GradeName}}</ng-option>
+                                    </ng-select>
+                                    <div *ngIf="submitted && f['txtGradeId'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['txtGradeId'].errors['required']"><small>Req.</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="bold col-form-label-sm" for="txtSchool">School:</label>
                                     <input type="text" formControlName="txtSchool" placeholder="School Name"
                                         class="form-control form-control-sm"
                                         [ngClass]="{ 'is-invalid': submitted && f['txtSchool'].errors }" />
@@ -123,22 +176,20 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label class="bold col-form-label-sm" for="txtArea">Area:<span style="color: red;">
-                                            *</span></label>
-                                    <input type="text" formControlName="txtArea" placeholder="Area"
+                                    <label class="bold col-form-label-sm" for="txtReference">Reference:</label>
+                                    <input type="text" formControlName="txtReference" placeholder="Reference"
                                         class="form-control form-control-sm"
-                                        [ngClass]="{ 'is-invalid': submitted && f['txtArea'].errors }" />
-                                    <div *ngIf="submitted && f['txtArea'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['txtArea'].errors['required']"><small>Req.</small></div>
-                                        <div *ngIf="f['txtArea'].errors['maxlength']"><small>Maximum 50
+                                        [ngClass]="{ 'is-invalid': submitted && f['txtReference'].errors }" />
+                                    <div *ngIf="submitted && f['txtReference'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['txtReference'].errors['required']"><small>Req.</small>
+                                        </div>
+                                        <div *ngIf="f['txtReference'].errors['maxlength']"><small>Maximum 50
                                                 Char</small>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="txtActive" class="col-form-label-sm">Active:<span class="lbl-req">
                                             *</span></label>
@@ -153,64 +204,25 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-2">
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="txtGrade" class="col-form-label-sm">Grade:<span class="lbl-req">
-                                            *</span></label>
-                                    <ng-select class="input-group small" formControlName="txtGrade"
-                                        [ngClass]="{ 'is-invalid': submitted && f['txtGrade'].errors }">
-                                        <ng-option *ngFor="let item of grades"
-                                            [value]="item.GradeId">{{item.GradeName}}</ng-option>
-                                    </ng-select>
-                                    <div *ngIf="submitted && f['txtGrade'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['txtGrade'].errors['required']"><small>Req.</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="bold col-form-label-sm" for="txtRegistrationAmt">Registration &
-                                        Books
-                                        Amount:<span style="color: red;"> *</span></label>
-                                    <input readonly type="text" formControlName="txtRegistrationAmt"
-                                        placeholder="Registration & Books Amount" class="form-control form-control-sm"
-                                        style="background-color: rgb(226, 226, 226);"
-                                        [ngClass]="{ 'is-invalid': submitted && f['txtRegistrationAmt'].errors }" />
-                                    <div *ngIf="submitted && f['txtRegistrationAmt'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['txtRegistrationAmt'].errors['required']"><small>Req.</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="bold col-form-label-sm" for="txtTuitionAmt">Tuition Amount:<span
-                                            style="color: red;"> *</span></label>
-                                    <input type="text" formControlName="txtTuitionAmt" placeholder="Tuition Amount"
+                                    <label class="bold col-form-label-sm" for="txtAddress">Address:</label>
+                                    <input type="text" formControlName="txtAddress" placeholder="Address"
                                         class="form-control form-control-sm"
-                                        style="background-color: rgb(226, 226, 226);"
-                                        [ngClass]="{ 'is-invalid': submitted && f['txtTuitionAmt'].errors }" />
-                                    <div *ngIf="submitted && f['txtTuitionAmt'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['txtTuitionAmt'].errors['required']"><small>Req.</small></div>
+                                        [ngClass]="{ 'is-invalid': submitted && f['txtAddress'].errors }" />
+                                    <div *ngIf="submitted && f['txtAddress'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['txtAddress'].errors['required']"><small>Req.</small>
+                                        </div>
+                                        <div *ngIf="f['txtAddress'].errors['maxlength']"><small>Maximum 100
+                                                Char</small>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="row mt-2">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="bold col-form-label-sm" for="txtTotalAmt">Total Amount:<span
-                                            style="color: red;"> *</span></label>
-                                    <input type="text" formControlName="txtTotalAmt" placeholder="Total Amount"
-                                        class="form-control form-control-sm"
-                                        style="background-color: rgb(226, 226, 226);"
-                                        [ngClass]="{ 'is-invalid': submitted && f['txtTotalAmt'].errors }" />
-                                    <div *ngIf="submitted && f['txtTotalAmt'].errors" class="invalid-feedback">
-                                        <div *ngIf="f['txtTotalAmt'].errors['required']"><small>Req.</small></div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label *ngIf="loginUserRoleId < 3" for="txtCreated"
@@ -231,14 +243,18 @@
                                         style="background-color: rgb(229, 235, 235);">
                                 </div>
                             </div>
-                            <div class="col-md-3 text-end">
+                            <div class="col-md-6 text-end">
                                 <div class="form-group">
                                     <br>
                                     <button *ngIf="selAction != 'View'" type="button" class="btn btn-primary save"
                                         (click)="fnAddEditFormSave()"><i
                                             class="fa fa-check fa-1x"></i><small>&nbsp;Submit</small>
                                     </button> &nbsp;
-                                    <button class="btn btn-success close" (click)="fnAddEditFormClose()"><i
+                                    <button *ngIf="selAction == 'Add'" type="reset" class="btn btn-success clear"
+                                        (click)="fnAddEditFormClear()"><i
+                                            class="fa fa-refresh fa-1x"></i><small>&nbsp;Clear</small>
+                                    </button> &nbsp;
+                                    <button class="btn btn-danger close" (click)="fnAddEditFormClose()"><i
                                             class="fa fa-close fa-1x"></i><small>&nbsp;Close</small>
                                     </button>
                                 </div>
@@ -250,19 +266,19 @@
                             <td class="col-md-2">
                                 <div class="form-group">
                                     <label for="txtFromDate" class="col-form-label-sm">From.Date:<span class="lbl-req">
-                                        *</span></label>
-                                        <div class="input-group">
-                                            <input type="text" formControlName="txtFromDate" placeholder="From Date"
-                                                class="form-control form-control-sm" bsDatepicker
-                                                #fromDate="bsDatepicker" [bsConfig]="datePickerConfig" required="Req."
-                                                [ngClass]="{ 'is-invalid': submitted && f['txtFromDate'].errors }" />
-                                            <button type="button" class="input-group-text" (click)="fromDate.show()"><i
-                                                    class="fa fa-calendar"></i></button>
-                                            <div *ngIf="submitted && f['txtFromDate'].errors" class="invalid-feedback">
-                                                <div *ngIf="f['txtFromDate'].errors['required']">Req.</div>
-                                                <div *ngIf="f['txtFromDate'].errors['maxlength']">Maximum 12 Char</div>
-                                            </div>
+                                            *</span></label>
+                                    <div class="input-group">
+                                        <input type="text" formControlName="txtFromDate" placeholder="From Date"
+                                            class="form-control form-control-sm" bsDatepicker #fromDate="bsDatepicker"
+                                            [bsConfig]="datePickerConfig" required="Req."
+                                            [ngClass]="{ 'is-invalid': submitted && f['txtFromDate'].errors }" />
+                                        <button type="button" class="input-group-text" (click)="fromDate.show()"><i
+                                                class="fa fa-calendar"></i></button>
+                                        <div *ngIf="submitted && f['txtFromDate'].errors" class="invalid-feedback">
+                                            <div *ngIf="f['txtFromDate'].errors['required']">Req.</div>
+                                            <div *ngIf="f['txtFromDate'].errors['maxlength']">Maximum 12 Char</div>
                                         </div>
+                                    </div>
                                 </div>
                             </td>
                             <td class="col-md-2">
@@ -285,8 +301,7 @@
                             </td>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="txtSearchProductId" class="col-form-label-sm">Product:<span class="lbl-req">
-                                            *</span></label>
+                                    <label for="txtSearchProductId" class="col-form-label-sm">Product:</label>
                                     <ng-select class="input-group small" formControlName="txtSearchProductId"
                                         [ngClass]="{ 'is-invalid': submitted && f['txtSearchProductId'].errors }">
                                         <ng-option *ngFor="let item of products"
@@ -296,10 +311,9 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label for="txtSearchGrade" class="col-form-label-sm">Grade:<span class="lbl-req">
-                                            *</span></label>
-                                    <ng-select class="input-group small" formControlName="txtSearchGrade"
-                                        [ngClass]="{ 'is-invalid': submitted && f['txtSearchGrade'].errors }">
+                                    <label for="txtSearchGradeId" class="col-form-label-sm">Grade:</label>
+                                    <ng-select class="input-group small" formControlName="txtSearchGradeId"
+                                        [ngClass]="{ 'is-invalid': submitted && f['txtSearchGradeId'].errors }">
                                         <ng-option *ngFor="let item of grades"
                                             [value]="item.GradeId">{{item.GradeName}}</ng-option>
                                     </ng-select>
@@ -356,44 +370,49 @@
                                             <td>{{ (item['FName'] == null || item['FName'] == "") ? "-":
                                                 item['FName'] }}
                                             </td>
-
-                                            <td>
-                                                {{ (item['Grade'] == 1) ? "5 th" :
-                                                (item['Grade'] == 2) ? "6 th" :
-                                                (item['Grade'] == 3) ? "7 th" :
-                                                (item['Grade'] == 4) ? "8 th" :
-                                                (item['Grade'] == 5) ? "9 th" :
-                                                (item['Grade'] == 6) ? "10 th" :
-                                                (item['Grade'] == 7) ? "Inter-I" :
-                                                (item['Grade'] == 8) ? "Inter-II" :
-                                                (item['Grade'] == 9) ? "Graduation" : "No"
+                                            <td>{{ (item['ProductId'] == null || item['ProductId'] == "") ? "-": item['ProductId'] }}
+                                            </td>
+                                            <td>{{ (item['ProductName'] == null || item['ProductName'] == "") ? "-": item['ProductName'] }}
+                                            </td>
+                                            <td>{{ (item['Phone'] == null || item['Phone'] == "") ? "-":
+                                                item['Phone']
                                                 }}
                                             </td>
-
-                                            <td>{{ (item['Phone'] == null || item['Phone'] == "") ? "-": item['Phone']
+                                            <td>{{ (item['Email'] == null || item['Email'] == "") ? "-":
+                                                item['Email']
                                                 }}
                                             </td>
-                                            <td>{{ (item['Email'] == null || item['Email'] == "") ? "-": item['Email']
-                                                }}
+                                            <td>{{ (item['DOB'] == null || item['DOB'] == "") ? "-": item['DOB'] }}
                                             </td>
-                                            <td>{{ (item['DOR'] == null || item['DOR'] == "") ? "-": item['DOR'] }}</td>
+                                            <td>{{ (item['DOJ'] == null || item['DOJ'] == "") ? "-": item['DOJ'] }}
+                                            </td>
+                                            <!-- <td>
+                                                {{ (item['GradeId'] == 1) ? "5 th" :
+                                                (item['GradeId'] == 2) ? "6 th" :
+                                                (item['GradeId'] == 3) ? "7 th" :
+                                                (item['GradeId'] == 4) ? "8 th" :
+                                                (item['GradeId'] == 5) ? "9 th" :
+                                                (item['GradeId'] == 6) ? "10 th" :
+                                                (item['GradeId'] == 7) ? "Inter-I" :
+                                                (item['GradeId'] == 8) ? "Inter-II" :
+                                                (item['GradeId'] == 9) ? "Graduation" : "No"
+                                                }}
+                                            </td> -->
+                                            <td>{{ (item['GradeId'] == null || item['GradeId'] == "") ? "-": item['GradeId'] }}
+                                            </td>
+                                            <td>{{ (item['GradeName'] == null || item['GradeName'] == "") ? "-": item['GradeName'] }}
+                                            </td>
                                             <td>{{ (item['School'] == null || item['School'] == "") ? "-":
                                                 item['School'] }}
                                             </td>
-                                            <td>{{ (item['Area'] == null || item['Area'] == "") ? "-":
-                                                item['Area']
+                                            <td>{{ (item['Address'] == null || item['Address'] == "") ? "-":
+                                                item['Address']
                                                 }}</td>
-                                            <td>{{ (item['RegistrationAmt'] == null || item['RegistrationAmt'] == "") ?
+                                            <td>{{ (item['Reference'] == null || item['Reference'] ==
+                                                "") ?
                                                 "-":
-                                                item['RegistrationAmt']
+                                                item['Reference']
                                                 }}</td>
-                                            <td>{{ (item['TuitionAmt'] == null || item['TuitionAmt'] == "") ? "-":
-                                                item['TuitionAmt']
-                                                }}</td>
-                                            <td>{{ (item['TotalAmt'] == null || item['TotalAmt'] == "") ? "-":
-                                                item['TotalAmt']
-                                                }}</td>
-                                            <!-- <td><input type="checkbox" [checked]="item['Active']" disabled="false" /></td> -->
                                             <td>{{ (item['Active'] == 1) ? "Yes" : "No" }}</td>
                                             <td *ngIf="loginUserRoleId < 3">{{ (item['Created'] == null ||
                                                 item['Created']
