@@ -68,7 +68,7 @@ const routes: Routes = [
   { path: "customer", component: CustomerComponent },
   { path: "receipt", component: ReceiptComponent },
   { path: "payment", component: PaymentComponent },
-  { path: "paymentgateway/:amt", component: PaymentgatewayComponent },
+  { path: "paymentgateway", component: PaymentgatewayComponent },
   { path: "message", component: MessageComponent },
   { path: "test", component: TestComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
