@@ -869,7 +869,7 @@
                     <tr>
                         <th>S.No.</th>
                         <th>Details</th>
-                        <th>Book Appointment</th>
+                        <th>Action</th>
                         <th>Note</th>
                     </tr>
                 </thead>
@@ -884,11 +884,10 @@
                             </a>
                         </th>
                         <th>
-                            <a href="https://rzp.io/rzp/M5VOA4U4" target="_blank" style="text-decoration: none;"
-                                title="MIT">
-                                <h5><i class="fa fa-calendar text-secondary"></i> &nbsp; Book Now..! &nbsp; <i
-                                        class="fa fa-money fa-1x text-success"></i></h5>
-                            </a>
+                            <a type="button" class="text-danger btn btn-primary"
+                                href="https://calendly.com/internationalacademy05012025/book-a-slot" target="_blank"
+                                style="text-decoration: none;" title="MIT"><b style="font-size: 12pt; color: white;"><i
+                                        class="fa fa-calendar"></i> &nbsp; Book Appointment.!</b></a>
                         </th>
                         <th>
                             <a routerLink="/bcmit" style="text-decoration: none;" title="MIT's Information">
@@ -907,11 +906,10 @@
                             </a>
                         </th>
                         <th>
-                            <a href="https://rzp.io/rzp/dtvGrwu8" target="_blank" style="text-decoration: none;"
-                                title="Psychometric (BPCA)">
-                                <h5><i class="fa fa-calendar text-secondary"></i> &nbsp; Book Now..! &nbsp; <i
-                                        class="fa fa-money fa-1x text-success"></i></h5>
-                            </a>
+                            <a type="button" class="text-danger btn btn-primary" href="https://rzp.io/rzp/dtvGrwu8"
+                                target="_blank" style="text-decoration: none;" title="Psychometric (BPCA)"><b
+                                    style="font-size: 12pt; color: white;"><i class="fa fa-money fa-lg"></i> &nbsp; Pay
+                                    Online.!</b></a>
                         </th>
                         <th>
                             <a routerLink="/bcbcpa" style="text-decoration: none;" title="Psychometric (BPCA)">
@@ -930,11 +928,10 @@
                             </a>
                         </th>
                         <th>
-                            <a href="https://rzp.io/rzp/KAngwC5" target="_blank" style="text-decoration: none;"
-                                title="BEST">
-                                <h5><i class="fa fa-calendar text-secondary"></i> &nbsp; Book Now..! &nbsp; <i
-                                        class="fa fa-money fa-1x text-success"></i></h5>
-                            </a>
+                            <a type="button" class="text-danger btn btn-primary" href="https://rzp.io/rzp/KAngwC5"
+                                target="_blank" style="text-decoration: none;" title="BEST"><b
+                                    style="font-size: 12pt; color: white;"><i class="fa fa-money fa-lg"></i> &nbsp; Pay
+                                    Online.!</b></a>
                         </th>
                         <th>
                             <a routerLink="/bcbest" style="text-decoration: none;" title="BEST Information">
@@ -1310,17 +1307,53 @@
     <!-- Testimonial Section -->
     <div style="background-color: #f7f7f7">
         <div class="container"><br>
-            <h1 class="text-primary text-center mb-3"><b>Testimonial's</b></h1>
+            <h1 class="text-primary text-center mb-5"><b>Students Testimonial's</b></h1>
             <div class="row">
-                <div class="col-md-8 center-item">
-                    <img src="../assets/images/testimonial.jpg" title="Testimonial about International Ecademy"
-                        style="width: 65%; border-radius: 5%;" />
-                </div>
+                <div class="col-md-1 center-item">&nbsp;</div>
                 <div class="col-md-4 center-item">
-                    <a (click)="open(testimonial)" type="button" title="Testimonial about International Ecademy" class="a-img-btn">
-                        <img class="imgShadow-AllSides" src="assets/images/testimonial-1.jpg" style="width: 75%; border-radius: 5%;">
+                    <a (click)="open(testimonialimage)" type="button" title="Testimonial about International Ecademy"
+                        class="a-img-btn" style="text-decoration: none;">
+                        <div class="card imgShadow-AllSides" style="background-color: #f7f7f7">
+                            <div class="card-body">
+                                <div class="center-item mb-2">
+                                    <img src="assets/images/testimonial/photo.png"
+                                        style="width: 30%; border-radius: 50%;">
+                                </div>
+                                <p class="text-justify text-primary mb-2"><i>I studied grade 11 and 12 under the
+                                        "Canadian
+                                        curriculum", and it was a very enriching experience. The system focused a lot on
+                                        practical learning, critical thinking, and independent study. I appreciated the
+                                        flexibility in subject choices and the encouragement to understand rather than
+                                        just
+                                        memorize.
+                                    </i></p>
+                                <p class="text-justify text-primary mb-3"><i>Overall, it helped me to achieve the
+                                        admissions
+                                        in following Universities</i></p>
+                                <ul class="text-danger">
+                                    <b>
+                                        <li>International Business University, Canada.</li>
+                                        <li>Algoma University, Canada.</li>
+                                    </b>
+                                </ul>
+                                <div class="row">
+                                    <div class="col-md-12 text-start">
+                                        <h5 class="text-success">- Ponna Satish Reddy</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </a>
                 </div>
+                <div class="col-md-1 center-item">&nbsp;</div>
+                <div class="col-md-5 center-item">
+                    <a (click)="open(testimonialvideo)" type="button" title="Testimonial about International Ecademy"
+                        class="a-img-btn">
+                        <img class="imgShadow-AllSides" src="assets/images/testimonial/testimonialvideo.jpg"
+                            style="width: 70%; border-radius: 5%;">
+                    </a>
+                </div>
+                <div class="col-md-1 center-item">&nbsp;</div>
             </div>
         </div><br>
     </div>
@@ -1454,13 +1487,23 @@
     <!-- End of Partners Section -->
 </div>
 
-<ng-template #testimonial let-modal>
+<ng-template #testimonialimage let-modal>
     <div class="text-center">
-        <b class="text-primary">Testimonial</b>
         <a type="button" class="btn close float-end" aria-label="Close" (click)="modal.dismiss('Cross click')"><i
                 class="fa fa-times-circle fa-lg"></i> </a>
     </div>
     <div class="modal-body center-item">
-        <video src="assets/images/testimonial.mp4" class="imgShadow-AllSides" width="100%" autoplay controls></video>
+        <img src="assets/images/testimonial/testimonial.jpg" class="imgShadow-AllSides" width="100%" />
+    </div>
+</ng-template>
+
+<ng-template #testimonialvideo let-modal>
+    <div class="text-center">
+        <a type="button" class="btn close float-end" aria-label="Close" (click)="modal.dismiss('Cross click')"><i
+                class="fa fa-times-circle fa-lg"></i> </a>
+    </div>
+    <div class="modal-body center-item">
+        <video src="assets/images/testimonial/testimonial.mp4" class="imgShadow-AllSides" width="100%" autoplay
+            controls></video>
     </div>
 </ng-template>
