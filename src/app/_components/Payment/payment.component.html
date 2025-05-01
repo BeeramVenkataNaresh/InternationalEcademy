@@ -303,6 +303,21 @@
 
                         <div class="row mt-3">
                             <div *ngIf="payments.length > 0 " class="table-responsive">
+                                <hr>
+                                <div class="row form-group">
+                                    <div class="col-md-1 text-end">
+                                        <label class="bold col-form-label-sm" for="txtRecords">Records:</label>
+                                    </div>
+                                    <div class="col-md-1 text-start">
+                                        <ng-select class="input-group small" formControlName="txtRecords">
+                                            <ng-option *ngFor="let item of records"
+                                                [value]="item.id">{{item.name}}</ng-option>
+                                        </ng-select>
+                                    </div>
+                                    <div class="col-md-10 float-end text-end">
+                                        <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+                                    </div>
+                                </div>
                                 <table class="table -sm table-sm table-hover table-bordered text-center"
                                     style="font-size: 10pt;">
                                     <thead class="bg-light">
@@ -314,7 +329,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let item of payments; let i = index;">
+                                        <tr *ngFor="let item of payments | paginate: {itemsPerPage: this.f['txtRecords'].value, currentPage: pages}; let i = index;">
                                             <td>{{ i+1 }}</td>
                                             <td>{{ (item['PayId'] == null || item['PayId'] == "") ? "-":
                                                 item['PayId']

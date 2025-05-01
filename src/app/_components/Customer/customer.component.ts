@@ -23,10 +23,9 @@ showAddEditForm = false;
   txtCreated = "";
   txtModified = "";
 
-  active = [
-    { id: 1, name: 'Yes' },
-    { id: 2, name: 'No' }
-  ];
+  records = [{ id: 1, name: 1 }, { id: 2, name: 2 }, { id: 5, name: 5 }, { id: 10, name: 10 }, { id: 15, name: 15 }, { id: 20, name: 20 }, { id: 25, name: 25 }, { id: 50, name: 50 }, { id: 100, name: 100 }];
+  pages: any;
+  active = [{ id: 1, name: 'Yes' }, { id: 2, name: 'No' }];
 
   customerForm: FormGroup;
   customer: any;
@@ -47,7 +46,8 @@ showAddEditForm = false;
   ngOnInit(): void {
     this.customer = 0;
     this.customerForm = this.formBuilder.group({
-      txtSearch: ['']
+      txtSearch: [''],
+      txtRecords: ['10']
     });
   }
 
@@ -71,12 +71,25 @@ showAddEditForm = false;
   }
 
   fnSearch() {
+    this.f['txtRecords'].setValue("10");
     if (this.f['txtSearch'].value == null || this.f['txtSearch'].value == '') {
       this.fnGetAll();
     }
     else if (this.f['txtSearch'].value != null) {
-      this.customer = this.originalCustomer;
-      this.customer = this.customer.filter((customer) => customer.CustName == this.f['txtSearch'].value)
+      // this.customer = this.originalCustomer;
+      // this.customer = this.customer.filter((customer) => customer.CustName == this.f['txtSearch'].value)
+
+       this.customerService.getByName(this.f['txtSearch'].value).subscribe(
+              result => {
+                this.customer = result[0];
+      
+                if (this.customer.length == 0) {
+                  Swal.fire('No data found..!', result.message, 'info');
+                }
+              },
+              error => {
+                Swal.fire('@ Retrive data..! ', error.message, 'error');
+              });
     }
   }
 

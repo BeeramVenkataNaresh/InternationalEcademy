@@ -21,10 +21,9 @@ export class AccountComponent {
   txtCreated = "";
   txtModified = "";
 
-  active = [
-    { id: 1, name: 'Yes' },
-    { id: 2, name: 'No' }
-  ];
+  records = [{ id: 1, name: 1 }, { id: 2, name: 2 }, { id: 5, name: 5 }, { id: 10, name: 10 }, { id: 15, name: 15 }, { id: 20, name: 20 }, { id: 25, name: 25 }, { id: 50, name: 50 }, { id: 100, name: 100 }];
+  pages: any;
+  active = [{ id: 1, name: 'Yes' }, { id: 2, name: 'No' }];
 
   accountForm: FormGroup;
   account: any;
@@ -45,7 +44,8 @@ export class AccountComponent {
   ngOnInit(): void {
     this.account = 0;
     this.accountForm = this.formBuilder.group({
-      txtSearch: ['']
+      txtSearch: [''],
+      txtRecords: ['10']
     });
   }
 
@@ -69,12 +69,25 @@ export class AccountComponent {
   }
 
   fnSearch() {
+    this.f['txtRecords'].setValue("10");
     if (this.f['txtSearch'].value == null || this.f['txtSearch'].value == '') {
       this.fnGetAll();
     }
     else if (this.f['txtSearch'].value != null) {
-      this.account = this.originalAccount;
-      this.account = this.account.filter((account) => account.AccName == this.f['txtSearch'].value)
+      // this.account = this.originalAccount;
+      // this.account = this.account.filter((account) => account.AccName == this.f['txtSearch'].value)
+
+      this.accountService.getByName(this.f['txtSearch'].value).subscribe(
+        result => {
+          this.account = result[0];
+
+          if (this.account.length == 0) {
+            Swal.fire('No data found..!', result.message, 'info');
+          }
+        },
+        error => {
+          Swal.fire('@ Retrive data..! ', error.message, 'error');
+        });
     }
   }
 
@@ -112,7 +125,7 @@ export class AccountComponent {
   fnView(content, data: any) {
     this.selAction = "View";
     this.formHeader = "View Data";
-    
+
     this.txtAccId = data.AccId;
     this.txtAccName = data.AccName;
     this.txtActive = data.Active;
@@ -175,7 +188,7 @@ export class AccountComponent {
   }
 
   fnAddEditFormSave() {
-    if (this.txtAccName == "" || this.txtAccName == null || this.txtActive == "" || this.txtActive == null ) {
+    if (this.txtAccName == "" || this.txtAccName == null || this.txtActive == "" || this.txtActive == null) {
       if (this.txtAccName == "" || this.txtAccName == null) {
         Swal.fire('Validation', 'Account Name should not be empty..!', 'warning');
         return;
@@ -245,7 +258,7 @@ export class AccountComponent {
     this.selAction = "";
     this.fnAddEditFormClear();
   }
-  
+
   private getDismissReason(reason: any): string {
     this.fnClose();
     if (reason === ModalDismissReasons.ESC) {

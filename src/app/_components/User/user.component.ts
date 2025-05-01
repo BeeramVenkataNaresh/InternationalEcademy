@@ -18,10 +18,9 @@ export class UserComponent {
   selAction = "";
   formHeader = "View Data";
 
-  active = [
-    { id: 1, name: 'Yes' },
-    { id: 2, name: 'No' }
-  ];
+  records = [{ id: 1, name: 1 }, { id: 2, name: 2 }, { id: 5, name: 5 }, { id: 10, name: 10 }, { id: 15, name: 15 }, { id: 20, name: 20 }, { id: 25, name: 25 }, { id: 50, name: 50 }, { id: 100, name: 100 }];
+  pages: any;
+  active = [{ id: 1, name: 'Yes' }, { id: 2, name: 'No' }];
 
   usersForm: FormGroup;
   role: any;
@@ -47,6 +46,7 @@ export class UserComponent {
     this.users = 0;
     this.usersForm = this.formBuilder.group(
       {
+        txtRecords: ['10'],
         txtSearch: [''],
         txtUserId: [''],
         txtUserName: ['', [Validators.required, Validators.maxLength(15)]],
@@ -94,12 +94,25 @@ export class UserComponent {
   }
 
   fnSearch() {
+    this.f['txtRecords'].setValue("10");
     if (this.f['txtSearch'].value == null || this.f['txtSearch'].value == '') {
       this.fnGetAll();
     }
     else if (this.f['txtSearch'].value != null) {
-      this.users = this.originalUsers;
-      this.users = this.users.filter((users) => users.UserName == this.f['txtSearch'].value)
+      // this.users = this.originalUsers;
+      // this.users = this.users.filter((users) => users.UserName == this.f['txtSearch'].value)
+
+      this.userService.getByName(this.f['txtSearch'].value).subscribe(
+        result => {
+          this.users = result[0];
+
+          if (this.users.length == 0) {
+            Swal.fire('No data found..!', result.message, 'info');
+          }
+        },
+        error => {
+          Swal.fire('@ Retrive data..! ', error.message, 'error');
+        });
     }
   }
 

@@ -27,10 +27,9 @@ export class StudentsComponent {
   selAction = "";
   formHeader = "View Data";
 
-  active = [
-    { id: 1, name: 'Yes' },
-    { id: 2, name: 'No' }
-  ];
+  records = [{ id: 1, name: 1 }, { id: 2, name: 2 }, { id: 5, name: 5 }, { id: 10, name: 10 }, { id: 15, name: 15 }, { id: 20, name: 20 }, { id: 25, name: 25 }, { id: 50, name: 50 }, { id: 100, name: 100 }];
+  pages: any;
+  active = [{ id: 1, name: 'Yes' }, { id: 2, name: 'No' }];
 
   studentsForm: FormGroup;
   products: any;
@@ -65,6 +64,7 @@ export class StudentsComponent {
     this.students = 0
     this.studentsForm = this.formBuilder.group(
       {
+        txtRecords: ['10'],
         txtFromDate: [formatDate(new Date(), 'dd-MMM-yyyy', 'en_US')],
         txtToDate: [formatDate(new Date(), 'dd-MMM-yyyy', 'en_US')],
         txtSearchProductId: [''],
@@ -164,7 +164,7 @@ export class StudentsComponent {
   }
 
   fnGetByQuery(fromDate, toDate, productId, gradeId) {
-    this.fnGetAll();
+    this.f['txtRecords'].setValue("10");
     this.studentService.getByQuery(fromDate, toDate, productId, gradeId).subscribe(
       result => {
         this.students = result[0];

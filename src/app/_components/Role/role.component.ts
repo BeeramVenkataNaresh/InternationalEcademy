@@ -11,6 +11,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './role.component.html',
   styleUrls: ['./role.component.css']
 })
+
 export class RoleComponent {
   showAddEditForm = false;
   selAction = "";
@@ -21,10 +22,9 @@ export class RoleComponent {
   txtCreated = "";
   txtModified = "";
 
-  active = [
-    { id: 1, name: 'Yes' },
-    { id: 2, name: 'No' }
-  ];
+  records = [{ id: 1, name: 1 }, { id: 2, name: 2 }, { id: 5, name: 5 }, { id: 10, name: 10 }, { id: 15, name: 15 }, { id: 20, name: 20 }, { id: 25, name: 25 }, { id: 50, name: 50 }, { id: 100, name: 100 }];
+  pages: any;
+  active = [{ id: 1, name: 'Yes' }, { id: 2, name: 'No' }];
 
   roleForm: FormGroup;
   role: any;
@@ -41,11 +41,15 @@ export class RoleComponent {
     this.loginUserName = localStorage.getItem('loginUser');
     this.loginUserRoleId = localStorage.getItem('loginUserRoleId');
   }
+  transform(value: any, ...args: any[]) {
+    throw new Error('Method not implemented.');
+  }
 
   ngOnInit(): void {
     this.role = 0;
     this.roleForm = this.formBuilder.group({
-      txtSearch: ['']
+      txtSearch: [''],
+      txtRecords: ['10']
     });
   }
 
@@ -69,12 +73,25 @@ export class RoleComponent {
   }
 
   fnSearch() {
+    this.f['txtRecords'].setValue("10");
     if (this.f['txtSearch'].value == null || this.f['txtSearch'].value == '') {
       this.fnGetAll();
     }
     else if (this.f['txtSearch'].value != null) {
-      this.role = this.originalRole;
-      this.role = this.role.filter((role) => role.RoleName == this.f['txtSearch'].value)
+      // this.role = this.originalRole;
+      // this.role = this.role.filter((role) => role.RoleName == this.f['txtSearch'].value)
+
+      this.roleService.getByName(this.f['txtSearch'].value).subscribe(
+        result => {
+          this.role = result[0];
+
+          if (this.role.length == 0) {
+            Swal.fire('No data found..!', result.message, 'info');
+          }
+        },
+        error => {
+          Swal.fire('@ Retrive data..! ', error.message, 'error');
+        });
     }
   }
 
@@ -112,7 +129,7 @@ export class RoleComponent {
   fnView(content, data: any) {
     this.selAction = "View";
     this.formHeader = "View Data";
-    
+
     this.txtRoleId = data.RoleId;
     this.txtRoleName = data.RoleName;
     this.txtActive = data.Active;
@@ -175,7 +192,7 @@ export class RoleComponent {
   }
 
   fnAddEditFormSave() {
-    if (this.txtRoleName == "" || this.txtRoleName == null || this.txtActive == "" || this.txtActive == null ) {
+    if (this.txtRoleName == "" || this.txtRoleName == null || this.txtActive == "" || this.txtActive == null) {
       if (this.txtRoleName == "" || this.txtRoleName == null) {
         Swal.fire('Validation', 'Role Name should not be empty..!', 'warning');
         return;
@@ -245,7 +262,7 @@ export class RoleComponent {
     this.selAction = "";
     this.fnAddEditFormClear();
   }
-  
+
   private getDismissReason(reason: any): string {
     this.fnClose();
     if (reason === ModalDismissReasons.ESC) {

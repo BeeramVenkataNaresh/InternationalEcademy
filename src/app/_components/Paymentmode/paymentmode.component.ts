@@ -12,7 +12,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./paymentmode.component.css']
 })
 export class PaymentmodeComponent {
-showAddEditForm = false;
+  showAddEditForm = false;
   selAction = "";
   formHeader = "";
   txtPayModeId = "";
@@ -21,10 +21,9 @@ showAddEditForm = false;
   txtCreated = "";
   txtModified = "";
 
-  active = [
-    { id: 1, name: 'Yes' },
-    { id: 2, name: 'No' }
-  ];
+  records = [{ id: 1, name: 1 }, { id: 2, name: 2 }, { id: 5, name: 5 }, { id: 10, name: 10 }, { id: 15, name: 15 }, { id: 20, name: 20 }, { id: 25, name: 25 }, { id: 50, name: 50 }, { id: 100, name: 100 }];
+  pages: any;
+  active = [{ id: 1, name: 'Yes' }, { id: 2, name: 'No' }];
 
   paymentmodeForm: FormGroup;
   paymentmode: any;
@@ -45,7 +44,8 @@ showAddEditForm = false;
   ngOnInit(): void {
     this.paymentmode = 0;
     this.paymentmodeForm = this.formBuilder.group({
-      txtSearch: ['']
+      txtSearch: [''],
+      txtRecords: ['10']
     });
   }
 
@@ -69,12 +69,25 @@ showAddEditForm = false;
   }
 
   fnSearch() {
+    this.f['txtRecords'].setValue("10");
     if (this.f['txtSearch'].value == null || this.f['txtSearch'].value == '') {
       this.fnGetAll();
     }
     else if (this.f['txtSearch'].value != null) {
-      this.paymentmode = this.originalProduct;
-      this.paymentmode = this.paymentmode.filter((paymentmode) => paymentmode.PayModeName == this.f['txtSearch'].value)
+      // this.paymentmode = this.originalProduct;
+      // this.paymentmode = this.paymentmode.filter((paymentmode) => paymentmode.PayModeName == this.f['txtSearch'].value)
+
+      this.paymentmodeService.getByName(this.f['txtSearch'].value).subscribe(
+        result => {
+          this.paymentmode = result[0];
+
+          if (this.paymentmode.length == 0) {
+            Swal.fire('No data found..!', result.message, 'info');
+          }
+        },
+        error => {
+          Swal.fire('@ Retrive data..! ', error.message, 'error');
+        });
     }
   }
 
@@ -112,7 +125,7 @@ showAddEditForm = false;
   fnView(content, data: any) {
     this.selAction = "View";
     this.formHeader = "View Data";
-    
+
     this.txtPayModeId = data.PayModeId;
     this.txtPayModeName = data.PayModeName;
     this.txtActive = data.Active;
@@ -175,7 +188,7 @@ showAddEditForm = false;
   }
 
   fnAddEditFormSave() {
-    if (this.txtPayModeName == "" || this.txtPayModeName == null || this.txtActive == "" || this.txtActive == null ) {
+    if (this.txtPayModeName == "" || this.txtPayModeName == null || this.txtActive == "" || this.txtActive == null) {
       if (this.txtPayModeName == "" || this.txtPayModeName == null) {
         Swal.fire('Validation', 'PayMode Name should not be empty..!', 'warning');
         return;
@@ -245,7 +258,7 @@ showAddEditForm = false;
     this.selAction = "";
     this.fnAddEditFormClear();
   }
-  
+
   private getDismissReason(reason: any): string {
     this.fnClose();
     if (reason === ModalDismissReasons.ESC) {

@@ -5,8 +5,6 @@
             <form [formGroup]="roleForm">
                 <div class="card-header">
                     <i class="fa fa-eye fa-lg text-danger"></i>&nbsp;&nbsp;<b class="text-danger">View</b>
-                    <!-- <a type="button" class="a-list-primay float-end" routerLink="/country-add"
-                    title="Add"><i class="fa fa-plus-square fa-1x"> <small>&nbsp;Add</small></i></a> -->
                 </div>
                 <div class="card-body">
                     <div class="row form-group">
@@ -25,13 +23,28 @@
                                 title="Clear"><i class="fa fa-refresh fa-1x"></i><small>&nbsp;Clear</small></button>
                         </div>
                         <div class="col-md-4">
-                            <button type="button" class="a-list-primay btn btn-primary float-end" (click)="fnAdd(content)"
-                                title="Add"><i class="fa fa-plus-square fa-1x">
+                            <button type="button" class="a-list-primay btn btn-primary float-end"
+                                (click)="fnAdd(content)" title="Add"><i class="fa fa-plus-square fa-1x">
                                     <small>&nbsp;Add</small></i></button>
                         </div>
                     </div>
                     <br>
                     <div *ngIf="role.length > 0" class="table-responsive">
+                        <hr>
+                        <div class="row form-group">
+                            <div class="col-md-1 text-end">
+                                <label class="bold col-form-label-sm" for="txtRecords">Records:</label>
+                            </div>
+                            <div class="col-md-1 text-start">
+                                <ng-select class="input-group small" formControlName="txtRecords">
+                                    <ng-option *ngFor="let item of records"
+                                        [value]="item.id">{{item.name}}</ng-option>
+                                </ng-select>
+                            </div>
+                            <div class="col-md-10 float-end text-end">
+                                <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+                            </div>
+                        </div>
                         <table class="table -sm table-sm table-hover table-bordered text-center"
                             style="font-size: 10pt;">
                             <thead class="bg-light">
@@ -43,7 +56,8 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let item of role; let i = index;">
+                                <tr
+                                    *ngFor="let item of role | paginate: {itemsPerPage: this.f['txtRecords'].value, currentPage: pages}; let i = index;">
                                     <td>{{ i+1 }}</td>
                                     <td>{{ item['RoleId']}}</td>
                                     <td>{{ item['RoleName']}}</td>
@@ -56,12 +70,12 @@
                                         }}
                                     </td>
                                     <td>
-                                        <a class="link-primary" type="button" (click)="fnView(content,item)" title="View"><i
-                                                class="fa fa-eye fa-lg"></i></a>
+                                        <a class="link-primary" type="button" (click)="fnView(content,item)"
+                                            title="View"><i class="fa fa-eye fa-lg"></i></a>
                                     </td>
                                     <td *ngIf="loginUserRoleId < 3">
-                                        <a class="link-success" type="button" (click)="fnEdit(content,item)" title="Edit"><i
-                                                class="fa fa-edit fa-lg"></i></a>
+                                        <a class="link-success" type="button" (click)="fnEdit(content,item)"
+                                            title="Edit"><i class="fa fa-edit fa-lg"></i></a>
                                     </td>
                                     <td>
                                         <a class="link-danger" type="button" (click)="fnDelete(item['RoleId'])"
@@ -71,10 +85,13 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colspan="10" class="text-left">{{ role.length }} Row(s)</td>
+                                    <td colspan="10 text-center">
+                                        {{ role.length }} Row(s)
+                                    </td>
                                 </tr>
                             </tfoot>
                         </table>
+                        
                     </div>
                 </div>
             </form>

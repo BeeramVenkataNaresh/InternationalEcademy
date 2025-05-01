@@ -21,10 +21,10 @@ showAddEditForm = false;
   txtCreated = "";
   txtModified = "";
 
-  active = [
-    { id: 1, name: 'Yes' },
-    { id: 2, name: 'No' }
-  ];
+  records = [{ id: 1, name: 1 }, { id: 2, name: 2 }, { id: 5, name: 5 }, { id: 10, name: 10 }, { id: 15, name: 15 }, { id: 20, name: 20 }, { id: 25, name: 25 }, { id: 50, name: 50 }, { id: 100, name: 100 }];
+  pages: any;
+  active = [{ id: 1, name: 'Yes' }, { id: 2, name: 'No' }];
+
 
   gradeForm: FormGroup;
   grade: any;
@@ -45,7 +45,8 @@ showAddEditForm = false;
   ngOnInit(): void {
     this.grade = 0;
     this.gradeForm = this.formBuilder.group({
-      txtSearch: ['']
+      txtSearch: [''],
+      txtRecords: ['10']
     });
   }
 
@@ -69,12 +70,25 @@ showAddEditForm = false;
   }
 
   fnSearch() {
+    this.f['txtRecords'].setValue("10");
     if (this.f['txtSearch'].value == null || this.f['txtSearch'].value == '') {
       this.fnGetAll();
     }
     else if (this.f['txtSearch'].value != null) {
-      this.grade = this.originalGrade;
-      this.grade = this.grade.filter((grade) => grade.GradeName == this.f['txtSearch'].value)
+      // this.grade = this.originalGrade;
+      // this.grade = this.grade.filter((grade) => grade.GradeName == this.f['txtSearch'].value)
+
+      this.gradeService.getByName(this.f['txtSearch'].value).subscribe(
+              result => {
+                this.grade = result[0];
+      
+                if (this.grade.length == 0) {
+                  Swal.fire('No data found..!', result.message, 'info');
+                }
+              },
+              error => {
+                Swal.fire('@ Retrive data..! ', error.message, 'error');
+              });
     }
   }
 

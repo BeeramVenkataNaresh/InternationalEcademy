@@ -6,6 +6,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { NgxPaginationModule } from 'ngx-pagination'; // For Pagenation
+import { NgArrayPipesModule } from 'ngx-pipes'; // For Filter using pipe
 import { DataTablesModule } from 'angular-datatables'; // For Data Tables with Pagination, Sorting, Filtering
 import { CarouselModule } from 'ngx-owl-carousel-o'; // for Carousel
 
@@ -44,6 +45,7 @@ import { PaymentComponent } from './_components/Payment/payment.component';
 import { EnglishacademyComponent } from './_components/Englishacademy/englishacademy.component';
 import { EroboticsComponent } from './_components/Erobotics/erobotics.component';
 import { ManagementComponent } from './_components/Management/management.component';
+
 
 
 @NgModule({ 
@@ -94,6 +96,7 @@ import { ManagementComponent } from './_components/Management/management.compone
     NgSelectModule,
     NgbModule,
     NgxPaginationModule,
+    NgArrayPipesModule,
     DataTablesModule,
     BsDatepickerModule.forRoot()
   ],
