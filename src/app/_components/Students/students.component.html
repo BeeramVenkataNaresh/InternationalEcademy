@@ -326,14 +326,6 @@
                                         Search</small> </button> &nbsp;
                                 <button type="reset" class="a-list-primay btn btn-success" (click)="fnClear()"
                                     title="Clear"><i class="fa fa-refresh fa-1x"></i><small>&nbsp;Clear</small></button>
-                                &nbsp;
-                                <button *ngIf="students.length > 0" type="button" class="a-list-primay btn btn-primary"
-                                    (click)="fnPrint()" title="Print"><small><i class="fa fa-print fa-1x"></i>
-                                        Print</small> </button> &nbsp;
-                                <button *ngIf="students.length > 0" type="button" class="a-list-primay btn btn-info"
-                                    (click)="fnExportToExcel()" title="To Excel"><small><i
-                                            class="fa fa-download fa-1x"></i>
-                                        To Excel</small> </button>
                             </div>
                             <div class="col-md-1">
                                 <br>
@@ -357,8 +349,19 @@
                                                 [value]="item.id">{{item.name}}</ng-option>
                                         </ng-select>
                                     </div>
-                                    <div class="col-md-10 float-end text-end">
+                                    <div class="col-md-2 text-end">
+                                        <button *ngIf="students.length > 0" type="button"
+                                            class="a-list-primay btn btn-primary" (click)="fnPrint()"
+                                            title="Print"><small><i class="fa fa-print fa-1x"></i>
+                                                Print</small> </button> &nbsp;
+                                        <button *ngIf="students.length > 0" type="button"
+                                            class="a-list-primay btn btn-info" (click)="fnExportToExcel()"
+                                            title="To Excel"><small><i class="fa fa-download fa-1x"></i>
+                                                To Excel</small> </button>
+                                    </div>
+                                    <div class="col-md-8 float-end text-end">
                                         <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+
                                     </div>
                                 </div>
                                 <table class="table -sm table-sm table-hover table-bordered text-center"
@@ -372,7 +375,8 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let item of students | paginate: {itemsPerPage: this.f['txtRecords'].value, currentPage: pages}; let i = index;">
+                                        <tr
+                                            *ngFor="let item of students | paginate: {itemsPerPage: this.f['txtRecords'].value, currentPage: pages}; let i = index;">
                                             <td>{{ i+1 }}</td>
                                             <td>{{ (item['StuId'] == null || item['StuId'] == "") ? "-":
                                                 item['StuId']
@@ -385,9 +389,11 @@
                                             <td>{{ (item['FName'] == null || item['FName'] == "") ? "-":
                                                 item['FName'] }}
                                             </td>
-                                            <td>{{ (item['ProductId'] == null || item['ProductId'] == "") ? "-": item['ProductId'] }}
+                                            <td>{{ (item['ProductId'] == null || item['ProductId'] == "") ? "-":
+                                                item['ProductId'] }}
                                             </td>
-                                            <td>{{ (item['ProductName'] == null || item['ProductName'] == "") ? "-": item['ProductName'] }}
+                                            <td>{{ (item['ProductName'] == null || item['ProductName'] == "") ? "-":
+                                                item['ProductName'] }}
                                             </td>
                                             <td>{{ (item['Phone'] == null || item['Phone'] == "") ? "-":
                                                 item['Phone']
@@ -413,9 +419,11 @@
                                                 (item['GradeId'] == 9) ? "Graduation" : "No"
                                                 }}
                                             </td> -->
-                                            <td>{{ (item['GradeId'] == null || item['GradeId'] == "") ? "-": item['GradeId'] }}
+                                            <td>{{ (item['GradeId'] == null || item['GradeId'] == "") ? "-":
+                                                item['GradeId'] }}
                                             </td>
-                                            <td>{{ (item['GradeName'] == null || item['GradeName'] == "") ? "-": item['GradeName'] }}
+                                            <td>{{ (item['GradeName'] == null || item['GradeName'] == "") ? "-":
+                                                item['GradeName'] }}
                                             </td>
                                             <td>{{ (item['School'] == null || item['School'] == "") ? "-":
                                                 item['School'] }}
