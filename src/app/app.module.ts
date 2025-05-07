@@ -46,8 +46,6 @@ import { EnglishacademyComponent } from './_components/Englishacademy/englishaca
 import { EroboticsComponent } from './_components/Erobotics/erobotics.component';
 import { ManagementComponent } from './_components/Management/management.component';
 
-
-
 @NgModule({ 
   declarations: [
     AppComponent,
