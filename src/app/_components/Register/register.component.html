@@ -7,8 +7,7 @@
                 <img class="imgShadow-AllSides" src="assets/images/register.png" alt="" title="">
             </div>
             <div class="col-md-6 text-center">
-                <br><br>
-                                
+                <br><br>               
                     <a type="button" class="text-danger btn btn-success mt-5" href="https://docs.google.com/forms/d/e/1FAIpQLSfyGEa_oCk8PdMGrwGTfF-LB0AkE9hedAyLUzSMO6uCmJp-Rg/viewform?usp=dialog" title="Click to Register"
                         target="_blank" style="text-decoration: none;"><b style="font-size: 20pt; color: white;"> Click here to register </b></a>
             
@@ -173,22 +172,6 @@
                     <h5>Payment Details</h5>
                 </div>
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="txtExamLevel" class="col-form-label-sm">ExamLevel:<span class="lbl-req">
-                                    *</span></label>
-                            <ng-select class="input-group small" formControlName="txtExamLevel"
-                                (change)='fnExamLevelSelected($event)'
-                                [ngClass]="{ 'is-invalid': submitted && f['txtGrade'].errors }">
-                                <ng-option *ngFor="let item of examLevelFees"
-                                    [value]="item.FeesId">{{item.ExamLevel}}</ng-option>
-                            </ng-select>
-                            <div *ngIf="submitted && f['txtExamLevel'].errors" class="invalid-feedback">
-                                <div *ngIf="f['txtExamLevel'].errors['required']"><small>Req.</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label class="bold col-form-label-sm" for="txtRegistrationAmt">Reg.Books.Amt:<span

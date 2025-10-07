@@ -4,13 +4,14 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
-import { FeesService } from 'src/app/_services/fees.service';
 import { StudentService } from 'src/app/_services/student.service';
+import { ProductService } from 'src/app/_services/product.service';
 
 import * as xls from 'xlsx';
 
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
+import { GradeService } from 'src/app/_services/grade.service';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
@@ -26,37 +27,26 @@ export class StudentsComponent {
   selAction = "";
   formHeader = "View Data";
 
-  active = [
-    { id: 1, name: 'Yes' },
-    { id: 2, name: 'No' }
-  ];
-
-  grade = [
-    { id: 1, name: '5 th' },
-    { id: 2, name: '6 th' },
-    { id: 3, name: '7 th' },
-    { id: 4, name: '8 th' },
-    { id: 5, name: '9 th' },
-    { id: 6, name: '10 th' },
-    { id: 7, name: 'Inter-I' },
-    { id: 8, name: 'Inter-II' },
-    { id: 9, name: 'Graduation' }
-  ];
+  records = [{ id: 1, name: 1 }, { id: 2, name: 2 }, { id: 5, name: 5 }, { id: 10, name: 10 }, { id: 15, name: 15 }, { id: 20, name: 20 }, { id: 25, name: 25 }, { id: 50, name: 50 }, { id: 100, name: 100 }];
+  pages: any;
+  active = [{ id: 1, name: 'Yes' }, { id: 2, name: 'No' }];
 
   studentsForm: FormGroup;
-  examLevelFees: any;
+  products: any;
+  grades: any;
   students: any;
   dupRecord: any;
-  displayColumns: any = ['#', 'Id', 'StuName', 'FatherName', 'Grade', 'Phone', 'Email', 'DOR', 'School', 'Area', 'ExamLevel', 'Exam', 'Reg.Amt', 'Tuition.Amt', 'Total.Amt', 'Active'];
+  displayColumns: any = ['#', 'Id', 'StuName', 'FatherName', 'ProductId', 'ProductName', 'Phone', 'Email', 'Dt.Of.Birth', 'Dt.Of,Join', 'GradeId', 'GradeName', 'School', 'Address', 'Reference', 'Active'];
   rowCount: number;
   submitted = false;
   loginUserName: any;
   loginUserRoleId: any;
 
-  constructor(private formBuilder: FormBuilder, private feesService: FeesService, private studentService: StudentService, private router: Router) {
-    this.fnExamLevelFees();
+  constructor(private formBuilder: FormBuilder, private productService: ProductService, private gradeService: GradeService, private studentService: StudentService, private router: Router) {
     this.loginUserName = localStorage.getItem('loginUser');
     this.loginUserRoleId = localStorage.getItem('loginUserRoleId');
+    this.fnGetProducts();
+    this.fnGetGrades();
 
     // setting the datepicker
     this.datePickerConfig = Object.assign({},
@@ -71,61 +61,62 @@ export class StudentsComponent {
   }
 
   ngOnInit(): void {
-    this.students = 0;
+    this.students = 0
     this.studentsForm = this.formBuilder.group(
       {
+        txtRecords: ['10'],
         txtFromDate: [formatDate(new Date(), 'dd-MMM-yyyy', 'en_US')],
         txtToDate: [formatDate(new Date(), 'dd-MMM-yyyy', 'en_US')],
-        txtSearchExamLevel: [''],
-        txtSearchGrade: [''],
-        txtStuId: ['', [Validators.required]],
+        txtSearchProductId: [''],
+        txtSearchGradeId: [''],
+        txtStuId: [''],
         txtStuName: ['', [Validators.required, Validators.maxLength(50)]],
         txtFName: ['', [Validators.required, Validators.maxLength(50)]],
-        txtGrade: ['', [Validators.required]],
+        txtProductId: ['', [Validators.required]],
         txtPhone: ['', [Validators.required, Validators.maxLength(15)]],
         txtEmail: ['', [Validators.required, Validators.maxLength(50)]],
-        txtSchool: ['', [Validators.required, Validators.maxLength(50)]],
-        txtDOR: ['', [Validators.required, Validators.maxLength(12)]],
-        txtArea: ['', [Validators.required, Validators.maxLength(50)]],
-        txtExamLevel: ['', [Validators.required]],
-        txtRegistrationAmt: ['', [Validators.required]],
-        txtTuitionAmt: ['', [Validators.required]],
-        txtTotalAmt: ['', [Validators.required]],
-        txtActive: ['', Validators.required],
+        txtDOB: ['', [Validators.required, Validators.maxLength(12)]],
+        txtDOJ: ['', [Validators.required, Validators.maxLength(12)]],
+        txtGradeId: ['', [Validators.required]],
+        txtSchool: ['', [Validators.maxLength(50)]],
+        txtAddress: ['', [Validators.maxLength(100)]],
+        txtReference: ['', [Validators.maxLength(50)]],
+        txtActive: ['', [Validators.required]],
         txtCreated: [''],
         txtModified: ['']
       });
   }
 
-  fnExamLevelFees() {
-    this.feesService.getAll().subscribe(
+  fnGetProducts() {
+    this.productService.getAll().subscribe(
       result => {
-        this.examLevelFees = result[0];
+        this.products = result[0];
+
+        if (this.products == null) {
+          Swal.fire('No data found..!', result.message, 'info');
+        }
       },
       error => {
-        Swal.fire('@ Retrive Grades..! ', error.message, 'error');
+        Swal.fire('@ Retrive data..! ', error.message, 'error');
+      });
+  }
+
+  fnGetGrades() {
+    this.gradeService.getAll().subscribe(
+      result => {
+        this.grades = result[0];
+
+        if (this.grades.length == 0) {
+          Swal.fire('No data found..!', result.message, 'info');
+        }
+      },
+      error => {
+        Swal.fire('@ Retrive data..! ', error.message, 'error');
       });
   }
 
   get f(): { [key: string]: AbstractControl } {
     return this.studentsForm.controls;
-  }
-
-  fnExamLevelSelected(event) {
-    this.feesService.getById(this.f['txtExamLevel'].value).subscribe(
-      result => {
-        var data = result[0];
-        if (result[0].length > 0) { 
-          this.studentsForm.patchValue({
-            txtRegistrationAmt: data[0].RegistrationAmt,
-            txtTuitionAmt: data[0].TuitionAmt,
-            txtTotalAmt: (+(data[0].RegistrationAmt) + +(data[0].TuitionAmt)).toString()
-          });
-        }
-      },
-      error => {
-        Swal.fire('@ Retrive selected Exam data..! ', error.message, 'error');
-      });
   }
 
   fnGetAll() {
@@ -143,8 +134,8 @@ export class StudentsComponent {
   }
 
   fnSearch() {
-    let examLevel: any;
-    let grade: any;
+    let productId: any;
+    let gradeId: any;
 
     if (this.f['txtFromDate'].value == null || this.f['txtFromDate'].value == "") {
       Swal.fire('Validation', 'Please select the from Date..! it should not be empty..!', 'warning');
@@ -155,30 +146,30 @@ export class StudentsComponent {
       return;
     }
 
-    if ((this.f['txtSearchExamLevel'].value == null || this.f['txtSearchExamLevel'].value == "")) {
-      examLevel = 0;
+    if ((this.f['txtSearchProductId'].value == null || this.f['txtSearchProductId'].value == "")) {
+      productId = 0;
     }
     else {
-      examLevel = this.f['txtSearchExamLevel'].value;
+      productId = this.f['txtSearchProductId'].value;
     }
 
-    if ((this.f['txtSearchGrade'].value == null || this.f['txtSearchGrade'].value == "")) {
-      grade = 0;
+    if ((this.f['txtSearchGradeId'].value == null || this.f['txtSearchGradeId'].value == "")) {
+      gradeId = 0;
     }
     else {
-      grade = this.f['txtSearchGrade'].value;
+      gradeId = this.f['txtSearchGradeId'].value;
     }
 
-    this.fnGetByQuery(formatDate(this.f['txtFromDate'].value, 'dd-MMM-yyyy', 'en_US'), formatDate(this.f['txtToDate'].value, 'dd-MMM-yyyy', 'en_US'), examLevel, grade);
+    this.fnGetByQuery(formatDate(this.f['txtFromDate'].value, 'dd-MMM-yyyy', 'en_US'), formatDate(this.f['txtToDate'].value, 'dd-MMM-yyyy', 'en_US'), productId, gradeId);
   }
 
-  fnGetByQuery(fromDate, toDate, examLevel, grade) {
-    //this.fnGetAll();
-    this.studentService.getByQuery(fromDate, toDate, examLevel, grade).subscribe(
+  fnGetByQuery(fromDate, toDate, productId, gradeId) {
+    this.f['txtRecords'].setValue("10");
+    this.studentService.getByQuery(fromDate, toDate, productId, gradeId).subscribe(
       result => {
         this.students = result[0];
 
-        if(this.students.length == 0) {
+        if (this.students.length == 0) {
           Swal.fire('No data found..!', result.message, 'info');
         }
       },
@@ -189,6 +180,13 @@ export class StudentsComponent {
 
   fnClear() {
     this.ngOnInit();
+  }
+
+  fnAdd() {
+    this.selAction = "Add";
+    this.formHeader = "Add New Data";
+    this.showAddEditForm = true;
+    this.showSearch = false;
   }
 
   fnView(data: any) {
@@ -239,21 +237,31 @@ export class StudentsComponent {
         txtStuId: data.StuId,
         txtStuName: data.StuName,
         txtFName: data.FName,
-        txtGrade: data.Grade,
+        txtProductId: data.ProductId,
         txtPhone: data.Phone,
         txtEmail: data.Email,
-        txtDOR: formatDate(data.DOR, 'dd-MMM-yyyy', 'en_US'),
+        txtDOB: formatDate(data.DOB, 'dd-MMM-yyyy', 'en_US'),
+        txtDOJ: formatDate(data.DOJ, 'dd-MMM-yyyy', 'en_US'),
+        txtGradeId: data.GradeId,
         txtSchool: data.School,
-        txtArea: data.Area,
-        txtExamLevel: data.ExamLevel,
-        txtRegistrationAmt: data.RegistrationAmt,
-        txtTuitionAmt: data.TuitionAmt,
-        txtTotalAmt: data.RegistrationAmt,
+        txtAddress: data.Address,
+        txtReference: data.Reference,
         txtActive: data.Active,
         txtCreated: data.Created,
         txtModified: data.Modified
       });
     }
+  }
+
+  fnNewSave(data: any) {
+    this.studentService.create(data).subscribe(
+      result => {
+        Swal.fire('Insert', result.message, 'success');
+        this.fnAddEditFormClose();
+      },
+      error => {
+        Swal.fire('@ Add Save..!', error.message, 'error');
+      });
   }
 
   fnEditSave(id, data: any) {
@@ -279,19 +287,25 @@ export class StudentsComponent {
         "stuId": this.f['txtStuId'].value,
         "stuName": this.f['txtStuName'].value,
         "fName": this.f['txtFName'].value,
-        "grade": this.f['txtGrade'].value,
+        "productId": this.f['txtProductId'].value,
         "phone": this.f['txtPhone'].value,
         "email": this.f['txtEmail'].value,
-        "dor": formatDate(this.f['txtDOR'].value, 'dd-MMM-yyyy', 'en_US'),
+        "dob": formatDate(this.f['txtDOB'].value, 'dd-MMM-yyyy', 'en_US'),
+        "doj": formatDate(this.f['txtDOJ'].value, 'dd-MMM-yyyy', 'en_US'),
+        "gradeId": this.f['txtGradeId'].value,
         "school": this.f['txtSchool'].value,
-        "area": this.f['txtArea'].value,
-        "examLevel": this.f['txtExamLevel'].value,
-        "registrationAmt": this.f['txtRegistrationAmt'].value,
-        "tuitionAmt": this.f['txtTuitionAmt'].value,
-        "totalAmt": this.f['txtTotalAmt'].value,
+        "address": this.f['txtAddress'].value,
+        "reference": this.f['txtReference'].value,
         "active": this.f['txtActive'].value,
         "created": this.f['txtCreated'].value,
         "modified": this.f['txtModified'].value
+      }
+
+      // Action
+      if (this.selAction == "Add") {
+        // updating the created column with created message
+        body['created'] = "By: " + this.loginUserName + ", On - " + formatDate(new Date(), 'dd-MMM-yyyy' + ' @ ' + 'hh:mm:ss a', 'en_US');
+        this.fnNewSave(body);
       }
 
       if (this.selAction == "Edit") {
@@ -300,6 +314,11 @@ export class StudentsComponent {
         this.fnEditSave(this.f['txtStuId'].value, body);
       }
     }
+  }
+
+  fnAddEditFormClear() {
+    this.submitted = false;
+    this.ngOnInit();
   }
 
   fnAddEditFormClose() {

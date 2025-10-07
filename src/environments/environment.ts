@@ -7,7 +7,6 @@ export const environment = {
   title: "International Ecademy",
   apiPath: "http://localhost:5001/",
 
-
   // Fee settings
   registrationAmt: 15000,
   tuitionAmt: 35000,

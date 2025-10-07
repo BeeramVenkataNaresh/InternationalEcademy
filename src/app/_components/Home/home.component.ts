@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 export class HomeComponent implements OnInit {
 
   title: any;
+  closeResult: any;
 
   owlMain: OwlOptions = {
     autoWidth: true,
@@ -54,9 +56,6 @@ export class HomeComponent implements OnInit {
       2: {
         items: 2
       },
-      3: {
-        items: 3
-      }
     },
   }
 
@@ -118,10 +117,28 @@ export class HomeComponent implements OnInit {
     },
   }
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.title = environment.title;
   }
 
+  open(content: any) {
+    this.modalService.open(content, { centered: true, size: 'md' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`; // size types - 'sm', 'md','lg','xl'
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
+  
 }

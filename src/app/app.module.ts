@@ -6,6 +6,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { NgxPaginationModule } from 'ngx-pagination'; // For Pagenation
+import { NgArrayPipesModule } from 'ngx-pipes'; // For Filter using pipe
 import { DataTablesModule } from 'angular-datatables'; // For Data Tables with Pagination, Sorting, Filtering
 import { CarouselModule } from 'ngx-owl-carousel-o'; // for Carousel
 
@@ -20,7 +21,6 @@ import { RegisterComponent } from './_components/Register/register.component';
 import { RoleComponent } from './_components/Role/role.component';
 import { UserComponent } from './_components/User/user.component';
 import { DashboardComponent } from './_components/Dashboard/dashboard.component';
-import { FeesComponent } from './_components/Fees/fees.component';
 import { StudentsComponent } from './_components/Students/students.component';
 import { MessageComponent } from './_components/Message/message.component';
 import { PaymentgatewayComponent } from './_components/Paymentgateway/paymentgateway.component';
@@ -34,7 +34,17 @@ import { BcbrainstaminaComponent } from './_components/BrainCheckerBrainStamina/
 import { BcbcpaComponent } from './_components/BrainCheckerBCPA/bcbcpa.component';
 import { BcbestComponent } from './_components/BrainCheckerBEST/bcbest.component';
 import { BcigniteComponent } from './_components/BrainCheckerIgnite/bcignite.component';
-
+import { BchpactComponent } from './_components/BrainCheckerHPact/bchpact.component';
+import { ProductComponent } from './_components/Product/product.component';
+import { GradeComponent } from './_components/Grade/grade.component';
+import { AccountComponent } from './_components/Account/account.component';
+import { PaymentmodeComponent } from './_components/Paymentmode/paymentmode.component';
+import { CustomerComponent } from './_components/Customer/customer.component';
+import { ReceiptComponent } from './_components/Receipt/receipt.component';
+import { PaymentComponent } from './_components/Payment/payment.component';
+import { EnglishacademyComponent } from './_components/Englishacademy/englishacademy.component';
+import { EroboticsComponent } from './_components/Erobotics/erobotics.component';
+import { ManagementComponent } from './_components/Management/management.component';
 
 @NgModule({ 
   declarations: [
@@ -44,10 +54,13 @@ import { BcigniteComponent } from './_components/BrainCheckerIgnite/bcignite.com
     VisionComponent,
     Grade11Component,
     Grade12Component,
+    EnglishacademyComponent,
+    EroboticsComponent,
     BcmitComponent,
+    BcbcpaComponent,
+    BchpactComponent,
     BcciqtComponent,
     BcbrainstaminaComponent,
-    BcbcpaComponent,
     BcbestComponent,
     BcigniteComponent,
     ContactComponent,
@@ -56,10 +69,17 @@ import { BcigniteComponent } from './_components/BrainCheckerIgnite/bcignite.com
     DashboardComponent,
     RoleComponent,
     UserComponent,
-    FeesComponent,
+    AccountComponent,
+    PaymentmodeComponent,
+    ProductComponent,
+    GradeComponent,
+    CustomerComponent,
     StudentsComponent,
+    ReceiptComponent,
+    PaymentComponent,
     PaymentgatewayComponent,
     MessageComponent,
+    ManagementComponent,
     TestComponent
   ],
 
@@ -74,6 +94,7 @@ import { BcigniteComponent } from './_components/BrainCheckerIgnite/bcignite.com
     NgSelectModule,
     NgbModule,
     NgxPaginationModule,
+    NgArrayPipesModule,
     DataTablesModule,
     BsDatepickerModule.forRoot()
   ],

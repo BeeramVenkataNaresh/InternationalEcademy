@@ -27,7 +27,7 @@
             <li>
               <div class="dropdown-divider"></div>
             </li>
-            <li><a class="dropdown-item" routerLink="/staff"> &nbsp;Our Resource (Team)
+            <li><a class="dropdown-item" routerLink="/management"> &nbsp;Management
               </a></li>
             <!-- <li>
                 <div class="dropdown-divider"></div>
@@ -38,9 +38,9 @@
         </li>
 
         <li class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          <a class="nav-link dropdown-toggle" id="menuServices" role="button" data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="true">Services</a>
-          <ul class="dropdown-menu" aria-labelledby="menuServices">
+          <a class="nav-link dropdown-toggle" id="menuCourses" role="button" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="true">Courses</a>
+          <ul class="dropdown-menu" aria-labelledby="menuCourses">
             <li><a class="dropdown-item" routerLink="/grade11"> &nbsp;OSSD - Grade 11
               </a></li>
             <li>
@@ -51,46 +51,54 @@
             <li>
               <div class="dropdown-divider"></div>
             </li>
-            <li><a class="dropdown-item" routerLink="/englishacademy"> &nbsp;English Academy
-            </a></li>
-          <li>
-            <div class="dropdown-divider"></div>
-          </li>
+            <!-- <li><a class="dropdown-item" routerLink="/paymentgateway"> &nbsp;Payment Gateway
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li> -->
             <li><a class="dropdown-item" routerLink="/faqs"> &nbsp;Frequently Asked Questions
               </a></li>
           </ul>
         </li>
 
         <li class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          <a class="nav-link dropdown-toggle" id="menuBrainChecker" role="button" data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="true">BrainChecker</a>
-          <ul class="dropdown-menu" aria-labelledby="menuBrainChecker">
-            <li><a class="dropdown-item" routerLink="/bcmit"> &nbsp;MIT
+          <a class="nav-link dropdown-toggle" id="menuProducts" role="button" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="true">Products</a>
+          <ul class="dropdown-menu" aria-labelledby="menuProducts">
+            <li class="dropdown-item"> &nbsp;BrainChecker &nbsp;<i class="fa fa-caret-down fa-lg"></i>
+            </li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/bcmit"> &nbsp;1. MIT
+              </a></li>
+
+            <li><a class="dropdown-item" routerLink="/bcbcpa"> &nbsp;2. Psychometric (BCPA)
+              </a></li>
+
+            <li><a class="dropdown-item" routerLink="/bcbest"> &nbsp;3. BEST
+              </a></li>
+
+            <li><a class="dropdown-item" routerLink="/bchpact"> &nbsp;4. H-PACT Potency
+              </a></li>
+
+            <li><a class="dropdown-item" routerLink="/bcciqt"> &nbsp;5. CIQT
+              </a></li>
+
+            <li><a class="dropdown-item" routerLink="/bcbrainstamina"> &nbsp;6. Brain Stamina
+              </a></li>
+
+            <li><a class="dropdown-item" routerLink="/bcignite"> &nbsp;7. Ignite
               </a></li>
             <li>
               <div class="dropdown-divider"></div>
             </li>
-            <li><a class="dropdown-item" routerLink="/bcciqt"> &nbsp;CIQT
+            <li><a class="dropdown-item" routerLink="/erobotics"> &nbsp;E Robotics
               </a></li>
             <li>
               <div class="dropdown-divider"></div>
             </li>
-            <li><a class="dropdown-item" routerLink="/bcbrainstamina"> &nbsp;Brain Stamina
-              </a></li>
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
-            <li><a class="dropdown-item" routerLink="/bcbcpa"> &nbsp;BCPA
-              </a></li>
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
-            <li><a class="dropdown-item" routerLink="/bcbest"> &nbsp;BEST
-              </a></li>
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
-            <li><a class="dropdown-item" routerLink="/bcignite"> &nbsp;Ignite
+            <li><a class="dropdown-item" routerLink="/englishacademy"> &nbsp;English Academy
               </a></li>
           </ul>
         </li>
@@ -106,18 +114,24 @@
         <li *ngIf="loginUser != null" class="nav-item dropdown" routerLinkActive="active"
           [routerLinkActiveOptions]="{exact: true}">
           <a class="nav-link dropdown-toggle" id="menuAdmin" role="button" data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="true">[{{loginUser}}]
+            aria-haspopup="true" aria-expanded="true"><span
+              style="font-size: small; font-weight: normal;">[{{loginUser}}] </span>
             <i class="fa fa-user-circle fa-1x" title="User Profile"></i></a>
           <ul class="dropdown-menu" aria-labelledby="menuAdmin">
             <li>
-              <span class="dropdown-item"><small class="text-success"><i class="fa fa-user fa-lg"></i> &nbsp; {{
-                  loginUser
-                  }} - [User]</small></span>
+              <span class="dropdown-item "><small class="text-success small"><i class="fa fa-user fa-lg"></i> &nbsp;
+                  {{loginUser}} [User]</small></span>
             </li>
             <li>
-              <span class="dropdown-item"><small class="text-success"><i class="fa fa-gear fa-lg"></i> &nbsp;{{
-                  loginUserRole }} - [Role]</small></span>
+              <span class="dropdown-item"><small class="text-success small"><i class="fa fa-gear fa-lg"></i>
+                  &nbsp;{{loginUserRole}} [Role]</small></span>
             </li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+            <li><a class="dropdown-item" routerLink="/dashboard">
+                &nbsp;Dash Board
+              </a></li>
             <li>
               <div class="dropdown-divider"></div>
             </li>
@@ -126,20 +140,28 @@
             <li>
               <div class="dropdown-divider"></div>
             </li>
+            <li><a class="dropdown-item" routerLink="/receipt"> &nbsp;Receipts
+              </a></li>
+            <li><a class="dropdown-item" routerLink="/payment"> &nbsp;Payments
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
             <li><a class="dropdown-item" routerLink="/role">
-                &nbsp;Role
+                &nbsp;Roles
               </a></li>
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
-            <li><a class="dropdown-item" routerLink="/fees">
-                &nbsp;Exam Level Fees
-              </a></li>
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
             <li><a class="dropdown-item" routerLink="/user">
                 &nbsp;Users
+              </a></li>
+            <li><a class="dropdown-item" routerLink="/account"> &nbsp;Accounts
+              </a></li>
+            <li><a class="dropdown-item" routerLink="/paymentmode"> &nbsp;PaymentModes
+              </a></li>
+            <li><a class="dropdown-item" routerLink="/product"> &nbsp;Products
+              </a></li>
+            <li><a class="dropdown-item" routerLink="/grade"> &nbsp;Grades
+              </a></li>
+            <li><a class="dropdown-item" routerLink="/customer"> &nbsp;Customers
               </a></li>
           </ul>
         </li>
@@ -157,9 +179,7 @@
 
   </div>
 </nav>
-<div>
-  <router-outlet></router-outlet>
-</div>
+<router-outlet></router-outlet>
 <div *ngIf="displayMenu" class="footer-style">
   <div class="container mt-3 mb-3">
     <div class="row">
@@ -172,22 +192,27 @@
       <div class="col-md-5 text-start">
         <table class="table table-bordered table-center border-gray text-primary" style="border-color: #F7F6F6;">
           <tbody>
-            <tr>
+            <!-- <tr>
               <td colspan="2" style="font-size: 17pt; font-weight: bold; color: green;">CONTACT DETAILS</td>
-            </tr>
+            </tr> -->
             <tr>
               <th class="text-start text-success"><i class="fa fa-volume-control-phone fa-lg"></i></th>
-              <td class="text-start"> <b> +91 70935 41984, &nbsp; <i class="fa fa-whatsapp fa-lg text-success"></i>
-                  +1 (647) 641-3585.</b></td>
+              <td class="text-start"> +91 70935 41984, &nbsp; <i class="fa fa-whatsapp fa-lg text-success"></i>
+                +1 (647) 641-3585.</td>
             </tr>
             <tr>
               <th class="text-start text-success"><i class="fa fa-envelope fa-1x text-success"></i></th>
-              <td class="text-start"><b>internationalecademy&#64;gmail.com</b></td>
+              <td class="text-start">internationalecademy&#64;gmail.com</td>
             </tr>
             <tr>
               <th class="text-start text-success"><i class="fa fa-map-marker fa-lg"></i></th>
-              <td class="text-start"><b> Unit.No - 406, 1833 Bayview Avenue, East York,<br>
-                  Toronto, Ontario, Canada - M4G 3E2.</b></td>
+              <td class="text-start">Unit.No - 406, 1833 Bayview Avenue, East York, Toronto, Ontario, Canada - M4G 3E2.
+              </td>
+            </tr>
+            <tr>
+              <th class="text-start text-success"><i class="fa fa-map-marker fa-lg"></i></th>
+              <td class="text-start">Plot No.21, 1st Floor, Sardar Patel Road, Paigah Colony, Hyderabad, Telangana,
+                India - 500003.</td>
             </tr>
           </tbody>
         </table>
@@ -204,10 +229,11 @@
       <div class="col-md-6 text-end">
         <p>Follows Us - <a href="#" target="_blank" title="Facebook Page"><i
               class="fa fa-facebook fa-lg"></i></a>&nbsp;&nbsp;
+          <a href="https://www.instagram.com/internationalecademy/" target="_blank" title="Instagram Page"><i
+              class="fa fa-instagram fa-lg"></i></a>&nbsp;&nbsp;
           <a href="#" target="_blank" title="Youtube Page">
             <i class="fa fa-youtube-play fa-lg"></i></a>&nbsp;&nbsp;
-          <a href="#" target="_blank" title="Twitter Page"><i class="fa fa-twitter fa-lg"></i></a>&nbsp;&nbsp;
-          <a href="#" target="_blank" title="Instagram Page"><i class="fa fa-instagram fa-lg"></i></a>
+          <!-- <a href="#" target="_blank" title="Twitter Page"><i class="fa fa-twitter fa-lg"></i></a> -->
         </p>
       </div>
     </div>

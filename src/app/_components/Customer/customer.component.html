@@ -1,0 +1,184 @@
+<div class="page-position">
+    <h1 class="text-center text-primary">Customers</h1>
+    <div class="container">
+        <div class="card border-primary">
+            <form [formGroup]="customerForm">
+                <div class="card-header">
+                    <i class="fa fa-eye fa-lg text-danger"></i>&nbsp;&nbsp;<b class="text-danger">View</b>
+                    <!-- <a type="button" class="a-list-primay float-end" routerLink="/country-add"
+                    title="Add"><i class="fa fa-plus-square fa-1x"> <small>&nbsp;Add</small></i></a> -->
+                </div>
+                <div class="card-body">
+                    <div class="row form-group">
+                        <div class="col-md-2 text-end">
+                            <label class="bold col-form-label-sm" for="txtSearch">Search Value:</label>
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" formControlName="txtSearch" placeholder="Customer Name"
+                                class="form-control form-control-sm" />
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="a-list-primay btn btn-secondary" (click)="fnSearch()"
+                                title="Search"><small><i class="fa fa-search fa-1x"></i>
+                                    Search</small> </button> &nbsp;
+                            <button type="reset" class="a-list-primay btn btn-success" (click)="fnClear()"
+                                title="Clear"><i class="fa fa-refresh fa-1x"></i><small>&nbsp;Clear</small></button>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" class="a-list-primay btn btn-primary float-end" (click)="fnAdd(content)"
+                                title="Add"><i class="fa fa-plus-square fa-1x">
+                                    <small>&nbsp;Add</small></i></button>
+                        </div>
+                    </div>
+                    <br>
+                    <div *ngIf="customer.length > 0" class="table-responsive">
+                        <hr>
+                        <div class="row form-group">
+                            <div class="col-md-1 text-end">
+                                <label class="bold col-form-label-sm" for="txtRecords">Records:</label>
+                            </div>
+                            <div class="col-md-1 text-start">
+                                <ng-select class="input-group small" formControlName="txtRecords">
+                                    <ng-option *ngFor="let item of records"
+                                        [value]="item.id">{{item.name}}</ng-option>
+                                </ng-select>
+                            </div>
+                            <div class="col-md-10 float-end text-end">
+                                <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+                            </div>
+                        </div>
+                        <table class="table -sm table-sm table-hover table-bordered text-center"
+                            style="font-size: 10pt;">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th *ngFor="let col of displayColumns"> <b>{{ col }}</b></th>
+                                    <th *ngIf="loginUserRoleId < 3">Created</th>
+                                    <th *ngIf="loginUserRoleId < 3">Modified</th>
+                                    <th colspan="3">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of customer | paginate: {itemsPerPage: this.f['txtRecords'].value, currentPage: pages}; let i = index;">
+                                    <td>{{ i+1 }}</td>
+                                    <td>{{ item['CustId']}}</td>
+                                    <td>{{ item['CustName']}}</td>
+                                    <td>{{ (item['CustPhone'] == null || item['CustPhone'] ==
+                                        "") ? "-": item['CustPhone'] }}</td>
+                                    <td>{{ (item['CustEmail'] == null || item['CustEmail'] ==
+                                        "") ? "-": item['CustEmail'] }}</td>
+                                    <!-- <td><input type="checkbox" [checked]="item['Active']" disabled="false" /></td> -->
+                                    <td>{{ (item['Active'] == 1) ? "Yes" : "No" }}</td>
+                                    <td *ngIf="loginUserRoleId < 3">{{ (item['Created'] == null || item['Created'] ==
+                                        "") ? "-": item['Created'] }}
+                                    <td *ngIf="loginUserRoleId < 3">{{ (item['Modified'] == null || item['Modified'] ==
+                                        "") ? "-": item['Modified']
+                                        }}
+                                    </td>
+                                    <td>
+                                        <a class="link-primary" type="button" (click)="fnView(content,item)" title="View"><i
+                                                class="fa fa-eye fa-lg"></i></a>
+                                    </td>
+                                    <td *ngIf="loginUserRoleId < 3">
+                                        <a class="link-success" type="button" (click)="fnEdit(content,item)" title="Edit"><i
+                                                class="fa fa-edit fa-lg"></i></a>
+                                    </td>
+                                    <td>
+                                        <a class="link-danger" type="button" (click)="fnDelete(item['CustId'])"
+                                            title="Delete"><i class="fa fa-trash-o fa-lg"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="11" class="text-left">{{ customer.length }} Row(s)</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-body modalFormBgColor">
+        <h2 class="text-center text-primary mb-3">{{formHeader}}</h2>
+        <div *ngIf="selAction != 'Add'" class="group">
+            <label for="txtCustId" class="col-form-label-sm">Id:<span class="lbl-req"> *</span></label>
+            <input [readonly]="selAction != 'Add' ? 'readonly' : null" type="text" id="txtCustId" name="txtCustId"
+                [(ngModel)]="txtCustId" placeholder="Customer Id" class="form-control form-control-sm"
+                style="background-color: rgb(229, 235, 235);"
+                [ngClass]="{ 'is-invalid': submitted && f['txtCustId'].errors }" />
+            <div *ngIf="submitted && f['txtCustId'].errors" class="invalid-feedback">
+                <div *ngIf="f['txtCustId'].errors['required']">Req.</div>
+            </div>
+        </div>
+        <div class="group">
+            <label for="txtCustName" class="col-form-label-sm">Customer:<span class="lbl-req"> *</span></label>
+            <input type="text" id="txtCustName" name="txtCustName" [(ngModel)]="txtCustName" placeholder="Customer Name"
+                class="form-control form-control-sm" required="Req."
+                [ngClass]="{ 'is-invalid': submitted && f['txtCustName'].errors }" />
+            <div *ngIf="submitted && f['txtCustName'].errors" class="invalid-feedback">
+                <div *ngIf="f['txtCustName'].errors['required']">Req.</div>
+                <div *ngIf="f['txtCustName'].errors['maxlength']">Maximum 25 Char</div>
+            </div>
+        </div>
+        <div class="group">
+            <label for="txtCustPhone" class="col-form-label-sm">Phone:</label>
+            <input type="text" id="txtCustPhone" name="txtCustPhone" [(ngModel)]="txtCustPhone" placeholder="Phone"
+                class="form-control form-control-sm" required="Req."
+                [ngClass]="{ 'is-invalid': submitted && f['txtCustPhone'].errors }" />
+            <div *ngIf="submitted && f['txtCustPhone'].errors" class="invalid-feedback">
+                <div *ngIf="f['txtCustPhone'].errors['required']">Req.</div>
+                <div *ngIf="f['txtCustPhone'].errors['maxlength']">Maximum 15 Char</div>
+            </div>
+        </div>
+        <div class="group">
+            <label for="txtCustEmail" class="col-form-label-sm">Email:</label>
+            <input type="text" id="txtCustEmail" name="txtCustEmail" [(ngModel)]="txtCustEmail" placeholder="Email"
+                class="form-control form-control-sm" required="Req."
+                [ngClass]="{ 'is-invalid': submitted && f['txtCustEmail'].errors }" />
+            <div *ngIf="submitted && f['txtCustEmail'].errors" class="invalid-feedback">
+                <div *ngIf="f['txtCustEmail'].errors['required']">Req.</div>
+                <div *ngIf="f['txtCustEmail'].errors['maxlength']">Maximum 25 Char</div>
+            </div>
+        </div>
+        <div class="group">
+            <label for="txtActive" class="col-form-label-sm">Active:<span class="lbl-req"> *</span></label>
+            <ng-select class="input-group small" id="txtActive" name="txtActive" [(ngModel)]="txtActive"
+                [ngClass]="{ 'is-invalid': submitted && f['txtActive'].errors }">
+                <ng-option *ngFor="let item of active" [value]="item.id">{{item.name}}</ng-option>
+            </ng-select>
+            <div *ngIf="submitted && f['txtActive'].errors" class="invalid-feedback">
+                <div *ngIf="f['txtActive'].errors['required']"><small>Req.</small>
+                </div>
+            </div>
+        </div>
+        <div class="group" *ngIf="loginUserRoleId < 3">
+            <label for="txtCreated" class="col-form-label-sm">Create:</label>
+            <input type="text" readonly="true" id="txtCreated" name="txtCreated" [(ngModel)]="txtCreated"
+                placeholder="Created" class="form-control form-control-sm"
+                style="background-color: rgb(229, 235, 235);">
+        </div>
+        <div class="group" *ngIf="loginUserRoleId < 3">
+            <label for="txtModified" class="col-form-label-sm">Modify:</label>
+            <input type="text" readonly="true" id="txtModified" name="txtModified" [(ngModel)]="txtModified"
+                placeholder="Modified" class="form-control form-control-sm"
+                style="background-color: rgb(229, 235, 235);">
+        </div>
+        <div class="action mt-2">
+            <button *ngIf="selAction != 'View'" class="btn btn-primary save" (click)="fnAddEditFormSave()"><i
+                    class="fa fa-check fa-1x"></i><small>&nbsp;Submit</small>
+            </button>
+            <button *ngIf="selAction == 'Add'" class="btn btn-success clear" (click)="fnAddEditFormClear()"><i
+                    class="fa fa-refresh fa-1x"></i><small>&nbsp;Clear</small>
+            </button>
+            <button class="btn btn-danger close" (click)="modal.dismiss('Cross click')"><i
+                    class="fa fa-close fa-1x"></i><small>&nbsp;Close</small>
+            </button>
+        </div>
+    </div>
+</ng-template>
+
+
