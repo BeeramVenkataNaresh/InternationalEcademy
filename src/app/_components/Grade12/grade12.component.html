@@ -20,7 +20,7 @@
                     <tbody>
                         <tr class="text-primary"
                             *ngFor="let item of courses; let rowIndex = index">
-                            <td>{{item.id}}</td>
+                            <td>{{rowIndex+1}}</td>
                             <td>{{item.code}}</td>
                             <td>{{item.subject}}</td>
                             <td>{{item.credits}}</td>
