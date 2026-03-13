@@ -1,4 +1,4 @@
-<nav *ngIf="displayMenu" class="navbar navbar-custom navbar-expand-lg fixed-top">
+<nav class="navbar navbar-custom navbar-expand-lg fixed-top">
   <div class="container-fluid">
     <a routerLink="home"><img src="../assets/images/companylogo.png" style="width: 20%;" /></a>
 
@@ -41,64 +41,29 @@
           <a class="nav-link dropdown-toggle" id="menuCourses" role="button" data-bs-toggle="dropdown"
             aria-haspopup="true" aria-expanded="true">Courses</a>
           <ul class="dropdown-menu" aria-labelledby="menuCourses">
-            <li><a class="dropdown-item" routerLink="/grade11"> &nbsp;OSSD - Grade 11
+            <li><a class="dropdown-item" routerLink="/grade9"> &nbsp;Grade 9
               </a></li>
             <li>
               <div class="dropdown-divider"></div>
             </li>
-            <li><a class="dropdown-item" routerLink="/grade12"> &nbsp;OSSD - Grade 12
+            <li>
+            <li><a class="dropdown-item" routerLink="/grade10"> &nbsp;Grade 10
               </a></li>
             <li>
               <div class="dropdown-divider"></div>
             </li>
-            <!-- <li><a class="dropdown-item" routerLink="/paymentgateway"> &nbsp;Payment Gateway
+            <li>
+            <li><a class="dropdown-item" routerLink="/grade11"> &nbsp;Grade 11
               </a></li>
             <li>
               <div class="dropdown-divider"></div>
-            </li> -->
+            </li>
+            <li><a class="dropdown-item" routerLink="/grade12"> &nbsp;Grade 12
+              </a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
             <li><a class="dropdown-item" routerLink="/faqs"> &nbsp;Frequently Asked Questions
-              </a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-          <a class="nav-link dropdown-toggle" id="menuProducts" role="button" data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="true">Products</a>
-          <ul class="dropdown-menu" aria-labelledby="menuProducts">
-            <li class="dropdown-item"> &nbsp;BrainChecker &nbsp;<i class="fa fa-caret-down fa-lg"></i>
-            </li>
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
-            <li><a class="dropdown-item" routerLink="/bcmit"> &nbsp;1. MIT
-              </a></li>
-
-            <li><a class="dropdown-item" routerLink="/bcbcpa"> &nbsp;2. Psychometric (BCPA)
-              </a></li>
-
-            <li><a class="dropdown-item" routerLink="/bcbest"> &nbsp;3. BEST
-              </a></li>
-
-            <li><a class="dropdown-item" routerLink="/bchpact"> &nbsp;4. H-PACT Potency
-              </a></li>
-
-            <li><a class="dropdown-item" routerLink="/bcciqt"> &nbsp;5. CIQT
-              </a></li>
-
-            <li><a class="dropdown-item" routerLink="/bcbrainstamina"> &nbsp;6. Brain Stamina
-              </a></li>
-
-            <li><a class="dropdown-item" routerLink="/bcignite"> &nbsp;7. Ignite
-              </a></li>
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
-            <li><a class="dropdown-item" routerLink="/erobotics"> &nbsp;E Robotics
-              </a></li>
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
-            <li><a class="dropdown-item" routerLink="/englishacademy"> &nbsp;English Academy
               </a></li>
           </ul>
         </li>
@@ -111,76 +76,13 @@
           <a routerLink="contact" class="nav-link">Contact</a>
         </li>
 
-        <li *ngIf="loginUser != null" class="nav-item dropdown" routerLinkActive="active"
-          [routerLinkActiveOptions]="{exact: true}">
-          <a class="nav-link dropdown-toggle" id="menuAdmin" role="button" data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="true"><span
-              style="font-size: small; font-weight: normal;">[{{loginUser}}] </span>
-            <i class="fa fa-user-circle fa-1x" title="User Profile"></i></a>
-          <ul class="dropdown-menu" aria-labelledby="menuAdmin">
-            <li>
-              <span class="dropdown-item "><small class="text-success small"><i class="fa fa-user fa-lg"></i> &nbsp;
-                  {{loginUser}} [User]</small></span>
-            </li>
-            <li>
-              <span class="dropdown-item"><small class="text-success small"><i class="fa fa-gear fa-lg"></i>
-                  &nbsp;{{loginUserRole}} [Role]</small></span>
-            </li>
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
-            <li><a class="dropdown-item" routerLink="/dashboard">
-                &nbsp;Dash Board
-              </a></li>
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
-            <li><a class="dropdown-item" routerLink="/students"> &nbsp;Students Data
-              </a></li>
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
-            <li><a class="dropdown-item" routerLink="/receipt"> &nbsp;Receipts
-              </a></li>
-            <li><a class="dropdown-item" routerLink="/payment"> &nbsp;Payments
-              </a></li>
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
-            <li><a class="dropdown-item" routerLink="/role">
-                &nbsp;Roles
-              </a></li>
-            <li><a class="dropdown-item" routerLink="/user">
-                &nbsp;Users
-              </a></li>
-            <li><a class="dropdown-item" routerLink="/account"> &nbsp;Accounts
-              </a></li>
-            <li><a class="dropdown-item" routerLink="/paymentmode"> &nbsp;PaymentModes
-              </a></li>
-            <li><a class="dropdown-item" routerLink="/product"> &nbsp;Products
-              </a></li>
-            <li><a class="dropdown-item" routerLink="/grade"> &nbsp;Grades
-              </a></li>
-            <li><a class="dropdown-item" routerLink="/customer"> &nbsp;Customers
-              </a></li>
-          </ul>
-        </li>
-
-        <li *ngIf="loginUser == null" class="nav-item">
-          <a routerLink="login" class="nav-link text-danger">Login</a>
-        </li>
-
-        <li *ngIf="loginUser != null" class="nav-item">
-          <a routerLink="home" (click)="fnLogout()" class="nav-link text-danger">Signout</a>
-        </li>
-
       </ul>
     </div>
 
   </div>
 </nav>
 <router-outlet></router-outlet>
-<div *ngIf="displayMenu" class="footer-style">
+<div class="footer-style">
   <div class="container mt-3 mb-3">
     <div class="row">
       <div class="col-md-2 text-start">

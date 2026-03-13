@@ -1,13 +1,13 @@
 <div class="page-position">
     <img class="imgShadow-AllSides" src="assets/images/services.jpg" alt="" title="" style="width: 100%;">
-    <h1 class="text-center text-primary mt-2 mb-3">Course - Grade 12</h1>
+    <h1 class="text-center text-primary mt-2 mb-3">Grade 12</h1>
     <div class="container mt-4">
         <div class="row">
             <div class="col-md-12">
-                <table class="table table-bordered text-center table-center imgShadow-AllSides"
-                    style="border-color:  rgb(246, 247, 247);">
-                    <thead style="background-color:#e7e7e7">
-                        <tr class="text-success">
+
+                <table class="table table-bordered text-center table-center" style="border-color:  rgb(213, 214, 214);">
+                    <thead style="background-color:#f5f3f3">
+                        <tr>
                             <th>S.No.</th>
                             <th>Code</th>
                             <th>Subject</th>
@@ -18,11 +18,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="text-primary"
-                            *ngFor="let item of courses; let rowIndex = index">
+                        <tr class="text-primary" *ngFor="let item of courses; let rowIndex = index">
                             <td>{{rowIndex+1}}</td>
                             <td>{{item.code}}</td>
-                            <td>{{item.subject}}</td>
+                            <td class="text-start">{{item.subject}}</td>
                             <td>{{item.credits}}</td>
                             <td>{{item.grade}}</td>
                             <td>{{item.pathway}}</td>
@@ -44,10 +43,9 @@
     <a type="button" class="btn close text-end" aria-label="Close" (click)="modal.dismiss('Cross click')"><i
             class="fa fa-times-circle fa-lg"></i> </a>
     <div class="modal-body modalFormBgColor text-center">
-        <table class="table table-bordered text-center table-center imgShadow-AllSides"
-            style="border-color:  rgb(246, 247, 247);">
-            <thead style="background-color:#e7e7e7">
-                <tr class="text-success">
+        <table class="table table-bordered text-center table-center" style="border-color:  rgb(213, 214, 214);">
+            <thead style="background-color:#f5f3f3">
+                <tr>
                     <th>Code</th>
                     <th>Subject</th>
                     <th>Credits</th>

@@ -81,68 +81,6 @@
 
 /* End of Scrolling to Top Button */
 
-/* form-wrapper, form-addedit, group, form-control etc classes styling */
-
-.form-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 100;
-}
-
-.form-addedit-600 {
-    background-color: white;
-    width: 600px;
-    padding: 20px 40px;
-    border-radius: 5px;
-}
-
-.form-addedit-800 {
-    background-color: white;
-    width: 800px;
-    padding: 20px 40px;
-    border-radius: 5px;
-}
-
-.form-addedit-1000 {
-    background-color: white;
-    width: 1000px;
-    padding: 20px 40px;
-    border-radius: 5px;
-}
-
-.form-addedit-1200 {
-    background-color: white;
-    width: 1200px;
-    padding: 20px 40px;
-    border-radius: 5px;
-}
-
-.group {
-    display: flex;
-    margin: 15px 0;
-}
-
-.group label {
-    width: 110px;
-    line-height: 40px;
-    height: 40px;
-}
-
-.action {
-    display: flex;
-    justify-content: end;
-    gap: 15px;
-}
-
-/* End of form-wrapper, form-addedit, group, form-control etc classes styling */
-
 .imgShadow-AllSides {
     border: 5px solid #fff;
     box-shadow: 0 0 15px #ccc;

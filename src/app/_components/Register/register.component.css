@@ -1,0 +1,64 @@
+ /* Subtle heading shadow */
+ .heading-shadow {
+     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+ }
+
+ /* Use same font as heading for button */
+ .button-heading-font {
+     font-family: inherit;
+     /* inherits heading font */
+     font-weight: 700;
+     /* bold like heading */
+ }
+
+ /* Static image */
+ .imgShadow-AllSides {
+     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+     border-radius: 10px;
+ }
+
+ /* Capsule Button with hover color change */
+ .btn-register {
+     background: #ffffff;
+     /* default white */
+     color: #007bff;
+     /* blue text */
+     padding: 12px 40px;
+     border-radius: 50px;
+     /* capsule shape */
+     border: 2px solid #007bff;
+     /* blue border */
+     font-weight: 700;
+     /* bold like heading */
+     font-family: inherit;
+     /* match heading font */
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+     transition: all 0.3s ease;
+ }
+
+ .btn-register:hover {
+     background: #007bff;
+     /* fill blue */
+     color: #ffffff;
+     /* text white */
+     border: 2px solid #ff8800;
+     /* orange border for contrast */
+     transform: translateY(-2px);
+     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+     text-decoration: none;
+ }
+
+ @media(max-width:768px) {
+     .row.align-items-center {
+         text-align: center;
+     }
+
+     .btn-register {
+         width: 80%;
+         font-size: 16pt;
+     }
+
+     .imgShadow-AllSides {
+         width: 80%;
+     }
+ }
