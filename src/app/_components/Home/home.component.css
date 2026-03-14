@@ -128,3 +128,103 @@
     font-size:16px;
 }
 
+/* Tabs container */
+.country-tabs {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #dee2e6; /* same as table border */
+  position: relative;
+}
+
+/* Each tab item */
+.country-tabs .nav-item {
+  flex: 1;
+  text-align: center;
+}
+
+/* Tab link */
+.country-tabs .nav-link {
+  border: 1px solid transparent;
+  border-bottom: none; /* connect with content */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 10px 15px;
+  background: #f1f1f1;
+  color: #555;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.country-tabs .nav-link:hover {
+  background: #e9ecef;
+  color: #0d6efd;
+}
+
+/* Active tab */
+.country-tabs .nav-link.active {
+  background: white;
+  border-color: #dee2e6; /* match table border */
+  border-bottom: 1px solid white; /* blend with content */
+  color: #0d6efd;
+  font-weight: 600;
+  z-index: 2;
+}
+
+/* Flag styling — kept same as previous */
+.flag {
+  width: 22px;
+  height: 15px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+/* Sliding indicator (optional) */
+.tab-slider {
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  background: #0d6efd;
+  border-radius: 2px;
+  transition: left 0.35s ease;
+  z-index: 1;
+}
+
+/* Tab content */
+.tab-content {
+  background: white;
+  border: 1px solid #dee2e6; /* match table border */
+  border-top: none; /* merge with tab */
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 10px;
+  margin-top: -1px;
+}
+
+/* Headings */
+.tab-content h5 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+/* Table */
+.tab-content table th,
+.tab-content table td {
+  padding: 6px 8px; /* smaller than default */
+  border: 1px solid #dee2e6; /* keep default table border */
+  vertical-align: middle; /* keep content aligned nicely */
+}
+
+/* Left-align university names */
+.tab-content table td.text-start {
+  text-align: left;
+}
+
+/* Note paragraph */
+.tab-content p.text-danger {
+  margin-top: 0px;
+  font-size: 0.9rem;
+}
