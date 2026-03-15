@@ -10,11 +10,11 @@ import { Grade9 } from './_components/Grade9/grade9';
 import { Grade10 } from './_components/Grade10/grade10';
 import { Grade11Component } from './_components/Grade11/grade11.component';
 import { Grade12Component } from './_components/Grade12/grade12.component';
+import { Others } from './_components/Others/others';
 import { VisionComponent } from './_components/Vision/vision.component';
 import { ManagementComponent } from './_components/Management/management.component';
 import { FaqsComponent } from './_components/Faqs/faqs.component';
 import { TestComponent } from './_components/Test/test.component';
-
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -26,6 +26,7 @@ const routes: Routes = [
   { path: "grade10", component: Grade10 },
   { path: "grade11", component: Grade11Component },
   { path: "grade12", component: Grade12Component },
+  { path: "others", component: Others },
   { path: "contact", component: ContactComponent },
   { path: "register", component: RegisterComponent },
   { path: "message", component: MessageComponent },

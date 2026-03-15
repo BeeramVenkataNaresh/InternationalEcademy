@@ -1,14 +1,16 @@
 <div class="page-position">
-    <img class="imgShadow-AllSides" src="assets/images/services.jpg" alt="" title="" style="width: 100%;">
+    <img class="imgShadow-AllSides" src="assets/images/course.jpg" alt="" title="" style="width: 100%;">
     <h1 class="text-center text-primary mt-2 mb-3">Grade 11</h1>
     <div class="container mt-4 mb-5">
         <div class="card-body text-center">
-            <div class="row mb-5"
-                *ngFor="let row of courses.slice(0, courses.length / noOfCols % 1 === 0 ? courses.length / noOfCols : courses.length / noOfCols + 1); let rowIndex = index">
-                <div class="col-md-6"
-                    *ngFor="let item of courses.slice(rowIndex * noOfCols, rowIndex * noOfCols + noOfCols)">
-                    <a type="button"  (click)="open(content,item)" title="{{item.code}} - {{item.subject}}" style="text-decoration: none;">
-                        <div class="card a-info-style">
+
+            <div class="row">
+
+                <!-- Normal cards for courses with id <= 6 -->
+                <div class="col-md-6 mb-4" *ngFor="let item of normalCourses">
+                    <a type="button" (click)="open(content,item)" title="{{item.code}} - {{item.subject}}"
+                        style="text-decoration: none;">
+                        <div class="card a-info-style h-100">
                             <div class="card-header bg-transparent text-center text-primary">
                                 <h5>{{item.code}} - {{item.subject}}</h5>
                             </div>
@@ -16,11 +18,11 @@
                                 <div class="row">
                                     <div class="col-md-6 text-center text-success">
                                         <img class="imgShadow-AllSides"
-                                            src="assets/images/{{item.source}}/grade11/{{item.id}}.jpg"
+                                            src="assets/images/{{item.source}}/{{item.img}}.jpg"
                                             style="width: 88%; border-radius: 5%;" />
                                     </div>
                                     <div class="col-md-6 text-center">
-                                        <table class="table table-bordered text-center table-center border-gray">
+                                        <table class="table table-bordered text-center table-center border-gray mb-0">
                                             <thead style="background-color:#e7e7e7">
                                                 <tr class="text-danger">
                                                     <th colspan="2">Details</th>
@@ -43,12 +45,12 @@
                                                     <th class="text-start">Pathway</th>
                                                     <td>{{item.pathway}}</td>
                                                 </tr>
-
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
-                                <div class="a-info-style-info">
+
+                                <div class="a-info-style-info mt-3">
                                     <h5 class="text-center mb-3"><b>Description</b></h5>
                                     <p class="text-justify">{{item.description}}</p>
                                     <p> Read More .. <i class="fa fa-arrow-circle-right"></i> </p>
@@ -56,13 +58,33 @@
                             </div>
                         </div>
                     </a>
-                    <!-- <a type="button" class="a-dull-style" (click)="open(content,item)" style="text-decoration: none;">
-                        <img src="assets/images/{{ item.source }}/{{ item.id }}.jpg" class="imgShadow-AllSides"
-                            style="width: 100%; height: 100%; border-radius: 50%;">
-                        <h3 class="mt-3 text-danger">{{ item.code}}</h3>
-                        <h4 class="mt-3 text-success">{{ item.subject }} </h4>
-                    </a> -->
                 </div>
+
+                <!-- Inline table for courses with id >= 7 -->
+                <div class="col-md-6 mb-4" *ngIf="tableCourses.length > 0">
+                    <table class="table table-bordered text-center mb-0 ms-5" style="width: 85%;">
+                                <thead>
+                                    <tr>
+                                        <th colspan="4"><h5 class="text-primary">Other Courses</h5></th>
+                                    </tr>
+                                    <tr class="text-danger" style="background-color:#e7e7e7">
+                                        <th>Code</th>
+                                        <th>Subject</th>
+                                        <th>Credits</th>
+                                        <th>Grade</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of tableCourses; let i = index">
+                                        <td>{{item.code}}</td>
+                                        <td class="text-start">{{item.subject}}</td>
+                                        <td>{{item.credits}}</td>
+                                        <td>{{item.grade}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                </div>
+
             </div>
         </div>
     </div>
@@ -72,7 +94,7 @@
     <a type="button" class="btn close text-end" aria-label="Close" (click)="modal.dismiss('Cross click')"><i
             class="fa fa-times-circle fa-lg"></i> </a>
     <div class="modal-body modalFormBgColor text-center">
-       <table class="table table-bordered text-center table-center" style="border-color:  rgb(213, 214, 214);">
+        <table class="table table-bordered text-center table-center" style="border-color:  rgb(213, 214, 214);">
             <thead style="background-color:#f5f3f3">
                 <tr>
                     <th>Code</th>
@@ -99,4 +121,3 @@
         </table>
     </div>
 </ng-template>
-

@@ -16,11 +16,10 @@ import { Grade9 } from './_components/Grade9/grade9';
 import { Grade10 } from './_components/Grade10/grade10';
 import { Grade11Component } from './_components/Grade11/grade11.component';
 import { Grade12Component } from './_components/Grade12/grade12.component';
+import { Others } from './_components/Others/others';
 import { VisionComponent } from './_components/Vision/vision.component';
 import { TestComponent } from './_components/Test/test.component';
 import { ManagementComponent } from './_components/Management/management.component';
-
-
 
 @NgModule({ 
   declarations: [
@@ -32,6 +31,7 @@ import { ManagementComponent } from './_components/Management/management.compone
     Grade10,
     Grade11Component,
     Grade12Component,
+    Others,
     ContactComponent,
     RegisterComponent,
     MessageComponent,
