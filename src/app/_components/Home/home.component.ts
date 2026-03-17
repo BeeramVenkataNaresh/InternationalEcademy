@@ -122,6 +122,7 @@ export class HomeComponent implements OnInit {
       id: 'usa',
       name: 'USA',
       imageName: 'usa',
+      color: '#9AE1F8',
       universities: [
         { name: "Massachusetts Institute of Technology (MIT)", ossdRecognized: true, minEntry: "Find", minEntryLink: "https://mitadmissions.org/apply/firstyear/international/" },
         { name: "Stanford University", ossdRecognized: true, minEntry: "Find", minEntryLink: "https://admission.stanford.edu/apply/international/index.html" },
@@ -139,6 +140,7 @@ export class HomeComponent implements OnInit {
       id: 'canada',
       name: 'Canada',
       imageName: 'canada',
+      color: '#90EE90',
       universities: [
         { name: "University of Toronto", ossdRecognized: true, minEntry: "Find", minEntryLink: "https://future.utoronto.ca/academics/undergraduate-programs/" },
         { name: "McGill University", ossdRecognized: true, minEntry: "78-96.5", minEntryLink: "https://www.mcgill.ca/undergraduate-admissions/apply/requirements/ontario#grades" },
@@ -156,6 +158,7 @@ export class HomeComponent implements OnInit {
       id: 'australia',
       name: 'Australia',
       imageName: 'australia',
+      color: '#FFFD55',
       universities: [
         { name: "The Australian National University (ANU)", ossdRecognized: true, minEntry: "77-96", minEntryLink: "https://www.anu.edu.au/files/resource/2018%20International%20Student%20Qualifications%20Table.pdf" },
         { name: "The University of New South Wales (UNSW)", ossdRecognized: true, minEntry: "75-88", minEntryLink: "https://www.international.unsw.edu.au/sites/default/files/2017_int_ug_direct_entry_table.pdf" },
@@ -173,6 +176,7 @@ export class HomeComponent implements OnInit {
       id: 'uk',
       name: 'United Kingdom',
       imageName: 'uk',
+      color: '#F79D9D',
       universities: [
         { name: "University of Cambridge", ossdRecognized: true, minEntry: "90", minEntryLink: "https://www.undergraduate.study.cam.ac.uk/international-students/international-entry-requirements" },
         { name: "University of Oxford", ossdRecognized: true, minEntry: "85", minEntryLink: "https://www.ox.ac.uk/admissions/undergraduate/applying-to-oxford/for-international-students/international-qualifications?wssl=1" },
@@ -190,6 +194,7 @@ export class HomeComponent implements OnInit {
       id: 'hongkong',
       name: 'Hong Kong',
       imageName: 'hongkong',
+      color: '#D3D3D3',
       universities: [
         { name: "The University of Hong Kong", ossdRecognized: true, minEntry: "90", minEntryLink: "https://aal.hku.hk/admissions/international/admissions-information?page=admissions-standards" },
         { name: "The Chinese University of Hong Kong", ossdRecognized: true, minEntry: "80", minEntryLink: "https://admission.cuhk.edu.hk/application/overseas-other-qualifications-non-local-international-team/requirements/" },
@@ -205,24 +210,10 @@ export class HomeComponent implements OnInit {
     }
   ];
 
-activeTab: string = 'usa'; // string type to match country.id
-  indicatorPosition = 0;
-  indicatorWidth = 20; // will be calculated automatically
-
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.title = environment.title;
-    const total = this.countries.length;
-    this.indicatorWidth = 100 / total;
-    this.indicatorPosition = 0;
-  }
-
-  setActiveTab(id: string, index: number) {
-    this.activeTab = id;
-    const total = this.countries.length;
-    this.indicatorWidth = 100 / total;
-    this.indicatorPosition = index * this.indicatorWidth;
   }
 
   open(content: any) {

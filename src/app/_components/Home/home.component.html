@@ -78,96 +78,104 @@
 
                     <!-- Universities -->
                     <div class="container mt-4">
+                        <!-- NAV TABS -->
+                        <nav>
+                            <div class="nav nav-tabs nav-justified" role="tablist">
+                                <button *ngFor="let country of countries; let i = index" class="nav-link"
+                                    [class.active]="i === 0" data-bs-toggle="tab"
+                                    [attr.data-bs-target]="'#tab-' + country.id" type="button"
+                                    [style.background]="country.color">
+                                    <h5 class="text-primary">
+                                        <img [src]="'assets/images/universites/' + country.imageName + '.png'"
+                                            class="me-2" style="width: 20%;">
+                                        {{country.name}}
+                                    </h5>
+                                </button>
+                            </div>
+                        </nav>
 
-                        <!-- Tabs -->
-                        <ul class="nav country-tabs position-relative">
-                            <li class="nav-item" *ngFor="let country of countries; let i = index">
-                                <a class="nav-link d-flex align-items-center justify-content-center"
-                                    [class.active]="activeTab === country.id" (click)="setActiveTab(country.id,i)"
-                                    style="cursor:pointer">
-                                    <img [src]="'assets/images/universites/' + country.imageName + '.png'" class="flag me-2"
-                                        alt="{{country.name}} flag">
-                                    {{ country.name }}
-                                </a>
-                            </li>
-
-                            <!-- Sliding indicator -->
-                            <span class="tab-slider" [style.width.%]="indicatorWidth"
-                                [style.left.%]="indicatorPosition"></span>
-                        </ul>
-
-                        <!-- Tab Content -->
-                        <div class="tab-content">
-                            <div *ngFor="let country of countries" class="tab-pane fade"
-                                [class.show]="activeTab === country.id" [class.active]="activeTab === country.id">
-
-                                <h5 class="text-primary text-center">Top Universities of {{ country.name }}</h5>
-
-                                <table class="table table-bordered text-center">
-                                    <thead>
-                                        <tr>
-                                            <th>S.No.</th>
-                                            <th>Name</th>
-                                            <th>OSSD is recognised</th>
-                                            <th><span class="text-danger">*</span>Minimum entry requirement %</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let uni of country.universities; index as i">
-                                            <td>{{ i + 1 }}</td>
-                                            <td class="text-start">{{ uni.name }}</td>
-                                            <td>{{ uni.ossdRecognized ? '✔' : '✖' }}</td>
-                                            <td>
-                                                <a [href]="uni.minEntryLink" target="_blank" style="text-decoration: none;">
-                                                    <i class="fa fa-hand-o-right text-danger me-2"></i>
-                                                    {{ uni.minEntry || 'Find' }}
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-
-                                <p class="text-danger">* <u>Note</u> - Minimum entry requirement is for reference only.
-                                    Please check official website.</p>
-
+                        <!-- TAB CONTENT -->
+                        <div class="tab-content border p-3 bg-white">
+                            <div *ngFor="let country of countries; let i = index" class="tab-pane fade"
+                                [class.show]="i === 0" [class.active]="i === 0" [id]="'tab-' + country.id">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover small">
+                                        <thead class="text-center text-primary">
+                                            <tr>
+                                                <th colspan="4">
+                                                    <h5>
+                                                        <img [src]="'assets/images/universites/' + country.imageName + '.png'"
+                                                            class="me-2" style="width: 3%;">
+                                                        Top Universities of {{ country.name }}
+                                                        <img [src]="'assets/images/universites/' + country.imageName + '.png'"
+                                                            class="ms-2" style="width: 3%;">
+                                                    </h5>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th>S.No</th>
+                                                <th>University</th>
+                                                <th>OSSD is Recognized as Admission requirement </th>
+                                                <th>Minimum Entry</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let uni of country.universities; let i = index">
+                                                <td class="text-center">{{ i+1 }}</td>
+                                                <td>{{uni.name}}</td>
+                                                <td class="text-center">
+                                                    <span class="badge bg-success" *ngIf="uni.ossdRecognized">
+                                                        Yes
+                                                    </span>
+                                                     <span class="ms-2">{{ uni.ossdRecognized ? '✔' : '✖' }}</span>
+                                                </td>
+                                                <td class="text-center">
+                                                    <a [href]="uni.minEntryLink" target="_blank">
+                                                        <i class="fa fa-hand-o-right fa-lg hand-icon me-2"></i>
+                                                        <span
+                                                            class="btn btn-sm btn-primary small"><b>{{uni.minEntry}}</b></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-
                     </div>
                     <!-- End Of Universities -->
 
+                    <!-- Course Tabs -->
                     <nav class="mt-4">
                         <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
                             <button class="nav-link active" id="nav-courses-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-courses" type="button" role="tab" aria-controls="nav-courses"
-                                aria-selected="true">
+                                aria-selected="true" style="background-color: #D3D3D3">
                                 <h5 class="text-primary">Courses</h5>
                             </button>
                             <button class="nav-link" id="nav-education-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-education" type="button" role="tab" aria-controls="nav-education"
-                                aria-selected="true">
+                                aria-selected="true" style="background-color: #F79D9D">
                                 <h5 class="text-primary">Education</h5>
                             </button>
                             <button class="nav-link" id="nav-online-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-online" type="button" role="tab" aria-controls="nav-online"
-                                aria-selected="false">
+                                aria-selected="false" style="background-color: #FFFD55">
                                 <h5 class="text-primary">Study Offline & Online</h5>
                             </button>
                             <button class="nav-link" id="nav-benifits-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-benifits" type="button" role="tab" aria-controls="nav-benifits"
-                                aria-selected="false">
+                                aria-selected="false" style="background-color: #90EE90">
                                 <h5 class="text-primary">Benefits </h5>
                             </button>
                             <button class="nav-link" id="nav-approved-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-approved" type="button" role="tab" aria-controls="nav-approved"
-                                aria-selected="false">
+                                aria-selected="false" style="background-color: #9AE1F8">
                                 <h5 class="text-primary">Approved</h5>
                             </button>
                         </div>
                     </nav>
-
                     <div class="mb-4 tab-content p-3 border" id="nav-tabContent" style="background-color: white;">
-
                         <!-- Course -->
                         <div class="tab-pane fade active show mt-4 mb-4" id="nav-courses" role="tabpanel"
                             aria-labelledby="nav-courses-tab">
@@ -217,7 +225,8 @@
                                         <li>We have highly experienced team of teachers committed to academic excellence
                                             and will prepare students to exceed their expectations and achieve
                                             outstanding success in a global community.</li>
-                                        <li>Real time support from Indian & Canadian teachers, Live Teacher Support, Globally
+                                        <li>Real time support from Indian & Canadian teachers, Live Teacher Support,
+                                            Globally
                                             Recognized Curriculum.</li>
                                     </ul>
                                 </div>
@@ -309,6 +318,8 @@
                         </div>
                         <!-- End of Approved -->
                     </div>
+                    <!-- End of Course Tabs -->
+
                 </div>
             </div>
         </div>
