@@ -82,9 +82,10 @@
                         <nav>
                             <div class="nav nav-tabs nav-justified" role="tablist">
                                 <button *ngFor="let country of countries; let i = index" class="nav-link"
-                                    [class.active]="i === 0" data-bs-toggle="tab"
+                                    [class.active]="universityTabActiveIndex === i"
+                                    (click)="universityTabActiveIndex = i" data-bs-toggle="tab"
                                     [attr.data-bs-target]="'#tab-' + country.id" type="button"
-                                    [style.background]="country.color">
+                                    [style.background]="universityTabActiveIndex === i ? '' : country.color">
                                     <h5 class="text-primary">
                                         <img [src]="'assets/images/universites/' + country.imageName + '.png'"
                                             class="me-2" style="width: 20%;">
@@ -127,7 +128,7 @@
                                                     <span class="badge bg-success" *ngIf="uni.ossdRecognized">
                                                         Yes
                                                     </span>
-                                                     <span class="ms-2">{{ uni.ossdRecognized ? '✔' : '✖' }}</span>
+                                                    <span class="ms-2">{{ uni.ossdRecognized ? '✔' : '✖' }}</span>
                                                 </td>
                                                 <td class="text-center">
                                                     <a [href]="uni.minEntryLink" target="_blank">
@@ -148,29 +149,37 @@
                     <!-- Course Tabs -->
                     <nav class="mt-4">
                         <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
-                            <button class="nav-link active" id="nav-courses-tab" data-bs-toggle="tab"
+                            <button class="nav-link" [class.active]="courseTabActive==='courses'"
+                                (click)="courseTabActive='courses'" id="nav-courses-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-courses" type="button" role="tab" aria-controls="nav-courses"
-                                aria-selected="true" style="background-color: #D3D3D3">
+                                aria-selected="true" [style.background]="courseTabActive==='courses' ? '' : '#D3D3D3'">
                                 <h5 class="text-primary">Courses</h5>
                             </button>
-                            <button class="nav-link" id="nav-education-tab" data-bs-toggle="tab"
+                            <button class="nav-link" [class.active]="courseTabActive==='education'"
+                                (click)="courseTabActive='education'" id="nav-education-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-education" type="button" role="tab" aria-controls="nav-education"
-                                aria-selected="true" style="background-color: #F79D9D">
+                                aria-selected="true"
+                                [style.background]="courseTabActive==='education' ? '' : '#F79D9D'">
                                 <h5 class="text-primary">Education</h5>
                             </button>
-                            <button class="nav-link" id="nav-online-tab" data-bs-toggle="tab"
+                            <button class="nav-link" [class.active]="courseTabActive==='online'"
+                                (click)="courseTabActive='online'" id="nav-online-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-online" type="button" role="tab" aria-controls="nav-online"
-                                aria-selected="false" style="background-color: #FFFD55">
+                                aria-selected="false" [style.background]="courseTabActive==='online' ? '' : '#FFFD55'">
                                 <h5 class="text-primary">Study Offline & Online</h5>
                             </button>
-                            <button class="nav-link" id="nav-benifits-tab" data-bs-toggle="tab"
+                            <button class="nav-link" [class.active]="courseTabActive==='benefits'"
+                                (click)="courseTabActive='benefits'" id="nav-benifits-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-benifits" type="button" role="tab" aria-controls="nav-benifits"
-                                aria-selected="false" style="background-color: #90EE90">
+                                aria-selected="false"
+                                [style.background]="courseTabActive==='benefits' ? '' : '#90EE90'">
                                 <h5 class="text-primary">Benefits </h5>
                             </button>
-                            <button class="nav-link" id="nav-approved-tab" data-bs-toggle="tab"
+                            <button class="nav-link" [class.active]="courseTabActive==='approved'"
+                                (click)="courseTabActive='approved'" id="nav-approved-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-approved" type="button" role="tab" aria-controls="nav-approved"
-                                aria-selected="false" style="background-color: #9AE1F8">
+                                aria-selected="false"
+                                [style.background]="courseTabActive==='approved' ? '' : '#9AE1F8'">
                                 <h5 class="text-primary">Approved</h5>
                             </button>
                         </div>

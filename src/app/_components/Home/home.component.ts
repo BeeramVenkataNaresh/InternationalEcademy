@@ -12,6 +12,8 @@ export class HomeComponent implements OnInit {
 
   title: any;
   closeResult: any;
+  universityTabActiveIndex = 0;
+  courseTabActive = 'courses';
 
   owlMain: OwlOptions = {
     autoWidth: true,
