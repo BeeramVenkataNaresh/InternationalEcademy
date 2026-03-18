@@ -336,42 +336,30 @@
     <!-- End of Why Section -->
 
     <!-- Universities Section -->
-    <div class="container">
-        <h1 class="text-primary text-center mt-4 mb-3">Admissions In Universities</h1>
+    <div class="container py-5">
 
-        <h6 class="text-center">
-            International Ecademy is providing the Canadian curriculum (Ontario Secondary School Diploma),
-            which is valid to get admission worldwide.
-        </h6>
+        <!-- Heading -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">Admissions In Universities</h1>
 
-        <div class="logo-slider mt-5 mb-5">
-            <div class="logo-track">
-
-                <img src="assets/images/universites/york.jpg" title="York University" alt="York University">
-                <img src="assets/images/universites/waterloo.jpg" title="University Of Waterloo"
-                    alt="University Of Waterloo">
-                <img src="assets/images/universites/toronto.jpg" title="University of Toronto"
-                    alt="University of Toronto">
-                <img src="assets/images/universites/torontometropolitan.jpg" title="Toronto Metropolitan University"
-                    alt="Toronto Metropolitan University">
-                <img src="assets/images/universites/ontariotech.jpg" title="Ontario Tech University"
-                    alt="Ontario Tech University">
-                <img src="assets/images/universites/mcmaster.jpg" title="McMaster University" alt="McMaster University">
-                <img src="assets/images/universites/western.jpg" title="Western University" alt="Western University">
-                <img src="assets/images/universites/ryerson.jpg" title="Ryerson University" alt="Ryerson University">
-                <img src="assets/images/universites/queens.jpg" title="Queen's University" alt="Queen's University">
-                <img src="assets/images/universites/mcgill.jpg" title="McGill University" alt="McGill University">
-                <img src="assets/images/universites/guelph.jpg" title="Guelph University" alt="Guelph University">
-
-                <!-- duplicate for smooth scroll -->
-                <img src="assets/images/universites/york.jpg" title="York University" alt="York University">
-                <img src="assets/images/universites/waterloo.jpg" title="University Of Waterloo"
-                    alt="University Of Waterloo">
-                <img src="assets/images/universites/toronto.jpg" title="University of Toronto"
-                    alt="University of Toronto">
-
-            </div>
+            <p class="mt-4">
+                International Ecademy provides the Canadian curriculum (Ontario Secondary School Diploma),
+                which is recognized for university admissions worldwide.
+            </p>
         </div>
+
+        <!-- ✅ Wrapper (IMPORTANT for containment) -->
+        <div class="logo-slider-wrapper">
+
+            <!-- Slider Track -->
+            <div class="logo-track">
+                <ng-container *ngFor="let uni of universities.concat(universities)">
+                    <img [src]="uni.src" [alt]="uni.name" [title]="uni.name" class="partner-logo">
+                </ng-container>
+            </div>
+
+        </div>
+
     </div>
     <!-- End of Universities Section -->
 
@@ -543,42 +531,29 @@
     <!-- End of Testimonial Section -->
 
     <!-- Partners Section -->
-    <div class="container">
-        <h1 class="text-primary text-center mt-3">Our partnerships, driving impactful change..!</h1>
-        <h4 class="text-success text-center mt-4">Connecting talent with the industry's best</h4>
-        <p class="mt-4">Meet the people we work with, Strategic partnerships that improve impactful change-curating a
-            tailored
-            network through International Ecademy to connect you with industry leaders and sustainable solutions.</p>
+    <div class="container py-5">
 
-        <!-- Partnership Logos Section -->
-        <div class="logo-slider my-5">
-            <div class="logo-track align-items-center">
-                <!-- Logo 1 -->
-                <img src="../assets/images/partners/english.png" title="English Academy" alt="English Academy">
+        <!-- Heading -->
+        <div class="text-center mb-4">
+            <h1 class="text-primary">Our partnerships, driving impactful change..!</h1>
+            <h4 class="text-success mt-4">Connecting talent with the industry's best</h4>
+            <p class="mt-4 text-justify">
+                Meet the people we work with. Strategic partnerships that create impactful change—curating a
+                tailored network through International Ecademy to connect you with industry leaders and sustainable
+                solutions.
+            </p>
+        </div>
 
-                <!-- Logo 2 -->
-                <img src="../assets/images/partners/erobotics.png" title="E Robotics Services"
-                    alt="E Robotics Services">
+        <!-- ✅ IMPORTANT WRAPPER -->
+        <div class="logo-slider-wrapper">
 
-                <!-- Logo 3 -->
-                <img src="../assets/images/partners/revohub.JPG" title="Revo Hub Inc" alt="Revo Hub Inc">
-
-                <!-- Logo 4 -->
-                <img src="../assets/images/partners/leonnova.jpg" title="Leonnova" alt="Leonnova">
-
-                <!-- Logo 5 -->
-                <img src="../assets/images/partners/csa.png" title="Canada Startup Association"
-                    alt="Canada Startup Association">
-
-                <!-- Repeat logos for smooth continuous scrolling -->
-                <img src="../assets/images/partners/english.png" title="English Academy" alt="English Academy">
-                <img src="../assets/images/partners/erobotics.png" title="E Robotics Services"
-                    alt="E Robotics Services">
-                <img src="../assets/images/partners/revohub.JPG" title="Revo Hub Inc" alt="Revo Hub Inc">
-                <img src="../assets/images/partners/leonnova.jpg" title="Leonnova" alt="Leonnova">
-                <img src="../assets/images/partners/csa.png" title="Canada Startup Association"
-                    alt="Canada Startup Association">
+            <!-- Slider Track -->
+            <div class="logo-track d-flex align-items-center">
+                <ng-container *ngFor="let logo of logos.concat(logos)">
+                    <img [src]="logo.src" [alt]="logo.name" [title]="logo.name" class="partner-logo">
+                </ng-container>
             </div>
+
         </div>
 
     </div>

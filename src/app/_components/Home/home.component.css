@@ -83,48 +83,49 @@
 /* End Of Card default style */
 
 /* Start of University Logos Slider container */
-
-.logo-slider{
-    overflow: hidden;
-    width: 100%;
+/* Wrapper keeps everything inside container */
+.logo-slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
-.logo-track{
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    animation: scroll 20s linear infinite;
+/* Track animation */
+.logo-track {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  width: max-content;
+  animation: scroll 35s linear infinite;
 }
 
-/* pause animation on hover */
-
-.logo-slider:hover .logo-track{
-    animation-play-state: paused;
+/* Logos */
+.partner-logo {
+  height: 80px;
+  flex-shrink: 0;
+  object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
-.logo-track img{
-    height: 80px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
+/* Hover zoom */
+.partner-logo:hover {
+  transform: scale(1.1);
 }
 
-/* hover effect */
-
-.logo-track img:hover{
-    transform: scale(1.1);
+/* ✅ Pause on hover */
+.logo-slider-wrapper:hover .logo-track {
+  animation-play-state: paused;
 }
 
-/* scrolling animation */
-
-@keyframes scroll{
-    0%{
-        transform: translateX(0);
-    }
-    100%{
-        transform: translateX(-50%);
-    }
+/* Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
-
 /* End of University Logos Slider container */
 
 .management-list{

@@ -1,152 +1,186 @@
 <nav class="navbar navbar-custom navbar-expand-lg fixed-top">
   <div class="container-fluid">
-    <a routerLink="home"><img src="../assets/images/companylogo.png" style="width: 20%;" /></a>
 
+    <!-- Logo -->
+    <a routerLink="/home" (click)="collapseNavbar()">
+      <img src="../assets/images/companylogo.png" class="img-fluid" style="max-width:120px;" alt="Company Logo" />
+    </a>
+
+    <!-- Toggle Button -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu"
       aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Navbar -->
     <div class="navbar-collapse collapse" id="navmenu">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a routerLink="home" class="nav-link"> Home</a>
+
+        <!-- Home -->
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/home" class="nav-link" (click)="collapseNavbar()">Home</a>
         </li>
 
-        <li class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <!-- About -->
+        <li class="nav-item dropdown" routerLinkActive="active">
           <a class="nav-link dropdown-toggle" id="menuAbout" role="button" data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="true">About</a>
+            aria-expanded="false">
+            About
+          </a>
+
           <ul class="dropdown-menu" aria-labelledby="menuAbout">
-            <li><a class="dropdown-item" routerLink="/about"> &nbsp;About International Ecademy
-              </a></li>
+            <li>
+              <a class="dropdown-item" routerLink="/about" (click)="collapseNavbar()">
+                About International Ecademy
+              </a>
+            </li>
             <li>
               <div class="dropdown-divider"></div>
             </li>
-            <li><a class="dropdown-item" routerLink="/vision"> &nbsp;Our Vision, Mission & Goal
-              </a></li>
+
+            <li>
+              <a class="dropdown-item" routerLink="/vision" (click)="collapseNavbar()">
+                Our Vision, Mission & Goal
+              </a>
+            </li>
             <li>
               <div class="dropdown-divider"></div>
             </li>
-            <li><a class="dropdown-item" routerLink="/management"> &nbsp;Management
-              </a></li>
-            <!-- <li>
-                <div class="dropdown-divider"></div>
-              </li>
-              <li><a class="dropdown-item" routerLink="/test"> &nbsp;Test
-              </a></li> -->
+
+            <li>
+              <a class="dropdown-item" routerLink="/management" (click)="collapseNavbar()">
+                Management
+              </a>
+            </li>
           </ul>
         </li>
 
-        <li class="nav-item dropdown" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <!-- Courses -->
+        <li class="nav-item dropdown" routerLinkActive="active">
           <a class="nav-link dropdown-toggle" id="menuCourses" role="button" data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="true">Courses</a>
+            aria-expanded="false">
+            Courses
+          </a>
+
           <ul class="dropdown-menu" aria-labelledby="menuCourses">
-            <li><a class="dropdown-item" routerLink="/grade9"> &nbsp;Grade 9
-              </a></li>
+            <li><a class="dropdown-item" routerLink="/grade9" (click)="collapseNavbar()">Grade 9</a></li>
             <li>
               <div class="dropdown-divider"></div>
             </li>
-            <li>
-            <li><a class="dropdown-item" routerLink="/grade10"> &nbsp;Grade 10
-              </a></li>
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
-            <li>
-            <li><a class="dropdown-item" routerLink="/grade11"> &nbsp;Grade 11
-              </a></li>
+
+            <li><a class="dropdown-item" routerLink="/grade10" (click)="collapseNavbar()">Grade 10</a></li>
             <li>
               <div class="dropdown-divider"></div>
             </li>
-            <li><a class="dropdown-item" routerLink="/grade12"> &nbsp;Grade 12
-              </a></li>
+
+            <li><a class="dropdown-item" routerLink="/grade11" (click)="collapseNavbar()">Grade 11</a></li>
             <li>
               <div class="dropdown-divider"></div>
             </li>
-            <li><a class="dropdown-item" routerLink="/others"> &nbsp;Other Courses
-              </a></li>
+
+            <li><a class="dropdown-item" routerLink="/grade12" (click)="collapseNavbar()">Grade 12</a></li>
             <li>
               <div class="dropdown-divider"></div>
             </li>
-            <li><a class="dropdown-item" routerLink="/faqs"> &nbsp;Frequently Asked Questions
-              </a></li>
+
+            <li><a class="dropdown-item" routerLink="/others" (click)="collapseNavbar()">Other Courses</a></li>
+            <li>
+              <div class="dropdown-divider"></div>
+            </li>
+
+            <li><a class="dropdown-item" routerLink="/faqs" (click)="collapseNavbar()">Frequently Asked Questions</a>
+            </li>
           </ul>
         </li>
 
-        <li class="nav-item">
-          <a routerLink="register" class="nav-link text-success">Register</a>
+        <!-- Register -->
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/register" class="nav-link text-success" (click)="collapseNavbar()">Register</a>
         </li>
 
-        <li class="nav-item">
-          <a routerLink="contact" class="nav-link">Contact</a>
+        <!-- Contact -->
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/contact" class="nav-link" (click)="collapseNavbar()">Contact</a>
         </li>
 
       </ul>
     </div>
-
   </div>
 </nav>
+
+<!-- Page Content -->
 <router-outlet></router-outlet>
+
+<!-- Footer -->
 <div class="footer-style">
   <div class="container mt-3 mb-3">
     <div class="row">
+
+      <!-- Logo -->
       <div class="col-md-2 text-start">
         <br>
-        <p>
-          <img src="../assets/images/logo.png" style="width: 100%;" />
-        </p>
+        <img src="../assets/images/logo.png" class="img-fluid" alt="Footer Logo" />
       </div>
+
+      <!-- Contact -->
       <div class="col-md-5 text-start">
-        <table class="table table-bordered table-center border-gray text-primary" style="border-color: #F7F6F6;">
+        <table class="table table-bordered text-primary" style="border-color: #F7F6F6;">
           <tbody>
-            <!-- <tr>
-              <td colspan="2" style="font-size: 17pt; font-weight: bold; color: green;">CONTACT DETAILS</td>
-            </tr> -->
             <tr>
-              <th class="text-start text-success"><i class="fa fa-volume-control-phone fa-lg"></i></th>
-              <td class="text-start"> +91 70935 41984, &nbsp; <i class="fa fa-whatsapp fa-lg text-success"></i>
-                +1 (647) 641-3585.</td>
+              <th class="text-success"><i class="fa fa-phone"></i></th>
+              <td>+91 70935 41984, <i class="fa fa-whatsapp text-success"></i> +1 (647) 641-3585</td>
             </tr>
+
             <tr>
-              <th class="text-start text-success"><i class="fa fa-envelope fa-1x text-success"></i></th>
-              <td class="text-start">internationalecademy&#64;gmail.com</td>
+              <th class="text-success"><i class="fa fa-envelope"></i></th>
+              <td>internationalecademy@gmail.com</td>
             </tr>
+
             <tr>
-              <th class="text-start text-success"><i class="fa fa-map-marker fa-lg"></i></th>
-              <td class="text-start">Unit.No - 406, 1833 Bayview Avenue, East York, Toronto, Ontario, Canada - M4G 3E2.
+              <th class="text-success"><i class="fa fa-map-marker"></i></th>
+              <td>
+                Unit.No - 406, 1833 Bayview Avenue, East York, Toronto, Ontario, Canada - M4G 3E2.
               </td>
             </tr>
+
             <tr>
-              <th class="text-start text-success"><i class="fa fa-map-marker fa-lg"></i></th>
-              <td class="text-start">Plot No.21, 1st Floor, Sardar Patel Road, Paigah Colony, Hyderabad, Telangana,
-                India - 500003.</td>
+              <th class="text-success"><i class="fa fa-map-marker"></i></th>
+              <td>
+                Plot No.21, 1st Floor, Sardar Patel Road, Paigah Colony, Hyderabad, Telangana, India - 500003.
+              </td>
             </tr>
           </tbody>
         </table>
       </div>
+
+      <!-- Message -->
       <div class="col-md-5">
         <app-message></app-message>
       </div>
     </div>
+
     <hr>
+
+    <!-- Footer Bottom -->
     <div class="row">
       <div class="col-md-6 text-start">
-        Copyrights &copy; {{ year }}, {{ title }}, &reg; All Rights Reserved.
+        Copyrights &copy; {{ year }}, {{ title }}, ® All Rights Reserved.
       </div>
+
       <div class="col-md-6 text-end">
-        <p>Follows Us - <a href="#" target="_blank" title="Facebook Page"><i
-              class="fa fa-facebook fa-lg"></i></a>&nbsp;&nbsp;
-          <a href="https://www.instagram.com/internationalecademy/" target="_blank" title="Instagram Page"><i
-              class="fa fa-instagram fa-lg"></i></a>&nbsp;&nbsp;
-          <a href="#" target="_blank" title="Youtube Page">
-            <i class="fa fa-youtube-play fa-lg"></i></a>&nbsp;&nbsp;
-          <!-- <a href="#" target="_blank" title="Twitter Page"><i class="fa fa-twitter fa-lg"></i></a> -->
+        <p>
+          Follow Us -
+          <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>&nbsp;&nbsp;
+          <a href="https://www.instagram.com/internationalecademy/" target="_blank"><i
+              class="fa fa-instagram"></i></a>&nbsp;&nbsp;
+          <a href="#" target="_blank"><i class="fa fa-youtube-play"></i></a>
         </p>
       </div>
     </div>
   </div>
 </div>
-<div>
-  <button class="scroll-top" *ngIf="isBtnShow" (click)="goTop()" title="Go to top"><i
-      class="fa fa-chevron-up"></i></button>
-</div>
+
+<!-- Scroll Top Button -->
+<button class="scroll-top" *ngIf="isBtnShow" (click)="goTop()" title="Go to top">
+  <i class="fa fa-chevron-up"></i>
+</button>

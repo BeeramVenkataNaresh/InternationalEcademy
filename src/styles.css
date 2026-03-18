@@ -52,7 +52,6 @@
 }
 
 /* Scrolling to Top Button */
-
 .scroll-top {
     position: fixed;
     bottom: 10px;
@@ -78,7 +77,6 @@
     background: #E51A4B;
     color: #fff;
 }
-
 /* End of Scrolling to Top Button */
 
 .imgShadow-AllSides {

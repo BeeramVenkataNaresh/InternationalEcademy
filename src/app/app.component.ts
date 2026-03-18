@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit, HostListener} from '@angular/core';
+import { Component, DoCheck, OnInit, HostListener } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import { Router } from '@angular/router';
 import { environment } from '../environments/environment';
@@ -10,7 +10,7 @@ import { environment } from '../environments/environment';
 })
 export class AppComponent {
 
-  isBtnShow!: boolean;
+   isBtnShow!: boolean;
   topPositionToStartShowing = 100;
 
   title = environment.title;
@@ -20,6 +20,16 @@ export class AppComponent {
     setTimeout(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
     }, 200);
+  }
+
+  collapseNavbar() {
+    const nav = document.getElementById('navmenu');
+    if (nav) {
+      const bsCollapse = new (window as any).bootstrap.Collapse(nav, {
+        toggle: false
+      });
+      bsCollapse.hide();
+    }
   }
 
   @HostListener('window:scroll')
@@ -39,5 +49,5 @@ export class AppComponent {
       behavior: 'smooth'
     });
   }
-  
+
 }

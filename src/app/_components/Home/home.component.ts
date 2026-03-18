@@ -212,6 +212,28 @@ export class HomeComponent implements OnInit {
     }
   ];
 
+  universities = [
+    { src: 'assets/images/universites/york.jpg', name: 'York University' },
+    { src: 'assets/images/universites/waterloo.jpg', name: 'University of Waterloo' },
+    { src: 'assets/images/universites/toronto.jpg', name: 'University of Toronto' },
+    { src: 'assets/images/universites/torontometropolitan.jpg', name: 'Toronto Metropolitan University' },
+    { src: 'assets/images/universites/ontariotech.jpg', name: 'Ontario Tech University' },
+    { src: 'assets/images/universites/mcmaster.jpg', name: 'McMaster University' },
+    { src: 'assets/images/universites/western.jpg', name: 'Western University' },
+    { src: 'assets/images/universites/ryerson.jpg', name: 'Ryerson University' },
+    { src: 'assets/images/universites/queens.jpg', name: "Queen's University" },
+    { src: 'assets/images/universites/mcgill.jpg', name: 'McGill University' },
+    { src: 'assets/images/universites/guelph.jpg', name: 'University of Guelph' }
+  ];
+
+  logos = [
+    { src: '../assets/images/partners/english.png', name: 'English Academy' },
+    { src: '../assets/images/partners/erobotics.png', name: 'E Robotics Services' },
+    { src: '../assets/images/partners/revohub.JPG', name: 'Revo Hub Inc' },
+    { src: '../assets/images/partners/leonnova.jpg', name: 'Leonnova' },
+    { src: '../assets/images/partners/csa.png', name: 'Canada Startup Association' }
+  ];
+
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
