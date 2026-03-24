@@ -3,6 +3,16 @@
 /* For Ng Select component */
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
+.icon-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #F7F6F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .lbl-req {
     color: red;
 }
