@@ -1,5 +1,5 @@
 <div>
-    <form [formGroup]="messageForm" (ngSubmit)="fnSubmit()">
+   <form [formGroup]="messageForm" (ngSubmit)="fnSubmit()">
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
@@ -7,9 +7,9 @@
                         <label for="txtName" class="input-group-text"><i class="fa fa-user-circle"></i></label>
                         <input type="text" formControlName="txtName" id="txtName" placeholder="Your Name"
                             class="form-control" [ngClass]="{ 'is-invalid': submitted && f['txtName'].errors }" />
-                        <div *ngIf="submitted && f['txtName'].errors" class="invalid-feedback">
-                            <div *ngIf="f['txtName'].errors['required']">Req.</div>
-                        </div>
+                        <span *ngIf="submitted && f['txtName'].errors" class="invalid-feedback">
+                            <small *ngIf="f['txtName'].errors['required']">Req.</small>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -21,10 +21,10 @@
                         <label for="txtEmail" class="input-group-text"><i class="fa fa-at"></i></label>
                         <input type="text" formControlName="txtEmail" id="txtEmail" placeholder="Email-Id"
                             class="form-control" [ngClass]="{ 'is-invalid': submitted && f['txtEmail'].errors }" />
-                        <div *ngIf="submitted && f['txtEmail'].errors" class="invalid-feedback">
-                            <div *ngIf="f['txtEmail'].errors['required']">Req.</div>
-                            <div *ngIf="f['txtEmail'].errors['Email']">Must be a valid Email Aaddress</div>
-                        </div>
+                        <span *ngIf="submitted && f['txtEmail'].errors" class="invalid-feedback">
+                            <small *ngIf="f['txtEmail'].errors['required']">Req.</small>
+                            <small *ngIf="f['txtEmail'].errors['email']">Must be a valid Email Aaddress</small>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -36,9 +36,9 @@
                         <label for="txtPhone" class="input-group-text"><i class="fa fa-phone-square"></i></label>
                         <input type="text" formControlName="txtPhone" id="txtPhone" placeholder="Phone No."
                             class="form-control" [ngClass]="{ 'is-invalid': submitted && f['txtPhone'].errors }" />
-                        <div *ngIf="submitted && f['txtPhone'].errors" class="invalid-feedback">
-                            <div *ngIf="f['txtPhone'].errors['required']">Req.</div>
-                        </div>
+                        <span *ngIf="submitted && f['txtPhone'].errors" class="invalid-feedback">
+                            <small *ngIf="f['txtPhone'].errors['required']">Req.</small>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -50,9 +50,9 @@
                         <label for="txtMsg" class="input-group-text"><i class="fa fa-comments"></i></label>
                         <textarea formControlName="txtMsg" id="txtMsg" placeholder="Message" class="form-control"
                             [ngClass]="{ 'is-invalid': submitted && f['txtMsg'].errors }"></textarea>
-                        <div *ngIf="submitted && f['txtMsg'].errors" class="invalid-feedback">
-                            <div *ngIf="f['txtMsg'].errors['required']">Req.</div>
-                        </div>
+                        <span *ngIf="submitted && f['txtMsg'].errors" class="invalid-feedback">
+                            <small *ngIf="f['txtMsg'].errors['required']">Req.</small>
+                        </span>
                     </div>
                 </div>
             </div>

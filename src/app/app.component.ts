@@ -10,13 +10,13 @@ import { environment } from '../environments/environment';
 })
 export class AppComponent {
 
-   isBtnShow!: boolean;
+  isBtnShow!: boolean;
   topPositionToStartShowing = 100;
 
   title = environment.title;
   year = environment.year;
 
-  constructor(private router: Router, private viewportScroller: ViewportScroller) { 
+  constructor(private router: Router, private viewportScroller: ViewportScroller) {
     setTimeout(() => {
       this.viewportScroller.scrollToPosition([0, 0]);
     }, 200);

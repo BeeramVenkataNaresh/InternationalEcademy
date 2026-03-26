@@ -3,15 +3,68 @@
 /* For Ng Select component */
 @import "~@ng-select/ng-select/themes/default.theme.css";
 
+/* --- Start of Contact Card Style --- */
+.contact-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: default;
+    background: #fdfdfd;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.04), /* subtle top shadow */
+        0 6px 15px rgba(0, 0, 0, 0.08); /* subtle bottom shadow */
+}
+
+@media(max-width:768px) {
+    .d-flex {
+        flex-direction: column !important;
+    }
+
+    .contact-card {
+        text-align: left !important;
+    }
+}
+/* --- End of Contact Card Style --- */
+
+/* --- Icon Circle --- */
 .icon-circle {
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    background-color: #F7F6F6;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    margin-right: 10px;
+    color: #4d4d4d; /* #fff; */
+
+    /* Softer, layered shadow (more modern) */
+    box-shadow: 
+        0 2px 6px rgba(0,0,0,0.08),
+        0 6px 16px rgba(0,0,0,0.12);
+
+    /* Smooth interaction */
+    transition: all 0.25s ease;
 }
+
+/* Hover effect (subtle lift) */
+.icon-circle:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        0 4px 10px rgba(0,0,0,0.12),
+        0 10px 22px rgba(0,0,0,0.18);
+}
+
+/* Color Variations (badge style) */
+.icon-green { background: #28a745; color: #fff;}
+.icon-blue { background: #007bff; color: #fff; }
+.icon-red { background: #dc3545; color: #fff; }
+.icon-whatsapp { background: #25D366; color: #fff; }
+
+/* Optional: for softer look instead of solid */
+.icon-soft-green {
+    background: #e6f7ee;
+    color: #28a745;
+    box-shadow: 0 2px 6px rgba(40,167,69,0.15);
+}
+/* --- End of Icon Circle ---*/
+
 
 .lbl-req {
     color: red;
