@@ -1,10 +1,10 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-faqs',
+  standalone: true,
+  imports: [],
   templateUrl: './faqs.component.html',
   styleUrls: ['./faqs.component.css']
 })
-export class FaqsComponent {
-  
-}
+export class FaqsComponent {}

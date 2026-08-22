@@ -1,44 +1,88 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  ReactiveFormsModule
+} from '@angular/forms';
+
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   selector: 'app-message',
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule
+  ],
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.css']
 })
-export class MessageComponent {
-  messageForm: FormGroup;
-  submitted: boolean;
+export class MessageComponent implements OnInit {
 
-  constructor(public formBuilder: FormBuilder, private router: Router) { }
+  messageForm!: FormGroup;
 
-  ngOnInit() {
+  submitted = false;
+
+  constructor(
+    public formBuilder: FormBuilder
+  ) {}
+
+  ngOnInit(): void {
+
     this.messageForm = this.formBuilder.group({
-      txtName: ['', Validators.required],
-      txtEmail: ['', [Validators.required, Validators.email]],
-      txtPhone: ['', Validators.required],
-      txtMsg: ['', Validators.required]
-    })
+
+      txtName: [
+        '',
+        Validators.required
+      ],
+
+      txtEmail: [
+        '',
+        [
+          Validators.required,
+          Validators.email
+        ]
+      ],
+
+      txtPhone: [
+        '',
+        Validators.required
+      ],
+
+      txtMsg: [
+        '',
+        Validators.required
+      ]
+
+    });
   }
 
-  // convenience getter for easy access to form fields
-  get f() { return this.messageForm.controls; }
+  get f() {
+    return this.messageForm.controls;
+  }
 
-  fnSubmit() {
+  fnSubmit(): void {
+
     this.submitted = true;
 
-    // stop here if form is invalid
     if (this.messageForm.invalid) {
       return;
     }
 
-    Swal.fire('Message', 'Sent successfully..!', 'success');
+    Swal.fire(
+      'Message',
+      'Sent successfully..!',
+      'success'
+    );
   }
 
-  fnCancel() {
+  fnCancel(): void {
+
     this.submitted = false;
+
     this.messageForm.reset();
   }
 }

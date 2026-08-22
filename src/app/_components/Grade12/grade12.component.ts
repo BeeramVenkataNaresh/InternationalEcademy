@@ -1,15 +1,28 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+
+import {
+  NgbModal,
+  ModalDismissReasons,
+  NgbModalModule
+} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-grade12',
+  standalone: true,
+  imports: [
+    CommonModule,
+    NgbModalModule
+  ],
   templateUrl: './grade12.component.html',
   styleUrls: ['./grade12.component.css']
 })
 export class Grade12Component {
-  selectedItem: any[];
-  closeResult: string;
+
+  selectedItem: any[] = [];
+  closeResult = '';
+
   courses = [
     { source: 'courses', id: 0, code: 'ENG4U', subject: 'English', credits: '1', grade: '12', pathway: 'University', description: '-' },
     { source: 'courses', id: 1, code: 'MFH4U', subject: 'Advanced Functions', credits: '1', grade: '12', pathway: 'University', description: '-' },
@@ -32,31 +45,42 @@ export class Grade12Component {
     { source: 'courses', id: 17, code: 'HHS4C', subject: 'Families in Canada', credits: '1', grade: '12', pathway: '-', description: '-' },
     { source: 'courses', id: 18, code: 'MAP4C', subject: 'Foundations for College Mathematics', credits: '1', grade: '12', pathway: '-', description: '-' },
     { source: 'courses', id: 19, code: 'BAT4M', subject: 'Financial Accounting Principals', credits: '1', grade: '12', pathway: '-', description: '-' },
-    { source: 'courses', id: 20, code: 'EWC4C', subject: 'Writers Craft', credits: '1', grade: '12', pathway: '-', description: '-' },
+    { source: 'courses', id: 20, code: 'EWC4C', subject: 'Writers Craft', credits: '1', grade: '12', pathway: '-', description: '-' }
   ];
 
-  constructor(private router: Router, private modalService: NgbModal) { }
+  constructor(
+    private router: Router,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
+    // Initialization
   }
 
-  open(content, item) {
+  open(content: any, item: any): void {
     this.selectedItem = item;
-    this.modalService.open(content, { centered: true }).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+
+    this.modalService.open(content, {
+      centered: true
+    }).result.then(
+      (result) => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      }
+    );
   }
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
     }
-  }
 
+    if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    }
+
+    return `with: ${reason}`;
+  }
 }
