@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { environment } from '../environments/environment';
 
 import { MessageComponent } from './_components/Message/message.component';
@@ -10,6 +10,7 @@ import { MessageComponent } from './_components/Message/message.component';
   standalone: true,
   imports: [
     CommonModule,
+    RouterLink,
     RouterOutlet,
     MessageComponent
   ],
@@ -19,7 +20,6 @@ import { MessageComponent } from './_components/Message/message.component';
 export class AppComponent {
 
   isBtnShow = false;
-
   topPositionToStartShowing = 100;
 
   title = environment.title;
@@ -48,18 +48,14 @@ export class AppComponent {
 
   @HostListener('window:scroll')
   checkScrollPosition(): void {
-
     const scrollPosition =
       window.pageYOffset ||
       document.documentElement.scrollTop ||
       document.body.scrollTop ||
       0;
 
-    if (scrollPosition >= this.topPositionToStartShowing) {
-      this.isBtnShow = true;
-    } else {
-      this.isBtnShow = false;
-    }
+    this.isBtnShow =
+      scrollPosition >= this.topPositionToStartShowing;
   }
 
   goTop(): void {
