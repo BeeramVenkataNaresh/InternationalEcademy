@@ -1,220 +1,446 @@
+/* =========================================================
+   GLOBAL STYLES
+========================================================= */
+
 /* You can add global styles to this file, and also import other style files */
 
 /* For Ng Select component */
 @import "@ng-select/ng-select/themes/default.theme.css";
 
-/* --- Start of Contact Card Style --- */
+
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  background: #ffffff;
+
+  color: #102a43;
+}
+
+
+/* =========================================================
+   CONTACT CARD
+========================================================= */
+
 .contact-card {
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: default;
-    background: #fdfdfd;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.04), /* subtle top shadow */
-        0 6px 15px rgba(0, 0, 0, 0.08); /* subtle bottom shadow */
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+
+  cursor: default;
+
+  background: #fdfdfd;
+
+  box-shadow:
+    0 -2px 10px rgba(0, 0, 0, 0.04),
+    0 6px 15px rgba(0, 0, 0, 0.08);
 }
 
-@media(max-width:768px) {
-    .d-flex {
-        flex-direction: column !important;
-    }
+@media (max-width: 768px) {
 
-    .contact-card {
-        text-align: left !important;
-    }
+  .d-flex {
+    flex-direction: column !important;
+  }
+
+  .contact-card {
+    text-align: left !important;
+  }
+
 }
-/* --- End of Contact Card Style --- */
 
-/* --- Icon Circle --- */
+
+/* =========================================================
+   ICON CIRCLE
+========================================================= */
+
 .icon-circle {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
-    color: #4d4d4d; /* #fff; */
+  width: 35px;
 
-    /* Softer, layered shadow (more modern) */
-    box-shadow: 
-        0 2px 6px rgba(0,0,0,0.08),
-        0 6px 16px rgba(0,0,0,0.12);
+  height: 35px;
 
-    /* Smooth interaction */
-    transition: all 0.25s ease;
+  border-radius: 50%;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-right: 10px;
+
+  color: #4d4d4d;
+
+  box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.08),
+    0 6px 16px rgba(0, 0, 0, 0.12);
+
+  transition:
+    all 0.25s ease;
 }
 
-/* Hover effect (subtle lift) */
 .icon-circle:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 
-        0 4px 10px rgba(0,0,0,0.12),
-        0 10px 22px rgba(0,0,0,0.18);
+  transform:
+    translateY(-3px)
+    scale(1.05);
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.12),
+    0 10px 22px rgba(0, 0, 0, 0.18);
 }
 
-/* Color Variations (badge style) */
-.icon-green { background: #28a745; color: #fff;}
-.icon-blue { background: #007bff; color: #fff; }
-.icon-red { background: #dc3545; color: #fff; }
-.icon-whatsapp { background: #25D366; color: #fff; }
 
-/* Optional: for softer look instead of solid */
+/* =========================================================
+   COLOR VARIATIONS
+========================================================= */
+
+.icon-green {
+  background: #28a745;
+  color: #fff;
+}
+
+.icon-blue {
+  background: #007bff;
+  color: #fff;
+}
+
+.icon-red {
+  background: #dc3545;
+  color: #fff;
+}
+
+.icon-whatsapp {
+  background: #25D366;
+  color: #fff;
+}
+
+
+/* =========================================================
+   SOFT ICON
+========================================================= */
+
 .icon-soft-green {
-    background: #e6f7ee;
-    color: #28a745;
-    box-shadow: 0 2px 6px rgba(40,167,69,0.15);
-}
-/* --- End of Icon Circle ---*/
+  background: #e6f7ee;
 
+  color: #28a745;
+
+  box-shadow:
+    0 2px 6px rgba(40, 167, 69, 0.15);
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
 
 .lbl-req {
-    color: red;
+  color: red;
 }
 
 .center-screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 94vh;
-    padding: 15px;
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+
+  min-height: 94vh;
+
+  padding: 15px;
 }
 
 .center-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
 }
 
 .text-justify {
-    text-align: justify;
+  text-align: justify;
 }
 
 .sideHeading {
-    font-size: 16pt;
-    font-weight: bold;
-    color: blue;
+  font-size: 16pt;
+
+  font-weight: bold;
+
+  color: blue;
 }
+
+
+/* =========================================================
+   PAGE POSITION
+========================================================= */
 
 .page-position {
-    padding-top: 65px;
-    padding-bottom: 20px;
+  padding-top: 0;
+
+  padding-bottom: 20px;
 }
+
+
+/* =========================================================
+   COURSE PAGE HEADER
+========================================================= */
+
+.page-header {
+  text-align: center;
+
+  padding: 25px 15px 15px;
+}
+
+.page-header h1 {
+  margin: 0 0 8px;
+
+  color: #1769ff;
+
+  font-size: 32px;
+
+  font-weight: 700;
+}
+
+.page-header p {
+  margin: 0;
+
+  color: #6b7a90;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
 
 .table-appearance {
-    font-size: 9pt;
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
+  font-size: 9pt;
+
+  display: block;
+
+  overflow-x: auto;
+
+  white-space: nowrap;
 }
+
+
+/* =========================================================
+   FOOTER STYLE
+========================================================= */
 
 .footer-style {
-    background-color: #F7F6F6;
-    padding: 3px 0;
-    border-top: solid 1px lightgrey;
-    border-bottom: solid 1px lightgrey;
+  background-color: #F7F6F6;
+
+  padding: 3px 0;
+
+  border-top:
+    solid 1px lightgrey;
+
+  border-bottom:
+    solid 1px lightgrey;
 }
 
-/* Scrolling to Top Button */
+
+/* =========================================================
+   SCROLLING TO TOP BUTTON
+========================================================= */
+
 .scroll-top {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    font-size: 16px;
-    text-align: center;
-    border-radius: 50px;
-    border-color: #C5C6C6;
-    outline: none;
-    background: #0086CA;
-    color: #fff;
-    transition: background 0.5s;
-    padding: 6px 12px 9px 12px;
+  position: fixed;
+
+  bottom: 10px;
+
+  right: 10px;
+
+  font-size: 16px;
+
+  text-align: center;
+
+  border-radius: 50px;
+
+  border-color: #C5C6C6;
+
+  outline: none;
+
+  background: #0086CA;
+
+  color: #fff;
+
+  transition:
+    background 0.5s;
+
+  padding:
+    6px 12px 9px 12px;
 }
 
 .scroll-top:focus {
-    background: #0086CA;
-    color: #fff;
-    outline: none;
+  background: #0086CA;
+
+  color: #fff;
+
+  outline: none;
 }
 
 .scroll-top:hover {
-    background: #E51A4B;
-    color: #fff;
+  background: #E51A4B;
+
+  color: #fff;
 }
-/* End of Scrolling to Top Button */
+
+
+/* =========================================================
+   IMAGE SHADOW
+========================================================= */
 
 .imgShadow-AllSides {
-    border: 5px solid #fff;
-    box-shadow: 0 0 15px #ccc;
-    -moz-box-shadow: 0 0 15px #ccc;
-    -webkit-box-shadow: 0 0 15px #ccc;
-    -o-box-shadow: 0 0 15px #ccc;
+  border: 5px solid #fff;
+
+  box-shadow:
+    0 0 15px #ccc;
+
+  -moz-box-shadow:
+    0 0 15px #ccc;
+
+  -webkit-box-shadow:
+    0 0 15px #ccc;
+
+  -o-box-shadow:
+    0 0 15px #ccc;
 }
 
-/* Anchor Style Dull - 1 */
+
+/* =========================================================
+   ANCHOR STYLE - DULL
+========================================================= */
 
 .a-dull-style {
-    opacity: 1;
-  }
-  
-  .a-dull-style:hover {
-    opacity: 0.75;
-    cursor: pointer;
-  }
-  
-  /* End of Anchor Style Dull - 1 */
+  opacity: 1;
+}
 
-  /* Anchor Style Info - 2 */
+.a-dull-style:hover {
+  opacity: 0.75;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   ANCHOR STYLE - INFO
+========================================================= */
 
 .a-info-style {
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .a-info-style-image {
-    width: 50%100%;
-  }
-  
-  .a-info-style-info {
-    position: absolute;
-    bottom: -30px;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    box-sizing: border-box;
-    color: #fff;
-    padding: 20px 20px;
-  }
-  .a-info-style-info h5 {
-    font-size: 18px;
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-  }
-  .a-info-style-info p {
-    font-size: 14px;
-    margin: 4px 0 14px;
-  }
-  
-  .a-info-style:hover .a-info-style-info {
-    background-color: black;
-    border: 2px solid rgb(254, 133, 6);
-    color: white;
-    opacity: .75;
-    bottom: -5px;
-    transition: opacity 1s;
-  }
-  
-  /* End of Anchor Style Info - 2 */
+  width: 100%;
 
-  /* Anchor Style Enlarge - 3 */
+  position: relative;
+
+  overflow: hidden;
+}
+
+.a-info-style-image {
+  width: 100%;
+}
+
+.a-info-style-info {
+  position: absolute;
+
+  bottom: -30px;
+
+  left: 0;
+
+  width: 100%;
+
+  opacity: 0;
+
+  box-sizing: border-box;
+
+  color: #fff;
+
+  padding: 20px 20px;
+}
+
+.a-info-style-info h5 {
+  font-size: 18px;
+
+  margin: 0;
+
+  padding: 0;
+
+  font-weight: bold;
+}
+
+.a-info-style-info p {
+  font-size: 14px;
+
+  margin: 4px 0 14px;
+}
+
+.a-info-style:hover .a-info-style-info {
+  background-color: black;
+
+  border:
+    2px solid rgb(254, 133, 6);
+
+  color: white;
+
+  opacity: 0.75;
+
+  bottom: -5px;
+
+  transition:
+    opacity 1s;
+}
+
+
+/* =========================================================
+   ANCHOR STYLE - ENLARGE
+========================================================= */
 
 .a-enlarge-style {
-    transition: transform .2s; /* Animation */
+  transition:
+    transform 0.2s;
+}
+
+.a-enlarge-style:hover {
+  transform:
+    scale(1.5);
+}
+
+
+/* =========================================================
+   COURSE PAGE RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .page-header {
+    padding:
+      20px 15px 12px;
   }
-  
-  .a-enlarge-style:hover {
-    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+  .page-header h1 {
+    font-size: 27px;
   }
-  
-  /* End of Anchor Style Enlarge - 3 */
+
+  .page-header p {
+    font-size: 13px;
+  }
+
+}
