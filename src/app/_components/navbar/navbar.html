@@ -1,0 +1,293 @@
+<!-- =========================================================
+     INTERNATIONAL ECADEMY - NAVBAR
+========================================================= -->
+
+<nav class="navbar navbar-expand-lg navbar-custom">
+
+  <div class="container navbar-container">
+
+    <!-- Logo -->
+    <a
+      class="navbar-brand"
+      routerLink="/home"
+      (click)="collapseNavbar()"
+      aria-label="International Ecademy Home"
+    >
+      <img
+        src="assets/images/companylogo.png"
+        alt="International Ecademy"
+        class="navbar-logo"
+      />
+    </a>
+
+
+    <!-- Mobile Toggle -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navmenu"
+      aria-controls="navmenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <!-- Navigation -->
+    <div
+      class="collapse navbar-collapse"
+      id="navmenu"
+    >
+
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+
+        <!-- Home -->
+        <li
+          class="nav-item"
+          routerLinkActive="nav-active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            class="nav-link"
+            routerLink="/home"
+            (click)="collapseNavbar()"
+          >
+            Home
+          </a>
+        </li>
+
+
+        <!-- About -->
+        <li class="nav-item dropdown">
+
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="aboutDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            About Us
+          </a>
+
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="aboutDropdown"
+          >
+
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/about"
+                (click)="collapseNavbar()"
+              >
+                About International Ecademy
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/vision"
+                (click)="collapseNavbar()"
+              >
+                Vision, Mission &amp; Goals
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/management"
+                (click)="collapseNavbar()"
+              >
+                Management
+              </a>
+            </li>
+
+          </ul>
+
+        </li>
+
+
+        <!-- University Admissions -->
+        <li class="nav-item">
+
+          <a
+            class="nav-link"
+            routerLink="/home"
+            fragment="university-admissions"
+            (click)="collapseNavbar()"
+          >
+            University Admissions
+          </a>
+
+        </li>
+
+
+        <!-- Career -->
+        <li class="nav-item">
+
+          <a
+            class="nav-link"
+            routerLink="/home"
+            fragment="career-services"
+            (click)="collapseNavbar()"
+          >
+            Career Services
+          </a>
+
+        </li>
+
+
+        <!-- Jobs -->
+        <li class="nav-item">
+
+          <a
+            class="nav-link"
+            routerLink="/home"
+            fragment="job-opportunities"
+            (click)="collapseNavbar()"
+          >
+            Job Opportunities
+          </a>
+
+        </li>
+
+
+        <!-- Student Support -->
+        <li class="nav-item">
+
+          <a
+            class="nav-link"
+            routerLink="/home"
+            fragment="student-support"
+            (click)="collapseNavbar()"
+          >
+            Student Support
+          </a>
+
+        </li>
+
+
+        <!-- Education -->
+        <li class="nav-item dropdown">
+
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="educationDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Education
+          </a>
+
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="educationDropdown"
+          >
+
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/grade9"
+                (click)="collapseNavbar()"
+              >
+                Grade 9
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/grade10"
+                (click)="collapseNavbar()"
+              >
+                Grade 10
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/grade11"
+                (click)="collapseNavbar()"
+              >
+                Grade 11
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/grade12"
+                (click)="collapseNavbar()"
+              >
+                Grade 12
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/others"
+                (click)="collapseNavbar()"
+              >
+                Other Courses
+              </a>
+            </li>
+
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/faqs"
+                (click)="collapseNavbar()"
+              >
+                Frequently Asked Questions
+              </a>
+            </li>
+
+          </ul>
+
+        </li>
+
+
+        <!-- Contact -->
+        <li class="nav-item">
+
+          <a
+            class="nav-link"
+            routerLink="/contact"
+            (click)="collapseNavbar()"
+          >
+            Contact
+          </a>
+
+        </li>
+
+
+        <!-- Consultation -->
+        <li class="nav-item consultation-nav-item">
+
+          <a
+            class="btn consultation-button"
+            routerLink="/contact"
+            (click)="collapseNavbar()"
+          >
+            Book a Consultation
+          </a>
+
+        </li>
+
+      </ul>
+
+    </div>
+
+  </div>
+
+</nav>

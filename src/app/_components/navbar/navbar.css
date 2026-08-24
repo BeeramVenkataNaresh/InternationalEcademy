@@ -1,0 +1,369 @@
+/* =========================================================
+   INTERNATIONAL ECADEMY - NAVBAR
+========================================================= */
+
+:host {
+  display: block;
+
+  width: 100%;
+}
+
+
+/* =========================================================
+   NAVBAR
+   FIXED + GLASS EFFECT
+========================================================= */
+
+.navbar-custom {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  z-index: 1030;
+
+  width: 100%;
+
+  padding: 12px 0;
+
+  margin: 0;
+
+  /* Existing white look + subtle glass effect */
+  background: rgba(255, 255, 255, 0.82);
+
+  border-bottom:
+    1px solid rgba(16, 42, 67, 0.08);
+
+  box-shadow:
+    0 4px 18px rgba(16, 42, 67, 0.04);
+
+  backdrop-filter: blur(14px);
+
+  -webkit-backdrop-filter: blur(14px);
+}
+
+
+/* =========================================================
+   NAVBAR CONTAINER
+========================================================= */
+
+.navbar-container {
+  max-width: 1320px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   LOGO
+   ORIGINAL SIZE PRESERVED
+========================================================= */
+
+.navbar-logo {
+  display: block;
+
+  width: 135px;
+
+  max-width: 135px;
+
+  height: auto;
+}
+
+.navbar-brand {
+  padding: 0;
+
+  margin: 0 36px 0 0;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.navbar-custom .navbar-nav {
+  gap: 2px;
+}
+
+.navbar-custom .nav-link {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  min-height: 42px;
+
+  padding:
+    9px 12px;
+
+  color: #102a43;
+
+  font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  letter-spacing: -0.01em;
+
+  border-radius: 8px;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link:focus {
+  color: #1769ff;
+
+  background:
+    #edf4ff;
+}
+
+.navbar-custom .nav-active .nav-link {
+  color: #1769ff;
+}
+
+
+/* =========================================================
+   CONSULTATION BUTTON
+========================================================= */
+
+.consultation-nav-item {
+  margin-left: 8px;
+}
+
+.consultation-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding:
+    10px 18px;
+
+  border-radius: 8px;
+
+  background:
+    #1769ff;
+
+  border:
+    1px solid #1769ff;
+
+  color: #fff !important;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 7px 18px rgba(23, 105, 255, 0.17);
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.consultation-button:hover {
+  background:
+    #0c55d6;
+
+  border-color:
+    #0c55d6;
+
+  color: #fff !important;
+
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 10px 24px rgba(23, 105, 255, 0.22);
+}
+
+
+/* =========================================================
+   DROPDOWN
+========================================================= */
+
+.navbar-custom .dropdown-menu {
+  min-width: 250px;
+
+  margin-top: 8px;
+
+  padding: 8px;
+
+  border:
+    1px solid #e7ebf2;
+
+  border-radius: 12px;
+
+  background: #fff;
+
+  box-shadow:
+    0 20px 45px rgba(16, 42, 67, 0.11);
+}
+
+.navbar-custom .dropdown-item {
+  padding:
+    10px 12px;
+
+  border-radius: 7px;
+
+  color:
+    #243b53;
+
+  font-size: 13px;
+
+  text-decoration: none;
+
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease;
+}
+
+.navbar-custom .dropdown-item:hover,
+.navbar-custom .dropdown-item:focus {
+  background:
+    #edf4ff;
+
+  color:
+    #1769ff;
+}
+
+
+/* =========================================================
+   DESKTOP DROPDOWN
+========================================================= */
+
+@media (min-width: 992px) {
+
+  .navbar-custom .dropdown:hover .dropdown-menu {
+    display: block;
+
+    animation:
+      dropdownIn 0.15s ease-out;
+  }
+
+}
+
+
+/* =========================================================
+   DROPDOWN ANIMATION
+========================================================= */
+
+@keyframes dropdownIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1199.98px) {
+
+  .navbar-custom .nav-link {
+    padding-left: 9px;
+
+    padding-right: 9px;
+
+    font-size: 12px;
+  }
+
+  .navbar-brand {
+    margin-right: 20px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE NAVBAR
+========================================================= */
+
+@media (max-width: 991.98px) {
+
+  .navbar-custom {
+    padding:
+      10px 0;
+  }
+
+  .navbar-logo {
+    width: 115px;
+
+    max-width: 115px;
+  }
+
+  .navbar-custom .navbar-collapse {
+    margin-top: 12px;
+
+    padding: 12px;
+
+    border:
+      1px solid #e7ebf2;
+
+    border-radius: 12px;
+
+    background: #fff;
+
+    box-shadow:
+      0 15px 35px rgba(16, 42, 67, 0.09);
+  }
+
+  .navbar-custom .nav-link {
+    width: 100%;
+
+    padding:
+      11px 12px;
+
+    font-size: 14px;
+  }
+
+  .consultation-nav-item {
+    margin:
+      7px 0 0;
+  }
+
+  .consultation-button {
+    width: 100%;
+  }
+
+  .navbar-custom .dropdown-menu {
+    position: static !important;
+
+    width: 100%;
+
+    margin:
+      4px 0;
+
+    box-shadow: none;
+
+    background:
+      #fbfcff;
+  }
+
+}

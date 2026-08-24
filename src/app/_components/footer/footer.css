@@ -1,0 +1,273 @@
+/* =========================================================
+   INTERNATIONAL ECADEMY - FOOTER
+========================================================= */
+
+:host {
+
+  display: block;
+
+  width: 100%;
+}
+
+
+.site-footer {
+
+  width: 100%;
+
+  margin: 0;
+
+  padding:
+    70px 0 28px;
+
+  background:
+    linear-gradient(
+      120deg,
+      #f7faff 0%,
+      #ffffff 55%,
+      #fff9f3 100%
+    );
+
+  border-top:
+    1px solid #e7ebf2;
+
+  color:
+    #6b7a90;
+}
+
+
+.footer-main {
+
+  display: grid;
+
+  grid-template-columns:
+    1.45fr
+    1fr
+    1fr
+    1fr;
+
+  gap: 48px;
+}
+
+
+.footer-brand {
+
+  max-width: 320px;
+}
+
+
+.footer-logo {
+
+  width: 145px;
+
+  margin-bottom: 18px;
+}
+
+
+.footer-brand p {
+
+  margin: 0;
+
+  color:
+    #6b7a90;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+}
+
+
+.footer-contact h4,
+.footer-office h4 {
+
+  margin:
+    0 0 17px;
+
+  color:
+    #102a43;
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+
+.footer-contact a {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 11px;
+
+  color:
+    #6b7a90;
+
+  font-size: 13px;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease;
+}
+
+
+.footer-contact a:hover {
+
+  color:
+    #1769ff;
+}
+
+
+.footer-contact i {
+
+  width: 17px;
+
+  color:
+    #1769ff;
+
+  text-align: center;
+}
+
+
+.footer-office p {
+
+  margin: 0;
+
+  color:
+    #6b7a90;
+
+  font-size: 13px;
+
+  line-height: 1.75;
+}
+
+
+.footer-message {
+
+  max-width: 760px;
+
+  margin:
+    48px auto 0;
+}
+
+
+.footer-divider {
+
+  height: 1px;
+
+  margin:
+    40px 0 24px;
+
+  background:
+    #e7ebf2;
+}
+
+
+.footer-bottom {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  color:
+    #6b7a90;
+
+  font-size: 12px;
+}
+
+
+.footer-socials {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+.footer-socials span {
+
+  margin-right: 5px;
+}
+
+
+.footer-socials a {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 34px;
+
+  height: 34px;
+
+  border:
+    1px solid #e7ebf2;
+
+  border-radius: 50%;
+
+  background: #fff;
+
+  color:
+    #102a43;
+
+  text-decoration: none;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.footer-socials a:hover {
+
+  background:
+    #1769ff;
+
+  color:
+    #fff;
+
+  transform:
+    translateY(-2px);
+}
+
+
+@media (max-width: 991.98px) {
+
+  .footer-main {
+
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+}
+
+
+@media (max-width: 575.98px) {
+
+  .footer-main {
+
+    grid-template-columns:
+      1fr;
+
+    gap: 32px;
+  }
+
+  .footer-bottom {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+}

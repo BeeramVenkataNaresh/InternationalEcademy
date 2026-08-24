@@ -1,16 +1,64 @@
 /* =========================================================
-   GLOBAL STYLES
+   INTERNATIONAL ECADEMY
+   GLOBAL DESIGN SYSTEM
 ========================================================= */
 
-/* You can add global styles to this file, and also import other style files */
+:root {
 
-/* For Ng Select component */
-@import "@ng-select/ng-select/themes/default.theme.css";
+  /* -------------------------------------------------------
+     BRAND COLORS
+  ------------------------------------------------------- */
+
+  --ie-navy: #102a43;
+  --ie-navy-light: #243b53;
+
+  --ie-blue: #1769ff;
+  --ie-blue-light: #edf4ff;
+
+  --ie-red: #ec1d23;
+
+  --ie-orange: #f4a261;
+  --ie-orange-light: #fff6ed;
+
+  /* -------------------------------------------------------
+     BACKGROUND
+  ------------------------------------------------------- */
+
+  --ie-bg: #fbfcff;
+  --ie-white: #ffffff;
+
+  /* -------------------------------------------------------
+     TEXT
+  ------------------------------------------------------- */
+
+  --ie-text: #102a43;
+  --ie-muted: #6b7a90;
+
+  /* -------------------------------------------------------
+     BORDER
+  ------------------------------------------------------- */
+
+  --ie-border: #e7ebf2;
+
+  /* -------------------------------------------------------
+     COMMON SHADOWS
+  ------------------------------------------------------- */
+
+  --ie-shadow:
+    0 8px 25px rgba(16, 42, 67, 0.12);
+
+  --ie-shadow-soft:
+    0 4px 18px rgba(16, 42, 67, 0.06);
+}
 
 
 /* =========================================================
    GLOBAL RESET
 ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+}
 
 html,
 body {
@@ -18,63 +66,369 @@ body {
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
+
+  background:
+    var(--ie-bg);
+
+  color:
+    var(--ie-text);
+
   font-family:
     "Segoe UI",
     Arial,
     sans-serif;
 
-  background: #ffffff;
+  font-size: 14px;
 
-  color: #102a43;
+  line-height: 1.6;
+
+  overflow-x: hidden;
 }
 
 
 /* =========================================================
-   CONTACT CARD
+   GLOBAL BOX SIZING
 ========================================================= */
 
-.contact-card {
-  transition:
-    transform 0.3s,
-    box-shadow 0.3s;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-  cursor: default;
 
-  background: #fdfdfd;
+/* =========================================================
+   GLOBAL LINKS
+========================================================= */
+
+a {
+  color: var(--ie-blue);
+
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   GLOBAL IMAGES
+========================================================= */
+
+img {
+  max-width: 100%;
+
+  height: auto;
+}
+
+
+/* =========================================================
+   COMMON PAGE WRAPPER
+========================================================= */
+
+.ie-page {
+  width: 100%;
+
+  padding:
+    36px 0 60px;
+}
+
+
+/* =========================================================
+   COMMON CONTENT CONTAINER
+========================================================= */
+
+.ie-page .container {
+  position: relative;
+}
+
+
+/* =========================================================
+   COMMON IMAGE SHADOW
+========================================================= */
+
+.imgShadow-AllSides {
+  box-shadow:
+    var(--ie-shadow);
+}
+
+
+/* =========================================================
+   COMMON CENTER ITEM
+========================================================= */
+
+.center-item {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* =========================================================
+   COMMON JUSTIFIED TEXT
+========================================================= */
+
+.text-justify {
+  text-align: justify;
+}
+
+
+/* =========================================================
+   COMMON PAGE TITLES
+========================================================= */
+
+.ie-title-red {
+
+  margin: 0;
+
+  color:
+    var(--ie-red);
+
+  font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 32px;
+
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+
+.ie-title-blue {
+
+  margin: 0;
+
+  color:
+    var(--ie-blue);
+
+  font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 32px;
+
+  font-weight: 700;
+
+  line-height: 1.2;
+}
+
+
+/* =========================================================
+   COMMON CONTENT LIST
+========================================================= */
+
+.ie-content-list {
+
+  margin-bottom: 0;
+
+  padding-left: 22px;
+
+  color:
+    var(--ie-text);
+
+  font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1.75;
+
+  text-align: justify;
+}
+
+
+.ie-content-list li {
+
+  margin-bottom: 18px;
+
+  padding-left: 4px;
+}
+
+
+.ie-content-list li:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   COMMON HIGHLIGHT
+========================================================= */
+
+.ie-highlight {
+
+  color:
+    var(--ie-red);
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   COMMON CONTENT IMAGE
+========================================================= */
+
+.ie-content-image {
+
+  display: inline-block;
+
+  height: auto;
+
+  border-radius: 10%;
 
   box-shadow:
-    0 -2px 10px rgba(0, 0, 0, 0.04),
-    0 6px 15px rgba(0, 0, 0, 0.08);
-}
-
-@media (max-width: 768px) {
-
-  .d-flex {
-    flex-direction: column !important;
-  }
-
-  .contact-card {
-    text-align: left !important;
-  }
-
+    var(--ie-shadow);
 }
 
 
 /* =========================================================
-   ICON CIRCLE
+   ABOUT PAGE
 ========================================================= */
 
-.icon-circle {
-  width: 35px;
+.about-page {
+  width: 100%;
 
-  height: 35px;
+  padding:
+    36px 0 60px;
+}
 
-  border-radius: 50%;
+
+/* =========================================================
+   ABOUT INTRODUCTION
+========================================================= */
+
+.about-intro {
+  min-height: 420px;
+}
+
+
+/* =========================================================
+   ABOUT MAIN IMAGE
+========================================================= */
+
+.about-main-image {
+  width: 100%;
+}
+
+
+/* =========================================================
+   ABOUT SECTION HEADING
+========================================================= */
+
+.about-section-heading {
+
+  margin-top: 45px;
+
+  margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   ABOUT FEATURE ROW
+========================================================= */
+
+.about-feature-row {
+
+  margin-top: 35px;
+}
+
+
+/* =========================================================
+   ABOUT FEATURE
+========================================================= */
+
+.about-feature {
+  height: 100%;
+}
+
+
+/* =========================================================
+   ABOUT FEATURE TITLE
+========================================================= */
+
+.ie-feature-title {
+
+  margin:
+    0 0 18px;
+
+  color:
+    #198754;
+
+  font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+
+  font-size: 25px;
+
+  font-weight: 700;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   ABOUT FEATURE IMAGE
+========================================================= */
+
+.ie-feature-image {
+
+  display: inline-block;
+
+  height: auto;
+
+  margin-top: 4px;
+
+  border-radius: 10%;
+
+  box-shadow:
+    var(--ie-shadow);
+}
+
+
+/* =========================================================
+   ABOUT IMAGE SIZES
+========================================================= */
+
+.flexible-image {
+  width: 75%;
+}
+
+
+.accredited-image {
+  width: 52%;
+}
+
+
+.affordable-image {
+  width: 54%;
+}
+
+
+.selfpace-image {
+  width: 50%;
+}
+
+
+.online-learning-image {
+  width: 40%;
+}
+
+
+/* =========================================================
+   GLOBAL BUTTON STYLE
+========================================================= */
+
+.ie-button {
 
   display: inline-flex;
 
@@ -82,365 +436,250 @@ body {
 
   justify-content: center;
 
-  margin-right: 10px;
-
-  color: #4d4d4d;
-
-  box-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.08),
-    0 6px 16px rgba(0, 0, 0, 0.12);
-
-  transition:
-    all 0.25s ease;
-}
-
-.icon-circle:hover {
-  transform:
-    translateY(-3px)
-    scale(1.05);
-
-  box-shadow:
-    0 4px 10px rgba(0, 0, 0, 0.12),
-    0 10px 22px rgba(0, 0, 0, 0.18);
-}
-
-
-/* =========================================================
-   COLOR VARIATIONS
-========================================================= */
-
-.icon-green {
-  background: #28a745;
-  color: #fff;
-}
-
-.icon-blue {
-  background: #007bff;
-  color: #fff;
-}
-
-.icon-red {
-  background: #dc3545;
-  color: #fff;
-}
-
-.icon-whatsapp {
-  background: #25D366;
-  color: #fff;
-}
-
-
-/* =========================================================
-   SOFT ICON
-========================================================= */
-
-.icon-soft-green {
-  background: #e6f7ee;
-
-  color: #28a745;
-
-  box-shadow:
-    0 2px 6px rgba(40, 167, 69, 0.15);
-}
-
-
-/* =========================================================
-   COMMON
-========================================================= */
-
-.lbl-req {
-  color: red;
-}
-
-.center-screen {
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  text-align: center;
-
-  min-height: 94vh;
-
-  padding: 15px;
-}
-
-.center-item {
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-}
-
-.text-justify {
-  text-align: justify;
-}
-
-.sideHeading {
-  font-size: 16pt;
-
-  font-weight: bold;
-
-  color: blue;
-}
-
-
-/* =========================================================
-   PAGE POSITION
-========================================================= */
-
-.page-position {
-  padding-top: 0;
-
-  padding-bottom: 20px;
-}
-
-
-/* =========================================================
-   COURSE PAGE HEADER
-========================================================= */
-
-.page-header {
-  text-align: center;
-
-  padding: 25px 15px 15px;
-}
-
-.page-header h1 {
-  margin: 0 0 8px;
-
-  color: #1769ff;
-
-  font-size: 32px;
-
-  font-weight: 700;
-}
-
-.page-header p {
-  margin: 0;
-
-  color: #6b7a90;
-
-  font-size: 14px;
-}
-
-
-/* =========================================================
-   TABLE
-========================================================= */
-
-.table-appearance {
-  font-size: 9pt;
-
-  display: block;
-
-  overflow-x: auto;
-
-  white-space: nowrap;
-}
-
-
-/* =========================================================
-   FOOTER STYLE
-========================================================= */
-
-.footer-style {
-  background-color: #F7F6F6;
-
-  padding: 3px 0;
-
-  border-top:
-    solid 1px lightgrey;
-
-  border-bottom:
-    solid 1px lightgrey;
-}
-
-
-/* =========================================================
-   SCROLLING TO TOP BUTTON
-========================================================= */
-
-.scroll-top {
-  position: fixed;
-
-  bottom: 10px;
-
-  right: 10px;
-
-  font-size: 16px;
-
-  text-align: center;
-
-  border-radius: 50px;
-
-  border-color: #C5C6C6;
-
-  outline: none;
-
-  background: #0086CA;
-
-  color: #fff;
-
-  transition:
-    background 0.5s;
+  min-height: 42px;
 
   padding:
-    6px 12px 9px 12px;
-}
-
-.scroll-top:focus {
-  background: #0086CA;
-
-  color: #fff;
-
-  outline: none;
-}
-
-.scroll-top:hover {
-  background: #E51A4B;
-
-  color: #fff;
-}
-
-
-/* =========================================================
-   IMAGE SHADOW
-========================================================= */
-
-.imgShadow-AllSides {
-  border: 5px solid #fff;
-
-  box-shadow:
-    0 0 15px #ccc;
-
-  -moz-box-shadow:
-    0 0 15px #ccc;
-
-  -webkit-box-shadow:
-    0 0 15px #ccc;
-
-  -o-box-shadow:
-    0 0 15px #ccc;
-}
-
-
-/* =========================================================
-   ANCHOR STYLE - DULL
-========================================================= */
-
-.a-dull-style {
-  opacity: 1;
-}
-
-.a-dull-style:hover {
-  opacity: 0.75;
-
-  cursor: pointer;
-}
-
-
-/* =========================================================
-   ANCHOR STYLE - INFO
-========================================================= */
-
-.a-info-style {
-  width: 100%;
-
-  position: relative;
-
-  overflow: hidden;
-}
-
-.a-info-style-image {
-  width: 100%;
-}
-
-.a-info-style-info {
-  position: absolute;
-
-  bottom: -30px;
-
-  left: 0;
-
-  width: 100%;
-
-  opacity: 0;
-
-  box-sizing: border-box;
-
-  color: #fff;
-
-  padding: 20px 20px;
-}
-
-.a-info-style-info h5 {
-  font-size: 18px;
-
-  margin: 0;
-
-  padding: 0;
-
-  font-weight: bold;
-}
-
-.a-info-style-info p {
-  font-size: 14px;
-
-  margin: 4px 0 14px;
-}
-
-.a-info-style:hover .a-info-style-info {
-  background-color: black;
+    10px 18px;
 
   border:
-    2px solid rgb(254, 133, 6);
+    1px solid var(--ie-blue);
 
-  color: white;
+  border-radius: 8px;
 
-  opacity: 0.75;
+  background:
+    var(--ie-blue);
 
-  bottom: -5px;
+  color:
+    #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 7px 18px rgba(23, 105, 255, 0.17);
 
   transition:
-    opacity 1s;
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 
-/* =========================================================
-   ANCHOR STYLE - ENLARGE
-========================================================= */
+.ie-button:hover {
 
-.a-enlarge-style {
-  transition:
-    transform 0.2s;
-}
+  background:
+    #0c55d6;
 
-.a-enlarge-style:hover {
+  border-color:
+    #0c55d6;
+
+  color:
+    #ffffff;
+
   transform:
-    scale(1.5);
+    translateY(-1px);
+
+  box-shadow:
+    0 10px 24px rgba(23, 105, 255, 0.22);
 }
 
 
 /* =========================================================
-   COURSE PAGE RESPONSIVE
+   GLOBAL CARD
 ========================================================= */
 
-@media (max-width: 768px) {
+.ie-card {
 
-  .page-header {
+  background:
+    var(--ie-white);
+
+  border:
+    1px solid var(--ie-border);
+
+  border-radius:
+    12px;
+
+  box-shadow:
+    var(--ie-shadow-soft);
+}
+
+
+/* =========================================================
+   GLOBAL SECTION SPACING
+========================================================= */
+
+.ie-section {
+  padding:
+    50px 0;
+}
+
+
+.ie-section-sm {
+  padding:
+    30px 0;
+}
+
+
+.ie-section-lg {
+  padding:
+    70px 0;
+}
+
+
+/* =========================================================
+   GLOBAL RESPONSIVE
+========================================================= */
+
+@media (max-width: 1199.98px) {
+
+  .ie-page {
+
     padding:
-      20px 15px 12px;
+      32px 0 55px;
   }
 
-  .page-header h1 {
-    font-size: 27px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991.98px) {
+
+  .ie-page {
+
+    padding:
+      30px 0 50px;
   }
 
-  .page-header p {
-    font-size: 13px;
+
+  .about-intro {
+
+    min-height:
+      auto;
+  }
+
+
+  .about-section-heading {
+
+    margin-top:
+      40px;
+  }
+
+
+  .about-feature-row {
+
+    margin-top:
+      25px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767.98px) {
+
+  .ie-page {
+
+    padding:
+      25px 0 45px;
+  }
+
+
+  .ie-title-red,
+  .ie-title-blue {
+
+    font-size:
+      27px;
+  }
+
+
+  .ie-feature-title {
+
+    margin-top:
+      30px;
+
+    font-size:
+      23px;
+  }
+
+
+  .about-main-image {
+
+    width:
+      100%;
+
+    margin-top:
+      30px;
+  }
+
+
+  .flexible-image,
+  .accredited-image,
+  .affordable-image,
+  .selfpace-image,
+  .online-learning-image {
+
+    width:
+      55%;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 575.98px) {
+
+  .ie-page {
+
+    padding:
+      22px 0 40px;
+  }
+
+
+  .ie-title-red,
+  .ie-title-blue {
+
+    font-size:
+      24px;
+  }
+
+
+  .ie-content-list {
+
+    font-size:
+      13px;
+
+    line-height:
+      1.7;
+  }
+
+
+  .ie-feature-title {
+
+    font-size:
+      21px;
+  }
+
+
+  .flexible-image,
+  .accredited-image,
+  .affordable-image,
+  .selfpace-image,
+  .online-learning-image {
+
+    width:
+      65%;
   }
 
 }

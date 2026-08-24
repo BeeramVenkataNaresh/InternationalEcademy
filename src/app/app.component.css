@@ -1,554 +1,33 @@
 /* =========================================================
-   INTERNATIONAL ECADEMY DESIGN SYSTEM
+   INTERNATIONAL ECADEMY - APP
 ========================================================= */
 
 :host {
-  --ie-navy: #102a43;
-  --ie-navy-light: #243b53;
-
-  --ie-blue: #1769ff;
-  --ie-blue-light: #edf4ff;
-
-  --ie-red: #ec1d23;
-
-  --ie-orange: #f4a261;
-  --ie-orange-light: #fff6ed;
-
-  --ie-bg: #fbfcff;
-  --ie-white: #ffffff;
-
-  --ie-text: #102a43;
-  --ie-muted: #6b7a90;
-
-  --ie-border: #e7ebf2;
-
   display: block;
-}
-
-
-/* =========================================================
-   NAVBAR
-========================================================= */
-
-.navbar-custom {
-  position: sticky;
-
-  top: 0;
-  left: 0;
-
-  z-index: 1030;
 
   width: 100%;
 
-  padding: 12px 0;
-
-  margin: 0;
-
-  background: rgba(255, 255, 255, 0.97);
-
-  border-bottom:
-    1px solid rgba(16, 42, 67, 0.08);
-
-  box-shadow:
-    0 4px 18px rgba(16, 42, 67, 0.04);
-
-  backdrop-filter: blur(14px);
-
-  -webkit-backdrop-filter: blur(14px);
+  min-height: 100vh;
 }
 
 
 /* =========================================================
-   NAVBAR CONTAINER
-========================================================= */
-
-.navbar-container {
-  max-width: 1320px;
-
-  margin: 0 auto;
-}
-
-
-/* =========================================================
-   LOGO
-========================================================= */
-
-.navbar-logo {
-  display: block;
-
-  width: 135px;
-
-  max-width: 135px;
-
-  height: auto;
-}
-
-.navbar-brand {
-  padding: 0;
-
-  margin: 0 36px 0 0;
-}
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-.navbar-custom .navbar-nav {
-  gap: 2px;
-}
-
-.navbar-custom .nav-link {
-  position: relative;
-
-  display: flex;
-
-  align-items: center;
-
-  min-height: 42px;
-
-  padding:
-    9px 12px;
-
-  color: var(--ie-navy);
-
-  font-family:
-    "Segoe UI",
-    Arial,
-    sans-serif;
-
-  font-size: 13px;
-
-  font-weight: 600;
-
-  letter-spacing: -0.01em;
-
-  border-radius: 8px;
-
-  transition:
-    color 0.2s ease,
-    background-color 0.2s ease;
-}
-
-.navbar-custom .nav-link:hover,
-.navbar-custom .nav-link:focus {
-  color: var(--ie-blue);
-
-  background:
-    var(--ie-blue-light);
-}
-
-.navbar-custom .nav-active .nav-link {
-  color: var(--ie-blue);
-}
-
-
-/* =========================================================
-   CONSULTATION BUTTON
-========================================================= */
-
-.consultation-nav-item {
-  margin-left: 8px;
-}
-
-.consultation-button {
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  min-height: 42px;
-
-  padding:
-    10px 18px;
-
-  border-radius: 8px;
-
-  background:
-    var(--ie-blue);
-
-  border:
-    1px solid var(--ie-blue);
-
-  color: #fff !important;
-
-  font-size: 12px;
-
-  font-weight: 700;
-
-  text-decoration: none;
-
-  box-shadow:
-    0 7px 18px rgba(23, 105, 255, 0.17);
-
-  transition:
-    background-color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.consultation-button:hover {
-  background:
-    #0c55d6;
-
-  border-color:
-    #0c55d6;
-
-  color: #fff !important;
-
-  transform:
-    translateY(-1px);
-
-  box-shadow:
-    0 10px 24px rgba(23, 105, 255, 0.22);
-}
-
-
-/* =========================================================
-   DROPDOWN
-========================================================= */
-
-.navbar-custom .dropdown-menu {
-  min-width: 250px;
-
-  margin-top: 8px;
-
-  padding: 8px;
-
-  border:
-    1px solid var(--ie-border);
-
-  border-radius: 12px;
-
-  background: #fff;
-
-  box-shadow:
-    0 20px 45px rgba(16, 42, 67, 0.11);
-}
-
-.navbar-custom .dropdown-item {
-  padding:
-    10px 12px;
-
-  border-radius: 7px;
-
-  color:
-    var(--ie-navy-light);
-
-  font-size: 13px;
-
-  text-decoration: none;
-
-  transition:
-    background-color 0.18s ease,
-    color 0.18s ease;
-}
-
-.navbar-custom .dropdown-item:hover,
-.navbar-custom .dropdown-item:focus {
-  background:
-    var(--ie-blue-light);
-
-  color:
-    var(--ie-blue);
-}
-
-
-/* =========================================================
-   DESKTOP DROPDOWN
-========================================================= */
-
-@media (min-width: 992px) {
-
-  .navbar-custom .dropdown:hover .dropdown-menu {
-    display: block;
-
-    animation:
-      dropdownIn 0.15s ease-out;
-  }
-
-}
-
-
-/* =========================================================
-   DROPDOWN ANIMATION
-========================================================= */
-
-@keyframes dropdownIn {
-
-  from {
-    opacity: 0;
-
-    transform:
-      translateY(5px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform:
-      translateY(0);
-  }
-
-}
-
-
-/* =========================================================
-   MAIN CONTENT
-   IMPORTANT:
-   Navbar is sticky, so it occupies its own
-   normal document space.
-
-   DO NOT add padding-top here.
+   MAIN PAGE CONTENT
 ========================================================= */
 
 .site-main {
-  min-height: 100vh;
 
-  padding-top: 0;
+  /*
+   * Navbar is fixed.
+   * Keep content below the navbar.
+   */
+  padding-top: 66px;
 
-  margin-top: 0;
-}
+  min-height: calc(100vh - 66px);
 
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.site-footer {
-  margin-top: 0;
-
-  padding:
-    70px 0 28px;
-
-  background:
-    linear-gradient(
-      120deg,
-      #f7faff 0%,
-      #ffffff 55%,
-      #fff9f3 100%
-    );
-
-  border-top:
-    1px solid var(--ie-border);
-
-  color:
-    var(--ie-muted);
-}
-
-.footer-main {
-  display: grid;
-
-  grid-template-columns:
-    1.45fr
-    1fr
-    1fr
-    1fr;
-
-  gap: 48px;
-}
-
-
-/* =========================================================
-   FOOTER BRAND
-========================================================= */
-
-.footer-brand {
-  max-width: 320px;
-}
-
-.footer-logo {
-  width: 145px;
-
-  margin-bottom: 18px;
-}
-
-.footer-brand p {
   margin: 0;
 
-  color:
-    var(--ie-muted);
-
-  font-size: 13px;
-
-  line-height: 1.75;
-}
-
-
-/* =========================================================
-   FOOTER HEADINGS
-========================================================= */
-
-.footer-contact h4,
-.footer-office h4 {
-  margin:
-    0 0 17px;
-
-  color:
-    var(--ie-navy);
-
-  font-size: 14px;
-
-  font-weight: 700;
-}
-
-
-/* =========================================================
-   FOOTER CONTACT
-========================================================= */
-
-.footer-contact a {
-  display: flex;
-
-  align-items: center;
-
-  gap: 9px;
-
-  margin-bottom: 11px;
-
-  color:
-    var(--ie-muted);
-
-  font-size: 13px;
-
-  text-decoration: none;
-
-  transition:
-    color 0.2s ease;
-}
-
-.footer-contact a:hover {
-  color:
-    var(--ie-blue);
-}
-
-.footer-contact i {
-  width: 17px;
-
-  color:
-    var(--ie-blue);
-
-  text-align: center;
-}
-
-
-/* =========================================================
-   FOOTER OFFICE
-========================================================= */
-
-.footer-office p {
-  margin: 0;
-
-  color:
-    var(--ie-muted);
-
-  font-size: 13px;
-
-  line-height: 1.75;
-}
-
-
-/* =========================================================
-   FOOTER MESSAGE
-========================================================= */
-
-.footer-message {
-  max-width: 760px;
-
-  margin:
-    48px auto 0;
-}
-
-
-/* =========================================================
-   FOOTER DIVIDER
-========================================================= */
-
-.footer-divider {
-  height: 1px;
-
-  margin:
-    40px 0 24px;
-
-  background:
-    var(--ie-border);
-}
-
-
-/* =========================================================
-   FOOTER BOTTOM
-========================================================= */
-
-.footer-bottom {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 20px;
-
-  color:
-    var(--ie-muted);
-
-  font-size: 12px;
-}
-
-
-/* =========================================================
-   FOOTER SOCIALS
-========================================================= */
-
-.footer-socials {
-  display: flex;
-
-  align-items: center;
-
-  gap: 8px;
-}
-
-.footer-socials span {
-  margin-right: 5px;
-}
-
-.footer-socials a {
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  width: 34px;
-
-  height: 34px;
-
-  border:
-    1px solid var(--ie-border);
-
-  border-radius: 50%;
-
-  background: #fff;
-
-  color:
-    var(--ie-navy);
-
-  text-decoration: none;
-
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.footer-socials a:hover {
-  background:
-    var(--ie-blue);
-
-  color: #fff;
-
-  transform:
-    translateY(-2px);
+  width: 100%;
 }
 
 
@@ -557,6 +36,7 @@
 ========================================================= */
 
 .scroll-top {
+
   position: fixed;
 
   right: 24px;
@@ -572,17 +52,17 @@
   padding: 0;
 
   border:
-    1px solid var(--ie-border);
+    1px solid #e7ebf2;
 
   border-radius: 50%;
 
   background: #fff;
 
-  color:
-    var(--ie-blue);
+  color: #1769ff;
 
   box-shadow:
-    0 10px 30px rgba(16, 42, 67, 0.12);
+    0 10px 30px
+    rgba(16, 42, 67, 0.12);
 
   cursor: pointer;
 
@@ -592,9 +72,10 @@
     color 0.2s ease;
 }
 
+
 .scroll-top:hover {
-  background:
-    var(--ie-blue);
+
+  background: #1769ff;
 
   color: #fff;
 
@@ -604,119 +85,26 @@
 
 
 /* =========================================================
-   TABLET
-========================================================= */
-
-@media (max-width: 1199.98px) {
-
-  .navbar-custom .nav-link {
-    padding-left: 9px;
-
-    padding-right: 9px;
-
-    font-size: 12px;
-  }
-
-  .navbar-brand {
-    margin-right: 20px;
-  }
-
-}
-
-
-/* =========================================================
-   MOBILE NAVBAR
+   MOBILE
 ========================================================= */
 
 @media (max-width: 991.98px) {
 
-  .navbar-custom {
-    padding:
-      10px 0;
-  }
+  .site-main {
 
-  .navbar-logo {
-    width: 115px;
+    padding-top: 60px;
 
-    max-width: 115px;
-  }
-
-  .navbar-custom .navbar-collapse {
-    margin-top: 12px;
-
-    padding: 12px;
-
-    border:
-      1px solid var(--ie-border);
-
-    border-radius: 12px;
-
-    background: #fff;
-
-    box-shadow:
-      0 15px 35px rgba(16, 42, 67, 0.09);
-  }
-
-  .navbar-custom .nav-link {
-    width: 100%;
-
-    padding:
-      11px 12px;
-
-    font-size: 14px;
-  }
-
-  .consultation-nav-item {
-    margin:
-      7px 0 0;
-  }
-
-  .consultation-button {
-    width: 100%;
-  }
-
-  .navbar-custom .dropdown-menu {
-    position: static !important;
-
-    width: 100%;
-
-    margin:
-      4px 0;
-
-    box-shadow: none;
-
-    background:
-      var(--ie-bg);
-  }
-
-  .footer-main {
-    grid-template-columns:
-      1fr 1fr;
+    min-height:
+      calc(100vh - 60px);
   }
 
 }
 
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
 @media (max-width: 575.98px) {
 
-  .footer-main {
-    grid-template-columns:
-      1fr;
-
-    gap: 32px;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-
-    align-items: flex-start;
-  }
-
   .scroll-top {
+
     right: 15px;
 
     bottom: 15px;
