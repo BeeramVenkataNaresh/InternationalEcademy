@@ -1,186 +1,424 @@
-<nav class="navbar navbar-custom navbar-expand-lg fixed-top">
-  <div class="container-fluid">
+<!-- =========================================================
+     INTERNATIONAL ECADEMY - NAVBAR
+========================================================= -->
+
+<nav class="navbar navbar-custom fixed-top">
+  <div class="container navbar-container">
 
     <!-- Logo -->
-    <a routerLink="/home" (click)="collapseNavbar()">
-      <img src="../assets/images/companylogo.png" class="img-fluid" style="max-width:120px;" alt="Company Logo" />
+    <a
+      class="navbar-brand"
+      routerLink="/home"
+      (click)="collapseNavbar()"
+      aria-label="International Ecademy Home"
+    >
+      <img
+        src="assets/images/companylogo.png"
+        alt="International Ecademy"
+        class="navbar-logo"
+      />
     </a>
 
-    <!-- Toggle Button -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu"
-      aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Mobile toggle -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navmenu"
+      aria-controls="navmenu"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Navbar -->
-    <div class="navbar-collapse collapse" id="navmenu">
-      <ul class="navbar-nav ms-auto">
+    <!-- Navigation -->
+    <div
+      class="collapse navbar-collapse"
+      id="navmenu"
+    >
+
+      <ul class="navbar-nav ms-auto align-items-lg-center">
 
         <!-- Home -->
-        <li class="nav-item" routerLinkActive="active">
-          <a routerLink="/home" class="nav-link" (click)="collapseNavbar()">Home</a>
+        <li
+          class="nav-item"
+          routerLinkActive="nav-active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a
+            class="nav-link"
+            routerLink="/home"
+            (click)="collapseNavbar()"
+          >
+            Home
+          </a>
         </li>
 
         <!-- About -->
-        <li class="nav-item dropdown" routerLinkActive="active">
-          <a class="nav-link dropdown-toggle" id="menuAbout" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            About
+        <li class="nav-item dropdown">
+
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="aboutDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            About Us
           </a>
 
-          <ul class="dropdown-menu" aria-labelledby="menuAbout">
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="aboutDropdown"
+          >
             <li>
-              <a class="dropdown-item" routerLink="/about" (click)="collapseNavbar()">
+              <a
+                class="dropdown-item"
+                routerLink="/about"
+                (click)="collapseNavbar()"
+              >
                 About International Ecademy
               </a>
             </li>
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
 
             <li>
-              <a class="dropdown-item" routerLink="/vision" (click)="collapseNavbar()">
-                Our Vision, Mission & Goal
+              <a
+                class="dropdown-item"
+                routerLink="/vision"
+                (click)="collapseNavbar()"
+              >
+                Vision, Mission & Goals
               </a>
             </li>
-            <li>
-              <div class="dropdown-divider"></div>
-            </li>
 
             <li>
-              <a class="dropdown-item" routerLink="/management" (click)="collapseNavbar()">
+              <a
+                class="dropdown-item"
+                routerLink="/management"
+                (click)="collapseNavbar()"
+              >
                 Management
               </a>
             </li>
           </ul>
+
         </li>
 
-        <!-- Courses -->
-        <li class="nav-item dropdown" routerLinkActive="active">
-          <a class="nav-link dropdown-toggle" id="menuCourses" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            Courses
+        <!-- University Admissions -->
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/home"
+            fragment="university-admissions"
+            (click)="collapseNavbar()"
+          >
+            University Admissions
+          </a>
+        </li>
+
+        <!-- Career -->
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/home"
+            fragment="career-services"
+            (click)="collapseNavbar()"
+          >
+            Career Services
+          </a>
+        </li>
+
+        <!-- Jobs -->
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/home"
+            fragment="job-opportunities"
+            (click)="collapseNavbar()"
+          >
+            Job Opportunities
+          </a>
+        </li>
+
+        <!-- Student Support -->
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/home"
+            fragment="student-support"
+            (click)="collapseNavbar()"
+          >
+            Student Support
+          </a>
+        </li>
+
+        <!-- Education -->
+        <li class="nav-item dropdown">
+
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="educationDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Education
           </a>
 
-          <ul class="dropdown-menu" aria-labelledby="menuCourses">
-            <li><a class="dropdown-item" routerLink="/grade9" (click)="collapseNavbar()">Grade 9</a></li>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="educationDropdown"
+          >
+
             <li>
-              <div class="dropdown-divider"></div>
+              <a
+                class="dropdown-item"
+                routerLink="/grade9"
+                (click)="collapseNavbar()"
+              >
+                Grade 9
+              </a>
             </li>
 
-            <li><a class="dropdown-item" routerLink="/grade10" (click)="collapseNavbar()">Grade 10</a></li>
             <li>
-              <div class="dropdown-divider"></div>
+              <a
+                class="dropdown-item"
+                routerLink="/grade10"
+                (click)="collapseNavbar()"
+              >
+                Grade 10
+              </a>
             </li>
 
-            <li><a class="dropdown-item" routerLink="/grade11" (click)="collapseNavbar()">Grade 11</a></li>
             <li>
-              <div class="dropdown-divider"></div>
+              <a
+                class="dropdown-item"
+                routerLink="/grade11"
+                (click)="collapseNavbar()"
+              >
+                Grade 11
+              </a>
             </li>
 
-            <li><a class="dropdown-item" routerLink="/grade12" (click)="collapseNavbar()">Grade 12</a></li>
             <li>
-              <div class="dropdown-divider"></div>
+              <a
+                class="dropdown-item"
+                routerLink="/grade12"
+                (click)="collapseNavbar()"
+              >
+                Grade 12
+              </a>
             </li>
 
-            <li><a class="dropdown-item" routerLink="/others" (click)="collapseNavbar()">Other Courses</a></li>
             <li>
-              <div class="dropdown-divider"></div>
+              <a
+                class="dropdown-item"
+                routerLink="/others"
+                (click)="collapseNavbar()"
+              >
+                Other Courses
+              </a>
             </li>
 
-            <li><a class="dropdown-item" routerLink="/faqs" (click)="collapseNavbar()">Frequently Asked Questions</a>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/faqs"
+                (click)="collapseNavbar()"
+              >
+                Frequently Asked Questions
+              </a>
             </li>
+
           </ul>
-        </li>
 
-        <!-- Register -->
-        <li class="nav-item" routerLinkActive="active">
-          <a routerLink="/register" class="nav-link text-success" (click)="collapseNavbar()">Register</a>
         </li>
 
         <!-- Contact -->
-        <li class="nav-item" routerLinkActive="active">
-          <a routerLink="/contact" class="nav-link" (click)="collapseNavbar()">Contact</a>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/contact"
+            (click)="collapseNavbar()"
+          >
+            Contact
+          </a>
+        </li>
+
+        <!-- CTA -->
+        <li class="nav-item consultation-nav-item">
+
+          <a
+            class="btn consultation-button"
+            routerLink="/contact"
+            (click)="collapseNavbar()"
+          >
+            Book a Consultation
+          </a>
+
         </li>
 
       </ul>
+
     </div>
+
   </div>
 </nav>
 
-<!-- Page Content -->
-<router-outlet></router-outlet>
 
-<!-- Footer -->
-<div class="footer-style">
-  <div class="container mt-3 mb-3">
-    <div class="row">
-      <!-- Logo -->
-      <div class="col-md-2 text-start">
-        <br>
-        <img src="../assets/images/logo.png" class="img-fluid" alt="Footer Logo" />
+<!-- =========================================================
+     PAGE
+========================================================= -->
+
+<main class="site-main">
+
+  <router-outlet></router-outlet>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <div class="footer-main">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+
+        <img
+          src="assets/images/logo.png"
+          alt="International Ecademy"
+          class="footer-logo"
+        />
+
+        <p>
+          Supporting students and graduates through education,
+          university admissions, career preparation and
+          opportunities in Canada.
+        </p>
+
       </div>
+
 
       <!-- Contact -->
-      <div class="col-md-5 text-start">
-        <!-- Phone + WhatsApp -->
-        <p class="d-flex align-items-center">
-          <i class="fa fa-phone icon-circle"></i>
-          <small class="text-primary">+91 70935 41984,</small>
-          <i class="fa fa-whatsapp icon-circle icon-whatsapp ms-3"></i>
-          <small class="text-primary">+1 (647) 641-3585</small>
-        </p>
-        <!-- Email -->
-        <p class="d-flex align-items-center">
-          <i class="fa fa-envelope icon-circle"></i>
-          <a href="mailto:englishacademy052024@gmail.com" class="small text-primary" style="text-decoration:none;">
-            internationalecademy@gmail.com
-          </a>
-        </p>
-        <!-- Address -->
-        <p class="d-flex align-items-center">
-          <i class="fa fa-map-marker icon-circle"></i>
-          <small class="text-primary">
-            Unit.No - 406, 1833 Bayview Avenue, East York, Toronto, Ontario, Canada - M4G 3E2.
-          </small>
-        </p>
-        <!-- Address -->
-        <p class="d-flex align-items-center">
-          <i class="fa fa-map-marker icon-circle"></i>
-          <small class="text-primary">
-            Plot No.21, 1st Floor, Sardar Patel Road, Paigah Colony, Hyderabad, Telangana, India - 500003.
-          </small>
-        </p>
+      <div class="footer-contact">
+
+        <h4>Contact</h4>
+
+        <a href="tel:+16476413585">
+          <i class="fa fa-phone"></i>
+          +1 (647) 641-3585
+        </a>
+
+        <a href="tel:+917093541984">
+          <i class="fa fa-phone"></i>
+          +91 70935 41984
+        </a>
+
+        <a href="mailto:internationalecademy@gmail.com">
+          <i class="fa fa-envelope"></i>
+          internationalecademy@gmail.com
+        </a>
+
       </div>
 
-      <!-- Message -->
-      <div class="col-md-5">
-        <app-message></app-message>
+
+      <!-- Canada -->
+      <div class="footer-office">
+
+        <h4>Canada Office</h4>
+
+        <p>
+          Unit No. 406,<br>
+          1833 Bayview Avenue,<br>
+          East York, Toronto,<br>
+          Ontario, Canada<br>
+          M4G 3E2
+        </p>
+
       </div>
+
+
+      <!-- India -->
+      <div class="footer-office">
+
+        <h4>India Office</h4>
+
+        <p>
+          Plot No. 21, 1st Floor,<br>
+          Sardar Patel Road,<br>
+          Paigah Colony,<br>
+          Hyderabad, Telangana,<br>
+          India - 500003
+        </p>
+
+      </div>
+
     </div>
 
-    <hr>
 
-    <!-- Footer Bottom -->
-    <div class="row">
-      <div class="col-md-6 text-start">
-        Copyrights &copy; {{ year }}, {{ title }}, ® All Rights Reserved.
-      </div>
+    <!-- Message -->
+    <div class="footer-message">
 
-      <div class="col-md-6 text-end">
-        <small>
-          Follow Us -
-          <a href="#"><i class="fa fa-facebook icon-circle" title="Facebook"></i></a>
-          <a href="https://www.instagram.com/internationalecademy/" target="_blank"><i
-              class="fa fa-instagram icon-circle" title="Instagram"></i></a>
-          <a href="#"><i class="fa fa-youtube-play icon-circle" title="Youtube"></i></a>
-        </small>
-      </div>
+      <app-message></app-message>
+
     </div>
+
+
+    <div class="footer-divider"></div>
+
+
+    <div class="footer-bottom">
+
+      <div>
+        © {{ year }} {{ title }}. ® All Rights Reserved.
+      </div>
+
+      <div class="footer-socials">
+
+        <span>Follow Us</span>
+
+        <a href="#" aria-label="Facebook">
+          <i class="fa fa-facebook"></i>
+        </a>
+
+        <a
+          href="https://www.instagram.com/internationalecademy/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Instagram"
+        >
+          <i class="fa fa-instagram"></i>
+        </a>
+
+        <a href="#" aria-label="YouTube">
+          <i class="fa fa-youtube-play"></i>
+        </a>
+
+      </div>
+
+    </div>
+
   </div>
-</div>
 
-<!-- Scroll Top Button -->
-<button class="scroll-top" *ngIf="isBtnShow" (click)="goTop()" title="Go to top">
-  <i class="fa fa-chevron-up"></i>
+</footer>
+
+
+<!-- Scroll top -->
+
+<button
+  class="scroll-top"
+  *ngIf="isBtnShow"
+  (click)="goTop()"
+  aria-label="Go to top"
+>
+  <i class="fa fa-arrow-up"></i>
 </button>

@@ -1,582 +1,1131 @@
-<div class="page-position">
-    <!-- Carousel Section -->
-    <div class="row">
-        <div class="col-md-12">
-            <owl-carousel-o [options]="owlMain">
-                <ng-template carouselSlide>
-                    <div class="slide center-item">
-                        <img class="imgShadow-AllSides" src="assets/images/home/1.jpg" alt="" title="">
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="slide center-item">
-                        <img class="imgShadow-AllSides" src="assets/images/home/2.jpg" alt="" title="">
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="slide center-item">
-                        <img class="imgShadow-AllSides" src="assets/images/home/3.jpg" alt="" title="">
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="slide center-item">
-                        <img class="imgShadow-AllSides" src="assets/images/home/4.jpg" alt="" title="">
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="slide center-item">
-                        <img class="imgShadow-AllSides" src="assets/images/home/5.jpg" alt="" title="">
-                    </div>
-                </ng-template>
-                <ng-template carouselSlide>
-                    <div class="slide center-item">
-                        <img class="imgShadow-AllSides" src="assets/images/home/6.jpg" alt="" title="">
-                    </div>
-                </ng-template>
-            </owl-carousel-o>
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="nx-home-hero">
+
+  <div class="nx-hero-glow nx-hero-glow-blue"></div>
+  <div class="nx-hero-glow nx-hero-glow-orange"></div>
+
+  <div class="container nx-container">
+
+    <div class="row align-items-center nx-hero-row">
+
+      <!-- Hero text -->
+
+      <div class="col-lg-6">
+
+        <div class="nx-eyebrow">
+          INTERNATIONAL ECADEMY
         </div>
-    </div>
-    <!-- End of Carousel Section -->
 
-    <!-- Why Section -->
-    <div style="background-color: #f7f7f7">
-        <div class="container">
-            <div class="row mt-1">
-                <div class="col-xs-12 col-md-12">
+        <h1 class="nx-hero-title">
 
-                    <!-- Why Section points -->
-                    <h1 class="text-center mt-3 text-primary">Why International Ecademy</h1>
+          Your next chapter
+          <span>starts here.</span>
 
-                    <ul class="why-list mt-4 mb-4">
-                        <li>
-                            <i class="fa fa-check-circle text-success me-2"></i>
-                            International Ecademy offers an exciting opportunity for students to earn a
-                            Canadian curriculum certification — the Ontario Secondary School Diploma —
-                            while studying from their home country.
-                        </li>
+        </h1>
 
-                        <li>
-                            <i class="fa fa-university text-primary me-2"></i>
-                            This program serves as a strong foundation for students seeking admission
-                            to top universities, opening doors to greater academic and career opportunities.
-                        </li>
+        <p class="nx-hero-text">
 
-                        <li>
-                            <i class="fa fa-graduation-cap text-info me-2"></i>
-                            By obtaining this Canadian certification, students can strengthen their academic
-                            credentials and gain a competitive advantage when applying to higher education
-                            institutions locally and internationally.
-                        </li>
+          Discover the right university pathway, prepare for your
+          career and connect with opportunities in Canada.
 
-                        <li>
-                            <i class="fa fa-globe text-warning me-2"></i>
-                            The Ontario Secondary School Diploma (OSSD) offered through International
-                            Ecademy is recognized globally and supports university admissions worldwide.
-                        </li>
-                    </ul>
-                    <!-- End of Why Section points -->
+        </p>
 
-                    <!-- Universities -->
-                    <div class="container mt-4">
-                        <!-- NAV TABS -->
-                        <nav>
-                            <div class="nav nav-tabs nav-justified" role="tablist">
-                                <button *ngFor="let country of countries; let i = index" class="nav-link"
-                                    [class.active]="universityTabActiveIndex === i"
-                                    (click)="universityTabActiveIndex = i" data-bs-toggle="tab"
-                                    [attr.data-bs-target]="'#tab-' + country.id" type="button"
-                                    [style.background]="universityTabActiveIndex === i ? '' : country.color">
-                                    <h5 class="text-primary">
-                                        <img [src]="'assets/images/universites/' + country.imageName + '.png'"
-                                            class="me-2" style="width: 20%;">
-                                        {{country.name}}
-                                    </h5>
-                                </button>
-                            </div>
-                        </nav>
+        <div class="nx-hero-actions">
 
-                        <!-- TAB CONTENT -->
-                        <div class="tab-content border p-3 bg-white">
-                            <div *ngFor="let country of countries; let i = index" class="tab-pane fade"
-                                [class.show]="i === 0" [class.active]="i === 0" [id]="'tab-' + country.id">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover small">
-                                        <thead class="text-center text-primary">
-                                            <tr>
-                                                <th colspan="4">
-                                                    <h5>
-                                                        <img [src]="'assets/images/universites/' + country.imageName + '.png'"
-                                                            class="me-2" style="width: 3%;">
-                                                        Top Universities of {{ country.name }}
-                                                        <img [src]="'assets/images/universites/' + country.imageName + '.png'"
-                                                            class="ms-2" style="width: 3%;">
-                                                    </h5>
-                                                </th>
-                                            </tr>
-                                            <tr>
-                                                <th>S.No</th>
-                                                <th>University</th>
-                                                <th>OSSD is Recognized as Admission requirement </th>
-                                                <th>Minimum Entry</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr *ngFor="let uni of country.universities; let i = index">
-                                                <td class="text-center">{{ i+1 }}</td>
-                                                <td>{{uni.name}}</td>
-                                                <td class="text-center">
-                                                    <span class="badge bg-success" *ngIf="uni.ossdRecognized">
-                                                        Yes
-                                                    </span>
-                                                    <span class="ms-2">{{ uni.ossdRecognized ? '✔' : '✖' }}</span>
-                                                </td>
-                                                <td class="text-center">
-                                                    <a [href]="uni.minEntryLink" target="_blank">
-                                                        <i class="fa fa-hand-o-right fa-lg hand-icon me-2"></i>
-                                                        <span
-                                                            class="btn btn-sm btn-primary small"><b>{{uni.minEntry}}</b></span>
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Of Universities -->
+          <a
+            routerLink="/home"
+            fragment="services"
+            class="nx-primary-button"
+          >
+            Explore Services
+            <i class="fa fa-arrow-right"></i>
+          </a>
 
-                    <!-- Course Tabs -->
-                    <nav class="mt-4">
-                        <div class="nav nav-tabs nav-justified" id="nav-tab" role="tablist">
-                            <button class="nav-link" [class.active]="courseTabActive==='courses'"
-                                (click)="courseTabActive='courses'" id="nav-courses-tab" data-bs-toggle="tab"
-                                data-bs-target="#nav-courses" type="button" role="tab" aria-controls="nav-courses"
-                                aria-selected="true" [style.background]="courseTabActive==='courses' ? '' : '#D3D3D3'">
-                                <h5 class="text-primary">Courses</h5>
-                            </button>
-                            <button class="nav-link" [class.active]="courseTabActive==='education'"
-                                (click)="courseTabActive='education'" id="nav-education-tab" data-bs-toggle="tab"
-                                data-bs-target="#nav-education" type="button" role="tab" aria-controls="nav-education"
-                                aria-selected="true"
-                                [style.background]="courseTabActive==='education' ? '' : '#F79D9D'">
-                                <h5 class="text-primary">Education</h5>
-                            </button>
-                            <button class="nav-link" [class.active]="courseTabActive==='online'"
-                                (click)="courseTabActive='online'" id="nav-online-tab" data-bs-toggle="tab"
-                                data-bs-target="#nav-online" type="button" role="tab" aria-controls="nav-online"
-                                aria-selected="false" [style.background]="courseTabActive==='online' ? '' : '#FFFD55'">
-                                <h5 class="text-primary">Study Offline & Online</h5>
-                            </button>
-                            <button class="nav-link" [class.active]="courseTabActive==='benefits'"
-                                (click)="courseTabActive='benefits'" id="nav-benifits-tab" data-bs-toggle="tab"
-                                data-bs-target="#nav-benifits" type="button" role="tab" aria-controls="nav-benifits"
-                                aria-selected="false"
-                                [style.background]="courseTabActive==='benefits' ? '' : '#90EE90'">
-                                <h5 class="text-primary">Benefits </h5>
-                            </button>
-                            <button class="nav-link" [class.active]="courseTabActive==='approved'"
-                                (click)="courseTabActive='approved'" id="nav-approved-tab" data-bs-toggle="tab"
-                                data-bs-target="#nav-approved" type="button" role="tab" aria-controls="nav-approved"
-                                aria-selected="false"
-                                [style.background]="courseTabActive==='approved' ? '' : '#9AE1F8'">
-                                <h5 class="text-primary">Approved</h5>
-                            </button>
-                        </div>
-                    </nav>
-                    <div class="mb-4 tab-content p-3 border" id="nav-tabContent" style="background-color: white;">
-                        <!-- Course -->
-                        <div class="tab-pane fade active show mt-4 mb-4" id="nav-courses" role="tabpanel"
-                            aria-labelledby="nav-courses-tab">
-                            <div class="row text-center">
+          <a
+            routerLink="/contact"
+            class="nx-secondary-button"
+          >
+            Book a Consultation
+          </a>
 
-                                <div class="row justify-content-center text-center">
+        </div>
 
-                                    <div class="col-6 col-sm-4 col-md-2" *ngFor="let grade of [9,10,11,12]">
-                                        <a [routerLink]="'/grade' + grade" class="a-dull-style"
-                                            style="text-decoration: none;" [title]="'Grade ' + grade + ' th'">
-                                            <div class="card imgShadow-AllSides h-100 grade-card">
-                                                <div
-                                                    class="card-body d-flex flex-column align-items-center justify-content-center">
-                                                    <i class="fa fa-graduation-cap fa-3x graduation-icon"></i>
-                                                    <h5 class="mt-4 mb-3">Grade {{grade}} th</h5>
-                                                    <small class="text-secondary">.. <i
-                                                            class="fa fa-hand-o-right fa-lg hand-icon"></i>
-                                                        &nbsp;<span>More</span></small>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
+        <div class="nx-hero-points">
 
-                                </div>
+          <span>
+            <i class="fa fa-check-circle"></i>
+            Canada-focused
+          </span>
 
-                            </div>
-                        </div>
-                        <!-- End of Course -->
+          <span>
+            <i class="fa fa-check-circle"></i>
+            Student-focused
+          </span>
 
-                        <!-- Education -->
-                        <div class="tab-pane fade" id="nav-education" role="tabpanel"
-                            aria-labelledby="nav-education-tab">
-                            <div class="row mt-4 mb-4">
-                                <div class="col-md-4">
-                                    <div class="slide center-item">
-                                        <img class="imgShadow-AllSides" src="assets/images/why/education.jpg" alt=""
-                                            title="" style="width: 75%;">
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <ul>
-                                        <li>International Ecademy is providing the Canadian curriculum (Ontario
-                                            Secondary School Diploma.) which can be done from India.</li>
-                                        <li>We are collaborated with the Canadian institutions who are accredited to
-                                            grant credits to students towards their Ontario Secondary School Diploma.
-                                        </li>
-                                        <li>We have highly experienced team of teachers committed to academic excellence
-                                            and will prepare students to exceed their expectations and achieve
-                                            outstanding success in a global community.</li>
-                                        <li>Real time support from Indian & Canadian teachers, Live Teacher Support,
-                                            Globally
-                                            Recognized Curriculum.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of Education -->
+          <span>
+            <i class="fa fa-check-circle"></i>
+            Career-focused
+          </span>
 
-                        <!-- Online -->
-                        <div class="tab-pane fade" id="nav-online" role="tabpanel" aria-labelledby="nav-online-tab">
-                            <div class="row mt-4 mb-4">
-                                <div class="col-md-1"> &nbsp; </div>
-                                <div class="col-md-4">
-                                    <div class="center-item">
-                                        <img class="imgShadow-AllSides" src="assets/images/why/online.jpg" alt=""
-                                            title="">
-                                    </div>
-                                </div>
-                                <div class="col-md-7">
-                                    <ul>
-                                        <br>
-                                        <li>Students will experience a World-class education at a less cost.</li>
-                                        <li>Study at your own palce becoming a global digital student.</li>
-                                        <li>No Stress, learn in the comfort of your home country.</li>
-                                        <li>No peer pressure, just you and your teacher.</li>
-                                        <li>Learn with our highly trained teachers assuring successful
-                                            learning outcomes.</li>
-                                        <li>Accumulate Certification before coming to Canada.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of Online -->
+        </div>
 
-                        <!-- Benifits -->
-                        <div class="tab-pane fade" id="nav-benifits" role="tabpanel" aria-labelledby="nav-benifits-tab">
-                            <div class="row mt-4 mb-4">
-                                <div class="col-md-2">
-                                    <div class="center-item">
-                                        <img class="imgShadow-AllSides" src="assets/images/why/flexible.png" alt=""
-                                            title="" style="width: 85%">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <h5 class="text-primary text-center">Flexible</h5>
-                                    <ul class="mt-4 mb-4">
-                                        <li>Start any time you wish during the year.</li>
-                                        <li>Work through your courses anytime and place.</li>
-                                        <li>All learning materials are provided online. </li>
-                                        <li>Just you required an internet connection & laptop.</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="slide center-item">
-                                        <img class="imgShadow-AllSides" src="assets/images/why/affordable.png" alt=""
-                                            title="" style="width: 100%">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <h5 class="text-primary text-center">Affordable</h5>
-                                    <ul class="mt-3 mb-3">
-                                        <li>Personal instructions at your convenience.</li>
-                                        <li>All course material is supplied online.</li>
-                                        <li>Live learning with a teacher.</li>
-                                        <li>No Boarding Expenses, No Airfare Expenses.</li>
-                                        <li>No Enormous Student Tuition Fees.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of Benifits -->
+      </div>
 
-                        <!-- Approved -->
-                        <div class="tab-pane fade" id="nav-approved" role="tabpanel" aria-labelledby="nav-approved-tab">
-                            <div class="row mt-4 mb-4">
-                                <div class="col-md-4">
-                                    <div class="slide center-item">
-                                        <img class="imgShadow-AllSides" src="assets/images/why/approved.jpg" alt=""
-                                            title="">
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <ul class="mt-5 mb-5">
-                                        <li>This certification is accepted at all North American Universities.</li>
-                                        <li>It is also accepted by all world wide universities</li>
-                                        <li>Learn from highly trained teachers assuring successful outcomes.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of Approved -->
-                    </div>
-                    <!-- End of Course Tabs -->
 
-                </div>
+      <!-- Hero visual -->
+
+      <div class="col-lg-6">
+
+        <div class="nx-hero-visual">
+
+          <div class="nx-visual-orbit"></div>
+
+          <div class="nx-visual-main">
+
+            <img
+              src="assets/images/universites/toronto.jpg"
+              alt="University in Canada"
+            />
+
+            <div class="nx-image-overlay">
+
+              <span>
+                CANADA
+              </span>
+
+              <strong>
+                Build Your Future
+              </strong>
+
             </div>
+
+          </div>
+
+
+          <div class="nx-floating-card nx-floating-card-top">
+
+            <div class="nx-floating-icon blue">
+              <i class="fa fa-university"></i>
+            </div>
+
+            <div>
+              <strong>University Admissions</strong>
+              <small>Plan your next step</small>
+            </div>
+
+          </div>
+
+
+          <div class="nx-floating-card nx-floating-card-bottom">
+
+            <div class="nx-floating-icon orange">
+              <i class="fa fa-briefcase"></i>
+            </div>
+
+            <div>
+              <strong>Career Opportunities</strong>
+              <small>Move from learning to work</small>
+            </div>
+
+          </div>
+
         </div>
+
+      </div>
+
     </div>
-    <!-- End of Why Section -->
 
-    <!-- Universities Section -->
-    <div class="container py-5">
+  </div>
 
-        <!-- Heading -->
-        <div class="text-center mb-4">
-            <h1 class="text-primary">Admissions In Universities</h1>
+</section>
 
-            <p class="mt-4">
-                International Ecademy provides the Canadian curriculum (Ontario Secondary School Diploma),
-                which is recognized for university admissions worldwide.
+
+<!-- =========================================================
+     QUICK HIGHLIGHTS
+========================================================= -->
+
+<section class="nx-highlights">
+
+  <div class="container nx-container">
+
+    <div class="nx-highlight-grid">
+
+      <div class="nx-highlight-item">
+
+        <div class="nx-highlight-icon">
+          <i class="fa fa-university"></i>
+        </div>
+
+        <div>
+          <strong>University Admissions</strong>
+          <span>Choose the right pathway</span>
+        </div>
+
+      </div>
+
+
+      <div class="nx-highlight-item">
+
+        <div class="nx-highlight-icon">
+          <i class="fa fa-line-chart"></i>
+        </div>
+
+        <div>
+          <strong>Career Services</strong>
+          <span>Prepare for your career</span>
+        </div>
+
+      </div>
+
+
+      <div class="nx-highlight-item">
+
+        <div class="nx-highlight-icon red">
+          <i class="fa fa-briefcase"></i>
+        </div>
+
+        <div>
+          <strong>Job Opportunities</strong>
+          <span>Explore professional opportunities</span>
+        </div>
+
+      </div>
+
+
+      <div class="nx-highlight-item">
+
+        <div class="nx-highlight-icon">
+          <i class="fa fa-users"></i>
+        </div>
+
+        <div>
+          <strong>Student Support</strong>
+          <span>Guidance along the journey</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section
+  class="nx-section nx-services"
+  id="services"
+>
+
+  <div class="container nx-container">
+
+    <div class="nx-section-heading">
+
+      <div>
+
+        <span class="nx-label">
+          OUR SERVICES
+        </span>
+
+        <h2>
+          Find the right
+          <span>path forward.</span>
+        </h2>
+
+      </div>
+
+      <p>
+
+        International Ecademy brings education, university
+        guidance and career support together to help you move
+        forward with confidence.
+
+      </p>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+      <!-- University -->
+
+      <div
+        class="col-md-6 col-lg-3"
+        id="university-admissions"
+      >
+
+        <div class="nx-service-card">
+
+          <div class="nx-card-top">
+
+            <div class="nx-service-icon blue">
+              <i class="fa fa-university"></i>
+            </div>
+
+            <span>01</span>
+
+          </div>
+
+          <h3>
+            University Admissions
+          </h3>
+
+          <p>
+
+            Get support choosing universities, programs
+            and application pathways across Canada.
+
+          </p>
+
+          <a
+            routerLink="/contact"
+            class="nx-card-link"
+          >
+            Learn More
+            <i class="fa fa-arrow-right"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- Career -->
+
+      <div
+        class="col-md-6 col-lg-3"
+        id="career-services"
+      >
+
+        <div class="nx-service-card">
+
+          <div class="nx-card-top">
+
+            <div class="nx-service-icon orange">
+              <i class="fa fa-line-chart"></i>
+            </div>
+
+            <span>02</span>
+
+          </div>
+
+          <h3>
+            Career Services
+          </h3>
+
+          <p>
+
+            Build your resume, LinkedIn profile, interview skills
+            and career plan for the Canadian market.
+
+          </p>
+
+          <a
+            routerLink="/contact"
+            class="nx-card-link"
+          >
+            Learn More
+            <i class="fa fa-arrow-right"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- Jobs -->
+
+      <div
+        class="col-md-6 col-lg-3"
+        id="job-opportunities"
+      >
+
+        <div class="nx-service-card">
+
+          <div class="nx-card-top">
+
+            <div class="nx-service-icon red">
+              <i class="fa fa-briefcase"></i>
+            </div>
+
+            <span>03</span>
+
+          </div>
+
+          <h3>
+            Job Opportunities
+          </h3>
+
+          <p>
+
+            Explore employment opportunities shared through
+            our professional network and connections.
+
+          </p>
+
+          <a
+            routerLink="/contact"
+            class="nx-card-link red-link"
+          >
+            View Opportunities
+            <i class="fa fa-arrow-right"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- Support -->
+
+      <div
+        class="col-md-6 col-lg-3"
+        id="student-support"
+      >
+
+        <div class="nx-service-card">
+
+          <div class="nx-card-top">
+
+            <div class="nx-service-icon blue">
+              <i class="fa fa-users"></i>
+            </div>
+
+            <span>04</span>
+
+          </div>
+
+          <h3>
+            Student Support
+          </h3>
+
+          <p>
+
+            Personalized guidance for academic planning,
+            applications and career development.
+
+          </p>
+
+          <a
+            routerLink="/contact"
+            class="nx-card-link"
+          >
+            Learn More
+            <i class="fa fa-arrow-right"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     UNIVERSITY ADMISSIONS
+========================================================= -->
+
+<section class="nx-section nx-soft-section">
+
+  <div class="container nx-container">
+
+    <div class="row align-items-center g-5">
+
+
+      <div class="col-lg-6">
+
+        <div class="nx-large-card nx-admissions-card">
+
+          <div class="nx-card-eyebrow">
+            UNIVERSITY ADMISSIONS
+          </div>
+
+          <div class="nx-large-card-content">
+
+            <h3>
+              Find your
+              <span>Canadian pathway.</span>
+            </h3>
+
+            <p>
+
+              Choosing the right university is an important
+              decision. We help you understand your options
+              and plan your application journey.
+
             </p>
-        </div>
 
-        <!-- ✅ Wrapper (IMPORTANT for containment) -->
-        <div class="logo-slider-wrapper">
+          </div>
 
-            <!-- Slider Track -->
-            <div class="logo-track">
-                <ng-container *ngFor="let uni of universities.concat(universities)">
-                    <img [src]="uni.src" [alt]="uni.name" [title]="uni.name" class="partner-logo">
-                </ng-container>
+
+          <div class="nx-admission-stats">
+
+            <div>
+              <strong>Universities</strong>
+              <span>Canada & beyond</span>
             </div>
 
-        </div>
-
-    </div>
-    <!-- End of Universities Section -->
-
-    <!-- Management Message Section -->
-    <div style="background-color: #f7f7f7">
-        <br>
-        <div class="container">
-
-            <h1 class="text-primary text-center mb-4">Management's Message</h1>
-
-            <ul class="management-list">
-
-                <li>
-                    <i class="fa fa-check-circle text-success me-2"></i>
-                    We personally welcome you to International Ecademy as a valued member of our global Learning
-                    community.
-                </li>
-
-                <li>
-                    <i class="fa fa-graduation-cap text-primary me-2"></i>
-                    International Ecademy provides the Canadian curriculum (Ontario Secondary School Diploma) which can
-                    be completed from India.
-                </li>
-
-                <li>
-                    <i class="fa fa-university text-info me-2"></i>
-                    We collaborate with accredited Canadian institutions that grant credits toward the Ontario Secondary
-                    School Diploma.
-                </li>
-
-                <li>
-                    <i class="fa fa-users text-warning me-2"></i>
-                    Our highly experienced team is committed to academic excellence and prepares students to achieve
-                    success in a global community.
-                </li>
-
-                <li>
-                    <i class="fa fa-globe text-primary me-2"></i>
-                    In today's competitive world, education is transforming rapidly. International Ecademy equips
-                    students with skills that provide a strong competitive advantage.
-                </li>
-
-                <li>
-                    <i class="fa fa-star text-success me-2"></i>
-                    We wish you the very best as you grow into an educated global citizen who contributes positively to
-                    society.
-                </li>
-
-                <li>
-                    <i class="fa fa-lightbulb-o text-warning me-2"></i>
-                    Our mandate is to provide a Canadian-based Learning curriculum that helps students succeed in the
-                    following areas:
-                </li>
-
-            </ul>
-
-            <table class="mt-4 mb-4 table table-bordered text-center" style="border-color: rgb(130,203,245);">
-
-                <thead style="background-color:#88c7f1">
-                    <tr>
-                        <th>S.No.</th>
-                        <th>Details</th>
-                        <th>Note</th>
-                        <th></th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Post High School Education (University / College)</td>
-                        <td>World of Work</td>
-                        <td rowspan="2" style="vertical-align: middle;">
-                            <a routerLink="/management" title="Management's Message" style="text-decoration:none;">
-                                <i class="fa fa-hand-o-right fa-lg text-danger me-2"></i>
-                                <span class="text-secondary">(Read more)</span>
-                            </a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>2</td>
-                        <td>Lifelong Learner</td>
-                        <td>Global Citizen</td>
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-        </div>
-        <br>
-    </div>
-    <!-- End of Management Message Section -->
-
-    <!-- Testimonial Section -->
-    <div class="container">
-        <h1 class="text-primary text-center mt-4 mb-5">Students Testimonial's</h1>
-        <div class="row justify-content-center mb-2">
-
-            <!-- Image Testimonial Card -->
-            <div class="col-md-4 center-item mb-4">
-                <a (click)="open(testimonialimage)" title="Testimonial about International Ecademy"
-                    class="a-img-btn text-decoration-none">
-
-                    <div class="card imgShadow-AllSides grade-card h-120">
-
-                        <div class="card-body text-justify">
-
-                            <!-- Student Photo -->
-                            <div class="mb-3 text-center">
-                                <img src="assets/images/testimonial/photo.png"
-                                    style="width:80px; height:80px; border-radius:50%;">
-                            </div>
-
-                            <!-- Testimonial Text -->
-                            <p class="text-primary mb-2" style="font-style:italic;">
-                                I studied Grade 11 and 12 under the Canadian curriculum, and it was a very enriching
-                                experience. The system focused on practical learning, critical thinking, and independent
-                                study. I appreciated the flexibility in subject choices and the encouragement to
-                                understand rather than just memorize.
-                            </p>
-
-                            <p class="text-primary mb-3" style="font-style:italic;">
-                                Overall, it helped me gain admission to the following universities:
-                            </p>
-
-                            <!-- Universities List -->
-                            <ul class="text-danger mb-3" style="padding-left:20px;">
-                                <li>International Business University, Canada</li>
-                                <li>Algoma University, Canada</li>
-                            </ul>
-
-                            <!-- Student Name -->
-                            <h5 class="text-success mt-2">– Ponna Satish Reddy</h5>
-
-                        </div>
-
-                    </div>
-                </a>
+            <div>
+              <strong>Programs</strong>
+              <span>Explore your options</span>
             </div>
 
-            <!-- Video Testimonial Card -->
-            <div class="col-md-4 center-item mb-4">
-                <a (click)="open(testimonialvideo)" title="Video Testimonial" class="text-decoration-none">
-
-                    <div class="card imgShadow-AllSides grade-card h-100">
-
-                        <!-- Video Thumbnail -->
-                        <div class="card-body text-center position-relative">
-                            <img src="assets/images/testimonial/testimonialvideo.jpg"
-                                style="width:55%; border-radius:5%; object-fit:cover;">
-
-                            <!-- Play Icon Overlay -->
-                            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);">
-                                <i class="fa fa-play-circle fa-3x text-danger"></i>
-                            </div>
-
-                            <p class="text-secondary mt-3 mb-0">Watch Student Video Testimonial</p>
-                        </div>
-
-                    </div>
-
-                </a>
+            <div>
+              <strong>Support</strong>
+              <span>Step-by-step guidance</span>
             </div>
 
-        </div>
-    </div>
-    <!-- End of Testimonial Section -->
-
-    <!-- Partners Section -->
-    <div class="container py-3">
-
-        <!-- Heading -->
-        <div class="text-center mb-4">
-            <h1 class="text-primary">Our partnerships, driving impactful change..!</h1>
-            <h4 class="text-success mt-4">Connecting talent with the industry's best</h4>
-            <p class="mt-4 text-justify">
-                Meet the people we work with. Strategic partnerships that create impactful change—curating a
-                tailored network through International Ecademy to connect you with industry leaders and sustainable
-                solutions.
-            </p>
-        </div>
-
-        <!-- ✅ IMPORTANT WRAPPER -->
-        <div class="logo-slider-wrapper">
-
-            <!-- Slider Track -->
-            <div class="logo-track d-flex align-items-center">
-                <ng-container *ngFor="let logo of logos.concat(logos)">
-                    <img [src]="logo.src" [alt]="logo.name" [title]="logo.name" class="partner-logo">
-                </ng-container>
-            </div>
+          </div>
 
         </div>
 
-    </div>
-    <!-- End of Partners Section -->
-</div>
+      </div>
 
-<ng-template #testimonialimage let-modal>
-    <div class="text-center">
-        <a type="button" class="btn close float-end" aria-label="Close" (click)="modal.dismiss('Cross click')"><i
-                class="fa fa-times-circle fa-lg"></i> </a>
-    </div>
-    <div class="modal-body center-item">
-        <img src="assets/images/testimonial/testimonial.jpg" class="imgShadow-AllSides" width="100%" />
-    </div>
-</ng-template>
 
-<ng-template #testimonialvideo let-modal>
-    <div class="text-center">
-        <a type="button" class="btn close float-end" aria-label="Close" (click)="modal.dismiss('Cross click')"><i
-                class="fa fa-times-circle fa-lg"></i> </a>
+      <div class="col-lg-6">
+
+        <span class="nx-label">
+          UNIVERSITY ADMISSIONS
+        </span>
+
+        <h2 class="nx-content-title">
+
+          More confidence
+          <span>in every application.</span>
+
+        </h2>
+
+        <p class="nx-content-text">
+
+          From choosing the right program to preparing documents
+          and understanding admission requirements, our support
+          helps students make informed decisions.
+
+        </p>
+
+
+        <div class="nx-check-grid">
+
+          <div>
+            <i class="fa fa-check"></i>
+            University selection
+          </div>
+
+          <div>
+            <i class="fa fa-check"></i>
+            Program selection
+          </div>
+
+          <div>
+            <i class="fa fa-check"></i>
+            Admission guidance
+          </div>
+
+          <div>
+            <i class="fa fa-check"></i>
+            Application support
+          </div>
+
+          <div>
+            <i class="fa fa-check"></i>
+            Document guidance
+          </div>
+
+          <div>
+            <i class="fa fa-check"></i>
+            Scholarship guidance
+          </div>
+
+        </div>
+
+
+        <a
+          routerLink="/contact"
+          class="nx-primary-button"
+        >
+          Talk to an Advisor
+          <i class="fa fa-arrow-right"></i>
+        </a>
+
+      </div>
+
     </div>
-    <div class="modal-body center-item">
-        <video src="assets/images/testimonial/testimonial.mp4" class="imgShadow-AllSides" width="65%" autoplay
-            controls></video>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     CAREER
+========================================================= -->
+
+<section class="nx-section">
+
+  <div class="container nx-container">
+
+    <div class="nx-section-heading">
+
+      <div>
+
+        <span class="nx-label">
+          CAREER SERVICES
+        </span>
+
+        <h2>
+          Prepare for your
+          <span>next opportunity.</span>
+        </h2>
+
+      </div>
+
+      <p>
+
+        Career preparation is about more than a resume.
+        We help you present yourself professionally and
+        confidently.
+
+      </p>
+
     </div>
-</ng-template>
+
+
+    <div class="row g-3">
+
+      <div class="col-md-4">
+
+        <div class="nx-career-card">
+
+          <div class="nx-career-icon">
+            <i class="fa fa-file-text-o"></i>
+          </div>
+
+          <h3>
+            Resume & CV
+          </h3>
+
+          <p>
+            Build a professional resume tailored to your goals.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-4">
+
+        <div class="nx-career-card">
+
+          <div class="nx-career-icon">
+            <i class="fa fa-linkedin"></i>
+          </div>
+
+          <h3>
+            LinkedIn Profile
+          </h3>
+
+          <p>
+            Present your professional profile effectively online.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-4">
+
+        <div class="nx-career-card">
+
+          <div class="nx-career-icon">
+            <i class="fa fa-comments"></i>
+          </div>
+
+          <h3>
+            Interview Preparation
+          </h3>
+
+          <p>
+            Prepare for interviews with confidence and clarity.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-4">
+
+        <div class="nx-career-card">
+
+          <div class="nx-career-icon">
+            <i class="fa fa-line-chart"></i>
+          </div>
+
+          <h3>
+            Career Planning
+          </h3>
+
+          <p>
+            Connect your education, skills and long-term goals.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-4">
+
+        <div class="nx-career-card">
+
+          <div class="nx-career-icon">
+            <i class="fa fa-search"></i>
+          </div>
+
+          <h3>
+            Job Search Strategy
+          </h3>
+
+          <p>
+            Build a practical approach to finding relevant roles.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-md-4">
+
+        <div class="nx-career-card">
+
+          <div class="nx-career-icon">
+            <i class="fa fa-briefcase"></i>
+          </div>
+
+          <h3>
+            Workplace Preparation
+          </h3>
+
+          <p>
+            Prepare for professional expectations in Canada.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     JOB OPPORTUNITIES
+========================================================= -->
+
+<section class="nx-section nx-jobs-section">
+
+  <div class="container nx-container">
+
+    <div class="nx-section-heading">
+
+      <div>
+
+        <span class="nx-label nx-label-red">
+          JOB OPPORTUNITIES
+        </span>
+
+        <h2>
+          Discover your
+          <span>next opportunity.</span>
+        </h2>
+
+      </div>
+
+      <p>
+
+        Opportunities shared through our professional network,
+        with details to help you understand the role before
+        taking the next step.
+
+      </p>
+
+    </div>
+
+
+    <div class="row g-3">
+
+
+      <div class="col-lg-4">
+
+        <div class="nx-job-card">
+
+          <div class="nx-job-top">
+
+            <span class="nx-job-type">
+              FULL-TIME
+            </span>
+
+            <i class="fa fa-bookmark-o"></i>
+
+          </div>
+
+          <h3>
+            Software Developer
+          </h3>
+
+          <p class="nx-job-company">
+            Technology Opportunity
+          </p>
+
+          <div class="nx-job-meta">
+
+            <span>
+              <i class="fa fa-map-marker"></i>
+              Toronto, Ontario
+            </span>
+
+            <span>
+              <i class="fa fa-briefcase"></i>
+              Technology
+            </span>
+
+          </div>
+
+          <a
+            routerLink="/contact"
+            class="nx-job-button"
+          >
+            View Opportunity
+            <i class="fa fa-arrow-right"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-4">
+
+        <div class="nx-job-card">
+
+          <div class="nx-job-top">
+
+            <span class="nx-job-type">
+              FULL-TIME
+            </span>
+
+            <i class="fa fa-bookmark-o"></i>
+
+          </div>
+
+          <h3>
+            Business Analyst
+          </h3>
+
+          <p class="nx-job-company">
+            Business Opportunity
+          </p>
+
+          <div class="nx-job-meta">
+
+            <span>
+              <i class="fa fa-map-marker"></i>
+              Mississauga, Ontario
+            </span>
+
+            <span>
+              <i class="fa fa-briefcase"></i>
+              Business
+            </span>
+
+          </div>
+
+          <a
+            routerLink="/contact"
+            class="nx-job-button"
+          >
+            View Opportunity
+            <i class="fa fa-arrow-right"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-4">
+
+        <div class="nx-job-card">
+
+          <div class="nx-job-top">
+
+            <span class="nx-job-type">
+              FULL-TIME
+            </span>
+
+            <i class="fa fa-bookmark-o"></i>
+
+          </div>
+
+          <h3>
+            Administrative Coordinator
+          </h3>
+
+          <p class="nx-job-company">
+            Professional Opportunity
+          </p>
+
+          <div class="nx-job-meta">
+
+            <span>
+              <i class="fa fa-map-marker"></i>
+              Brampton, Ontario
+            </span>
+
+            <span>
+              <i class="fa fa-briefcase"></i>
+              Administration
+            </span>
+
+          </div>
+
+          <a
+            routerLink="/contact"
+            class="nx-job-button"
+          >
+            View Opportunity
+            <i class="fa fa-arrow-right"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="nx-centered-button">
+
+      <a
+        routerLink="/contact"
+        class="nx-secondary-button"
+      >
+        Explore Opportunities
+        <i class="fa fa-arrow-right"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     EXISTING EDUCATION
+========================================================= -->
+
+<section class="nx-section nx-education-section">
+
+  <div class="container nx-container">
+
+    <div class="nx-education-card">
+
+      <div>
+
+        <span class="nx-label">
+          EDUCATION
+        </span>
+
+        <h2>
+          Your academic journey
+          <span>still matters.</span>
+        </h2>
+
+        <p>
+
+          International Ecademy continues to offer academic
+          pathways including OSSD and Grade 9–12 courses.
+
+        </p>
+
+      </div>
+
+
+      <div class="nx-education-actions">
+
+        <a
+          routerLink="/grade9"
+          class="nx-primary-button"
+        >
+          Explore Courses
+          <i class="fa fa-arrow-right"></i>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     UNIVERSITIES
+========================================================= -->
+
+<section class="nx-section nx-universities-section">
+
+  <div class="container nx-container">
+
+    <div class="nx-section-heading">
+
+      <div>
+
+        <span class="nx-label">
+          UNIVERSITY NETWORK
+        </span>
+
+        <h2>
+          Explore leading
+          <span>institutions.</span>
+        </h2>
+
+      </div>
+
+      <p>
+        Explore institutions and destinations as you plan
+        your next academic step.
+      </p>
+
+    </div>
+
+
+    <div class="nx-university-grid">
+
+      <div
+        class="nx-university-item"
+        *ngFor="let university of universities.slice(0, 6)"
+      >
+
+        <img
+          [src]="university.src"
+          [alt]="university.name"
+        />
+
+        <div class="nx-university-name">
+          {{ university.name }}
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     PARTNERS
+========================================================= -->
+
+<section class="nx-section nx-partners-section">
+
+  <div class="container nx-container">
+
+    <div class="nx-partners-header">
+
+      <span class="nx-label">
+        OUR PARTNERS
+      </span>
+
+      <h2>
+        Growing together.
+      </h2>
+
+    </div>
+
+
+    <div class="nx-partners-grid">
+
+      <div
+        class="nx-partner-item"
+        *ngFor="let logo of logos"
+      >
+
+        <img
+          [src]="logo.src"
+          [alt]="logo.name"
+        />
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL CTA
+========================================================= -->
+
+<section class="nx-final-cta">
+
+  <div class="container nx-container">
+
+    <div class="nx-final-card">
+
+      <div>
+
+        <span>
+          LET'S START
+        </span>
+
+        <h2>
+          Ready to plan your
+          <strong>next step in Canada?</strong>
+        </h2>
+
+        <p>
+          Tell us what you're looking for and let's
+          explore the right path together.
+        </p>
+
+      </div>
+
+
+      <a
+        routerLink="/contact"
+        class="nx-white-button"
+      >
+        Book a Consultation
+        <i class="fa fa-arrow-right"></i>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>

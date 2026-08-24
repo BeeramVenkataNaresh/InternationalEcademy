@@ -1,143 +1,1810 @@
-.bg-image {
-  /* Full height */
-  height: 100%;
-  width: 100%;
+/* =========================================================
+   INTERNATIONAL ECADEMY
+   NEXUS-INSPIRED HOME DESIGN
+========================================================= */
 
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+:host {
+
+  --nx-navy: #102a43;
+  --nx-navy-2: #243b53;
+
+  --nx-blue: #1769ff;
+  --nx-blue-soft: #edf4ff;
+
+  --nx-red: #ec1d23;
+
+  --nx-orange: #f4a261;
+  --nx-orange-soft: #fff6ed;
+
+  --nx-bg: #fbfcff;
+  --nx-muted: #6b7a90;
+  --nx-border: #e7ebf2;
+
+  display: block;
+
+  color: var(--nx-navy);
 }
 
-/* Position text in the middle of the page/image */
-.bg-text {
-  background-color: rgb(0, 0, 0);
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/opacity/see-through */
-  color: white;
-  font-weight: bold;
-  border: 3px solid #f1f1f1;
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.nx-container {
+
+  max-width: 1120px;
+
+  margin: 0 auto;
+
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.nx-section {
+
+  padding: 92px 0;
+
+  background: #fff;
+}
+
+.nx-soft-section {
+
+  background:
+
+    radial-gradient(
+      circle at 10% 30%,
+      rgba(23, 105, 255, 0.065),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 90% 70%,
+      rgba(244, 162, 97, 0.065),
+      transparent 28%
+    ),
+
+    #fbfcff;
+}
+
+.nx-label {
+
+  display: inline-block;
+
+  margin-bottom: 12px;
+
+  padding: 6px 9px;
+
+  border: 1px solid rgba(23, 105, 255, 0.14);
+
+  border-radius: 5px;
+
+  color: var(--nx-blue);
+
+  background: #f5f8ff;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.11em;
+}
+
+.nx-label-red {
+
+  color: var(--nx-red);
+
+  background: #fff5f5;
+
+  border-color: rgba(236, 29, 35, 0.13);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.nx-home-hero {
+
+  position: relative;
+
+  overflow: hidden;
+
+  min-height: 630px;
+
+  display: flex;
+
+  align-items: center;
+
+  background:
+
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(23, 105, 255, 0.10),
+      transparent 29%
+    ),
+
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(244, 162, 97, 0.10),
+      transparent 30%
+    ),
+
+    #fff;
+}
+
+.nx-hero-glow {
+
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 80%;
-  padding: 20px;
+
+  width: 300px;
+  height: 300px;
+
+  border-radius: 50%;
+
+  filter: blur(50px);
+
+  pointer-events: none;
+}
+
+.nx-hero-glow-blue {
+
+  top: -150px;
+  left: -100px;
+
+  background: rgba(23, 105, 255, 0.06);
+}
+
+.nx-hero-glow-orange {
+
+  right: -120px;
+  bottom: -150px;
+
+  background: rgba(244, 162, 97, 0.07);
+}
+
+.nx-hero-row {
+
+  min-height: 630px;
+}
+
+.nx-eyebrow {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  margin-bottom: 18px;
+
+  padding: 6px 10px;
+
+  border:
+
+    1px solid rgba(23, 105, 255, 0.16);
+
+  border-radius: 5px;
+
+  color: var(--nx-blue);
+
+  background: #f6f9ff;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.11em;
+}
+
+.nx-hero-title {
+
+  max-width: 590px;
+
+  margin: 0 0 20px;
+
+  color: var(--nx-navy);
+
+  font-size: clamp(42px, 5vw, 67px);
+
+  font-weight: 800;
+
+  line-height: 0.99;
+
+  letter-spacing: -0.055em;
+}
+
+.nx-hero-title span {
+
+  display: block;
+
+  color: var(--nx-blue);
+}
+
+.nx-hero-text {
+
+  max-width: 550px;
+
+  margin: 0 0 28px;
+
+  color: var(--nx-muted);
+
+  font-size: 15px;
+
+  line-height: 1.75;
+}
+
+.nx-hero-actions {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.nx-primary-button,
+.nx-secondary-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 45px;
+
+  padding: 11px 17px;
+
+  border-radius: 8px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  transition:
+
+    transform 0.2s ease,
+
+    box-shadow 0.2s ease,
+
+    background-color 0.2s ease,
+
+    color 0.2s ease;
+}
+
+.nx-primary-button {
+
+  background: var(--nx-blue);
+
+  color: #fff;
+
+  box-shadow:
+    0 9px 22px rgba(23, 105, 255, 0.18);
+}
+
+.nx-primary-button:hover {
+
+  background: #0c55d6;
+
+  color: #fff;
+
+  transform: translateY(-2px);
+}
+
+.nx-primary-button i,
+.nx-secondary-button i,
+.nx-white-button i {
+
+  margin-left: 8px;
+}
+
+.nx-secondary-button {
+
+  border: 1px solid var(--nx-border);
+
+  background: #fff;
+
+  color: var(--nx-navy);
+}
+
+.nx-secondary-button:hover {
+
+  color: var(--nx-blue);
+
+  border-color: rgba(23, 105, 255, 0.22);
+
+  transform: translateY(-2px);
+}
+
+.nx-hero-points {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 15px;
+
+  margin-top: 25px;
+}
+
+.nx-hero-points span {
+
+  color: var(--nx-muted);
+
+  font-size: 11px;
+}
+
+.nx-hero-points i {
+
+  margin-right: 5px;
+
+  color: var(--nx-blue);
+}
+
+
+/* Hero visual */
+
+.nx-hero-visual {
+
+  position: relative;
+
+  min-height: 450px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.nx-visual-orbit {
+
+  position: absolute;
+
+  width: 390px;
+  height: 390px;
+
+  border:
+
+    1px solid rgba(23, 105, 255, 0.08);
+
+  border-radius: 50%;
+}
+
+.nx-visual-main {
+
+  position: relative;
+
+  width: 360px;
+
+  height: 430px;
+
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  box-shadow:
+
+    0 30px 60px rgba(16, 42, 67, 0.14);
+
+  background: #fff;
+}
+
+.nx-visual-main img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.nx-image-overlay {
+
+  position: absolute;
+
+  right: 15px;
+  left: 15px;
+  bottom: 15px;
+
+  padding: 15px;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  backdrop-filter: blur(10px);
+}
+
+.nx-image-overlay span {
+
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: var(--nx-blue);
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+.nx-image-overlay strong {
+
+  color: var(--nx-navy);
+
+  font-size: 15px;
+}
+
+.nx-floating-card {
+
+  position: absolute;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  min-width: 210px;
+
+  padding: 11px;
+
+  border: 1px solid var(--nx-border);
+
+  border-radius: 11px;
+
+  background: rgba(255, 255, 255, 0.97);
+
+  box-shadow:
+
+    0 16px 35px rgba(16, 42, 67, 0.10);
+}
+
+.nx-floating-card strong,
+.nx-floating-card small {
+
+  display: block;
+}
+
+.nx-floating-card strong {
+
+  color: var(--nx-navy);
+
+  font-size: 11px;
+}
+
+.nx-floating-card small {
+
+  margin-top: 3px;
+
+  color: var(--nx-muted);
+
+  font-size: 9px;
+}
+
+.nx-floating-card-top {
+
+  top: 70px;
+  left: -5px;
+}
+
+.nx-floating-card-bottom {
+
+  right: -2px;
+  bottom: 65px;
+}
+
+.nx-floating-icon {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 35px;
+  height: 35px;
+
+  border-radius: 9px;
+
+  font-size: 14px;
+}
+
+.nx-floating-icon.blue {
+
+  color: var(--nx-blue);
+
+  background: var(--nx-blue-soft);
+}
+
+.nx-floating-icon.orange {
+
+  color: #b96d2b;
+
+  background: var(--nx-orange-soft);
+}
+
+
+/* =========================================================
+   HIGHLIGHTS
+========================================================= */
+
+.nx-highlights {
+
+  padding: 20px 0;
+
+  border-top: 1px solid var(--nx-border);
+
+  border-bottom: 1px solid var(--nx-border);
+
+  background: #fff;
+}
+
+.nx-highlight-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 0;
+}
+
+.nx-highlight-item {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 10px 18px;
+
+  border-right: 1px solid var(--nx-border);
+}
+
+.nx-highlight-item:last-child {
+
+  border-right: 0;
+}
+
+.nx-highlight-icon {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  flex: 0 0 auto;
+
+  border-radius: 8px;
+
+  background: var(--nx-blue-soft);
+
+  color: var(--nx-blue);
+
+  font-size: 13px;
+}
+
+.nx-highlight-icon.red {
+
+  color: var(--nx-red);
+
+  background: #fff1f1;
+}
+
+.nx-highlight-item strong,
+.nx-highlight-item span {
+
+  display: block;
+}
+
+.nx-highlight-item strong {
+
+  color: var(--nx-navy);
+
+  font-size: 11px;
+}
+
+.nx-highlight-item span {
+
+  margin-top: 2px;
+
+  color: var(--nx-muted);
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.nx-section-heading {
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 40px;
+
+  margin-bottom: 36px;
+}
+
+.nx-section-heading h2 {
+
+  max-width: 500px;
+
+  margin: 0;
+
+  color: var(--nx-navy);
+
+  font-size: 34px;
+
+  font-weight: 800;
+
+  line-height: 1.08;
+
+  letter-spacing: -0.04em;
+}
+
+.nx-section-heading h2 span {
+
+  color: var(--nx-blue);
+}
+
+.nx-section-heading > p {
+
+  max-width: 400px;
+
+  margin: 0;
+
+  color: var(--nx-muted);
+
+  font-size: 12px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.nx-services {
+
+  padding-top: 82px;
+}
+
+.nx-service-card {
+
+  height: 100%;
+
+  padding: 21px;
+
+  border: 1px solid var(--nx-border);
+
+  border-radius: 13px;
+
+  background: #fff;
+
+  box-shadow:
+
+    0 9px 25px rgba(16, 42, 67, 0.045);
+
+  transition:
+
+    transform 0.22s ease,
+
+    box-shadow 0.22s ease,
+
+    border-color 0.22s ease;
+}
+
+.nx-service-card:hover {
+
+  transform: translateY(-4px);
+
+  border-color:
+    rgba(23, 105, 255, 0.18);
+
+  box-shadow:
+
+    0 17px 35px rgba(16, 42, 67, 0.09);
+}
+
+.nx-card-top {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+}
+
+.nx-card-top > span {
+
+  color: #b7c4d5;
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+.nx-service-icon {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 9px;
+
+  font-size: 15px;
+}
+
+.nx-service-icon.blue {
+
+  color: var(--nx-blue);
+
+  background: var(--nx-blue-soft);
+}
+
+.nx-service-icon.orange {
+
+  color: #b96d2b;
+
+  background: var(--nx-orange-soft);
+}
+
+.nx-service-icon.red {
+
+  color: var(--nx-red);
+
+  background: #fff1f1;
+}
+
+.nx-service-card h3 {
+
+  margin-bottom: 9px;
+
+  color: var(--nx-navy);
+
+  font-size: 17px;
+
+  font-weight: 800;
+}
+
+.nx-service-card p {
+
+  min-height: 86px;
+
+  margin-bottom: 17px;
+
+  color: var(--nx-muted);
+
+  font-size: 11px;
+
+  line-height: 1.7;
+}
+
+.nx-card-link {
+
+  color: var(--nx-blue);
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+.nx-card-link i {
+
+  margin-left: 5px;
+}
+
+.red-link {
+
+  color: var(--nx-red);
+}
+
+
+/* =========================================================
+   ADMISSIONS
+========================================================= */
+
+.nx-large-card {
+
+  position: relative;
+
+  min-height: 380px;
+
+  padding: 30px;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  background:
+
+    radial-gradient(
+      circle at 82% 25%,
+      rgba(244, 162, 97, 0.16),
+      transparent 28%
+    ),
+
+    linear-gradient(
+      145deg,
+      #f9fbff,
+      #fff
+    );
+
+  border: 1px solid var(--nx-border);
+}
+
+.nx-card-eyebrow {
+
+  display: inline-block;
+
+  padding: 5px 8px;
+
+  border-radius: 5px;
+
+  background: var(--nx-orange-soft);
+
+  color: #a65d21;
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.09em;
+}
+
+.nx-large-card-content {
+
+  position: absolute;
+
+  left: 30px;
+  bottom: 35px;
+
+  max-width: 410px;
+}
+
+.nx-large-card-content h3 {
+
+  margin-bottom: 12px;
+
+  color: var(--nx-navy);
+
+  font-size: 29px;
+
+  font-weight: 800;
+
+  line-height: 1.08;
+
+  letter-spacing: -0.035em;
+}
+
+.nx-large-card-content h3 span {
+
+  color: var(--nx-blue);
+}
+
+.nx-large-card-content p {
+
+  margin: 0;
+
+  color: var(--nx-muted);
+
+  font-size: 12px;
+
+  line-height: 1.7;
+}
+
+.nx-admission-stats {
+
+  position: absolute;
+
+  top: 30px;
+  right: 30px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.nx-admission-stats div {
+
+  min-width: 150px;
+
+  padding: 10px 12px;
+
+  border: 1px solid var(--nx-border);
+
+  border-radius: 8px;
+
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.nx-admission-stats strong,
+.nx-admission-stats span {
+
+  display: block;
+}
+
+.nx-admission-stats strong {
+
+  color: var(--nx-navy);
+
+  font-size: 10px;
+}
+
+.nx-admission-stats span {
+
+  margin-top: 3px;
+
+  color: var(--nx-muted);
+
+  font-size: 8px;
+}
+
+.nx-content-title {
+
+  max-width: 480px;
+
+  margin: 0 0 16px;
+
+  color: var(--nx-navy);
+
+  font-size: 35px;
+
+  font-weight: 800;
+
+  line-height: 1.08;
+
+  letter-spacing: -0.04em;
+}
+
+.nx-content-title span {
+
+  color: var(--nx-blue);
+}
+
+.nx-content-text {
+
+  max-width: 500px;
+
+  color: var(--nx-muted);
+
+  font-size: 13px;
+
+  line-height: 1.75;
+}
+
+.nx-check-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 10px;
+
+  margin: 23px 0 25px;
+}
+
+.nx-check-grid div {
+
+  color: var(--nx-navy-2);
+
+  font-size: 11px;
+}
+
+.nx-check-grid i {
+
+  margin-right: 6px;
+
+  color: var(--nx-blue);
+}
+
+
+/* =========================================================
+   CAREER
+========================================================= */
+
+.nx-career-card {
+
+  padding: 21px;
+
+  border: 1px solid var(--nx-border);
+
+  border-radius: 12px;
+
+  background: #fff;
+
+  transition:
+
+    transform 0.2s ease,
+
+    box-shadow 0.2s ease;
+}
+
+.nx-career-card:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 30px rgba(16, 42, 67, 0.07);
+}
+
+.nx-career-icon {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  margin-bottom: 15px;
+
+  border-radius: 9px;
+
+  background: var(--nx-blue-soft);
+
+  color: var(--nx-blue);
+}
+
+.nx-career-card h3 {
+
+  margin-bottom: 7px;
+
+  color: var(--nx-navy);
+
+  font-size: 15px;
+
+  font-weight: 800;
+}
+
+.nx-career-card p {
+
+  margin: 0;
+
+  color: var(--nx-muted);
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   JOBS
+========================================================= */
+
+.nx-jobs-section {
+
+  background:
+
+    radial-gradient(
+      circle at 5% 20%,
+      rgba(244, 162, 97, 0.07),
+      transparent 25%
+    ),
+
+    #fbfcff;
+}
+
+.nx-job-card {
+
+  height: 100%;
+
+  padding: 22px;
+
+  border: 1px solid var(--nx-border);
+
+  border-radius: 13px;
+
+  background: #fff;
+
+  box-shadow:
+    0 9px 25px rgba(16, 42, 67, 0.045);
+}
+
+.nx-job-top {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 16px;
+}
+
+.nx-job-type {
+
+  padding: 4px 7px;
+
+  border-radius: 4px;
+
+  background: var(--nx-blue-soft);
+
+  color: var(--nx-blue);
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.06em;
+}
+
+.nx-job-top > i {
+
+  color: #b7c4d5;
+
+  font-size: 13px;
+}
+
+.nx-job-card h3 {
+
+  margin-bottom: 5px;
+
+  color: var(--nx-navy);
+
+  font-size: 18px;
+
+  font-weight: 800;
+}
+
+.nx-job-company {
+
+  margin-bottom: 15px;
+
+  color: var(--nx-muted);
+
+  font-size: 10px;
+}
+
+.nx-job-meta {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 11px;
+
+  margin-bottom: 20px;
+}
+
+.nx-job-meta span {
+
+  color: var(--nx-muted);
+
+  font-size: 9px;
+}
+
+.nx-job-meta i {
+
+  margin-right: 4px;
+
+  color: var(--nx-blue);
+}
+
+.nx-job-button {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding-top: 12px;
+
+  border-top: 1px solid var(--nx-border);
+
+  color: var(--nx-blue);
+
+  font-size: 10px;
+
+  font-weight: 800;
+}
+
+.nx-centered-button {
+
+  margin-top: 28px;
+
   text-align: center;
 }
 
-.why-list {
-    list-style: none;
-    padding-left: 0;
+
+/* =========================================================
+   EDUCATION
+========================================================= */
+
+.nx-education-section {
+
+  background: #fff;
 }
 
-.why-list li {
-    margin-bottom: 12px;
-    font-size: 16px;
-    line-height: 1.6;
-}
+.nx-education-card {
 
-/* Tab content */
-.tab-content {
-  background: white;
-  border: 1px solid #dee2e6; /* match table border */
-  border-top: none; /* merge with tab */
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  padding: 10px;
-  margin-top: -1px;
-}
-
-/* Start Of Card default style */
-.grade-card {
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    background-color: #ffffff; /* always white */
-    border: 1px solid #dee2e6;
-    border-radius: 0.4rem;
-}
-
-/* Hover effect – lift and shadow only */
-.grade-card:hover {
-    transform: translateY(-5px); /* slight lift */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* subtle shadow */
-    cursor: pointer;
-}
-
-/* Graduation cap icon */
-.graduation-icon {
-    color: #6c757d; /* secondary gray */
-    transition: color 0.25s ease, transform 0.25s ease;
-}
-
-.grade-card:hover .graduation-icon {
-    color: #0d6efd; /* primary blue on hover */
-    transform: scale(1.05); /* subtle pop */
-}
-
-/* Hand icon */
-.hand-icon {
-    color: #dc3545; /* danger red */
-}
-/* End Of Card default style */
-
-/* Start of University Logos Slider container */
-/* Wrapper keeps everything inside container */
-.logo-slider-wrapper {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-/* Track animation */
-.logo-track {
   display: flex;
-  gap: 50px;
+
   align-items: center;
-  width: max-content;
-  animation: scroll 35s linear infinite;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  padding: 32px;
+
+  border: 1px solid var(--nx-border);
+
+  border-radius: 17px;
+
+  background:
+
+    linear-gradient(
+      120deg,
+      #f6f9ff,
+      #fff
+    );
 }
 
-/* Logos */
-.partner-logo {
-  height: 80px;
-  flex-shrink: 0;
+.nx-education-card h2 {
+
+  margin-bottom: 11px;
+
+  color: var(--nx-navy);
+
+  font-size: 29px;
+
+  font-weight: 800;
+
+  line-height: 1.1;
+}
+
+.nx-education-card h2 span {
+
+  color: var(--nx-blue);
+}
+
+.nx-education-card p {
+
+  max-width: 610px;
+
+  margin: 0;
+
+  color: var(--nx-muted);
+
+  font-size: 12px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   UNIVERSITY GRID
+========================================================= */
+
+.nx-universities-section {
+
+  background: #fbfcff;
+}
+
+.nx-university-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 12px;
+}
+
+.nx-university-item {
+
+  position: relative;
+
+  height: 130px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: #fff;
+
+  border: 1px solid var(--nx-border);
+}
+
+.nx-university-item img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.35s ease;
+}
+
+.nx-university-item:hover img {
+
+  transform: scale(1.04);
+}
+
+.nx-university-name {
+
+  position: absolute;
+
+  right: 8px;
+  bottom: 8px;
+  left: 8px;
+
+  padding: 8px 10px;
+
+  border-radius: 7px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  color: var(--nx-navy);
+
+  font-size: 10px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   PARTNERS
+========================================================= */
+
+.nx-partners-section {
+
+  background: #fff;
+}
+
+.nx-partners-header {
+
+  text-align: center;
+
+  margin-bottom: 30px;
+}
+
+.nx-partners-header h2 {
+
+  margin: 0;
+
+  color: var(--nx-navy);
+
+  font-size: 28px;
+
+  font-weight: 800;
+}
+
+.nx-partners-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  gap: 13px;
+}
+
+.nx-partner-item {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 85px;
+
+  padding: 14px;
+
+  border: 1px solid var(--nx-border);
+
+  border-radius: 10px;
+
+  background: #fff;
+}
+
+.nx-partner-item img {
+
+  max-width: 115px;
+
+  max-height: 45px;
+
   object-fit: contain;
-  transition: transform 0.3s ease;
 }
 
-/* Hover zoom */
-.partner-logo:hover {
-  transform: scale(1.1);
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.nx-final-cta {
+
+  padding: 25px 0 90px;
+
+  background: #fff;
 }
 
-/* ✅ Pause on hover */
-.logo-slider-wrapper:hover .logo-track {
-  animation-play-state: paused;
+.nx-final-card {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  padding: 38px;
+
+  border-radius: 18px;
+
+  background:
+
+    linear-gradient(
+      120deg,
+      var(--nx-navy),
+      #1f4e79
+    );
+
+  box-shadow:
+    0 20px 45px rgba(16, 42, 67, 0.15);
 }
 
-/* Animation */
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
+.nx-final-card > div > span {
+
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 8px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+}
+
+.nx-final-card h2 {
+
+  margin: 0 0 8px;
+
+  color: #fff;
+
+  font-size: 31px;
+
+  font-weight: 800;
+
+  line-height: 1.1;
+}
+
+.nx-final-card h2 strong {
+
+  color: #a9c9ff;
+
+  font-weight: 800;
+}
+
+.nx-final-card p {
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.70);
+
+  font-size: 11px;
+}
+
+.nx-white-button {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex: 0 0 auto;
+
+  min-height: 44px;
+
+  padding: 10px 17px;
+
+  border-radius: 8px;
+
+  background: #fff;
+
+  color: var(--nx-blue);
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  transition:
+
+    transform 0.2s ease,
+
+    box-shadow 0.2s ease;
+}
+
+.nx-white-button:hover {
+
+  color: var(--nx-blue);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 9px 24px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 991.98px) {
+
+  .nx-home-hero {
+
+    padding: 65px 0;
+
   }
-  100% {
-    transform: translateX(-50%);
+
+  .nx-hero-row {
+
+    min-height: auto;
+
   }
+
+  .nx-hero-visual {
+
+    min-height: 430px;
+
+    margin-top: 35px;
+
+  }
+
+  .nx-floating-card-top {
+
+    left: 5%;
+  }
+
+  .nx-floating-card-bottom {
+
+    right: 5%;
+  }
+
+  .nx-highlight-grid {
+
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nx-highlight-item:nth-child(2) {
+
+    border-right: 0;
+  }
+
+  .nx-highlight-item {
+
+    border-bottom: 1px solid var(--nx-border);
+  }
+
+  .nx-section-heading {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .nx-university-grid {
+
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nx-partners-grid {
+
+    grid-template-columns: repeat(3, 1fr);
+  }
+
 }
-/* End of University Logos Slider container */
 
-.management-list{
-    list-style:none;
-    padding-left:0;
+
+@media (max-width: 767.98px) {
+
+  .nx-section {
+
+    padding: 70px 0;
+  }
+
+  .nx-hero-title {
+
+    font-size: 44px;
+  }
+
+  .nx-visual-main {
+
+    width: 300px;
+    height: 370px;
+  }
+
+  .nx-visual-orbit {
+
+    width: 330px;
+    height: 330px;
+  }
+
+  .nx-floating-card {
+
+    min-width: 185px;
+  }
+
+  .nx-floating-card-top {
+
+    top: 40px;
+    left: 0;
+  }
+
+  .nx-floating-card-bottom {
+
+    right: 0;
+    bottom: 35px;
+  }
+
+  .nx-check-grid {
+
+    grid-template-columns: 1fr;
+  }
+
+  .nx-education-card {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .nx-final-card {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
 }
 
-.management-list li{
-    margin-bottom:12px;
-    line-height:1.6;
-    font-size:16px;
+
+@media (max-width: 575.98px) {
+
+  .nx-container {
+
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .nx-home-hero {
+
+    padding: 45px 0 60px;
+  }
+
+  .nx-hero-title {
+
+    font-size: 37px;
+  }
+
+  .nx-hero-text {
+
+    font-size: 13px;
+  }
+
+  .nx-hero-actions {
+
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .nx-primary-button,
+  .nx-secondary-button {
+
+    width: 100%;
+  }
+
+  .nx-hero-points {
+
+    flex-direction: column;
+
+    gap: 7px;
+  }
+
+  .nx-hero-visual {
+
+    min-height: 390px;
+  }
+
+  .nx-visual-main {
+
+    width: 250px;
+    height: 330px;
+  }
+
+  .nx-visual-orbit {
+
+    width: 280px;
+    height: 280px;
+  }
+
+  .nx-floating-card {
+
+    min-width: 170px;
+
+    padding: 9px;
+  }
+
+  .nx-floating-card strong {
+
+    font-size: 9px;
+  }
+
+  .nx-floating-card small {
+
+    font-size: 8px;
+  }
+
+  .nx-highlight-grid {
+
+    grid-template-columns: 1fr;
+  }
+
+  .nx-highlight-item {
+
+    border-right: 0 !important;
+  }
+
+  .nx-section-heading h2,
+  .nx-content-title {
+
+    font-size: 29px;
+  }
+
+  .nx-university-grid {
+
+    grid-template-columns: 1fr;
+  }
+
+  .nx-partners-grid {
+
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nx-final-card {
+
+    padding: 27px;
+  }
+
+  .nx-final-card h2 {
+
+    font-size: 25px;
+  }
+
 }
-
-
-

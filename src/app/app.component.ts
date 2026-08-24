@@ -1,8 +1,13 @@
 import { Component, HostListener } from '@angular/core';
 import { CommonModule, ViewportScroller } from '@angular/common';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { environment } from '../environments/environment';
+import {
+  Router,
+  RouterLink,
+  RouterLinkActive,
+  RouterOutlet
+} from '@angular/router';
 
+import { environment } from '../environments/environment';
 import { MessageComponent } from './_components/Message/message.component';
 
 @Component({
@@ -11,6 +16,7 @@ import { MessageComponent } from './_components/Message/message.component';
   imports: [
     CommonModule,
     RouterLink,
+    RouterLinkActive,
     RouterOutlet,
     MessageComponent
   ],
