@@ -1,90 +1,66 @@
 /* =========================================================
    INTERNATIONAL ECADEMY
-   COMPACT NEXUS-INSPIRED HOME DESIGN
+   HOME PAGE
+   ---------------------------------------------------------
+   Home-page-specific styles
+   Global design tokens/utilities are maintained in styles.css
 ========================================================= */
-
-:host {
-  --nx-navy: #102a43;
-  --nx-navy-2: #243b53;
-
-  --nx-blue: #1769ff;
-  --nx-blue-soft: #edf4ff;
-
-  --nx-red: #ec1d23;
-
-  --nx-orange: #f4a261;
-  --nx-orange-soft: #fff6ed;
-
-  --nx-bg: #fbfcff;
-  --nx-muted: #6b7a90;
-  --nx-border: #e7ebf2;
-
-  display: block;
-  color: var(--nx-navy);
-}
 
 
 /* =========================================================
-   COMMON
+   01. HOME CONTAINER
 ========================================================= */
 
-.nx-container {
+.ie-home-container {
   max-width: 1120px;
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
 }
 
-.nx-section {
+
+/* =========================================================
+   02. HOME SECTION
+========================================================= */
+
+.ie-home-section {
   padding: 55px 0;
-  background: #fff;
+  background: var(--ie-white);
 }
 
-.nx-soft-section {
-  background:
-    radial-gradient(
-      circle at 10% 30%,
-      rgba(23, 105, 255, 0.065),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 90% 70%,
-      rgba(244, 162, 97, 0.065),
-      transparent 28%
-    ),
-    #fbfcff;
-}
 
-.nx-label {
+/* =========================================================
+   03. LABEL
+========================================================= */
+
+.ie-home-label {
   display: inline-block;
   margin-bottom: 10px;
   padding: 5px 8px;
   border: 1px solid rgba(23, 105, 255, 0.14);
-  border-radius: 5px;
-  color: var(--nx-blue);
+  border-radius: var(--ie-radius-sm);
+  color: var(--ie-blue);
   background: #f5f8ff;
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.11em;
 }
 
-.nx-label-red {
-  color: var(--nx-red);
+.ie-home-label-red {
+  color: var(--ie-red);
   background: #fff5f5;
   border-color: rgba(236, 29, 35, 0.13);
 }
 
 
 /* =========================================================
-   HERO
+   04. HERO
 ========================================================= */
 
-.nx-home-hero {
+.ie-home-hero {
   position: relative;
   overflow: hidden;
-
   min-height: 510px;
-
   display: flex;
   align-items: center;
 
@@ -99,10 +75,10 @@
       rgba(244, 162, 97, 0.10),
       transparent 30%
     ),
-    #fff;
+    var(--ie-white);
 }
 
-.nx-hero-glow {
+.ie-home-hero-glow {
   position: absolute;
   width: 300px;
   height: 300px;
@@ -111,89 +87,85 @@
   pointer-events: none;
 }
 
-.nx-hero-glow-blue {
+.ie-home-hero-glow-blue {
   top: -150px;
   left: -100px;
   background: rgba(23, 105, 255, 0.06);
 }
 
-.nx-hero-glow-orange {
+.ie-home-hero-glow-orange {
   right: -120px;
   bottom: -150px;
   background: rgba(244, 162, 97, 0.07);
 }
 
-.nx-hero-row {
+.ie-home-hero-row {
   min-height: 510px;
 }
 
-.nx-eyebrow {
+
+/* =========================================================
+   05. HERO CONTENT
+========================================================= */
+
+.ie-home-eyebrow {
   display: inline-flex;
   align-items: center;
-
   margin-bottom: 14px;
   padding: 6px 10px;
-
   border: 1px solid rgba(23, 105, 255, 0.16);
-  border-radius: 5px;
-
-  color: var(--nx-blue);
+  border-radius: var(--ie-radius-sm);
+  color: var(--ie-blue);
   background: #f6f9ff;
-
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.11em;
 }
 
-.nx-hero-title {
+.ie-home-hero-title {
   max-width: 590px;
-
   margin: 0 0 16px;
-
-  color: var(--nx-navy);
-
+  color: var(--ie-navy);
   font-size: clamp(40px, 5vw, 62px);
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.055em;
 }
 
-.nx-hero-title span {
+.ie-home-hero-title span {
   display: block;
-  color: var(--nx-blue);
+  color: var(--ie-blue);
 }
 
-.nx-hero-text {
+.ie-home-hero-text {
   max-width: 550px;
-
   margin: 0 0 22px;
-
-  color: var(--nx-muted);
-
+  color: var(--ie-muted);
   font-size: 14px;
   line-height: 1.65;
 }
 
-.nx-hero-actions {
+.ie-home-hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.nx-primary-button,
-.nx-secondary-button {
+
+/* =========================================================
+   06. HOME BUTTONS
+========================================================= */
+
+.ie-home-primary-button,
+.ie-home-secondary-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   min-height: 43px;
   padding: 10px 17px;
-
   border-radius: 8px;
-
   font-size: 12px;
   font-weight: 700;
-
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -201,451 +173,417 @@
     color 0.2s ease;
 }
 
-.nx-primary-button {
-  background: var(--nx-blue);
-  color: #fff;
-
+.ie-home-primary-button {
+  border: 1px solid var(--ie-blue);
+  background: var(--ie-blue);
+  color: var(--ie-white);
   box-shadow:
     0 9px 22px rgba(23, 105, 255, 0.18);
 }
 
-.nx-primary-button:hover {
-  background: #0c55d6;
-  color: #fff;
+.ie-home-primary-button:hover {
+  background: var(--ie-blue-dark);
+  border-color: var(--ie-blue-dark);
+  color: var(--ie-white);
   transform: translateY(-2px);
 }
 
-.nx-primary-button i,
-.nx-secondary-button i,
-.nx-white-button i {
-  margin-left: 8px;
+.ie-home-secondary-button {
+  border: 1px solid var(--ie-border);
+  background: var(--ie-white);
+  color: var(--ie-navy);
 }
 
-.nx-secondary-button {
-  border: 1px solid var(--nx-border);
-  background: #fff;
-  color: var(--nx-navy);
-}
-
-.nx-secondary-button:hover {
-  color: var(--nx-blue);
+.ie-home-secondary-button:hover {
+  color: var(--ie-blue);
   border-color: rgba(23, 105, 255, 0.22);
   transform: translateY(-2px);
 }
 
-.nx-hero-points {
+.ie-home-primary-button i,
+.ie-home-secondary-button i,
+.ie-home-white-button i,
+.ie-home-job-button i {
+  margin-left: 8px;
+}
+
+
+/* =========================================================
+   07. HERO POINTS
+========================================================= */
+
+.ie-home-hero-points {
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   margin-top: 20px;
 }
 
-.nx-hero-points span {
-  color: var(--nx-muted);
+.ie-home-hero-points span {
+  color: var(--ie-muted);
   font-size: 11px;
 }
 
-.nx-hero-points i {
+.ie-home-hero-points i {
   margin-right: 5px;
-  color: var(--nx-blue);
+  color: var(--ie-blue);
 }
 
 
 /* =========================================================
-   HERO VISUAL
+   08. HERO VISUAL
 ========================================================= */
 
-.nx-hero-visual {
+.ie-home-hero-visual {
   position: relative;
-
   min-height: 420px;
-
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.nx-visual-orbit {
+.ie-home-visual-orbit {
   position: absolute;
-
   width: 370px;
   height: 370px;
-
   border: 1px solid rgba(23, 105, 255, 0.08);
   border-radius: 50%;
 }
 
-.nx-visual-main {
+.ie-home-visual-main {
   position: relative;
-
   width: 340px;
   height: 405px;
-
   overflow: hidden;
-
-  border-radius: 22px;
-
+  border-radius: var(--ie-radius-xl);
+  background: var(--ie-white);
   box-shadow:
     0 25px 50px rgba(16, 42, 67, 0.14);
-
-  background: #fff;
 }
 
-.nx-visual-main img {
+.ie-home-visual-main img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.nx-image-overlay {
+.ie-home-image-overlay {
   position: absolute;
-
   right: 15px;
   left: 15px;
   bottom: 15px;
-
   padding: 14px;
-
   border-radius: 12px;
-
   background: rgba(255, 255, 255, 0.94);
-
   backdrop-filter: blur(10px);
 }
 
-.nx-image-overlay span {
+.ie-home-image-overlay span {
   display: block;
-
   margin-bottom: 4px;
-
-  color: var(--nx-blue);
-
+  color: var(--ie-blue);
   font-size: 8px;
   font-weight: 800;
   letter-spacing: 0.1em;
 }
 
-.nx-image-overlay strong {
-  color: var(--nx-navy);
+.ie-home-image-overlay strong {
+  color: var(--ie-navy);
   font-size: 15px;
 }
 
-.nx-floating-card {
-  position: absolute;
 
+/* =========================================================
+   09. FLOATING CARDS
+========================================================= */
+
+.ie-home-floating-card {
+  position: absolute;
   display: flex;
   align-items: center;
-
   gap: 10px;
-
   min-width: 210px;
-
   padding: 11px;
-
-  border: 1px solid var(--nx-border);
+  border: 1px solid var(--ie-border);
   border-radius: 11px;
-
   background: rgba(255, 255, 255, 0.97);
-
   box-shadow:
     0 16px 35px rgba(16, 42, 67, 0.10);
 }
 
-.nx-floating-card strong,
-.nx-floating-card small {
+.ie-home-floating-card strong,
+.ie-home-floating-card small {
   display: block;
 }
 
-.nx-floating-card strong {
-  color: var(--nx-navy);
+.ie-home-floating-card strong {
+  color: var(--ie-navy);
   font-size: 11px;
 }
 
-.nx-floating-card small {
+.ie-home-floating-card small {
   margin-top: 3px;
-  color: var(--nx-muted);
+  color: var(--ie-muted);
   font-size: 9px;
 }
 
-.nx-floating-card-top {
+.ie-home-floating-card-top {
   top: 55px;
   left: -5px;
 }
 
-.nx-floating-card-bottom {
+.ie-home-floating-card-bottom {
   right: -2px;
   bottom: 50px;
 }
 
-.nx-floating-icon {
+.ie-home-floating-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 35px;
   height: 35px;
-
   border-radius: 9px;
   font-size: 14px;
 }
 
-.nx-floating-icon.blue {
-  color: var(--nx-blue);
-  background: var(--nx-blue-soft);
+.ie-home-floating-icon.blue {
+  color: var(--ie-blue);
+  background: var(--ie-blue-light);
 }
 
-.nx-floating-icon.orange {
+.ie-home-floating-icon.orange {
   color: #b96d2b;
-  background: var(--nx-orange-soft);
+  background: var(--ie-orange-light);
 }
 
 
 /* =========================================================
-   HIGHLIGHTS
+   10. HIGHLIGHTS
 ========================================================= */
 
-.nx-highlights {
+.ie-home-highlights {
   padding: 15px 0;
-
-  border-top: 1px solid var(--nx-border);
-  border-bottom: 1px solid var(--nx-border);
-
-  background: #fff;
+  border-top: 1px solid var(--ie-border);
+  border-bottom: 1px solid var(--ie-border);
+  background: var(--ie-white);
 }
 
-.nx-highlight-grid {
+.ie-home-highlight-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
 
-.nx-highlight-item {
+.ie-home-highlight-item {
   display: flex;
   align-items: center;
-
   gap: 11px;
-
   padding: 9px 18px;
-
-  border-right: 1px solid var(--nx-border);
+  border-right: 1px solid var(--ie-border);
 }
 
-.nx-highlight-item:last-child {
+.ie-home-highlight-item:last-child {
   border-right: 0;
 }
 
-.nx-highlight-icon {
+.ie-home-highlight-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 34px;
   height: 34px;
-
   flex: 0 0 auto;
-
   border-radius: 8px;
-
-  background: var(--nx-blue-soft);
-  color: var(--nx-blue);
-
+  background: var(--ie-blue-light);
+  color: var(--ie-blue);
   font-size: 13px;
 }
 
-.nx-highlight-icon.red {
-  color: var(--nx-red);
+.ie-home-highlight-icon.red {
+  color: var(--ie-red);
   background: #fff1f1;
 }
 
-.nx-highlight-item strong,
-.nx-highlight-item span {
+.ie-home-highlight-item strong,
+.ie-home-highlight-item span {
   display: block;
 }
 
-.nx-highlight-item strong {
-  color: var(--nx-navy);
+.ie-home-highlight-item strong {
+  color: var(--ie-navy);
   font-size: 11px;
 }
 
-.nx-highlight-item span {
+.ie-home-highlight-item span {
   margin-top: 2px;
-  color: var(--nx-muted);
+  color: var(--ie-muted);
   font-size: 9px;
 }
 
 
 /* =========================================================
-   SECTION HEADING
+   11. SECTION HEADING
 ========================================================= */
 
-.nx-section-heading {
+.ie-home-section-heading {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-
   gap: 40px;
-
   margin-bottom: 28px;
 }
 
-.nx-section-heading h2 {
+.ie-home-section-heading h2 {
   max-width: 500px;
-
   margin: 0;
-
-  color: var(--nx-navy);
-
+  color: var(--ie-navy);
   font-size: 32px;
   font-weight: 800;
-
   line-height: 1.08;
   letter-spacing: -0.04em;
 }
 
-.nx-section-heading h2 span {
-  color: var(--nx-blue);
+.ie-home-section-heading h2 span {
+  color: var(--ie-blue);
 }
 
-.nx-section-heading > p {
+.ie-home-section-heading > p {
   max-width: 400px;
-
   margin: 0;
-
-  color: var(--nx-muted);
-
+  color: var(--ie-muted);
   font-size: 12px;
   line-height: 1.65;
 }
 
 
 /* =========================================================
-   SERVICES
+   12. SERVICES
 ========================================================= */
 
-.nx-services {
+.ie-home-services {
   padding-top: 50px;
   padding-bottom: 55px;
 }
 
-.nx-service-card {
+.ie-home-service-card {
   height: 100%;
-
   padding: 20px;
-
-  border: 1px solid var(--nx-border);
+  border: 1px solid var(--ie-border);
   border-radius: 13px;
-
-  background: #fff;
-
+  background: var(--ie-white);
   box-shadow:
     0 9px 25px rgba(16, 42, 67, 0.045);
-
   transition:
     transform 0.22s ease,
     box-shadow 0.22s ease,
     border-color 0.22s ease;
 }
 
-.nx-service-card:hover {
+.ie-home-service-card:hover {
   transform: translateY(-4px);
-
   border-color: rgba(23, 105, 255, 0.18);
-
   box-shadow:
     0 17px 35px rgba(16, 42, 67, 0.09);
 }
 
-.nx-card-top {
+.ie-home-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   margin-bottom: 16px;
 }
 
-.nx-card-top > span {
+.ie-home-card-top > span {
   color: #b7c4d5;
-
   font-size: 10px;
   font-weight: 800;
 }
 
-.nx-service-icon {
+.ie-home-service-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 40px;
   height: 40px;
-
   border-radius: 9px;
   font-size: 15px;
 }
 
-.nx-service-icon.blue {
-  color: var(--nx-blue);
-  background: var(--nx-blue-soft);
+.ie-home-service-icon.blue {
+  color: var(--ie-blue);
+  background: var(--ie-blue-light);
 }
 
-.nx-service-icon.orange {
+.ie-home-service-icon.orange {
   color: #b96d2b;
-  background: var(--nx-orange-soft);
+  background: var(--ie-orange-light);
 }
 
-.nx-service-icon.red {
-  color: var(--nx-red);
+.ie-home-service-icon.red {
+  color: var(--ie-red);
   background: #fff1f1;
 }
 
-.nx-service-card h3 {
+.ie-home-service-card h3 {
   margin-bottom: 8px;
-
-  color: var(--nx-navy);
-
+  color: var(--ie-navy);
   font-size: 17px;
   font-weight: 800;
 }
 
-.nx-service-card p {
+.ie-home-service-card p {
   min-height: 78px;
-
   margin-bottom: 15px;
-
-  color: var(--nx-muted);
-
+  color: var(--ie-muted);
   font-size: 11px;
   line-height: 1.65;
 }
 
-.nx-card-link {
-  color: var(--nx-blue);
-
+.ie-home-card-link {
+  color: var(--ie-blue);
   font-size: 10px;
   font-weight: 800;
 }
 
-.nx-card-link i {
+.ie-home-card-link i {
   margin-left: 5px;
 }
 
-.red-link {
-  color: var(--nx-red);
+.ie-home-card-link.red-link {
+  color: var(--ie-red);
 }
 
 
 /* =========================================================
-   ADMISSIONS
+   13. SOFT SECTION
 ========================================================= */
 
-.nx-large-card {
+.ie-home-soft-section {
+  background:
+    radial-gradient(
+      circle at 10% 30%,
+      rgba(23, 105, 255, 0.065),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 70%,
+      rgba(244, 162, 97, 0.065),
+      transparent 28%
+    ),
+    var(--ie-bg);
+}
+
+
+/* =========================================================
+   14. ADMISSIONS
+========================================================= */
+
+.ie-home-large-card {
   position: relative;
-
   min-height: 350px;
-
   padding: 28px;
-
   overflow: hidden;
-
-  border-radius: 18px;
+  border-radius: var(--ie-radius-xl);
 
   background:
     radial-gradient(
@@ -656,511 +594,426 @@
     linear-gradient(
       145deg,
       #f9fbff,
-      #fff
+      var(--ie-white)
     );
 
-  border: 1px solid var(--nx-border);
+  border: 1px solid var(--ie-border);
 }
 
-.nx-card-eyebrow {
+.ie-home-card-eyebrow {
   display: inline-block;
-
   padding: 5px 8px;
-
   border-radius: 5px;
-
-  background: var(--nx-orange-soft);
+  background: var(--ie-orange-light);
   color: #a65d21;
-
   font-size: 8px;
   font-weight: 800;
   letter-spacing: 0.09em;
 }
 
-.nx-large-card-content {
+.ie-home-large-card-content {
   position: absolute;
-
   left: 28px;
   bottom: 30px;
-
   max-width: 410px;
 }
 
-.nx-large-card-content h3 {
+.ie-home-large-card-content h3 {
   margin-bottom: 10px;
-
-  color: var(--nx-navy);
-
+  color: var(--ie-navy);
   font-size: 28px;
   font-weight: 800;
-
   line-height: 1.08;
   letter-spacing: -0.035em;
 }
 
-.nx-large-card-content h3 span {
-  color: var(--nx-blue);
+.ie-home-large-card-content h3 span {
+  color: var(--ie-blue);
 }
 
-.nx-large-card-content p {
+.ie-home-large-card-content p {
   margin: 0;
-
-  color: var(--nx-muted);
-
+  color: var(--ie-muted);
   font-size: 12px;
   line-height: 1.65;
 }
 
-.nx-admission-stats {
+.ie-home-admission-stats {
   position: absolute;
-
   top: 28px;
   right: 28px;
-
   display: flex;
   flex-direction: column;
-
   gap: 10px;
 }
 
-.nx-admission-stats div {
+.ie-home-admission-stats div {
   min-width: 145px;
-
   padding: 9px 11px;
-
-  border: 1px solid var(--nx-border);
+  border: 1px solid var(--ie-border);
   border-radius: 8px;
-
   background: rgba(255, 255, 255, 0.82);
 }
 
-.nx-admission-stats strong,
-.nx-admission-stats span {
+.ie-home-admission-stats strong,
+.ie-home-admission-stats span {
   display: block;
 }
 
-.nx-admission-stats strong {
-  color: var(--nx-navy);
+.ie-home-admission-stats strong {
+  color: var(--ie-navy);
   font-size: 10px;
 }
 
-.nx-admission-stats span {
+.ie-home-admission-stats span {
   margin-top: 3px;
-  color: var(--nx-muted);
+  color: var(--ie-muted);
   font-size: 8px;
 }
 
-.nx-content-title {
+.ie-home-content-title {
   max-width: 480px;
-
   margin: 0 0 14px;
-
-  color: var(--nx-navy);
-
+  color: var(--ie-navy);
   font-size: 33px;
   font-weight: 800;
-
   line-height: 1.08;
   letter-spacing: -0.04em;
 }
 
-.nx-content-title span {
-  color: var(--nx-blue);
+.ie-home-content-title span {
+  color: var(--ie-blue);
 }
 
-.nx-content-text {
+.ie-home-content-text {
   max-width: 500px;
-
-  color: var(--nx-muted);
-
+  color: var(--ie-muted);
   font-size: 13px;
   line-height: 1.7;
 }
 
-.nx-check-grid {
+.ie-home-check-grid {
   display: grid;
-
   grid-template-columns: repeat(2, 1fr);
-
   gap: 9px;
-
   margin: 20px 0 22px;
 }
 
-.nx-check-grid div {
-  color: var(--nx-navy-2);
+.ie-home-check-grid div {
+  color: var(--ie-navy-light);
   font-size: 11px;
 }
 
-.nx-check-grid i {
+.ie-home-check-grid i {
   margin-right: 6px;
-  color: var(--nx-blue);
+  color: var(--ie-blue);
 }
 
 
 /* =========================================================
-   CAREER
+   15. CAREER
 ========================================================= */
 
-.nx-career-card {
+.ie-home-career-card {
+  height: 100%;
   padding: 20px;
-
-  border: 1px solid var(--nx-border);
+  border: 1px solid var(--ie-border);
   border-radius: 12px;
-
-  background: #fff;
-
+  background: var(--ie-white);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
 }
 
-.nx-career-card:hover {
+.ie-home-career-card:hover {
   transform: translateY(-3px);
-
   box-shadow:
     0 14px 30px rgba(16, 42, 67, 0.07);
 }
 
-.nx-career-icon {
+.ie-home-career-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 38px;
   height: 38px;
-
   margin-bottom: 13px;
-
   border-radius: 9px;
-
-  background: var(--nx-blue-soft);
-  color: var(--nx-blue);
+  background: var(--ie-blue-light);
+  color: var(--ie-blue);
 }
 
-.nx-career-card h3 {
+.ie-home-career-card h3 {
   margin-bottom: 6px;
-
-  color: var(--nx-navy);
-
+  color: var(--ie-navy);
   font-size: 15px;
   font-weight: 800;
 }
 
-.nx-career-card p {
+.ie-home-career-card p {
   margin: 0;
-
-  color: var(--nx-muted);
-
+  color: var(--ie-muted);
   font-size: 11px;
   line-height: 1.6;
 }
 
 
 /* =========================================================
-   JOBS
+   16. JOBS
 ========================================================= */
 
-.nx-jobs-section {
+.ie-home-jobs-section {
   background:
     radial-gradient(
       circle at 5% 20%,
       rgba(244, 162, 97, 0.07),
       transparent 25%
     ),
-    #fbfcff;
+    var(--ie-bg);
 }
 
-.nx-job-card {
+.ie-home-job-card {
   height: 100%;
-
   padding: 21px;
-
-  border: 1px solid var(--nx-border);
+  border: 1px solid var(--ie-border);
   border-radius: 13px;
-
-  background: #fff;
-
+  background: var(--ie-white);
   box-shadow:
     0 9px 25px rgba(16, 42, 67, 0.045);
 }
 
-.nx-job-top {
+.ie-home-job-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   margin-bottom: 14px;
 }
 
-.nx-job-type {
+.ie-home-job-type {
   padding: 4px 7px;
-
   border-radius: 4px;
-
-  background: var(--nx-blue-soft);
-  color: var(--nx-blue);
-
+  background: var(--ie-blue-light);
+  color: var(--ie-blue);
   font-size: 8px;
   font-weight: 800;
   letter-spacing: 0.06em;
 }
 
-.nx-job-top > i {
+.ie-home-job-top > i {
   color: #b7c4d5;
   font-size: 13px;
 }
 
-.nx-job-card h3 {
+.ie-home-job-card h3 {
   margin-bottom: 5px;
-
-  color: var(--nx-navy);
-
+  color: var(--ie-navy);
   font-size: 18px;
   font-weight: 800;
 }
 
-.nx-job-company {
+.ie-home-job-company {
   margin-bottom: 13px;
-
-  color: var(--nx-muted);
+  color: var(--ie-muted);
   font-size: 10px;
 }
 
-.nx-job-meta {
+.ie-home-job-meta {
   display: flex;
   flex-wrap: wrap;
-
   gap: 10px;
-
   margin-bottom: 18px;
 }
 
-.nx-job-meta span {
-  color: var(--nx-muted);
+.ie-home-job-meta span {
+  color: var(--ie-muted);
   font-size: 9px;
 }
 
-.nx-job-meta i {
+.ie-home-job-meta i {
   margin-right: 4px;
-  color: var(--nx-blue);
+  color: var(--ie-blue);
 }
 
-.nx-job-button {
+.ie-home-job-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding-top: 11px;
-
-  border-top: 1px solid var(--nx-border);
-
-  color: var(--nx-blue);
-
+  border-top: 1px solid var(--ie-border);
+  color: var(--ie-blue);
   font-size: 10px;
   font-weight: 800;
 }
 
-.nx-centered-button {
+.ie-home-centered-button {
   margin-top: 24px;
   text-align: center;
 }
 
 
 /* =========================================================
-   EDUCATION
+   17. EDUCATION
 ========================================================= */
 
-.nx-education-section {
-  background: #fff;
+.ie-home-education-section {
+  background: var(--ie-white);
 }
 
-.nx-education-card {
+.ie-home-education-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   gap: 30px;
-
   padding: 28px;
-
-  border: 1px solid var(--nx-border);
+  border: 1px solid var(--ie-border);
   border-radius: 17px;
 
   background:
     linear-gradient(
       120deg,
       #f6f9ff,
-      #fff
+      var(--ie-white)
     );
 }
 
-.nx-education-card h2 {
+.ie-home-education-card h2 {
   margin-bottom: 9px;
-
-  color: var(--nx-navy);
-
+  color: var(--ie-navy);
   font-size: 28px;
   font-weight: 800;
-
   line-height: 1.1;
 }
 
-.nx-education-card h2 span {
-  color: var(--nx-blue);
+.ie-home-education-card h2 span {
+  color: var(--ie-blue);
 }
 
-.nx-education-card p {
+.ie-home-education-card p {
   max-width: 610px;
-
   margin: 0;
-
-  color: var(--nx-muted);
-
+  color: var(--ie-muted);
   font-size: 12px;
   line-height: 1.65;
 }
 
-
-/* =========================================================
-   UNIVERSITY GRID
-========================================================= */
-
-.nx-universities-section {
-  background: #fbfcff;
+.ie-home-education-actions {
+  flex: 0 0 auto;
 }
 
-.nx-university-grid {
+
+/* =========================================================
+   18. UNIVERSITIES
+========================================================= */
+
+.ie-home-universities-section {
+  background: var(--ie-bg);
+}
+
+.ie-home-university-grid {
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   gap: 12px;
 }
 
-.nx-university-item {
+.ie-home-university-item {
   position: relative;
-
   height: 125px;
-
   overflow: hidden;
-
   border-radius: 10px;
-
-  background: #fff;
-  border: 1px solid var(--nx-border);
+  background: var(--ie-white);
+  border: 1px solid var(--ie-border);
 }
 
-.nx-university-item img {
+.ie-home-university-item img {
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-
   transition: transform 0.35s ease;
 }
 
-.nx-university-item:hover img {
+.ie-home-university-item:hover img {
   transform: scale(1.04);
 }
 
-.nx-university-name {
+.ie-home-university-name {
   position: absolute;
-
   right: 8px;
   bottom: 8px;
   left: 8px;
-
   padding: 8px 10px;
-
   border-radius: 7px;
-
   background: rgba(255, 255, 255, 0.94);
-
-  color: var(--nx-navy);
-
+  color: var(--ie-navy);
   font-size: 10px;
   font-weight: 700;
 }
 
 
 /* =========================================================
-   PARTNERS
+   19. PARTNERS
 ========================================================= */
 
-.nx-partners-section {
-  background: #fff;
+.ie-home-partners-section {
+  background: var(--ie-white);
 }
 
-.nx-partners-header {
+.ie-home-partners-header {
   text-align: center;
   margin-bottom: 25px;
 }
 
-.nx-partners-header h2 {
+.ie-home-partners-header h2 {
   margin: 0;
-
-  color: var(--nx-navy);
-
+  color: var(--ie-navy);
   font-size: 28px;
   font-weight: 800;
 }
 
-.nx-partners-grid {
+.ie-home-partners-grid {
   display: grid;
-
   grid-template-columns: repeat(5, 1fr);
-
   gap: 13px;
 }
 
-.nx-partner-item {
+.ie-home-partner-item {
   display: flex;
   align-items: center;
   justify-content: center;
-
   min-height: 80px;
-
   padding: 14px;
-
-  border: 1px solid var(--nx-border);
+  border: 1px solid var(--ie-border);
   border-radius: 10px;
-
-  background: #fff;
+  background: var(--ie-white);
 }
 
-.nx-partner-item img {
+.ie-home-partner-item img {
   max-width: 115px;
   max-height: 45px;
-
   object-fit: contain;
 }
 
 
 /* =========================================================
-   FINAL CTA
+   20. FINAL CTA
 ========================================================= */
 
-.nx-final-cta {
+.ie-home-final-cta {
   padding: 20px 0 65px;
-  background: #fff;
+  background: var(--ie-white);
 }
 
-.nx-final-card {
+.ie-home-final-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   gap: 30px;
-
   padding: 34px;
-
-  border-radius: 18px;
+  border-radius: var(--ie-radius-xl);
 
   background:
     linear-gradient(
       120deg,
-      var(--nx-navy),
+      var(--ie-navy),
       #1f4e79
     );
 
@@ -1168,280 +1021,266 @@
     0 20px 45px rgba(16, 42, 67, 0.15);
 }
 
-.nx-final-card > div > span {
+.ie-home-final-card > div > span {
   display: block;
-
   margin-bottom: 7px;
-
   color: rgba(255, 255, 255, 0.65);
-
   font-size: 8px;
   font-weight: 800;
   letter-spacing: 0.12em;
 }
 
-.nx-final-card h2 {
+.ie-home-final-card h2 {
   margin: 0 0 7px;
-
-  color: #fff;
-
+  color: var(--ie-white);
   font-size: 30px;
   font-weight: 800;
-
   line-height: 1.1;
 }
 
-.nx-final-card h2 strong {
+.ie-home-final-card h2 strong {
   color: #a9c9ff;
   font-weight: 800;
 }
 
-.nx-final-card p {
+.ie-home-final-card p {
   margin: 0;
-
   color: rgba(255, 255, 255, 0.70);
-
   font-size: 11px;
 }
 
-.nx-white-button {
+.ie-home-white-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   flex: 0 0 auto;
-
   min-height: 43px;
-
   padding: 10px 17px;
-
   border-radius: 8px;
-
-  background: #fff;
-  color: var(--nx-blue);
-
+  background: var(--ie-white);
+  color: var(--ie-blue);
   font-size: 11px;
   font-weight: 800;
-
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
 }
 
-.nx-white-button:hover {
-  color: var(--nx-blue);
-
+.ie-home-white-button:hover {
+  color: var(--ie-blue);
   transform: translateY(-2px);
-
   box-shadow:
     0 9px 24px rgba(0, 0, 0, 0.15);
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   21. RESPONSIVE
 ========================================================= */
 
 @media (max-width: 991.98px) {
 
-  .nx-home-hero {
+  .ie-home-hero {
     padding: 45px 0;
   }
 
-  .nx-hero-row {
+  .ie-home-hero-row {
     min-height: auto;
   }
 
-  .nx-hero-visual {
+  .ie-home-hero-visual {
     min-height: 400px;
     margin-top: 25px;
   }
 
-  .nx-floating-card-top {
+  .ie-home-floating-card-top {
     left: 5%;
   }
 
-  .nx-floating-card-bottom {
+  .ie-home-floating-card-bottom {
     right: 5%;
   }
 
-  .nx-highlight-grid {
+  .ie-home-highlight-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .nx-highlight-item:nth-child(2) {
+  .ie-home-highlight-item:nth-child(2) {
     border-right: 0;
   }
 
-  .nx-highlight-item {
-    border-bottom: 1px solid var(--nx-border);
+  .ie-home-highlight-item {
+    border-bottom: 1px solid var(--ie-border);
   }
 
-  .nx-section-heading {
+  .ie-home-section-heading {
     align-items: flex-start;
     flex-direction: column;
     gap: 12px;
   }
 
-  .nx-university-grid {
+  .ie-home-university-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .nx-partners-grid {
+  .ie-home-partners-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
 }
 
 
 /* =========================================================
-   TABLET / MOBILE
+   22. TABLET / MOBILE
 ========================================================= */
 
 @media (max-width: 767.98px) {
 
-  .nx-section {
+  .ie-home-section {
     padding: 45px 0;
   }
 
-  .nx-hero-title {
+  .ie-home-hero-title {
     font-size: 44px;
   }
 
-  .nx-visual-main {
+  .ie-home-visual-main {
     width: 300px;
     height: 370px;
   }
 
-  .nx-visual-orbit {
+  .ie-home-visual-orbit {
     width: 330px;
     height: 330px;
   }
 
-  .nx-floating-card {
+  .ie-home-floating-card {
     min-width: 185px;
   }
 
-  .nx-floating-card-top {
+  .ie-home-floating-card-top {
     top: 40px;
     left: 0;
   }
 
-  .nx-floating-card-bottom {
+  .ie-home-floating-card-bottom {
     right: 0;
     bottom: 35px;
   }
 
-  .nx-check-grid {
+  .ie-home-check-grid {
     grid-template-columns: 1fr;
   }
 
-  .nx-education-card {
+  .ie-home-education-card {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .nx-final-card {
+  .ie-home-final-card {
     flex-direction: column;
     align-items: flex-start;
   }
+
 }
 
 
 /* =========================================================
-   SMALL MOBILE
+   23. SMALL MOBILE
 ========================================================= */
 
 @media (max-width: 575.98px) {
 
-  .nx-container {
+  .ie-home-container {
     padding-left: 16px;
     padding-right: 16px;
   }
 
-  .nx-section {
+  .ie-home-section {
     padding: 38px 0;
   }
 
-  .nx-home-hero {
+  .ie-home-hero {
     padding: 35px 0 45px;
   }
 
-  .nx-hero-title {
+  .ie-home-hero-title {
     font-size: 37px;
   }
 
-  .nx-hero-text {
+  .ie-home-hero-text {
     font-size: 13px;
   }
 
-  .nx-hero-actions {
+  .ie-home-hero-actions {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .nx-primary-button,
-  .nx-secondary-button {
+  .ie-home-primary-button,
+  .ie-home-secondary-button {
     width: 100%;
   }
 
-  .nx-hero-points {
+  .ie-home-hero-points {
     flex-direction: column;
     gap: 7px;
   }
 
-  .nx-hero-visual {
+  .ie-home-hero-visual {
     min-height: 360px;
   }
 
-  .nx-visual-main {
+  .ie-home-visual-main {
     width: 250px;
     height: 330px;
   }
 
-  .nx-visual-orbit {
+  .ie-home-visual-orbit {
     width: 280px;
     height: 280px;
   }
 
-  .nx-floating-card {
+  .ie-home-floating-card {
     min-width: 170px;
     padding: 9px;
   }
 
-  .nx-floating-card strong {
+  .ie-home-floating-card strong {
     font-size: 9px;
   }
 
-  .nx-floating-card small {
+  .ie-home-floating-card small {
     font-size: 8px;
   }
 
-  .nx-highlight-grid {
+  .ie-home-highlight-grid {
     grid-template-columns: 1fr;
   }
 
-  .nx-highlight-item {
+  .ie-home-highlight-item {
     border-right: 0 !important;
   }
 
-  .nx-section-heading h2,
-  .nx-content-title {
+  .ie-home-section-heading h2,
+  .ie-home-content-title {
     font-size: 29px;
   }
 
-  .nx-university-grid {
+  .ie-home-university-grid {
     grid-template-columns: 1fr;
   }
 
-  .nx-partners-grid {
+  .ie-home-partners-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .nx-final-card {
+  .ie-home-final-card {
     padding: 27px;
   }
 
-  .nx-final-card h2 {
+  .ie-home-final-card h2 {
     font-size: 25px;
   }
+
 }

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 
 import {
   NgbModal,
@@ -15,12 +14,11 @@ import {
     CommonModule,
     NgbModalModule
   ],
-  templateUrl: './grade9.html',
-  styleUrls: ['./grade9.css']
+  templateUrl: './grade9.html'
 })
 export class Grade9 {
 
-  selectedItem: any[] = [];
+  selectedItem: any = null;
   closeResult = '';
   noOfCols = 2;
 
@@ -44,10 +42,10 @@ export class Grade9 {
       code: 'MTH1W',
       subject: 'Principles Of Mathematics',
       credits: '1',
-      grade: '11',
+      grade: '9',
       pathway: '-',
       description:
-        'This course enables students to develop an understanding of mathematical concepts related to algebra, analytic geometry, and measurement and geometry through investigation, the effective use of technology, and abstract reasoning. Students will investigate relationships, which they will then generalize as equations of lines, and will determine the connections between different representations of a linear relation. They will also explore relationships that emerge from the measurement of three-dimensional figures and two-dimensional shapes. Students will reason mathematically and communicate their thinking as they solve multi-step problems..'
+        'This course enables students to develop an understanding of mathematical concepts related to algebra, analytic geometry, and measurement and geometry through investigation, the effective use of technology, and abstract reasoning. Students will investigate relationships, which they will then generalize as equations of lines, and will determine the connections between different representations of a linear relation. They will also explore relationships that emerge from the measurement of three-dimensional figures and two-dimensional shapes. Students will reason mathematically and communicate their thinking as they solve multi-step problems.'
     },
     {
       img: 2,
@@ -107,7 +105,7 @@ export class Grade9 {
       grade: '9',
       pathway: '-',
       description:
-        'This course is exploratory in nature, offering an overview of visual arts as a foundation for further study. Students will become familiar with the elements and principles of design and the expressive qualities of various materials by using a range of media, processes, techniques, and styles. Students will use the creative and critical analysis processes and will interpret art within a personal, contemporary, and historical context. Prerequisite: None'
+        'This course is exploratory in nature, offering an overview of visual arts as a foundation for further study. Students will become familiar with the elements and principles of design and the expressive qualities of various materials by using a range of media, processes, techniques, and styles. Students will use the creative and critical analysis processes and will interpret art within a personal, contemporary, and historical context. Prerequisite: None.'
     },
     {
       img: 6,
@@ -119,7 +117,7 @@ export class Grade9 {
       grade: '9',
       pathway: '-',
       description:
-        'The Technology and the Skilled Trades, It is a hands-on course designed to provide students with opportunities to further explore the engineering design process and develop technological knowledge and skills introduced in earlier grades. This course is organized into two broad areas of learning: 1. Design processes and related skills. 2. Technological development, impacts, and careers.'
+        'The Technology and the Skilled Trades course is a hands-on course designed to provide students with opportunities to further explore the engineering design process and develop technological knowledge and skills introduced in earlier grades. This course is organized into two broad areas of learning: 1. Design processes and related skills. 2. Technological development, impacts, and careers.'
     },
     {
       img: 3,
@@ -131,7 +129,7 @@ export class Grade9 {
       grade: '9',
       pathway: '-',
       description:
-        'In this course, students will learn what makes an entrepreneur thrive and the skills required to succeed in today’s business environment. Students will begin to develop their own entrepreneurial mindset, and learn why it’s important to take initiative, adapt to change, find creative solutions, and understand the financial considerations of entrepreneurship. This hands-on course will use business software and applications to help students plan and develop their entrepreneurial ideas and learn how to present them to a target audience. Throughout the course, students will enhance their communications skills as well as develop and refine their project management skills.'
+        'In this course, students will learn what makes an entrepreneur thrive and the skills required to succeed in today’s business environment. Students will begin to develop their own entrepreneurial mindset, and learn why it’s important to take initiative, adapt to change, find creative solutions, and understand the financial considerations of entrepreneurship. This hands-on course will use business software and applications to help students plan and develop their entrepreneurial ideas and learn how to present them to a target audience. Throughout the course, students will enhance their communication skills as well as develop and refine their project management skills.'
     },
     {
       img: 3,
@@ -147,19 +145,16 @@ export class Grade9 {
   ];
 
   constructor(
-    private router: Router,
     private modalService: NgbModal
   ) {}
 
-  ngOnInit(): void {
-    // Initialization
-  }
-
   open(content: any, item: any): void {
+
     this.selectedItem = item;
 
     this.modalService.open(content, {
-      centered: true
+      centered: true,
+      size: 'lg'
     }).result.then(
       (result) => {
         this.closeResult = `Closed with: ${result}`;
@@ -171,6 +166,7 @@ export class Grade9 {
   }
 
   private getDismissReason(reason: any): string {
+
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
     }

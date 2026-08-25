@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
 
 import {
   NgbModal,
@@ -20,7 +19,7 @@ import {
 })
 export class Others {
 
-  selectedItem: any[] = [];
+  selectedItem: any = null;
   closeResult = '';
 
   courses = [
@@ -87,15 +86,11 @@ export class Others {
   ];
 
   constructor(
-    private router: Router,
     private modalService: NgbModal
   ) {}
 
-  ngOnInit(): void {
-    // Initialization
-  }
-
   open(content: any, item: any): void {
+
     this.selectedItem = item;
 
     this.modalService.open(content, {
@@ -105,12 +100,14 @@ export class Others {
         this.closeResult = `Closed with: ${result}`;
       },
       (reason) => {
-        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        this.closeResult =
+          `Dismissed ${this.getDismissReason(reason)}`;
       }
     );
   }
 
   private getDismissReason(reason: any): string {
+
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
     }

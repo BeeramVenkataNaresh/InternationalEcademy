@@ -89,7 +89,6 @@
 
   --ie-transition:
     all 0.25s ease;
-
 }
 
 
@@ -168,10 +167,13 @@ select {
 
   width: 100%;
 
-  padding:
-    50px 0 70px;
+  /*
+   * Navbar is fixed.
+   * Keep page content close to navbar while leaving
+   * enough breathing room for the fixed header.
+   */
+  padding: 18px 0 70px;
 }
-
 
 .ie-page .container {
   position: relative;
@@ -183,7 +185,7 @@ select {
 --------------------------------------------------------- */
 
 .ie-section {
-  padding: 50px 0;
+  padding: 40px 0;
 }
 
 .ie-section-sm {
@@ -205,6 +207,24 @@ select {
 
 .ie-content-section-lg {
   margin-top: 65px;
+}
+
+
+/* =========================================================
+   PAGE-SPECIFIC INTRO SYSTEM
+   Used by About / Management and similar pages
+========================================================= */
+
+.ie-about-intro,
+.ie-management-intro {
+
+  /*
+   * Keeps the first content row visually close
+   * to the navbar.
+   */
+  padding-top: 0;
+
+  padding-bottom: 20px;
 }
 
 
@@ -447,7 +467,6 @@ select {
 
   border-radius:
     var(--ie-radius);
-
 }
 
 
@@ -573,10 +592,6 @@ select {
 }
 
 
-/* ---------------------------------------------------------
-   Information title
---------------------------------------------------------- */
-
 .ie-info-title {
 
   margin:
@@ -604,10 +619,6 @@ select {
     center;
 }
 
-
-/* ---------------------------------------------------------
-   Information row
---------------------------------------------------------- */
 
 .ie-info-row {
 
@@ -702,10 +713,6 @@ select {
 }
 
 
-/* ---------------------------------------------------------
-   Course description
---------------------------------------------------------- */
-
 .ie-card-description {
 
   margin-top:
@@ -734,10 +741,6 @@ select {
     1.7;
 }
 
-
-/* ---------------------------------------------------------
-   Course title separator
---------------------------------------------------------- */
 
 .course-title-separator {
 
@@ -1136,10 +1139,6 @@ select {
 }
 
 
-/* ---------------------------------------------------------
-   Modal description
---------------------------------------------------------- */
-
 .ie-modal-description {
 
   padding:
@@ -1221,7 +1220,99 @@ select {
 
 
 /* =========================================================
-   20. GLOBAL RESPONSIVE
+   20. MANAGEMENT PAGE SYSTEM
+   ---------------------------------------------------------
+   Uses the same global IE design as About page.
+========================================================= */
+
+.ie-management-page {
+
+  width: 100%;
+}
+
+
+/* ---------------------------------------------------------
+   Management introduction
+--------------------------------------------------------- */
+
+.ie-management-intro {
+
+  padding-bottom:
+    20px;
+}
+
+
+/* ---------------------------------------------------------
+   Management message sections
+--------------------------------------------------------- */
+
+.ie-management-message {
+
+  padding:
+    30px 0;
+}
+
+
+/* ---------------------------------------------------------
+   Management profile image
+--------------------------------------------------------- */
+
+.ie-management-profile-image {
+
+  display:
+    inline-block;
+
+  width:
+    100%;
+
+  max-width:
+    160px;
+
+  height:
+    auto;
+
+  border-radius:
+    10%;
+
+  box-shadow:
+    var(--ie-shadow);
+
+  transition:
+    var(--ie-transition);
+}
+
+
+.ie-management-profile-image:hover {
+
+  box-shadow:
+    var(--ie-shadow-hover);
+}
+
+
+/* ---------------------------------------------------------
+   Management table
+--------------------------------------------------------- */
+
+.ie-management-page .ie-table-wrapper {
+
+  margin-top:
+    25px;
+}
+
+
+.ie-management-page .ie-table th:first-child,
+.ie-management-page .ie-table td:first-child {
+
+  width:
+    80px;
+
+  text-align:
+    center;
+}
+
+
+/* =========================================================
+   21. GLOBAL RESPONSIVE
 ========================================================= */
 
 
@@ -1232,8 +1323,9 @@ select {
 @media (max-width: 1199.98px) {
 
   .ie-page {
+
     padding:
-      45px 0 60px;
+      16px 0 60px;
   }
 
 }
@@ -1246,25 +1338,36 @@ select {
 @media (max-width: 991.98px) {
 
   .ie-page {
+
     padding:
-      40px 0 55px;
+      14px 0 55px;
+  }
+
+
+  .ie-section {
+
+    padding:
+      35px 0;
   }
 
 
   .ie-title-red,
   .ie-title-blue {
+
     font-size:
       30px;
   }
 
 
   .ie-intro {
+
     min-height:
       auto;
   }
 
 
   .ie-section-heading {
+
     margin-top:
       40px;
   }
@@ -1278,8 +1381,16 @@ select {
 
 
   .course-image {
+
     width:
       80%;
+  }
+
+
+  .ie-management-profile-image {
+
+    max-width:
+      140px;
   }
 
 }
@@ -1294,25 +1405,28 @@ select {
   .ie-page {
 
     padding:
-      30px 0 45px;
+      10px 0 45px;
   }
 
 
   .ie-section {
+
     padding:
-      35px 0;
+      30px 0;
   }
 
 
   .ie-section-sm {
+
     padding:
       25px 0;
   }
 
 
   .ie-section-lg {
+
     padding:
-      50px 0;
+      45px 0;
   }
 
 
@@ -1364,12 +1478,14 @@ select {
 
 
   .ie-card-body {
+
     padding:
       18px;
   }
 
 
   .course-image {
+
     width:
       70%;
   }
@@ -1390,8 +1506,26 @@ select {
 
 
   .ie-modal-body {
+
     padding:
       18px;
+  }
+
+
+  .ie-management-message {
+
+    padding:
+      25px 0;
+  }
+
+
+  .ie-management-profile-image {
+
+    max-width:
+      130px;
+
+    margin-bottom:
+      20px;
   }
 
 }
@@ -1406,7 +1540,7 @@ select {
   .ie-page {
 
     padding:
-      25px 0 40px;
+      8px 0 40px;
   }
 
 
@@ -1491,6 +1625,281 @@ select {
 
     padding:
       12px 15px;
+  }
+
+
+  .ie-management-profile-image {
+
+    max-width:
+      120px;
+  }
+
+}
+
+/* =========================================================
+   INTERNATIONAL ECADEMY
+   GRADE 9 COURSE CARDS
+   HOVER DESCRIPTION
+========================================================= */
+
+.ie-courses-page .ie-course-card {
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   DESCRIPTION OVERLAY
+   HIDDEN BY DEFAULT
+========================================================= */
+
+.ie-courses-page .ie-course-card .ie-course-description-overlay {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 78%;
+  max-height: 78%;
+
+  padding: 24px 28px;
+
+  background: rgba(16, 42, 67, 0.97);
+  color: #ffffff;
+
+  transform: translateY(110%);
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  z-index: 100;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.25s ease,
+    visibility 0s linear 0.35s;
+}
+
+
+/* =========================================================
+   SHOW DESCRIPTION ONLY ON CARD HOVER
+========================================================= */
+
+.ie-courses-page
+.ie-course-card:hover
+.ie-course-description-overlay {
+
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+
+  pointer-events: auto;
+
+  transition:
+    transform 0.35s ease,
+    opacity 0.25s ease,
+    visibility 0s linear 0s;
+}
+
+
+/* =========================================================
+   DESCRIPTION CONTENT
+========================================================= */
+
+.ie-courses-page .ie-course-description-content {
+  position: relative;
+
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   DESCRIPTION TITLE
+========================================================= */
+
+.ie-courses-page
+.ie-course-description-content h3 {
+
+  flex-shrink: 0;
+
+  margin: 0 0 12px;
+
+  padding-right: 120px;
+  padding-bottom: 10px;
+
+  color: #ffffff;
+
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+
+/* =========================================================
+   DESCRIPTION TEXT
+   ONLY THIS AREA SCROLLS
+========================================================= */
+
+.ie-courses-page
+.ie-course-description-content p {
+
+  flex: 1;
+
+  min-height: 0;
+
+  margin: 0;
+
+  padding-right: 10px;
+
+  color: #ffffff;
+
+  font-size: 0.92rem;
+  line-height: 1.6;
+
+  text-align: justify;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scrollbar-width: thin;
+
+  scrollbar-color:
+    rgba(255, 255, 255, 0.25)
+    transparent;
+}
+
+
+/* =========================================================
+   PROFESSIONAL TRANSPARENT SCROLLBAR
+========================================================= */
+
+.ie-courses-page
+.ie-course-description-content p::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ie-courses-page
+.ie-course-description-content p::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ie-courses-page
+.ie-course-description-content p::-webkit-scrollbar-thumb {
+
+  background: rgba(255, 255, 255, 0.25);
+
+  border-radius: 20px;
+}
+
+.ie-courses-page
+.ie-course-description-content p::-webkit-scrollbar-thumb:hover {
+
+  background: rgba(255, 255, 255, 0.45);
+}
+
+
+/* =========================================================
+   VIEW COURSE
+   SMALL ROUNDED PILL - TOP RIGHT
+========================================================= */
+
+.ie-courses-page
+.ie-course-overlay-button {
+
+  position: absolute;
+
+  top: 4px;
+  right: 0;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 12px;
+
+  border: none;
+
+  border-radius: 50px;
+
+  background: rgba(255, 255, 255, 0.16);
+
+  color: #ffffff;
+
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  z-index: 200;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* =========================================================
+   VIEW COURSE HOVER
+========================================================= */
+
+.ie-courses-page
+.ie-course-overlay-button:hover {
+
+  background: rgba(255, 255, 255, 0.28);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991.98px) {
+
+  .ie-courses-page
+  .ie-course-description-overlay {
+
+    height: 82%;
+    max-height: 82%;
+
+    padding: 22px 24px;
+  }
+
+  .ie-courses-page
+  .ie-course-description-content p {
+
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   HOVER DESCRIPTION DISABLED
+========================================================= */
+
+@media (max-width: 767.98px) {
+
+  .ie-courses-page
+  .ie-course-description-overlay {
+
+    display: none !important;
   }
 
 }
