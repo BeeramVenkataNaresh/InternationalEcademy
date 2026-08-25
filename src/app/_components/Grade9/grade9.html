@@ -1,188 +1,213 @@
-<div class="page-position">
+<!-- =========================================================
+     INTERNATIONAL ECADEMY
+     GRADE 9 COURSES
+========================================================= -->
+
+<section class="ie-page">
+
+  <div class="container">
 
     <!-- =====================================================
          PAGE HEADER
     ====================================================== -->
 
-    <div class="page-header">
-        <h1>Grade 9</h1>
-        <p>Explore courses and build your academic pathway</p>
+    <div class="ie-section-sm text-center">
+
+      <h1 class="ie-title-red">
+        Grade 9
+      </h1>
+
+      <h1 class="ie-title-blue">
+        Courses
+      </h1>
+
+      <p class="ie-muted-text mt-3">
+        Explore courses and build your academic pathway
+      </p>
+
     </div>
 
 
     <!-- =====================================================
-         COURSES
+         COURSE GRID
     ====================================================== -->
 
-    <div class="container mt-4 mb-5">
+    <div class="row g-4 mb-5">
 
-        <div class="card-body text-center">
+      <div
+        class="col-lg-6 col-md-6"
+        *ngFor="let item of courses"
+      >
 
-            <div
-                class="row mb-4"
-                *ngFor="
-                    let row of courses.slice(
-                        0,
-                        courses.length / noOfCols % 1 === 0
-                            ? courses.length / noOfCols
-                            : courses.length / noOfCols + 1
-                    );
-                    let rowIndex = index
-                "
-            >
+        <!-- =================================================
+             COURSE CARD
+        ================================================== -->
 
-                <div
-                    class="col-md-6"
-                    *ngFor="
-                        let item of courses.slice(
-                            rowIndex * noOfCols,
-                            rowIndex * noOfCols + noOfCols
-                        )
-                    "
+        <article class="ie-card h-100 course-card">
+
+          <!-- Course Header -->
+
+          <div class="course-card-header text-center">
+
+            <h2 class="course-title">
+
+              {{ item.code }}
+
+              <span class="course-title-separator">
+                -
+              </span>
+
+              {{ item.subject }}
+
+            </h2>
+
+          </div>
+
+
+          <!-- Course Body -->
+
+          <div class="course-card-body">
+
+            <div class="row align-items-center g-4">
+
+              <!-- =========================================
+                   COURSE IMAGE
+              ========================================== -->
+
+              <div class="col-md-6 text-center">
+
+                <img
+                  class="course-image imgShadow-AllSides"
+                  src="assets/images/{{ item.source }}/{{ item.img }}.jpg"
+                  alt="{{ item.subject }}"
                 >
 
-                    <a
-                        type="button"
-                        (click)="open(content, item)"
-                        title="{{ item.code }} - {{ item.subject }}"
-                        style="text-decoration: none;"
-                    >
-
-                        <div class="card a-info-style">
-
-                            <!-- Course Title -->
-                            <div class="card-header bg-transparent text-center text-primary">
-                                <h5>
-                                    {{ item.code }} - {{ item.subject }}
-                                </h5>
-                            </div>
+              </div>
 
 
-                            <!-- Course Content -->
-                            <div class="card-body a-info-style-image">
+              <!-- =========================================
+                   COURSE DETAILS
+              ========================================== -->
 
-                                <div class="row">
+              <div class="col-md-6">
 
-                                    <!-- Course Image -->
-                                    <div class="col-md-6 text-center text-success">
+                <div class="course-details">
 
-                                        <img
-                                            class="imgShadow-AllSides"
-                                            src="assets/images/{{ item.source }}/{{ item.img }}.jpg"
-                                            style="width: 88%; border-radius: 5%;"
-                                            alt="{{ item.subject }}"
-                                        />
-
-                                    </div>
+                  <h3 class="course-details-title">
+                    Course Details
+                  </h3>
 
 
-                                    <!-- Course Details -->
-                                    <div class="col-md-6 text-center">
+                  <div class="course-detail-row">
 
-                                        <table
-                                            class="table table-bordered text-center table-center border-gray"
-                                        >
+                    <span class="course-detail-label">
+                      Code
+                    </span>
 
-                                            <thead style="background-color:#e7e7e7">
+                    <span class="course-detail-value">
+                      {{ item.code }}
+                    </span>
 
-                                                <tr class="text-danger">
-
-                                                    <th colspan="2">
-                                                        Details
-                                                    </th>
-
-                                                </tr>
-
-                                            </thead>
+                  </div>
 
 
-                                            <tbody>
+                  <div class="course-detail-row">
 
-                                                <tr>
-                                                    <th class="text-start">
-                                                        Code
-                                                    </th>
+                    <span class="course-detail-label">
+                      Credits
+                    </span>
 
-                                                    <td>
-                                                        {{ item.code }}
-                                                    </td>
-                                                </tr>
+                    <span class="course-detail-value">
+                      {{ item.credits }}
+                    </span>
 
-
-                                                <tr>
-                                                    <th class="text-start">
-                                                        Credits
-                                                    </th>
-
-                                                    <td>
-                                                        {{ item.credits }}
-                                                    </td>
-                                                </tr>
+                  </div>
 
 
-                                                <tr>
-                                                    <th class="text-start">
-                                                        Grade
-                                                    </th>
+                  <div class="course-detail-row">
 
-                                                    <td>
-                                                        {{ item.grade }}
-                                                    </td>
-                                                </tr>
+                    <span class="course-detail-label">
+                      Grade
+                    </span>
 
+                    <span class="course-detail-value">
+                      {{ item.grade }}
+                    </span>
 
-                                                <tr>
-                                                    <th class="text-start">
-                                                        Pathway
-                                                    </th>
-
-                                                    <td>
-                                                        {{ item.pathway }}
-                                                    </td>
-                                                </tr>
-
-                                            </tbody>
-
-                                        </table>
-
-                                    </div>
-
-                                </div>
+                  </div>
 
 
-                                <!-- Description -->
-                                <div class="a-info-style-info">
+                  <div class="course-detail-row">
 
-                                    <h5 class="text-center mb-3">
-                                        <b>Description</b>
-                                    </h5>
+                    <span class="course-detail-label">
+                      Pathway
+                    </span>
 
-                                    <p class="text-justify">
-                                        {{ item.description }}
-                                    </p>
+                    <span class="course-detail-value">
+                      {{ item.pathway }}
+                    </span>
 
-                                    <p>
-                                        Read More
-                                        <i class="fa fa-arrow-circle-right"></i>
-                                    </p>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </a>
+                  </div>
 
                 </div>
 
+              </div>
+
             </div>
 
-        </div>
+
+            <!-- ===========================================
+                 DESCRIPTION
+            ============================================ -->
+
+            <div class="course-description">
+
+              <h3 class="course-description-title">
+                Description
+              </h3>
+
+              <p class="text-justify">
+                {{ item.description }}
+              </p>
+
+            </div>
+
+
+            <!-- ===========================================
+                 READ MORE
+            ============================================ -->
+
+            <div class="text-center mt-4">
+
+              <button
+                type="button"
+                class="ie-button course-read-more"
+                (click)="open(content, item)"
+                title="{{ item.code }} - {{ item.subject }}"
+              >
+
+                Read More
+
+                <i
+                  class="fa fa-arrow-circle-right ms-2"
+                  aria-hidden="true"
+                ></i>
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
 
     </div>
 
-</div>
+  </div>
+
+</section>
 
 
 <!-- =========================================================
@@ -191,86 +216,135 @@
 
 <ng-template #content let-modal>
 
-    <a
-        type="button"
-        class="btn close text-end"
-        aria-label="Close"
-        (click)="modal.dismiss('Cross click')"
+  <div class="modal-header ie-modal-header">
+
+    <h2 class="ie-title-blue modal-course-title">
+      {{ selectedItem['code'] }}
+      -
+      {{ selectedItem['subject'] }}
+    </h2>
+
+    <button
+      type="button"
+      class="ie-modal-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
     >
-        <i class="fa fa-times-circle fa-lg"></i>
-    </a>
+
+      <i
+        class="fa fa-times-circle"
+        aria-hidden="true"
+      ></i>
+
+    </button>
+
+  </div>
 
 
-    <div class="modal-body modalFormBgColor text-center">
+  <div class="modal-body ie-modal-body">
 
-        <table
-            class="table table-bordered text-center table-center"
-            style="border-color: rgb(213, 214, 214);"
-        >
+    <!-- =====================================================
+         COURSE INFORMATION
+    ====================================================== -->
 
-            <thead style="background-color:#f5f3f3">
+    <div class="course-modal-details">
 
-                <tr>
+      <div class="course-modal-item">
 
-                    <th>Code</th>
-                    <th>Subject</th>
-                    <th>Credits</th>
-                    <th>Grade</th>
-                    <th>Pathway</th>
+        <span class="course-modal-label">
+          Code
+        </span>
 
-                </tr>
+        <strong>
+          {{ selectedItem['code'] }}
+        </strong>
 
-            </thead>
-
-
-            <tbody>
-
-                <tr class="text-primary">
-
-                    <td>
-                        {{ selectedItem['code'] }}
-                    </td>
-
-                    <td>
-                        {{ selectedItem['subject'] }}
-                    </td>
-
-                    <td>
-                        {{ selectedItem['credits'] }}
-                    </td>
-
-                    <td>
-                        {{ selectedItem['grade'] }}
-                    </td>
-
-                    <td>
-                        {{ selectedItem['pathway'] }}
-                    </td>
-
-                </tr>
+      </div>
 
 
-                <tr>
+      <div class="course-modal-item">
 
-                    <td
-                        colspan="5"
-                        class="text-justify"
-                    >
+        <span class="course-modal-label">
+          Subject
+        </span>
 
-                        <b class="text-danger">
-                            Description -
-                        </b>
+        <strong>
+          {{ selectedItem['subject'] }}
+        </strong>
 
-                        {{ selectedItem['description'] }}
+      </div>
 
-                    </td>
 
-                </tr>
+      <div class="course-modal-item">
 
-            </tbody>
+        <span class="course-modal-label">
+          Credits
+        </span>
 
-        </table>
+        <strong>
+          {{ selectedItem['credits'] }}
+        </strong>
+
+      </div>
+
+
+      <div class="course-modal-item">
+
+        <span class="course-modal-label">
+          Grade
+        </span>
+
+        <strong>
+          {{ selectedItem['grade'] }}
+        </strong>
+
+      </div>
+
+
+      <div class="course-modal-item">
+
+        <span class="course-modal-label">
+          Pathway
+        </span>
+
+        <strong>
+          {{ selectedItem['pathway'] }}
+        </strong>
+
+      </div>
 
     </div>
+
+
+    <!-- =====================================================
+         DESCRIPTION
+    ====================================================== -->
+
+    <div class="course-modal-description">
+
+      <h3 class="ie-title-red">
+        Description
+      </h3>
+
+      <p class="text-justify mt-3">
+        {{ selectedItem['description'] }}
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="modal-footer ie-modal-footer">
+
+    <button
+      type="button"
+      class="ie-button"
+      (click)="modal.close('Close click')"
+    >
+      Close
+    </button>
+
+  </div>
 
 </ng-template>

@@ -1,6 +1,13 @@
 /* =========================================================
    INTERNATIONAL ECADEMY
    GLOBAL DESIGN SYSTEM
+   ---------------------------------------------------------
+   Version: Global / Reusable / Plug-and-Play
+========================================================= */
+
+
+/* =========================================================
+   01. DESIGN TOKENS
 ========================================================= */
 
 :root {
@@ -13,19 +20,27 @@
   --ie-navy-light: #243b53;
 
   --ie-blue: #1769ff;
+  --ie-blue-dark: #0c55d6;
   --ie-blue-light: #edf4ff;
 
   --ie-red: #ec1d23;
 
+  --ie-green: #198754;
+  --ie-green-light: #edf8f2;
+
   --ie-orange: #f4a261;
   --ie-orange-light: #fff6ed;
 
+
   /* -------------------------------------------------------
-     BACKGROUND
+     BACKGROUNDS
   ------------------------------------------------------- */
 
   --ie-bg: #fbfcff;
   --ie-white: #ffffff;
+  --ie-surface: #ffffff;
+  --ie-surface-soft: #f7f9fc;
+
 
   /* -------------------------------------------------------
      TEXT
@@ -33,15 +48,19 @@
 
   --ie-text: #102a43;
   --ie-muted: #6b7a90;
+  --ie-text-light: #8290a3;
+
 
   /* -------------------------------------------------------
-     BORDER
+     BORDERS
   ------------------------------------------------------- */
 
   --ie-border: #e7ebf2;
+  --ie-border-dark: #d5d9de;
+
 
   /* -------------------------------------------------------
-     COMMON SHADOWS
+     SHADOWS
   ------------------------------------------------------- */
 
   --ie-shadow:
@@ -49,11 +68,33 @@
 
   --ie-shadow-soft:
     0 4px 18px rgba(16, 42, 67, 0.06);
+
+  --ie-shadow-hover:
+    0 12px 30px rgba(16, 42, 67, 0.14);
+
+
+  /* -------------------------------------------------------
+     RADIUS
+  ------------------------------------------------------- */
+
+  --ie-radius-sm: 6px;
+  --ie-radius: 10px;
+  --ie-radius-lg: 14px;
+  --ie-radius-xl: 18px;
+
+
+  /* -------------------------------------------------------
+     TRANSITIONS
+  ------------------------------------------------------- */
+
+  --ie-transition:
+    all 0.25s ease;
+
 }
 
 
 /* =========================================================
-   GLOBAL RESET
+   02. GLOBAL RESET
 ========================================================= */
 
 html {
@@ -66,13 +107,17 @@ body {
   padding: 0;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
 
-  background:
-    var(--ie-bg);
+  background: var(--ie-bg);
 
-  color:
-    var(--ie-text);
+  color: var(--ie-text);
 
   font-family:
     "Segoe UI",
@@ -88,126 +133,90 @@ body {
 
 
 /* =========================================================
-   GLOBAL BOX SIZING
-========================================================= */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-
-/* =========================================================
-   GLOBAL LINKS
+   03. GLOBAL ELEMENTS
 ========================================================= */
 
 a {
   color: var(--ie-blue);
-
   text-decoration: none;
 }
 
 a:hover {
+  color: var(--ie-blue-dark);
   text-decoration: none;
 }
 
-
-/* =========================================================
-   GLOBAL IMAGES
-========================================================= */
-
 img {
   max-width: 100%;
-
   height: auto;
+  display: inline-block;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
 }
 
 
 /* =========================================================
-   COMMON PAGE WRAPPER
+   04. PAGE SYSTEM
 ========================================================= */
 
 .ie-page {
+
   width: 100%;
 
   padding:
-    36px 0 60px;
+    50px 0 70px;
 }
 
-
-/* =========================================================
-   COMMON CONTENT CONTAINER
-========================================================= */
 
 .ie-page .container {
   position: relative;
 }
 
 
-/* =========================================================
-   COMMON IMAGE SHADOW
-========================================================= */
+/* ---------------------------------------------------------
+   Page sections
+--------------------------------------------------------- */
 
-.imgShadow-AllSides {
-  box-shadow:
-    var(--ie-shadow);
+.ie-section {
+  padding: 50px 0;
+}
+
+.ie-section-sm {
+  padding: 30px 0;
+}
+
+.ie-section-lg {
+  padding: 70px 0;
+}
+
+
+/* ---------------------------------------------------------
+   Generic vertical spacing
+--------------------------------------------------------- */
+
+.ie-content-section {
+  margin-top: 45px;
+}
+
+.ie-content-section-lg {
+  margin-top: 65px;
 }
 
 
 /* =========================================================
-   COMMON CENTER ITEM
+   05. PAGE TITLES
 ========================================================= */
 
-.center-item {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-}
-
-
-/* =========================================================
-   COMMON JUSTIFIED TEXT
-========================================================= */
-
-.text-justify {
-  text-align: justify;
-}
-
-
-/* =========================================================
-   COMMON PAGE TITLES
-========================================================= */
-
-.ie-title-red {
-
-  margin: 0;
-
-  color:
-    var(--ie-red);
-
-  font-family:
-    "Segoe UI",
-    Arial,
-    sans-serif;
-
-  font-size: 32px;
-
-  font-weight: 700;
-
-  line-height: 1.2;
-}
-
-
+.ie-title-red,
 .ie-title-blue {
 
   margin: 0;
 
-  color:
-    var(--ie-blue);
-
   font-family:
     "Segoe UI",
     Arial,
@@ -220,14 +229,49 @@ img {
   line-height: 1.2;
 }
 
+.ie-title-red {
+  color: var(--ie-red);
+}
+
+.ie-title-blue {
+  color: var(--ie-blue);
+}
+
+
+/* ---------------------------------------------------------
+   Generic subtitles
+--------------------------------------------------------- */
+
+.ie-subtitle {
+
+  color:
+    var(--ie-navy);
+
+  font-weight: 700;
+}
+
+
+/* ---------------------------------------------------------
+   Muted text
+--------------------------------------------------------- */
+
+.ie-muted-text {
+
+  color:
+    var(--ie-muted);
+
+  font-size:
+    15px;
+}
+
 
 /* =========================================================
-   COMMON CONTENT LIST
+   06. CONTENT TEXT
 ========================================================= */
 
 .ie-content-list {
 
-  margin-bottom: 0;
+  margin: 0;
 
   padding-left: 22px;
 
@@ -239,19 +283,24 @@ img {
     Arial,
     sans-serif;
 
-  font-size: 14px;
+  font-size:
+    14px;
 
-  line-height: 1.75;
+  line-height:
+    1.75;
 
-  text-align: justify;
+  text-align:
+    justify;
 }
 
 
 .ie-content-list li {
 
-  margin-bottom: 18px;
+  margin-bottom:
+    18px;
 
-  padding-left: 4px;
+  padding-left:
+    4px;
 }
 
 
@@ -260,235 +309,162 @@ img {
 }
 
 
-/* =========================================================
-   COMMON HIGHLIGHT
-========================================================= */
+/* ---------------------------------------------------------
+   Nested lists
+--------------------------------------------------------- */
+
+.ie-inner-list {
+
+  margin-top:
+    10px;
+
+  padding-left:
+    22px;
+}
+
+
+.ie-inner-list li {
+
+  margin-bottom:
+    10px;
+}
+
+
+/* ---------------------------------------------------------
+   Highlight
+--------------------------------------------------------- */
 
 .ie-highlight {
 
   color:
     var(--ie-red);
 
-  font-weight: 700;
+  font-weight:
+    700;
+}
+
+
+/* ---------------------------------------------------------
+   Text utility
+--------------------------------------------------------- */
+
+.text-justify {
+  text-align: justify;
 }
 
 
 /* =========================================================
-   COMMON CONTENT IMAGE
+   07. COMMON ALIGNMENT
+========================================================= */
+
+.center-item {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* =========================================================
+   08. IMAGE SYSTEM
 ========================================================= */
 
 .ie-content-image {
 
   display: inline-block;
 
-  height: auto;
+  width: auto;
 
-  border-radius: 10%;
-
-  box-shadow:
-    var(--ie-shadow);
-}
-
-
-/* =========================================================
-   ABOUT PAGE
-========================================================= */
-
-.about-page {
-  width: 100%;
-
-  padding:
-    36px 0 60px;
-}
-
-
-/* =========================================================
-   ABOUT INTRODUCTION
-========================================================= */
-
-.about-intro {
-  min-height: 420px;
-}
-
-
-/* =========================================================
-   ABOUT MAIN IMAGE
-========================================================= */
-
-.about-main-image {
-  width: 100%;
-}
-
-
-/* =========================================================
-   ABOUT SECTION HEADING
-========================================================= */
-
-.about-section-heading {
-
-  margin-top: 45px;
-
-  margin-bottom: 25px;
-}
-
-
-/* =========================================================
-   ABOUT FEATURE ROW
-========================================================= */
-
-.about-feature-row {
-
-  margin-top: 35px;
-}
-
-
-/* =========================================================
-   ABOUT FEATURE
-========================================================= */
-
-.about-feature {
-  height: 100%;
-}
-
-
-/* =========================================================
-   ABOUT FEATURE TITLE
-========================================================= */
-
-.ie-feature-title {
-
-  margin:
-    0 0 18px;
-
-  color:
-    #198754;
-
-  font-family:
-    "Segoe UI",
-    Arial,
-    sans-serif;
-
-  font-size: 25px;
-
-  font-weight: 700;
-
-  text-align: center;
-}
-
-
-/* =========================================================
-   ABOUT FEATURE IMAGE
-========================================================= */
-
-.ie-feature-image {
-
-  display: inline-block;
+  max-width: 100%;
 
   height: auto;
 
-  margin-top: 4px;
-
-  border-radius: 10%;
+  border-radius:
+    10%;
 
   box-shadow:
     var(--ie-shadow);
-}
-
-
-/* =========================================================
-   ABOUT IMAGE SIZES
-========================================================= */
-
-.flexible-image {
-  width: 75%;
-}
-
-
-.accredited-image {
-  width: 52%;
-}
-
-
-.affordable-image {
-  width: 54%;
-}
-
-
-.selfpace-image {
-  width: 50%;
-}
-
-
-.online-learning-image {
-  width: 40%;
-}
-
-
-/* =========================================================
-   GLOBAL BUTTON STYLE
-========================================================= */
-
-.ie-button {
-
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  min-height: 42px;
-
-  padding:
-    10px 18px;
-
-  border:
-    1px solid var(--ie-blue);
-
-  border-radius: 8px;
-
-  background:
-    var(--ie-blue);
-
-  color:
-    #ffffff;
-
-  font-size: 13px;
-
-  font-weight: 700;
-
-  text-decoration: none;
-
-  box-shadow:
-    0 7px 18px rgba(23, 105, 255, 0.17);
 
   transition:
-    background-color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    var(--ie-transition);
 }
 
 
-.ie-button:hover {
-
-  background:
-    #0c55d6;
-
-  border-color:
-    #0c55d6;
-
-  color:
-    #ffffff;
-
-  transform:
-    translateY(-1px);
+.ie-content-image:hover {
 
   box-shadow:
-    0 10px 24px rgba(23, 105, 255, 0.22);
+    var(--ie-shadow-hover);
+}
+
+
+/* ---------------------------------------------------------
+   Standard image sizes
+--------------------------------------------------------- */
+
+.ie-image-sm {
+  max-width: 45%;
+}
+
+.ie-image-md {
+  max-width: 65%;
+}
+
+.ie-image-lg {
+  max-width: 85%;
+}
+
+.ie-image-full {
+  width: 100%;
+}
+
+
+/* ---------------------------------------------------------
+   Image shadow
+--------------------------------------------------------- */
+
+.imgShadow-AllSides {
+
+  box-shadow:
+    var(--ie-shadow);
 }
 
 
 /* =========================================================
-   GLOBAL CARD
+   09. PAGE BANNER
+========================================================= */
+
+.ie-page-banner {
+
+  width: 100%;
+
+  margin-bottom:
+    25px;
+
+  overflow:
+    hidden;
+
+  border-radius:
+    var(--ie-radius);
+
+}
+
+
+.ie-banner-image {
+
+  width: 100%;
+
+  display: block;
+
+  height: auto;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   10. GLOBAL CARD SYSTEM
 ========================================================= */
 
 .ie-card {
@@ -500,96 +476,843 @@ img {
     1px solid var(--ie-border);
 
   border-radius:
-    12px;
+    var(--ie-radius-lg);
 
   box-shadow:
     var(--ie-shadow-soft);
+
+  overflow:
+    hidden;
+
+  transition:
+    var(--ie-transition);
+}
+
+
+.ie-card:hover {
+
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    var(--ie-shadow-hover);
+}
+
+
+/* ---------------------------------------------------------
+   Card header
+--------------------------------------------------------- */
+
+.ie-card-header {
+
+  padding:
+    18px 20px;
+
+  border-bottom:
+    1px solid var(--ie-border);
+
+  background:
+    var(--ie-white);
+}
+
+
+/* ---------------------------------------------------------
+   Card body
+--------------------------------------------------------- */
+
+.ie-card-body {
+
+  padding:
+    22px;
+}
+
+
+/* ---------------------------------------------------------
+   Card title
+--------------------------------------------------------- */
+
+.ie-card-title {
+
+  margin:
+    0;
+
+  color:
+    var(--ie-blue);
+
+  font-size:
+    20px;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.35;
 }
 
 
 /* =========================================================
-   GLOBAL SECTION SPACING
+   11. INFORMATION PANEL
 ========================================================= */
 
-.ie-section {
-  padding:
-    50px 0;
+.ie-info-panel {
+
+  width:
+    100%;
+
+  overflow:
+    hidden;
+
+  border:
+    1px solid var(--ie-border);
+
+  border-radius:
+    var(--ie-radius);
+
+  background:
+    var(--ie-surface-soft);
 }
 
 
-.ie-section-sm {
+/* ---------------------------------------------------------
+   Information title
+--------------------------------------------------------- */
+
+.ie-info-title {
+
+  margin:
+    0;
+
   padding:
-    30px 0;
+    11px 14px;
+
+  border-bottom:
+    1px solid var(--ie-border);
+
+  background:
+    var(--ie-blue-light);
+
+  color:
+    var(--ie-red);
+
+  font-size:
+    16px;
+
+  font-weight:
+    700;
+
+  text-align:
+    center;
 }
 
 
-.ie-section-lg {
+/* ---------------------------------------------------------
+   Information row
+--------------------------------------------------------- */
+
+.ie-info-row {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    12px;
+
   padding:
-    70px 0;
+    10px 14px;
+
+  border-bottom:
+    1px solid var(--ie-border);
+
+  font-size:
+    13px;
+}
+
+
+.ie-info-row:last-child {
+  border-bottom: 0;
+}
+
+
+.ie-info-label {
+
+  color:
+    var(--ie-text);
+
+  font-weight:
+    700;
+}
+
+
+.ie-info-value {
+
+  color:
+    var(--ie-blue);
+
+  font-weight:
+    600;
+
+  text-align:
+    right;
 }
 
 
 /* =========================================================
-   GLOBAL RESPONSIVE
+   12. COURSE COMPONENTS
 ========================================================= */
+
+.course-card {
+
+  height:
+    100%;
+
+  cursor:
+    default;
+}
+
+
+.course-image {
+
+  width:
+    88%;
+
+  max-width:
+    300px;
+
+  border-radius:
+    8%;
+
+  box-shadow:
+    var(--ie-shadow);
+
+  transition:
+    var(--ie-transition);
+}
+
+
+.course-card:hover .course-image {
+
+  transform:
+    scale(1.02);
+}
+
+
+/* ---------------------------------------------------------
+   Course description
+--------------------------------------------------------- */
+
+.ie-card-description {
+
+  margin-top:
+    25px;
+
+  padding-top:
+    20px;
+
+  border-top:
+    1px solid var(--ie-border);
+}
+
+
+.ie-card-description p {
+
+  margin:
+    12px 0 0;
+
+  color:
+    var(--ie-muted);
+
+  font-size:
+    14px;
+
+  line-height:
+    1.7;
+}
+
+
+/* ---------------------------------------------------------
+   Course title separator
+--------------------------------------------------------- */
+
+.course-title-separator {
+
+  margin:
+    0 3px;
+
+  color:
+    var(--ie-muted);
+}
+
+
+/* =========================================================
+   13. BUTTON SYSTEM
+========================================================= */
+
+.ie-button {
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  min-height:
+    42px;
+
+  padding:
+    10px 18px;
+
+  border:
+    1px solid var(--ie-blue);
+
+  border-radius:
+    8px;
+
+  background:
+    var(--ie-blue);
+
+  color:
+    var(--ie-white);
+
+  font-size:
+    13px;
+
+  font-weight:
+    700;
+
+  text-decoration:
+    none;
+
+  box-shadow:
+    0 7px 18px rgba(23, 105, 255, 0.17);
+
+  cursor:
+    pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.ie-button:hover {
+
+  background:
+    var(--ie-blue-dark);
+
+  border-color:
+    var(--ie-blue-dark);
+
+  color:
+    var(--ie-white);
+
+  transform:
+    translateY(-1px);
+
+  box-shadow:
+    0 10px 24px rgba(23, 105, 255, 0.22);
+}
+
+
+/* =========================================================
+   14. FEATURE SYSTEM
+========================================================= */
+
+.ie-feature {
+
+  height:
+    100%;
+}
+
+
+.ie-feature-title {
+
+  margin:
+    0 0 18px;
+
+  color:
+    var(--ie-green);
+
+  font-size:
+    25px;
+
+  font-weight:
+    700;
+
+  line-height:
+    1.3;
+
+  text-align:
+    center;
+}
+
+
+.ie-feature-image {
+
+  display:
+    inline-block;
+
+  height:
+    auto;
+
+  max-width:
+    100%;
+
+  margin-top:
+    4px;
+
+  border-radius:
+    10%;
+
+  box-shadow:
+    var(--ie-shadow);
+}
+
+
+/* ---------------------------------------------------------
+   Feature image sizes
+--------------------------------------------------------- */
+
+.ie-feature-image-sm {
+  width:
+    40%;
+}
+
+.ie-feature-image-md {
+  width:
+    55%;
+}
+
+.ie-feature-image-lg {
+  width:
+    75%;
+}
+
+
+/* =========================================================
+   15. MANAGEMENT / CONTENT SECTION HEADINGS
+========================================================= */
+
+.ie-section-heading {
+
+  margin:
+    45px 0 25px;
+}
+
+
+/* =========================================================
+   16. TABLE SYSTEM
+========================================================= */
+
+.ie-table-wrapper {
+
+  width:
+    100%;
+
+  overflow-x:
+    auto;
+
+  margin-top:
+    25px;
+}
+
+
+.ie-table {
+
+  width:
+    100%;
+
+  border-collapse:
+    collapse;
+
+  background:
+    var(--ie-white);
+
+  border:
+    1px solid var(--ie-border);
+
+  font-size:
+    14px;
+}
+
+
+.ie-table th,
+.ie-table td {
+
+  padding:
+    12px 14px;
+
+  border:
+    1px solid var(--ie-border);
+
+  vertical-align:
+    middle;
+}
+
+
+.ie-table thead th {
+
+  background:
+    var(--ie-blue-light);
+
+  color:
+    var(--ie-red);
+
+  font-weight:
+    700;
+
+  text-align:
+    center;
+}
+
+
+.ie-table tbody td {
+
+  color:
+    var(--ie-text);
+}
+
+
+/* =========================================================
+   17. MODAL SYSTEM
+========================================================= */
+
+.ie-modal-header {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    20px;
+
+  padding:
+    18px 22px;
+
+  border-bottom:
+    1px solid var(--ie-border);
+
+  background:
+    var(--ie-white);
+}
+
+
+.ie-modal-close {
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  width:
+    38px;
+
+  height:
+    38px;
+
+  padding:
+    0;
+
+  border:
+    0;
+
+  background:
+    transparent;
+
+  color:
+    var(--ie-red);
+
+  font-size:
+    22px;
+
+  cursor:
+    pointer;
+
+  transition:
+    var(--ie-transition);
+}
+
+
+.ie-modal-close:hover {
+
+  color:
+    var(--ie-blue);
+
+  transform:
+    scale(1.08);
+}
+
+
+.ie-modal-body {
+
+  padding:
+    25px;
+
+  background:
+    var(--ie-bg);
+}
+
+
+/* ---------------------------------------------------------
+   Modal information grid
+--------------------------------------------------------- */
+
+.ie-modal-info-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  gap:
+    12px;
+
+  margin-bottom:
+    25px;
+}
+
+
+.ie-modal-info-item {
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  gap:
+    5px;
+
+  padding:
+    14px;
+
+  border:
+    1px solid var(--ie-border);
+
+  border-radius:
+    var(--ie-radius);
+
+  background:
+    var(--ie-white);
+
+  text-align:
+    center;
+}
+
+
+.ie-modal-label {
+
+  color:
+    var(--ie-muted);
+
+  font-size:
+    12px;
+
+  font-weight:
+    600;
+
+  text-transform:
+    uppercase;
+}
+
+
+/* ---------------------------------------------------------
+   Modal description
+--------------------------------------------------------- */
+
+.ie-modal-description {
+
+  padding:
+    20px;
+
+  border:
+    1px solid var(--ie-border);
+
+  border-radius:
+    var(--ie-radius);
+
+  background:
+    var(--ie-white);
+}
+
+
+.ie-modal-description p {
+
+  margin-bottom:
+    0;
+
+  color:
+    var(--ie-text);
+
+  line-height:
+    1.75;
+}
+
+
+.ie-modal-footer {
+
+  display:
+    flex;
+
+  justify-content:
+    flex-end;
+
+  padding:
+    15px 22px;
+
+  border-top:
+    1px solid var(--ie-border);
+
+  background:
+    var(--ie-white);
+}
+
+
+/* =========================================================
+   18. GENERIC IMAGE + CONTENT LAYOUT
+========================================================= */
+
+.ie-intro {
+
+  min-height:
+    420px;
+}
+
+
+.ie-intro-image {
+
+  width:
+    85%;
+
+  max-width:
+    650px;
+}
+
+
+/* =========================================================
+   19. GENERIC CONTENT ROW
+========================================================= */
+
+.ie-content-row {
+
+  margin-top:
+    35px;
+}
+
+
+/* =========================================================
+   20. GLOBAL RESPONSIVE
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   Large screens
+--------------------------------------------------------- */
 
 @media (max-width: 1199.98px) {
 
   .ie-page {
-
     padding:
-      32px 0 55px;
+      45px 0 60px;
   }
 
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+/* ---------------------------------------------------------
+   Tablet
+--------------------------------------------------------- */
 
 @media (max-width: 991.98px) {
 
   .ie-page {
-
     padding:
-      30px 0 50px;
+      40px 0 55px;
   }
 
 
-  .about-intro {
+  .ie-title-red,
+  .ie-title-blue {
+    font-size:
+      30px;
+  }
 
+
+  .ie-intro {
     min-height:
       auto;
   }
 
 
-  .about-section-heading {
-
+  .ie-section-heading {
     margin-top:
       40px;
   }
 
 
-  .about-feature-row {
+  .ie-modal-info-grid {
 
-    margin-top:
-      25px;
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+
+  .course-image {
+    width:
+      80%;
   }
 
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* ---------------------------------------------------------
+   Mobile
+--------------------------------------------------------- */
 
 @media (max-width: 767.98px) {
 
   .ie-page {
 
     padding:
-      25px 0 45px;
+      30px 0 45px;
+  }
+
+
+  .ie-section {
+    padding:
+      35px 0;
+  }
+
+
+  .ie-section-sm {
+    padding:
+      25px 0;
+  }
+
+
+  .ie-section-lg {
+    padding:
+      50px 0;
   }
 
 
@@ -601,49 +1324,89 @@ img {
   }
 
 
+  .ie-content-list {
+
+    font-size:
+      13px;
+
+    line-height:
+      1.7;
+  }
+
+
   .ie-feature-title {
 
     margin-top:
-      30px;
+      25px;
 
     font-size:
       23px;
   }
 
 
-  .about-main-image {
+  .ie-intro-image {
 
     width:
       100%;
 
     margin-top:
-      30px;
+      25px;
   }
 
 
-  .flexible-image,
-  .accredited-image,
-  .affordable-image,
-  .selfpace-image,
-  .online-learning-image {
+  .ie-feature-image-sm,
+  .ie-feature-image-md,
+  .ie-feature-image-lg {
 
     width:
       55%;
   }
 
+
+  .ie-card-body {
+    padding:
+      18px;
+  }
+
+
+  .course-image {
+    width:
+      70%;
+  }
+
+
+  .ie-modal-info-grid {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+
+  .ie-modal-header {
+
+    padding:
+      15px;
+  }
+
+
+  .ie-modal-body {
+    padding:
+      18px;
+  }
+
 }
 
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
+/* ---------------------------------------------------------
+   Small mobile
+--------------------------------------------------------- */
 
 @media (max-width: 575.98px) {
 
   .ie-page {
 
     padding:
-      22px 0 40px;
+      25px 0 40px;
   }
 
 
@@ -672,14 +1435,62 @@ img {
   }
 
 
-  .flexible-image,
-  .accredited-image,
-  .affordable-image,
-  .selfpace-image,
-  .online-learning-image {
+  .ie-card-header {
+
+    padding:
+      15px;
+  }
+
+
+  .ie-card-body {
+
+    padding:
+      15px;
+  }
+
+
+  .ie-card-title {
+
+    font-size:
+      18px;
+  }
+
+
+  .course-image {
 
     width:
-      65%;
+      75%;
+  }
+
+
+  .ie-info-row {
+
+    flex-direction:
+      column;
+
+    align-items:
+      flex-start;
+  }
+
+
+  .ie-info-value {
+
+    text-align:
+      left;
+  }
+
+
+  .ie-modal-info-grid {
+
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .ie-modal-footer {
+
+    padding:
+      12px 15px;
   }
 
 }
