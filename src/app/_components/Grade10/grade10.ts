@@ -214,7 +214,8 @@ export class Grade10 {
 
     this.modalService.open(content, {
       centered: true,
-      size: 'lg'
+      size: 'xl',
+      scrollable: true
     }).result.then(
 
       (result) => {

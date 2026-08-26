@@ -7,6 +7,7 @@
 
   <div class="container">
 
+
     <!-- =====================================================
          PAGE HEADER
     ====================================================== -->
@@ -31,7 +32,7 @@
 
 
     <!-- =====================================================
-         COURSE GRID
+         COURSE CARDS
     ====================================================== -->
 
     <div class="row g-4 mb-5">
@@ -40,6 +41,7 @@
         class="col-lg-6 col-md-6 col-12"
         *ngFor="let item of courses"
       >
+
 
         <!-- =================================================
              COURSE CARD
@@ -50,21 +52,40 @@
 
           <!-- =================================================
                CARD HEADER
+               TITLE + VIEW BUTTON
           ================================================== -->
 
-          <div class="ie-card-header text-center">
+          <div class="ie-card-header">
 
-            <h2 class="ie-card-title mb-0">
+            <div class="ie-course-header-row">
 
-              {{ item.code }}
+              <h2 class="ie-card-title mb-0">
 
-              <span class="course-title-separator">
-                -
-              </span>
+                {{ item.code }}
 
-              {{ item.subject }}
+                <span class="course-title-separator">
+                  -
+                </span>
 
-            </h2>
+                {{ item.subject }}
+
+              </h2>
+
+
+              <!-- =============================================
+                   VIEW BUTTON
+              ============================================== -->
+
+              <button
+                type="button"
+                class="ie-course-read-more"
+                (click)="open(content, item)"
+                [title]="'View ' + item.code + ' - ' + item.subject"
+              >
+                View
+              </button>
+
+            </div>
 
           </div>
 
@@ -74,8 +95,6 @@
           ================================================== -->
 
           <div class="ie-card-body">
-
-            <!-- IMAGE + COURSE DETAILS -->
 
             <div class="row align-items-center g-4">
 
@@ -166,31 +185,6 @@
 
             </div>
 
-
-            <!-- =================================================
-                 READ MORE
-            ================================================== -->
-
-            <div class="text-center mt-4">
-
-              <button
-                type="button"
-                class="ie-button"
-                (click)="open(content, item)"
-                [title]="item.code + ' - ' + item.subject"
-              >
-
-                Read More
-
-                <i
-                  class="fa fa-arrow-circle-right ms-2"
-                  aria-hidden="true"
-                ></i>
-
-              </button>
-
-            </div>
-
           </div>
 
 
@@ -203,38 +197,22 @@
             <div class="ie-course-description-content">
 
 
-              <!-- DESCRIPTION HEADER -->
+              <!-- =============================================
+                   DESCRIPTION TITLE
+              ============================================== -->
 
               <h3>
                 Description
               </h3>
 
 
-              <!-- VIEW COURSE PILL -->
-
-              <button
-                type="button"
-                class="ie-course-overlay-button"
-                (click)="open(content, item)"
-                [title]="item.code + ' - ' + item.subject"
-              >
-
-                View Course
-
-                <i
-                  class="fa fa-arrow-circle-right ms-2"
-                  aria-hidden="true"
-                ></i>
-
-              </button>
-
-
-              <!-- DESCRIPTION -->
+              <!-- =============================================
+                   COURSE DESCRIPTION
+              ============================================== -->
 
               <p>
                 {{ item.description }}
               </p>
-
 
             </div>
 
@@ -247,169 +225,151 @@
 
     </div>
 
+
+    <!-- =====================================================
+         COURSE DETAILS MODAL
+    ====================================================== -->
+
+    <ng-template #content let-modal>
+
+      <div class="ie-course-modal">
+
+
+        <!-- =================================================
+             MODAL HEADER
+        ================================================== -->
+
+        <div class="ie-modal-header">
+
+          <h2 class="ie-card-title mb-0">
+
+            {{ selectedItem?.code }}
+
+            <span class="course-title-separator">
+              -
+            </span>
+
+            {{ selectedItem?.subject }}
+
+          </h2>
+
+
+          <!-- ===============================================
+               CLOSE BUTTON
+          ================================================ -->
+
+          <button
+            type="button"
+            class="ie-modal-pill-button"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"
+          >
+            Close
+          </button>
+
+        </div>
+
+
+        <!-- =================================================
+             MODAL BODY
+        ================================================== -->
+
+        <div class="ie-modal-body">
+
+
+          <!-- ===============================================
+               COURSE INFORMATION TABLE
+          ================================================ -->
+
+          <div class="ie-table-wrapper">
+
+            <table class="ie-table">
+
+              <thead>
+
+                <tr>
+
+                  <th>
+                    Code
+                  </th>
+
+                  <th>
+                    Subject
+                  </th>
+
+                  <th>
+                    Credits
+                  </th>
+
+                  <th>
+                    Grade
+                  </th>
+
+                  <th>
+                    Pathway
+                  </th>
+
+                </tr>
+
+              </thead>
+
+
+              <tbody>
+
+                <tr>
+
+                  <td>
+                    {{ selectedItem?.code }}
+                  </td>
+
+                  <td>
+                    {{ selectedItem?.subject }}
+                  </td>
+
+                  <td>
+                    {{ selectedItem?.credits }}
+                  </td>
+
+                  <td>
+                    {{ selectedItem?.grade }}
+                  </td>
+
+                  <td>
+                    {{ selectedItem?.pathway }}
+                  </td>
+
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+
+          <!-- ===============================================
+               COURSE DESCRIPTION
+          ================================================ -->
+
+          <div class="ie-modal-description mt-3">
+
+            <h3>
+              Course Description
+            </h3>
+
+            <p>
+              {{ selectedItem?.description }}
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </ng-template>
+
+
   </div>
-
-
-  <!-- =========================================================
-       COURSE DETAILS MODAL
-  ========================================================== -->
-
-  <ng-template #content let-modal>
-
-
-    <!-- =====================================================
-         MODAL HEADER
-    ====================================================== -->
-
-    <div class="modal-header ie-modal-header">
-
-      <h2 class="ie-title-blue modal-course-title">
-
-        {{ selectedItem?.code }}
-
-        <span class="course-title-separator">
-          -
-        </span>
-
-        {{ selectedItem?.subject }}
-
-      </h2>
-
-
-      <button
-        type="button"
-        class="ie-modal-close"
-        aria-label="Close"
-        (click)="modal.dismiss('Cross click')"
-      >
-
-        <i
-          class="fa fa-times-circle"
-          aria-hidden="true"
-        ></i>
-
-      </button>
-
-    </div>
-
-
-    <!-- =====================================================
-         MODAL BODY
-    ====================================================== -->
-
-    <div class="modal-body ie-modal-body">
-
-
-      <!-- =================================================
-           COURSE INFORMATION TABLE
-      ================================================== -->
-
-      <div class="ie-table-wrapper">
-
-        <table class="ie-table">
-
-          <thead>
-
-            <tr>
-
-              <th>
-                Code
-              </th>
-
-              <th>
-                Subject
-              </th>
-
-              <th>
-                Credits
-              </th>
-
-              <th>
-                Grade
-              </th>
-
-              <th>
-                Pathway
-              </th>
-
-            </tr>
-
-          </thead>
-
-
-          <tbody>
-
-            <tr>
-
-              <td>
-                {{ selectedItem?.code }}
-              </td>
-
-              <td>
-                {{ selectedItem?.subject }}
-              </td>
-
-              <td>
-                {{ selectedItem?.credits }}
-              </td>
-
-              <td>
-                {{ selectedItem?.grade }}
-              </td>
-
-              <td>
-                {{ selectedItem?.pathway }}
-              </td>
-
-            </tr>
-
-          </tbody>
-
-        </table>
-
-      </div>
-
-
-      <!-- =================================================
-           DESCRIPTION
-      ================================================== -->
-
-      <div class="course-modal-description mt-4">
-
-        <h3 class="ie-title-red">
-          Description
-        </h3>
-
-        <p class="text-justify mt-3 mb-0">
-          {{ selectedItem?.description }}
-        </p>
-
-      </div>
-
-
-    </div>
-
-
-    <!-- =====================================================
-         MODAL FOOTER
-    ====================================================== -->
-
-    <div class="modal-footer ie-modal-footer">
-
-      <button
-        type="button"
-        class="ie-button"
-        (click)="modal.close('Close click')"
-      >
-
-        Close
-
-      </button>
-
-    </div>
-
-
-  </ng-template>
-
 
 </section>
