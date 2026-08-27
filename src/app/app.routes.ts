@@ -14,9 +14,11 @@ import { VisionComponent } from './_components/Vision/vision.component';
 import { ManagementComponent } from './_components/Management/management.component';
 import { FaqsComponent } from './_components/Faqs/faqs.component';
 import { TestComponent } from './_components/Test/test.component';
+import { Home1 } from './_components/home1/home1';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'home1', component: Home1 },
   { path: 'about', component: AboutComponent },
   { path: 'vision', component: VisionComponent },
   { path: 'management', component: ManagementComponent },
