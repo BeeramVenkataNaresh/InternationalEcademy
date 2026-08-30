@@ -154,7 +154,8 @@ export class Grade9 {
 
     this.modalService.open(content, {
       centered: true,
-      size: 'lg'
+      size: 'lg',
+      scrollable: true
     }).result.then(
       (result) => {
         this.closeResult = `Closed with: ${result}`;

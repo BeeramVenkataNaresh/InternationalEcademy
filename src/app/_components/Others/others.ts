@@ -156,7 +156,9 @@ export class Others {
 
 
     this.modalService.open(content, {
-      centered: true
+      centered: true,
+      size: 'lg',
+      scrollable: true
     }).result.then(
 
       (result) => {

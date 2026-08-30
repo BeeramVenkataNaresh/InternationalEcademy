@@ -1,0 +1,56 @@
+.ie-vision-page .ie-vision-intro {
+  padding:24px 0 48px;
+  align-items:flex-start !important;
+}
+
+.ie-vision-page .ie-vision-content .ie-subtitle {
+  color:var(--ie-blue);
+}
+
+.ie-vision-page .ie-vision-visual .ie-content-image {
+  display:block;
+  width:100%;
+  max-width:460px;
+  height:310px;
+  margin:0 auto;
+  object-fit:cover;
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(16,42,67,.12);
+}
+
+.ie-vision-page .ie-vision-goals {
+  max-width:1000px;
+  margin:0 auto;
+  padding:42px 48px;
+  background:#fff;
+  border:1px solid var(--ie-border);
+  border-radius:20px;
+  box-shadow:0 5px 16px rgba(16,42,67,.045);
+}
+
+.ie-vision-page .ie-vision-goals-list {
+  max-width:820px;
+  margin:24px auto 0;
+}
+
+.ie-vision-page .ie-vision-goals-list li::marker {
+  color:var(--ie-blue);
+}
+
+@media (max-width:767.98px) {
+  .ie-vision-page .ie-vision-intro {
+    padding:16px 0 32px;
+  }
+
+  .ie-vision-page .ie-vision-visual .ie-content-image {
+    max-width:100%;
+    height:280px;
+    margin-top:30px;
+    border-radius:14px;
+  }
+
+  .ie-vision-page .ie-vision-goals {
+    padding:28px 24px;
+    border-radius:16px;
+  }
+}

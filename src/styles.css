@@ -238,6 +238,10 @@ select {
   color: var(--ie-blue);
 }
 
+.ie-intro-heading-group {
+  min-height: 77px;
+}
+
 
 /* ---------------------------------------------------------
    Generic subtitles
@@ -828,7 +832,7 @@ select {
 ========================================================= */
 
 .ie-courses-page .ie-course-card .ie-card-body > .row {
-  align-items: stretch;
+  align-items:stretch !important;
 }
 
 
@@ -857,7 +861,7 @@ select {
   width: 100%;
   max-width: 100%;
 
-  height: 100%;
+  height:260px;
 
   margin: 0 auto;
 
@@ -870,8 +874,7 @@ select {
   transition:
     var(--ie-transition);
 
-  object-fit:
-    contain;
+  object-fit:cover;
 }
 
 
@@ -882,7 +885,7 @@ select {
 .ie-courses-page .ie-course-card .ie-info-panel {
   width: 100%;
 
-  height: 100%;
+  height:260px;
 }
 
 
@@ -1706,11 +1709,9 @@ p::-webkit-scrollbar-thumb:hover {
 --------------------------------------------------------- */
 
 .ie-courses-page .ie-modal-body .ie-table {
-  width:
-    100%;
-
-  min-width:
-    650px;
+  width:650px;
+  min-width:650px;
+  table-layout:fixed;
 
   margin:
     0;
@@ -1744,6 +1745,21 @@ td {
   font-size:
     12.5px;
 }
+
+.ie-courses-page .ie-modal-body .ie-table th:nth-child(1),
+.ie-courses-page .ie-modal-body .ie-table td:nth-child(1) { width:14%; }
+
+.ie-courses-page .ie-modal-body .ie-table th:nth-child(2),
+.ie-courses-page .ie-modal-body .ie-table td:nth-child(2) { width:34%; }
+
+.ie-courses-page .ie-modal-body .ie-table th:nth-child(3),
+.ie-courses-page .ie-modal-body .ie-table td:nth-child(3) { width:14%; }
+
+.ie-courses-page .ie-modal-body .ie-table th:nth-child(4),
+.ie-courses-page .ie-modal-body .ie-table td:nth-child(4) { width:14%; }
+
+.ie-courses-page .ie-modal-body .ie-table th:nth-child(5),
+.ie-courses-page .ie-modal-body .ie-table td:nth-child(5) { width:24%; }
 
 
 /* ---------------------------------------------------------
@@ -2044,6 +2060,10 @@ th {
       27px;
   }
 
+  .ie-intro-heading-group {
+    min-height:65px;
+  }
+
 
   /* -------------------------------------------------------
      Content
@@ -2137,11 +2157,9 @@ th {
     max-width:
       100%;
 
-    height:
-      auto;
+    height:220px;
 
-    object-fit:
-      contain;
+    object-fit:cover;
   }
 
 
@@ -3742,4 +3760,136 @@ th {
       12px;
   }
 
+}
+
+
+/* =========================================================
+   COURSE CARD HOVER REFINEMENT
+   Course descriptions are shown in the View modal, so cards
+   use a light interaction instead of a content-covering overlay.
+========================================================= */
+
+.ie-courses-page .ie-course-description-overlay {
+  display:none;
+}
+
+.ie-courses-page .ie-course-card {
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.ie-courses-page .ie-course-card:hover {
+  transform:translateY(-4px);
+  border-color:rgba(23,105,255,.35);
+  box-shadow:0 14px 28px rgba(16,42,67,.12);
+}
+
+.ie-courses-page .ie-course-card:hover .course-image {
+  transform:scale(1.015);
+}
+
+
+/* =========================================================
+   COURSE DETAILS MODAL REFINEMENT
+========================================================= */
+
+.ie-courses-page .modal-content {
+  border:1px solid var(--ie-border);
+  border-radius:20px;
+  box-shadow:0 20px 52px rgba(16,42,67,.18);
+}
+
+.ie-courses-page .ie-course-modal {
+  background:#fff;
+}
+
+.ie-courses-page .ie-modal-header {
+  padding:22px 24px 18px;
+  border-bottom:1px solid var(--ie-border);
+  background:linear-gradient(135deg,#fff 0%,var(--ie-blue-light) 100%);
+}
+
+.ie-courses-page .ie-modal-header .ie-card-title {
+  max-width:calc(100% - 86px);
+  color:var(--ie-navy);
+  font-size:22px;
+  line-height:1.25;
+}
+
+.ie-courses-page .ie-modal-body {
+  padding:22px 24px 26px;
+}
+
+.ie-courses-page .ie-modal-body .ie-table-wrapper {
+  border:1px solid var(--ie-border);
+  border-radius:12px;
+  background:#fff;
+}
+
+.ie-courses-page .ie-modal-body .ie-table {
+  margin:0 auto;
+}
+
+.ie-courses-page .ie-modal-body .ie-table thead th {
+  padding:11px 12px;
+  background:var(--ie-blue-light);
+  color:var(--ie-navy);
+}
+
+.ie-courses-page .ie-modal-body .ie-table tbody td {
+  padding:12px;
+  background:#fff;
+  color:var(--ie-text);
+}
+
+.ie-courses-page .ie-modal-description {
+  margin-top:20px;
+  padding:20px;
+  border:1px solid var(--ie-border);
+  border-left:4px solid var(--ie-blue);
+  border-radius:12px;
+  background:#f8fbff;
+}
+
+.ie-courses-page .ie-modal-description h3 {
+  margin-bottom:8px;
+  color:var(--ie-navy);
+  font-size:18px;
+}
+
+.ie-courses-page .ie-modal-description p {
+  font-size:14px;
+  line-height:1.65;
+}
+
+.ie-courses-page .ie-modal-pill-button {
+  min-height:36px;
+  padding:7px 16px;
+  border-color:rgba(23,105,255,.3);
+  background:#fff;
+  color:var(--ie-blue);
+}
+
+.ie-courses-page .ie-modal-pill-button:hover {
+  background:var(--ie-blue);
+  border-color:var(--ie-blue);
+  color:#fff;
+  box-shadow:0 5px 12px rgba(23,105,255,.2);
+}
+
+@media (max-width:767.98px) {
+  .ie-courses-page .ie-modal-header {
+    padding:18px 18px 15px;
+  }
+
+  .ie-courses-page .ie-modal-header .ie-card-title {
+    font-size:19px;
+  }
+
+  .ie-courses-page .ie-modal-body {
+    padding:18px;
+  }
+
+  .ie-courses-page .ie-modal-description {
+    padding:16px;
+  }
 }

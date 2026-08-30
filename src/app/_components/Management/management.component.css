@@ -1,0 +1,74 @@
+.ie-management-page .ie-management-intro {
+  padding:24px 0 48px;
+  align-items:flex-start !important;
+}
+
+.ie-management-page .ie-management-visual .ie-content-image {
+  display:block;
+  width:100%;
+  max-width:460px;
+  height:310px;
+  margin:0 auto;
+  object-fit:cover;
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(16,42,67,.12);
+}
+
+.ie-management-page .ie-management-message-section {
+  max-width:1100px;
+  margin:0 auto 32px;
+  padding:42px 48px;
+  background:#fff;
+  border:1px solid var(--ie-border);
+  border-radius:20px;
+  box-shadow:0 5px 16px rgba(16,42,67,.045);
+}
+
+.ie-management-page .ie-management-message-row {
+  margin-top:28px !important;
+}
+
+.ie-management-page .ie-management-person-image {
+  display:block;
+  width:140px;
+  height:140px;
+  margin:0 auto 20px;
+  object-fit:cover;
+  border:4px solid var(--ie-blue-light);
+  border-radius:50%;
+  box-shadow:0 8px 20px rgba(16,42,67,.12);
+}
+
+.ie-management-page .ie-table {
+  overflow:hidden;
+  border-radius:12px;
+}
+
+.ie-management-page .ie-table thead th {
+  background:var(--ie-blue-light);
+  color:var(--ie-blue);
+}
+
+@media (max-width:767.98px) {
+  .ie-management-page .ie-management-intro {
+    padding:16px 0 32px;
+  }
+
+  .ie-management-page .ie-management-visual .ie-content-image {
+    max-width:100%;
+    height:280px;
+    margin-top:30px;
+    border-radius:14px;
+  }
+
+  .ie-management-page .ie-management-message-section {
+    margin-bottom:24px;
+    padding:28px 24px;
+    border-radius:16px;
+  }
+
+  .ie-management-page .ie-management-person-image {
+    width:120px;
+    height:120px;
+  }
+}

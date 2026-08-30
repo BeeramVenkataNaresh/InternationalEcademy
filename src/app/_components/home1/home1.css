@@ -1798,31 +1798,44 @@
 }
 
 .ie-home-page .ie-learning-hero {
-  padding: 76px 24px 88px;
-  background:
-    radial-gradient(circle at 100% 0%, rgba(244,162,97,.18), transparent 32%),
-    linear-gradient(180deg,#fff 0%,var(--home-bg) 100%);
+  padding:32px 24px 64px;
+  background:#fff;
 }
 .ie-home-page .ie-learning-hero-container {
-  max-width: 1320px;
+  max-width:1240px;
   grid-template-columns: minmax(0,1fr) minmax(440px,.95fr);
-  gap: 56px;
-  align-items: start;
+  gap:48px;
+  align-items:center;
 }
 .ie-home-page .ie-learning-hero-content { max-width: 640px; }
 .ie-home-page .ie-learning-rating {
   color: var(--home-navy);
-  background: var(--home-orange-light);
-  border-color: rgba(244,162,97,.55);
+  background:var(--home-blue-light);
+  border-color:rgba(23,105,255,.24);
 }
-.ie-home-page .ie-learning-title { color: var(--home-navy); }
+.ie-home-page .ie-learning-title {
+  color:var(--home-navy);
+  font-size:clamp(40px,3.2vw,58px);
+  line-height:1.12;
+  letter-spacing:-1.8px;
+}
 .ie-home-page .ie-learning-title span {
-  background: linear-gradient(90deg,var(--home-blue),#3b73ff 48%,var(--home-red));
+  background:linear-gradient(90deg,var(--home-blue),#3b73ff);
   -webkit-background-clip:text; background-clip:text;
 }
-.ie-home-page .ie-learning-description { color: var(--home-muted); }
-.ie-home-page .ie-learning-buttons { margin-top: 32px; gap: 14px; }
-.ie-home-page .ie-learning-btn { min-height: 54px; border-radius: 12px; }
+.ie-home-page .ie-learning-description {
+  margin-top:22px;
+  color:var(--home-muted);
+  font-size:18px;
+  line-height:1.5;
+}
+.ie-home-page .ie-learning-rating { font-size:15px; }
+.ie-home-page .ie-learning-buttons { margin-top:30px; gap:14px; }
+.ie-home-page .ie-learning-btn {
+  min-height:52px;
+  border-radius:12px;
+  font-size:16px;
+}
 .ie-home-page .ie-learning-btn-primary {
   color:#fff;
   background:linear-gradient(135deg,var(--home-blue),var(--home-navy));
@@ -1836,18 +1849,27 @@
 .ie-home-page .ie-learning-stat-item span { color:var(--home-muted); }
 .ie-home-page .ie-learning-divider { background:var(--home-border); }
 .ie-home-page .ie-learning-hero-image {
-  border-radius:24px;
-  box-shadow:0 18px 42px rgba(16,42,67,.10);
+  height:440px;
+  border-radius:14px;
+  box-shadow:none;
+}
+.ie-home-page .ie-learning-hero-image-wrap {
+  padding:10px;
+  background:#fff;
+  border:1px solid var(--home-border);
+  border-radius:20px;
+  box-shadow:0 5px 16px rgba(16,42,67,.045);
 }
 .ie-home-page .ie-learning-certificate {
   border-color:var(--home-border);
+  border-radius:16px;
   box-shadow:0 12px 30px rgba(16,42,67,.09);
 }
 .ie-home-page .ie-learning-certificate strong { color:var(--home-navy); }
 
 .ie-home-page .ie-edu-benefits,
 .ie-home-page .ie-mentor-section {
-  padding:86px 24px 92px;
+  padding:64px 24px;
   background:#f4f9fd;
 }
 .ie-home-page .ie-edu-benefits-container,
@@ -1900,7 +1922,7 @@
 .ie-home-page .ie-story-person span { color:var(--home-muted); }
 
 .ie-home-page .ie-trending-courses-section {
-  padding:84px 24px 94px;
+  padding:64px 24px;
   background:#fff;
 }
 .ie-home-page .ie-trending-courses-header { margin-bottom:44px; }
@@ -1923,7 +1945,7 @@
 .ie-home-page .ie-mentor-socials a:hover { color:var(--home-blue); }
 
 .ie-home-page .ie-global-network-section {
-  padding:80px 24px 74px;
+  padding:64px 24px;
   background:#fff;
   border-top-color:var(--home-border);
   border-bottom-color:var(--home-border);
@@ -1939,7 +1961,7 @@
 }
 
 .ie-home-page .ie-stories-cta-section {
-  padding:86px 24px 78px;
+  padding:64px 24px;
   background:#f4f9fd;
 }
 .ie-home-page .ie-stories-heading { margin-bottom:48px; }
@@ -1965,28 +1987,28 @@
 }
 
 @media (max-width:1100px) {
-  .ie-home-page .ie-learning-hero { padding:68px 25px 82px; }
+  .ie-home-page .ie-learning-hero { padding:28px 25px 56px; }
   .ie-home-page .ie-learning-hero-container { gap:40px; }
   .ie-home-page .ie-edu-benefits,
-  .ie-home-page .ie-mentor-section { padding-top:76px; padding-bottom:82px; }
+  .ie-home-page .ie-mentor-section { padding-top:56px; padding-bottom:56px; }
 }
 @media (max-width:850px) {
-  .ie-home-page .ie-learning-hero { padding:62px 22px 76px; }
+  .ie-home-page .ie-learning-hero { padding:26px 22px 52px; }
   .ie-home-page .ie-learning-hero-container { grid-template-columns:1fr; gap:52px; }
   .ie-home-page .ie-learning-hero-content { max-width:100%; }
   .ie-home-page .ie-learning-hero-image-wrap { max-width:700px; margin:0 auto; }
 }
 @media (max-width:650px) {
-  .ie-home-page .ie-learning-hero { padding:48px 17px 68px; }
+  .ie-home-page .ie-learning-hero { padding:24px 17px 44px; }
   .ie-home-page .ie-edu-benefits,
   .ie-home-page .ie-trending-courses-section,
   .ie-home-page .ie-mentor-section,
   .ie-home-page .ie-global-network-section,
   .ie-home-page .ie-stories-cta-section { padding-left:17px; padding-right:17px; }
   .ie-home-page .ie-edu-benefits,
-  .ie-home-page .ie-mentor-section { padding-top:60px; padding-bottom:68px; }
-  .ie-home-page .ie-trending-courses-section { padding-top:58px; padding-bottom:68px; }
-  .ie-home-page .ie-global-network-section { padding-top:58px; padding-bottom:58px; }
-  .ie-home-page .ie-stories-cta-section { padding-top:58px; padding-bottom:62px; }
+  .ie-home-page .ie-mentor-section { padding-top:44px; padding-bottom:44px; }
+  .ie-home-page .ie-trending-courses-section { padding-top:44px; padding-bottom:44px; }
+  .ie-home-page .ie-global-network-section { padding-top:44px; padding-bottom:44px; }
+  .ie-home-page .ie-stories-cta-section { padding-top:44px; padding-bottom:44px; }
   .ie-home-page .ie-learning-cta-box { margin-top:62px; }
 }
