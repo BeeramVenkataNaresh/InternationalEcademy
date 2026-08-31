@@ -1,183 +1,154 @@
-<!-- =========================================================
-     INTERNATIONAL ECADEMY
-     GRADE 11 COURSES
-========================================================= -->
+<!-- GRADE 11 COURSES -->
 
 <section class="ie-page ie-courses-page">
 
   <div class="container">
 
+<!-- PAGE HEADER -->
 
-    <!-- =====================================================
-         PAGE HEADER
-    ====================================================== -->
+<div class="text-center mb-4">
 
-    <div class="text-center mb-4">
+  <h1 class="ie-title-blue">
 
-      <h1 class="ie-title-blue">
+    Courses
 
-        Courses
+    <span class="course-title-separator">
+      –
+    </span>
 
-        <span class="course-title-separator">
-          –
-        </span>
+    <span class="ie-title-red">
+      Grade 11
+    </span>
 
-        <span class="ie-title-red">
-          Grade 11
-        </span>
+  </h1>
 
-      </h1>
-
-    </div>
+</div>
 
 
-    <!-- =====================================================
-         COURSE CARDS
-    ====================================================== -->
+<!-- COURSE CARDS -->
 
-    <div class="row g-4 mb-5">
+<div class="row g-4 mb-5">
 
-      <div
-        class="col-lg-6 col-md-6 col-12"
-        *ngFor="let item of courses"
-      >
+  <div class="col-xl-4 col-lg-6 col-md-6 col-12"
+       *ngFor="let item of courses">
+
+    <!-- COURSE CARD -->
+
+    <article class="ie-card ie-course-card">
+
+      <!-- CARD HEADER -->
+
+      <div class="ie-card-header">
+
+        <div class="ie-course-header-row">
+
+          <h2 class="ie-card-title mb-0 text-center">
+
+            {{ item.code }} -
+            {{ item.subject }}
+
+          </h2>
+
+        </div>
+
+      </div>
 
 
-        <!-- =================================================
-             COURSE CARD
-        ================================================== -->
+      <!-- CARD BODY -->
 
-        <article class="ie-card ie-course-card h-100">
+      <div class="ie-card-body">
 
+        <div class="row align-items-center g-4">
 
-          <!-- =================================================
-               CARD HEADER
-               TITLE + VIEW BUTTON
-          ================================================== -->
+          <!-- COURSE INFORMATION -->
 
-          <div class="ie-card-header">
+          <div class="col-12">
 
-            <div class="ie-course-header-row">
+            <div class="ie-info-panel w-100">
 
-              <h2 class="ie-card-title mb-0">
+              <!-- ANIMATED COURSE CODE -->
 
-                {{ item.code }}
+              <h2 class="ie-info-title">
 
-                <span class="course-title-separator">
-                  -
+                <span class="animated-course-code">
+
+                  <span
+                    *ngFor="
+                      let letter of item.code.split('');
+                      let i = index
+                    "
+                    class="animated-course-letter"
+                    [style.animation-delay]="(i * 0.15) + 's'">
+
+                    {{ letter }}
+
+                  </span>
+
                 </span>
-
-                {{ item.subject }}
 
               </h2>
 
 
-              <!-- =============================================
-                   VIEW BUTTON
-              ============================================== -->
+              <!-- COURSE INFORMATION -->
 
-              <button
-                type="button"
-                class="ie-course-read-more"
-                (click)="open(content, item)"
-                [title]="'View ' + item.code + ' - ' + item.subject"
-              >
-                View
-              </button>
+              <div class="ie-info-details">
 
-            </div>
+                <!-- CODE -->
 
-          </div>
+                <div class="ie-info-row">
 
+                  <span class="ie-info-label">
+                    Code
+                  </span>
 
-          <!-- =================================================
-               CARD BODY
-          ================================================== -->
+                  <span class="ie-info-value">
+                    {{ item.code }}
+                  </span>
 
-          <div class="ie-card-body">
-
-            <div class="row align-items-center g-4">
+                </div>
 
 
-              <!-- =============================================
-                   COURSE IMAGE
-              ============================================== -->
+                <!-- CREDITS -->
 
-              <div class="col-md-6 col-12 text-center">
+                <div class="ie-info-row">
 
-                <img
-                  [src]="'assets/images/' + item.source + '/' + item.img + '.jpg'"
-                  [alt]="item.subject"
-                  class="course-image imgShadow-AllSides"
-                  loading="lazy"
-                >
+                  <span class="ie-info-label">
+                    Credits
+                  </span>
 
-              </div>
+                  <span class="ie-info-value">
+                    {{ item.credits }}
+                  </span>
 
-
-              <!-- =============================================
-                   COURSE INFORMATION
-              ============================================== -->
-
-              <div class="col-md-6 col-12">
-
-                <div class="ie-info-panel w-100">
-
-                  <h3 class="ie-info-title">
-                    Course Details
-                  </h3>
+                </div>
 
 
-                  <div class="ie-info-row">
+                <!-- GRADE -->
 
-                    <span class="ie-info-label">
-                      Code
-                    </span>
+                <div class="ie-info-row">
 
-                    <span class="ie-info-value">
-                      {{ item.code }}
-                    </span>
+                  <span class="ie-info-label">
+                    Grade
+                  </span>
 
-                  </div>
+                  <span class="ie-info-value">
+                    {{ item.grade }}
+                  </span>
 
-
-                  <div class="ie-info-row">
-
-                    <span class="ie-info-label">
-                      Credits
-                    </span>
-
-                    <span class="ie-info-value">
-                      {{ item.credits }}
-                    </span>
-
-                  </div>
+                </div>
 
 
-                  <div class="ie-info-row">
+                <!-- PATHWAY -->
 
-                    <span class="ie-info-label">
-                      Grade
-                    </span>
+                <div class="ie-info-row">
 
-                    <span class="ie-info-value">
-                      {{ item.grade }}
-                    </span>
+                  <span class="ie-info-label">
+                    Pathway
+                  </span>
 
-                  </div>
-
-
-                  <div class="ie-info-row">
-
-                    <span class="ie-info-label">
-                      Pathway
-                    </span>
-
-                    <span class="ie-info-value">
-                      {{ item.pathway }}
-                    </span>
-
-                  </div>
+                  <span class="ie-info-value">
+                    {{ item.pathway }}
+                  </span>
 
                 </div>
 
@@ -185,190 +156,230 @@
 
             </div>
 
-          </div>
+
+            <!-- COURSE BOTTOM ACTIONS -->
+
+            <div class="ie-course-bottom-actions">
 
 
-          <!-- =================================================
-               DESCRIPTION HOVER OVERLAY
-          ================================================== -->
+              <!-- DESCRIPTION BUTTON -->
 
-          <div class="ie-course-description-overlay">
+              <div class="ie-description-button-wrapper">
 
-            <div class="ie-course-description-content">
+                <button
+                  type="button"
+                  class="ie-course-read-more ie-description-button"
+                  [title]="'Description for ' + item.code + ' - ' + item.subject">
 
+                  Description
 
-              <!-- =============================================
-                   DESCRIPTION TITLE
-              ============================================== -->
-
-              <h3>
-                Description
-              </h3>
+                </button>
 
 
-              <!-- =============================================
-                   COURSE DESCRIPTION
-              ============================================== -->
+                <!-- DESCRIPTION TOOLTIP -->
 
-              <p>
-                {{ item.description }}
-              </p>
+                <div class="ie-description-tooltip">
+
+                  <div class="ie-description-tooltip-title">
+
+                    {{ item.code }} - {{ item.subject }}
+
+                  </div>
+
+
+                  <div class="ie-description-tooltip-text">
+
+                    {{ item.description }}
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <!-- VIEW BUTTON -->
+
+              <button
+                type="button"
+                class="ie-course-read-more"
+                (click)="open(content, item)"
+                [title]="'View ' + item.code + ' - ' + item.subject">
+
+                View
+
+              </button>
 
             </div>
 
           </div>
 
+        </div>
 
-        </article>
+      </div>
+
+
+      <!-- DESCRIPTION HOVER OVERLAY -->
+
+      <div class="ie-course-description-overlay">
+
+        <div class="ie-course-description-content">
+
+          <!-- DESCRIPTION TITLE -->
+
+          <h3>
+            Description
+          </h3>
+
+
+          <!-- COURSE DESCRIPTION -->
+
+          <p>
+            {{ item.description }}
+          </p>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+
+</div>
+
+
+<!-- COURSE DETAILS MODAL -->
+
+<ng-template #content let-modal>
+
+  <div class="ie-course-modal">
+
+
+    <!-- MODAL HEADER -->
+
+    <div class="ie-modal-header">
+
+      <h2 class="ie-card-title mb-0">
+
+        {{ selectedItem?.code }}
+
+        <span class="course-title-separator">
+          -
+        </span>
+
+        {{ selectedItem?.subject }}
+
+      </h2>
+
+
+      <!-- CLOSE BUTTON -->
+
+      <button
+        type="button"
+        class="ie-modal-pill-button"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')">
+
+        Close
+
+      </button>
+
+    </div>
+
+
+    <!-- MODAL BODY -->
+
+    <div class="ie-modal-body">
+
+
+      <!-- COURSE INFORMATION TABLE -->
+
+      <div class="ie-table-wrapper">
+
+        <table class="ie-table">
+
+          <thead>
+
+            <tr>
+
+              <th>
+                Code
+              </th>
+
+              <th>
+                Subject
+              </th>
+
+              <th>
+                Credits
+              </th>
+
+              <th>
+                Grade
+              </th>
+
+              <th>
+                Pathway
+              </th>
+
+            </tr>
+
+          </thead>
+
+
+          <tbody>
+
+            <tr>
+
+              <td>
+                {{ selectedItem?.code }}
+              </td>
+
+              <td>
+                {{ selectedItem?.subject }}
+              </td>
+
+              <td>
+                {{ selectedItem?.credits }}
+              </td>
+
+              <td>
+                {{ selectedItem?.grade }}
+              </td>
+
+              <td>
+                {{ selectedItem?.pathway }}
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+      <!-- COURSE DESCRIPTION -->
+
+      <div class="ie-modal-description mt-3">
+
+        <h3>
+          Course Description
+        </h3>
+
+        <p>
+          {{ selectedItem?.description }}
+        </p>
 
       </div>
 
     </div>
 
+  </div>
 
-    <!-- =====================================================
-         COURSE DETAILS MODAL
-    ====================================================== -->
-
-    <ng-template #content let-modal>
-
-      <div class="ie-course-modal">
-
-
-        <!-- =================================================
-             MODAL HEADER
-        ================================================== -->
-
-        <div class="ie-modal-header">
-
-          <h2 class="ie-card-title mb-0">
-
-            {{ selectedItem?.code }}
-
-            <span class="course-title-separator">
-              -
-            </span>
-
-            {{ selectedItem?.subject }}
-
-          </h2>
-
-
-          <!-- ===============================================
-               CLOSE BUTTON
-          ================================================ -->
-
-          <button
-            type="button"
-            class="ie-modal-pill-button"
-            aria-label="Close"
-            (click)="modal.dismiss('Cross click')"
-          >
-            Close
-          </button>
-
-        </div>
-
-
-        <!-- =================================================
-             MODAL BODY
-        ================================================== -->
-
-        <div class="ie-modal-body">
-
-
-          <!-- ===============================================
-               COURSE INFORMATION TABLE
-          ================================================ -->
-
-          <div class="ie-table-wrapper">
-
-            <table class="ie-table">
-
-              <thead>
-
-                <tr>
-
-                  <th>
-                    Code
-                  </th>
-
-                  <th>
-                    Subject
-                  </th>
-
-                  <th>
-                    Credits
-                  </th>
-
-                  <th>
-                    Grade
-                  </th>
-
-                  <th>
-                    Pathway
-                  </th>
-
-                </tr>
-
-              </thead>
-
-
-              <tbody>
-
-                <tr>
-
-                  <td>
-                    {{ selectedItem?.code }}
-                  </td>
-
-                  <td>
-                    {{ selectedItem?.subject }}
-                  </td>
-
-                  <td>
-                    {{ selectedItem?.credits }}
-                  </td>
-
-                  <td>
-                    {{ selectedItem?.grade }}
-                  </td>
-
-                  <td>
-                    {{ selectedItem?.pathway }}
-                  </td>
-
-                </tr>
-
-              </tbody>
-
-            </table>
-
-          </div>
-
-
-          <!-- ===============================================
-               COURSE DESCRIPTION
-          ================================================ -->
-
-          <div class="ie-modal-description mt-3">
-
-            <h3>
-              Course Description
-            </h3>
-
-            <p>
-              {{ selectedItem?.description }}
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </ng-template>
-
+</ng-template>
 
   </div>
 

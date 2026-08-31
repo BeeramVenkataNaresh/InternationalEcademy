@@ -2,7 +2,6 @@
    INTERNATIONAL ECADEMY
    GLOBAL DESIGN SYSTEM
 
-   ---------------------------------------------------------
    Clean / Reusable / Responsive
 ========================================================= */
 
@@ -31,6 +30,15 @@
 
   --ie-orange: #f4a261;
   --ie-orange-light: #fff6ed;
+
+
+  /* -------------------------------------------------------
+     GOLD / SPARKLE
+  ------------------------------------------------------- */
+
+  --ie-gold: #d4a017;
+  --ie-gold-light: #f7d774;
+  --ie-gold-bright: #ffd700;
 
 
   /* -------------------------------------------------------
@@ -553,9 +561,9 @@ select {
 
   align-items: center;
 
-  justify-content: space-between;
+  justify-content: flex-start;
 
-  gap: 12px;
+  gap: 8px;
 
   padding:
     10px 14px;
@@ -577,11 +585,20 @@ select {
 --------------------------------------------------------- */
 
 .ie-info-label {
+  flex:
+    0 0 95px;
+
+  min-width:
+    95px;
+
   color:
     var(--ie-text);
 
   font-weight:
     700;
+
+  text-align:
+    left;
 }
 
 
@@ -590,6 +607,12 @@ select {
 --------------------------------------------------------- */
 
 .ie-info-value {
+  flex:
+    0 0 auto;
+
+  min-width:
+    0;
+
   color:
     var(--ie-blue);
 
@@ -597,7 +620,10 @@ select {
     600;
 
   text-align:
-    right;
+    left;
+
+  overflow-wrap:
+    anywhere;
 }
 
 
@@ -610,11 +636,6 @@ select {
   cursor: default;
 }
 
-
-/* ---------------------------------------------------------
-   Course title separator
---------------------------------------------------------- */
-
 .course-title-separator {
   margin: 0 3px;
   color: var(--ie-muted);
@@ -626,20 +647,36 @@ select {
 ========================================================= */
 
 .ie-courses-page .ie-course-card .ie-card-header {
+
   display: flex;
 
   align-items: center;
+  justify-content: center;
 
   width: 100%;
 
+  /*
+     Compact course header
+  */
   padding:
-    18px 20px;
+    7px 12px !important;
+
+  margin: 0 !important;
+
+  min-height: 0 !important;
+
+  height: auto !important;
+
+  line-height:
+    1.15 !important;
 
   background:
     var(--ie-white);
 
   border-bottom:
     1px solid var(--ie-border);
+
+  position: relative;
 }
 
 
@@ -648,15 +685,29 @@ select {
 ========================================================= */
 
 .ie-courses-page .ie-course-header-row {
+
   display: flex;
 
   align-items: center;
 
-  justify-content: space-between;
-
-  gap: 16px;
+  justify-content: center;
 
   width: 100%;
+
+  gap:
+    8px;
+
+  margin:
+    0 !important;
+
+  padding:
+    0 !important;
+
+  min-height:
+    0;
+
+  height:
+    auto;
 }
 
 
@@ -664,48 +715,404 @@ select {
    COURSE TITLE
 ========================================================= */
 
-.ie-courses-page .ie-course-card .ie-card-title {
-  flex: 1 1 auto;
+.ie-courses-page .ie-course-header-row .ie-card-title {
 
-  min-width: 0;
+  width:
+    100%;
 
-  margin: 0;
+  flex:
+    0 0 100% !important;
+
+  min-width:
+    0;
+
+  margin:
+    0 !important;
+
+  padding:
+    0 !important;
 
   color:
     var(--ie-blue);
 
   font-size:
-    20px;
+    19px;
 
   font-weight:
     700;
 
   line-height:
-    1.3;
+    1.15 !important;
+
+  text-align:
+    center !important;
+}
+
+
+/* ---------------------------------------------------------
+   Global card title reset
+--------------------------------------------------------- */
+
+.ie-courses-page .ie-card-title {
+
+  margin:
+    0 !important;
+
+  padding:
+    0 !important;
+
+  line-height:
+    1.15 !important;
+}
+
+
+/* ---------------------------------------------------------
+   Bootstrap heading reset inside course headers
+--------------------------------------------------------- */
+
+.ie-courses-page .card-header h1,
+.ie-courses-page .card-header h2,
+.ie-courses-page .card-header h3,
+.ie-courses-page .card-header h4,
+.ie-courses-page .card-header h5,
+.ie-courses-page .card-header h6,
+.ie-courses-page .card-header p {
+
+  padding:
+    0 !important;
+
+  margin:
+    0 !important;
+
+  line-height:
+    1 !important;
 }
 
 
 /* =========================================================
-   14. VIEW BUTTON
+   14. ANIMATED COURSE CODE
+========================================================= */
+
+.animated-course-code {
+
+  display:
+    inline-flex;
+
+  flex-direction:
+    row;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  white-space:
+    nowrap;
+
+  margin:
+    0 !important;
+
+  padding:
+    0 !important;
+
+  line-height:
+    1 !important;
+
+  vertical-align:
+    middle;
+
+  letter-spacing:
+    0.16em;
+
+  color:
+    var(--ie-navy);
+
+  font-weight:
+    700;
+
+  position:
+    relative;
+
+  text-shadow:
+    0 0 8px rgba(212, 160, 23, 0.10);
+}
+
+
+/* =========================================================
+   INDIVIDUAL COURSE CODE LETTER
+========================================================= */
+
+.animated-course-letter {
+
+  display:
+    inline-block;
+
+  font-size:
+    1.25em;
+
+  font-weight:
+    900;
+
+  line-height:
+    1;
+
+  margin-right:
+    3px;
+
+  padding:
+    0;
+
+  color:
+    #ffb300;
+
+  /*
+     Red outline
+  */
+  -webkit-text-stroke:
+    1.5px var(--ie-red);
+
+  /*
+     Gold glow
+  */
+  text-shadow:
+    0 1px 1px rgba(255, 255, 255, 0.9),
+    0 2px 4px rgba(0, 0, 0, 0.12),
+    0 0 7px rgba(255, 179, 0, 0.35);
+
+  opacity:
+    0;
+
+  transform:
+    translateY(7px)
+    scale(0.9);
+
+  animation:
+    headerLetterAnimation 3s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   LETTER-BY-LETTER ANIMATION
+========================================================= */
+
+@keyframes headerLetterAnimation {
+
+  0% {
+
+    opacity:
+      0;
+
+    transform:
+      translateY(7px)
+      scale(0.9);
+  }
+
+  12% {
+
+    opacity:
+      1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+  25% {
+
+    opacity:
+      1;
+
+    transform:
+      translateY(0)
+      scale(1.08);
+
+    color:
+      #ffc107;
+
+    text-shadow:
+      0 0 5px rgba(255, 193, 7, 0.6),
+      0 0 10px rgba(255, 179, 0, 0.45);
+  }
+
+  45% {
+
+    opacity:
+      1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+  80% {
+
+    opacity:
+      1;
+  }
+
+  100% {
+
+    opacity:
+      0;
+
+    transform:
+      translateY(-5px)
+      scale(0.96);
+  }
+}
+
+
+/* =========================================================
+   15. GOLD SPARKLE — BOTH SIDES
+========================================================= */
+
+.animated-course-code::before,
+.animated-course-code::after {
+
+  content:
+    "✦";
+
+  display:
+    inline-block;
+
+  padding:
+    0;
+
+  font-size:
+    0.75em;
+
+  line-height:
+    1;
+
+  color:
+    var(--ie-gold-bright);
+
+  -webkit-text-stroke:
+    1px #b8860b;
+
+  text-shadow:
+    0 0 2px #b8860b,
+    0 0 5px var(--ie-gold-bright),
+    0 0 9px rgba(255, 215, 0, 0.85),
+    0 0 14px rgba(184, 134, 11, 0.55);
+
+  animation:
+    headerSparkle 1.8s ease-in-out infinite;
+}
+
+
+/* ---------------------------------------------------------
+   Left sparkle
+--------------------------------------------------------- */
+
+.animated-course-code::before {
+
+  margin-right:
+    5px;
+
+  animation-delay:
+    0s;
+}
+
+
+/* ---------------------------------------------------------
+   Right sparkle
+--------------------------------------------------------- */
+
+.animated-course-code::after {
+
+  margin-left:
+    2px;
+
+  animation-delay:
+    0.9s;
+}
+
+
+/* =========================================================
+   SPARKLE ANIMATION
+========================================================= */
+
+@keyframes headerSparkle {
+
+  0% {
+
+    opacity:
+      0;
+
+    transform:
+      scale(0.3)
+      rotate(0deg);
+  }
+
+  40% {
+
+    opacity:
+      1;
+
+    transform:
+      scale(1.2)
+      rotate(45deg);
+  }
+
+  70% {
+
+    opacity:
+      0.4;
+
+    transform:
+      scale(0.8)
+      rotate(90deg);
+  }
+
+  100% {
+
+    opacity:
+      0;
+
+    transform:
+      scale(0.3)
+      rotate(180deg);
+  }
+}
+
+
+/* =========================================================
+   16. VIEW BUTTON
 ========================================================= */
 
 .ie-courses-page .ie-course-read-more {
-  display: inline-flex;
 
-  align-items: center;
-  justify-content: center;
+  display:
+    inline-flex;
 
-  flex: 0 0 auto;
+  align-items:
+    center;
 
-  width: auto;
-  min-width: 58px;
+  justify-content:
+    center;
 
-  height: 30px;
-  min-height: 30px;
+  flex:
+    0 0 auto !important;
 
-  margin: 0;
+  width:
+    auto;
 
-  padding: 5px 14px;
+  min-width:
+    58px;
+
+  height:
+    30px;
+
+  min-height:
+    30px;
+
+  margin:
+    0 !important;
+
+  padding:
+    4px 10px !important;
 
   border:
     1px solid var(--ie-border-dark);
@@ -768,6 +1175,7 @@ select {
 --------------------------------------------------------- */
 
 .ie-courses-page .ie-course-read-more:hover {
+
   background:
     var(--ie-blue-light);
 
@@ -790,6 +1198,7 @@ select {
 --------------------------------------------------------- */
 
 .ie-courses-page .ie-course-read-more:active {
+
   transform:
     translateY(0);
 
@@ -804,7 +1213,9 @@ select {
 
 .ie-courses-page .ie-course-read-more:focus,
 .ie-courses-page .ie-course-read-more:focus-visible {
-  outline: none;
+
+  outline:
+    none;
 
   border-color:
     var(--ie-blue);
@@ -815,29 +1226,130 @@ select {
 
 
 /* =========================================================
-   15. COURSE CARD BODY
+   17. COURSE BOTTOM ACTIONS
+========================================================= */
+
+.ie-courses-page .ie-course-bottom-actions {
+
+  position:
+    relative;
+
+  z-index:
+    50;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  width:
+    100%;
+
+  margin:
+    8px 0 0;
+
+  padding:
+    0;
+
+  gap:
+    10px;
+}
+
+
+/* ---------------------------------------------------------
+   Bottom View button
+--------------------------------------------------------- */
+
+.ie-courses-page .ie-course-bottom-actions .ie-course-read-more {
+
+  flex:
+    0 0 auto !important;
+
+  margin:
+    0 !important;
+
+  padding:
+    4px 10px !important;
+}
+
+
+/* =========================================================
+   18. COURSE CARD BODY
 ========================================================= */
 
 .ie-courses-page .ie-course-card .ie-card-body {
+
+  height:
+    auto !important;
+
+  min-height:
+    0 !important;
+
   padding:
     22px;
 }
 
 
 /* =========================================================
-   COURSE CARD IMAGE + INFORMATION
-   ---------------------------------------------------------
-   Desktop / Tablet:
-   Both columns stretch to the same height.
+   COURSE CARD HEIGHT
+   REMOVE EXCESS EMPTY SPACE
 ========================================================= */
 
-.ie-courses-page .ie-course-card .ie-card-body > .row {
-  align-items:stretch !important;
+.ie-courses-page .ie-course-card {
+
+  position:
+    relative;
+
+  height:
+    auto !important;
+
+  min-height:
+    0 !important;
+
+  overflow:
+    hidden;
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
 }
 
 
 /* ---------------------------------------------------------
-   Make both Bootstrap columns stretch
+   Course card hover
+--------------------------------------------------------- */
+
+.ie-courses-page .ie-course-card:hover {
+
+  transform:
+    translateY(-4px);
+
+  border-color:
+    rgba(23, 105, 255, 0.35);
+
+  box-shadow:
+    0 14px 28px rgba(16, 42, 67, 0.12);
+}
+
+
+/* =========================================================
+   COURSE IMAGE + INFORMATION
+========================================================= */
+
+.ie-courses-page .ie-course-card .ie-card-body > .row {
+
+  align-items:
+    stretch !important;
+}
+
+
+/* ---------------------------------------------------------
+   Bootstrap columns stretch
 --------------------------------------------------------- */
 
 .ie-courses-page
@@ -845,9 +1357,12 @@ select {
 .ie-card-body
 > .row
 > [class*="col-"] {
-  display: flex;
 
-  flex-direction: column;
+  display:
+    flex;
+
+  flex-direction:
+    column;
 }
 
 
@@ -856,14 +1371,21 @@ select {
 ========================================================= */
 
 .ie-courses-page .ie-course-card .course-image {
-  display: block;
 
-  width: 100%;
-  max-width: 100%;
+  display:
+    block;
 
-  height:260px;
+  width:
+    100%;
 
-  margin: 0 auto;
+  max-width:
+    100%;
+
+  height:
+    260px;
+
+  margin:
+    0 auto;
 
   border-radius:
     8%;
@@ -874,18 +1396,53 @@ select {
   transition:
     var(--ie-transition);
 
-  object-fit:cover;
+  object-fit:
+    cover;
 }
 
 
 /* =========================================================
-   INFORMATION PANEL = SAME HEIGHT AS IMAGE AREA
+   COURSE INFORMATION PANEL
 ========================================================= */
 
 .ie-courses-page .ie-course-card .ie-info-panel {
-  width: 100%;
 
-  height:260px;
+  width:
+    100%;
+
+  height:
+    auto !important;
+
+  min-height:
+    0 !important;
+}
+
+
+/* ---------------------------------------------------------
+   Course info details
+--------------------------------------------------------- */
+
+.ie-courses-page .ie-course-card .ie-info-details {
+
+  margin:
+    0 !important;
+
+  padding:
+    0 !important;
+}
+
+
+/* ---------------------------------------------------------
+   Course info rows
+--------------------------------------------------------- */
+
+.ie-courses-page .ie-course-card .ie-info-row {
+
+  margin-top:
+    0 !important;
+
+  margin-bottom:
+    0 !important;
 }
 
 
@@ -894,16 +1451,18 @@ select {
 ========================================================= */
 
 .ie-courses-page .ie-course-card:hover .course-image {
+
   transform:
-    scale(1.02);
+    scale(1.015);
 }
 
 
 /* =========================================================
-   GENERIC COURSE DESCRIPTION
+   19. GENERIC COURSE DESCRIPTION
 ========================================================= */
 
 .ie-card-description {
+
   margin-top:
     25px;
 
@@ -915,6 +1474,7 @@ select {
 }
 
 .ie-card-description p {
+
   margin:
     12px 0 0;
 
@@ -930,7 +1490,298 @@ select {
 
 
 /* =========================================================
-   16. FEATURE SYSTEM
+   20. DESCRIPTION BUTTON WRAPPER
+========================================================= */
+
+.ie-courses-page .ie-description-button-wrapper {
+
+  position:
+    relative;
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  z-index:
+    100;
+}
+
+
+/* =========================================================
+   DESCRIPTION TOOLTIP
+========================================================= */
+
+.ie-courses-page .ie-description-tooltip {
+
+  position:
+    absolute;
+
+  left:
+    0;
+
+  bottom:
+    100%;
+
+  width:
+    340px;
+
+  max-width:
+    80vw;
+
+  padding:
+    12px 14px;
+
+  background:
+    var(--ie-white);
+
+  border:
+    1px solid rgba(214, 40, 40, 0.25);
+
+  border-radius:
+    10px;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.15);
+
+  z-index:
+    9999;
+
+  opacity:
+    0;
+
+  visibility:
+    hidden;
+
+  transform:
+    translateY(6px);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0.2s ease;
+
+  pointer-events:
+    auto;
+}
+
+
+/* =========================================================
+   TOOLTIP HOVER BRIDGE
+========================================================= */
+
+.ie-courses-page .ie-description-tooltip::before {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  left:
+    0;
+
+  right:
+    0;
+
+  bottom:
+    -10px;
+
+  height:
+    10px;
+
+  background:
+    transparent;
+
+  pointer-events:
+    auto;
+}
+
+
+/* =========================================================
+   SHOW DESCRIPTION
+========================================================= */
+
+.ie-courses-page
+.ie-description-button-wrapper:hover
+.ie-description-tooltip {
+
+  opacity:
+    1;
+
+  visibility:
+    visible;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   TOOLTIP ARROW
+========================================================= */
+
+.ie-courses-page .ie-description-tooltip::after {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  left:
+    18px;
+
+  bottom:
+    -7px;
+
+  width:
+    12px;
+
+  height:
+    12px;
+
+  background:
+    var(--ie-white);
+
+  border-right:
+    1px solid rgba(214, 40, 40, 0.25);
+
+  border-bottom:
+    1px solid rgba(214, 40, 40, 0.25);
+
+  transform:
+    rotate(45deg);
+
+  pointer-events:
+    none;
+}
+
+
+/* =========================================================
+   TOOLTIP TITLE
+========================================================= */
+
+.ie-courses-page .ie-description-tooltip-title {
+
+  margin:
+    0 0 6px 0 !important;
+
+  padding:
+    0 !important;
+
+  font-size:
+    14px;
+
+  font-weight:
+    800;
+
+  color:
+    var(--ie-red);
+
+  line-height:
+    1.25;
+}
+
+
+/* =========================================================
+   TOOLTIP DESCRIPTION TEXT
+========================================================= */
+
+.ie-courses-page .ie-description-tooltip-text {
+
+  font-size:
+    13px;
+
+  line-height:
+    1.5;
+
+  color:
+    #333333;
+
+  max-height:
+    180px;
+
+  overflow-y:
+    auto;
+
+  overflow-x:
+    hidden;
+
+  padding-right:
+    6px;
+
+  scrollbar-width:
+    auto;
+
+  scrollbar-color:
+    var(--ie-red)
+    #eeeeee;
+}
+
+
+/* =========================================================
+   CHROME / EDGE SCROLLBAR
+========================================================= */
+
+.ie-courses-page
+.ie-description-tooltip-text::-webkit-scrollbar {
+
+  width:
+    8px;
+}
+
+
+.ie-courses-page
+.ie-description-tooltip-text::-webkit-scrollbar-track {
+
+  background:
+    #eeeeee;
+
+  border-radius:
+    10px;
+}
+
+
+.ie-courses-page
+.ie-description-tooltip-text::-webkit-scrollbar-thumb {
+
+  background:
+    var(--ie-red);
+
+  border-radius:
+    10px;
+
+  border:
+    2px solid #eeeeee;
+
+  cursor:
+    pointer;
+}
+
+
+.ie-courses-page
+.ie-description-tooltip-text::-webkit-scrollbar-thumb:hover {
+
+  background:
+    #b71c1c;
+}
+
+
+/* =========================================================
+   21. DESCRIPTION OVERLAY
+========================================================= */
+
+.ie-courses-page .ie-course-description-overlay {
+
+  display:
+    none;
+}
+
+
+/* =========================================================
+   22. FEATURE SYSTEM
 ========================================================= */
 
 .ie-feature {
@@ -938,6 +1789,7 @@ select {
 }
 
 .ie-feature-title {
+
   margin:
     0 0 18px;
 
@@ -958,6 +1810,7 @@ select {
 }
 
 .ie-feature-image {
+
   display:
     inline-block;
 
@@ -996,30 +1849,36 @@ select {
 
 
 /* =========================================================
-   17. SECTION HEADINGS
+   23. SECTION HEADINGS
 ========================================================= */
 
 .ie-section-heading {
+
   margin:
     45px 0 25px;
 }
 
 
 /* =========================================================
-   18. TABLE SYSTEM
+   24. TABLE SYSTEM
 ========================================================= */
 
 .ie-table-wrapper {
-  width: 100%;
 
-  overflow-x: auto;
+  width:
+    100%;
+
+  overflow-x:
+    auto;
 
   margin-top:
     25px;
 }
 
 .ie-table {
-  width: 100%;
+
+  width:
+    100%;
 
   border-collapse:
     collapse;
@@ -1036,6 +1895,7 @@ select {
 
 .ie-table th,
 .ie-table td {
+
   padding:
     12px 14px;
 
@@ -1047,6 +1907,7 @@ select {
 }
 
 .ie-table thead th {
+
   background:
     var(--ie-blue-light);
 
@@ -1061,23 +1922,29 @@ select {
 }
 
 .ie-table tbody td {
+
   color:
     var(--ie-text);
 }
 
 
 /* =========================================================
-   19. GLOBAL MODAL SYSTEM
+   25. GLOBAL MODAL SYSTEM
 ========================================================= */
 
 .ie-modal-header {
-  display: flex;
 
-  align-items: center;
+  display:
+    flex;
 
-  justify-content: space-between;
+  align-items:
+    center;
 
-  gap: 10px;
+  justify-content:
+    space-between;
+
+  gap:
+    10px;
 
   padding:
     10px 18px 4px;
@@ -1095,18 +1962,27 @@ select {
 ========================================================= */
 
 .ie-modal-close {
-  display: inline-flex;
 
-  align-items: center;
-  justify-content: center;
+  display:
+    inline-flex;
 
-  flex-shrink: 0;
+  align-items:
+    center;
 
-  min-width: 42px;
+  justify-content:
+    center;
 
-  width: auto;
+  flex-shrink:
+    0;
 
-  height: 28px;
+  min-width:
+    42px;
+
+  width:
+    auto;
+
+  height:
+    28px;
 
   padding:
     3px 12px;
@@ -1142,6 +2018,7 @@ select {
 }
 
 .ie-modal-close:hover {
+
   background:
     rgba(236, 29, 35, 0.10);
 
@@ -1158,6 +2035,7 @@ select {
 ========================================================= */
 
 .ie-modal-body {
+
   padding:
     2px 18px 16px;
 
@@ -1171,25 +2049,33 @@ select {
 ========================================================= */
 
 .ie-modal-info-grid {
-  display: grid;
+
+  display:
+    grid;
 
   grid-template-columns:
     repeat(5, 1fr);
 
-  gap: 10px;
+  gap:
+    10px;
 
   margin-bottom:
     12px;
 }
 
 .ie-modal-info-item {
-  display: flex;
 
-  flex-direction: column;
+  display:
+    flex;
 
-  gap: 4px;
+  flex-direction:
+    column;
 
-  padding: 10px;
+  gap:
+    4px;
+
+  padding:
+    10px;
 
   border:
     1px solid var(--ie-border);
@@ -1205,6 +2091,7 @@ select {
 }
 
 .ie-modal-label {
+
   color:
     var(--ie-muted);
 
@@ -1224,6 +2111,7 @@ select {
 ========================================================= */
 
 .ie-modal-description {
+
   padding:
     14px 16px;
 
@@ -1238,6 +2126,7 @@ select {
 }
 
 .ie-modal-description h3 {
+
   margin:
     0 0 8px;
 
@@ -1255,6 +2144,7 @@ select {
 }
 
 .ie-modal-description p {
+
   margin-bottom:
     0;
 
@@ -1270,15 +2160,17 @@ select {
 
 
 /* =========================================================
-   20. GENERIC IMAGE + CONTENT LAYOUT
+   26. GENERIC IMAGE + CONTENT LAYOUT
 ========================================================= */
 
 .ie-intro {
+
   min-height:
     420px;
 }
 
 .ie-intro-image {
+
   width:
     85%;
 
@@ -1288,20 +2180,22 @@ select {
 
 
 /* =========================================================
-   21. GENERIC CONTENT ROW
+   27. GENERIC CONTENT ROW
 ========================================================= */
 
 .ie-content-row {
+
   margin-top:
     35px;
 }
 
 
 /* =========================================================
-   22. MANAGEMENT PAGE SYSTEM
+   28. MANAGEMENT PAGE SYSTEM
 ========================================================= */
 
 .ie-management-page {
+
   width:
     100%;
 }
@@ -1312,6 +2206,7 @@ select {
 --------------------------------------------------------- */
 
 .ie-management-intro {
+
   padding-bottom:
     20px;
 }
@@ -1322,6 +2217,7 @@ select {
 --------------------------------------------------------- */
 
 .ie-management-message {
+
   padding:
     30px 0;
 }
@@ -1332,6 +2228,7 @@ select {
 --------------------------------------------------------- */
 
 .ie-management-profile-image {
+
   display:
     inline-block;
 
@@ -1355,6 +2252,7 @@ select {
 }
 
 .ie-management-profile-image:hover {
+
   box-shadow:
     var(--ie-shadow-hover);
 }
@@ -1365,12 +2263,14 @@ select {
 --------------------------------------------------------- */
 
 .ie-management-page .ie-table-wrapper {
+
   margin-top:
     25px;
 }
 
 .ie-management-page .ie-table th:first-child,
 .ie-management-page .ie-table td:first-child {
+
   width:
     80px;
 
@@ -1380,295 +2280,64 @@ select {
 
 
 /* =========================================================
-   23. COURSE CARD HOVER DESCRIPTION
+   29. COURSE DETAILS MODAL
 ========================================================= */
 
-.ie-courses-page .ie-course-card {
-  position:
-    relative;
+.ie-courses-page .modal-content {
 
-  overflow:
-    hidden;
-}
-
-
-/* ---------------------------------------------------------
-   Description overlay
---------------------------------------------------------- */
-
-.ie-courses-page
-.ie-course-card
-.ie-course-description-overlay {
-  position:
-    absolute;
-
-  left:
-    0;
-
-  right:
-    0;
-
-  bottom:
-    0;
-
-  height:
-    78%;
-
-  max-height:
-    78%;
-
-  padding:
-    20px 24px;
-
-  background:
-    rgba(16, 42, 67, 0.97);
-
-  color:
-    #ffffff;
-
-  transform:
-    translateY(110%);
-
-  opacity:
-    0;
-
-  visibility:
-    hidden;
-
-  pointer-events:
-    none;
-
-  z-index:
-    100;
-
-  overflow:
-    hidden;
-
-  transition:
-    transform 0.35s ease,
-    opacity 0.25s ease,
-    visibility 0s linear 0.35s;
-}
-
-
-/* ---------------------------------------------------------
-   Show description on hover
---------------------------------------------------------- */
-
-.ie-courses-page
-.ie-course-card:hover
-.ie-course-description-overlay {
-  transform:
-    translateY(0);
-
-  opacity:
-    1;
-
-  visibility:
-    visible;
-
-  pointer-events:
-    auto;
-
-  transition:
-    transform 0.35s ease,
-    opacity 0.25s ease,
-    visibility 0s linear 0s;
-}
-
-
-/* ---------------------------------------------------------
-   Description content
---------------------------------------------------------- */
-
-.ie-courses-page
-.ie-course-description-content {
-  position:
-    relative;
-
-  height:
-    100%;
-
-  display:
-    flex;
-
-  flex-direction:
-    column;
-
-  overflow:
-    hidden;
-}
-
-
-/* ---------------------------------------------------------
-   Description title
---------------------------------------------------------- */
-
-.ie-courses-page
-.ie-course-description-content h3 {
-  flex-shrink:
-    0;
-
-  margin:
-    0 0 8px;
-
-  padding-right:
-    0;
-
-  color:
-    #ffffff;
-
-  font-size:
-    1.05rem;
-
-  font-weight:
-    700;
-
-  border-bottom:
-    0;
-}
-
-
-/* ---------------------------------------------------------
-   Description text
---------------------------------------------------------- */
-
-.ie-courses-page
-.ie-course-description-content p {
-  flex:
-    1;
-
-  min-height:
-    0;
-
-  margin:
-    0;
-
-  padding-right:
-    8px;
-
-  color:
-    #ffffff;
-
-  font-size:
-    0.84rem;
-
-  line-height:
-    1.5;
-
-  text-align:
-    justify;
-
-  overflow-y:
-    auto;
-
-  overflow-x:
-    hidden;
-
-  scrollbar-width:
-    thin;
-
-  scrollbar-color:
-    rgba(255, 255, 255, 0.25) transparent;
-}
-
-
-/* ---------------------------------------------------------
-   Transparent scrollbar
---------------------------------------------------------- */
-
-.ie-courses-page
-.ie-course-description-content
-p::-webkit-scrollbar {
-  width:
-    4px;
-}
-
-.ie-courses-page
-.ie-course-description-content
-p::-webkit-scrollbar-track {
-  background:
-    transparent;
-}
-
-.ie-courses-page
-.ie-course-description-content
-p::-webkit-scrollbar-thumb {
-  background:
-    rgba(255, 255, 255, 0.25);
+  border:
+    1px solid var(--ie-border);
 
   border-radius:
     20px;
-}
-
-.ie-courses-page
-.ie-course-description-content
-p::-webkit-scrollbar-thumb:hover {
-  background:
-    rgba(255, 255, 255, 0.45);
-}
-
-
-/* =========================================================
-   VIEW COURSE BUTTON
-   HIDDEN
-========================================================= */
-
-.ie-courses-page .ie-course-overlay-button {
-  display:
-    none;
-}
-
-
-/* =========================================================
-   24. COURSE MODAL
-========================================================= */
-
-.ie-courses-page .ie-modal-header,
-.ie-courses-page .modal-header {
-  border-bottom:
-    0;
 
   box-shadow:
-    none;
-
-  padding:
-    8px 18px 2px;
-
-  margin-bottom:
-    0;
-}
-
-
-/* ---------------------------------------------------------
-   Bootstrap modal content
---------------------------------------------------------- */
-
-.ie-courses-page .modal-content {
-  border:
-    0;
-
-  box-shadow:
-    var(--ie-shadow);
+    0 20px 52px rgba(16, 42, 67, 0.18);
 
   overflow:
     hidden;
+}
 
-  border-radius:
-    var(--ie-radius-lg);
+.ie-courses-page .ie-course-modal {
+
+  background:
+    #fff;
 }
 
 
 /* ---------------------------------------------------------
-   Modal title
+   Modal header
 --------------------------------------------------------- */
 
-.ie-courses-page .ie-modal-header .ie-title-blue {
-  margin:
-    0;
+.ie-courses-page .ie-modal-header {
+
+  padding:
+    22px 24px 18px;
+
+  border-bottom:
+    1px solid var(--ie-border);
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff 0%,
+      var(--ie-blue-light) 100%
+    );
+}
+
+.ie-courses-page .ie-modal-header .ie-card-title {
+
+  max-width:
+    calc(100% - 86px);
+
+  color:
+    var(--ie-navy);
+
+  font-size:
+    22px;
 
   line-height:
-    1.15;
+    1.25;
 }
 
 
@@ -1677,11 +2346,9 @@ p::-webkit-scrollbar-thumb:hover {
 --------------------------------------------------------- */
 
 .ie-courses-page .ie-modal-body {
-  padding:
-    0 18px 16px;
 
-  margin:
-    0;
+  padding:
+    22px 24px 26px;
 }
 
 
@@ -1690,6 +2357,7 @@ p::-webkit-scrollbar-thumb:hover {
 --------------------------------------------------------- */
 
 .ie-courses-page .ie-modal-body .ie-table-wrapper {
+
   width:
     100%;
 
@@ -1701,6 +2369,15 @@ p::-webkit-scrollbar-thumb:hover {
 
   overflow-x:
     auto;
+
+  border:
+    1px solid var(--ie-border);
+
+  border-radius:
+    12px;
+
+  background:
+    #fff;
 }
 
 
@@ -1709,12 +2386,18 @@ p::-webkit-scrollbar-thumb:hover {
 --------------------------------------------------------- */
 
 .ie-courses-page .ie-modal-body .ie-table {
-  width:650px;
-  min-width:650px;
-  table-layout:fixed;
+
+  width:
+    650px;
+
+  min-width:
+    650px;
+
+  table-layout:
+    fixed;
 
   margin:
-    0;
+    0 auto;
 
   border-collapse:
     collapse;
@@ -1733,6 +2416,7 @@ th,
 .ie-modal-body
 .ie-table
 td {
+
   white-space:
     nowrap;
 
@@ -1740,26 +2424,81 @@ td {
     center;
 
   padding:
-    8px 12px;
+    11px 12px;
 
   font-size:
     12.5px;
 }
 
-.ie-courses-page .ie-modal-body .ie-table th:nth-child(1),
-.ie-courses-page .ie-modal-body .ie-table td:nth-child(1) { width:14%; }
 
-.ie-courses-page .ie-modal-body .ie-table th:nth-child(2),
-.ie-courses-page .ie-modal-body .ie-table td:nth-child(2) { width:34%; }
+/* ---------------------------------------------------------
+   Column widths
+--------------------------------------------------------- */
 
-.ie-courses-page .ie-modal-body .ie-table th:nth-child(3),
-.ie-courses-page .ie-modal-body .ie-table td:nth-child(3) { width:14%; }
+.ie-courses-page
+.ie-modal-body
+.ie-table
+th:nth-child(1),
+.ie-courses-page
+.ie-modal-body
+.ie-table
+td:nth-child(1) {
 
-.ie-courses-page .ie-modal-body .ie-table th:nth-child(4),
-.ie-courses-page .ie-modal-body .ie-table td:nth-child(4) { width:14%; }
+  width:
+    14%;
+}
 
-.ie-courses-page .ie-modal-body .ie-table th:nth-child(5),
-.ie-courses-page .ie-modal-body .ie-table td:nth-child(5) { width:24%; }
+.ie-courses-page
+.ie-modal-body
+.ie-table
+th:nth-child(2),
+.ie-courses-page
+.ie-modal-body
+.ie-table
+td:nth-child(2) {
+
+  width:
+    34%;
+}
+
+.ie-courses-page
+.ie-modal-body
+.ie-table
+th:nth-child(3),
+.ie-courses-page
+.ie-modal-body
+.ie-table
+td:nth-child(3) {
+
+  width:
+    14%;
+}
+
+.ie-courses-page
+.ie-modal-body
+.ie-table
+th:nth-child(4),
+.ie-courses-page
+.ie-modal-body
+.ie-table
+td:nth-child(4) {
+
+  width:
+    14%;
+}
+
+.ie-courses-page
+.ie-modal-body
+.ie-table
+th:nth-child(5),
+.ie-courses-page
+.ie-modal-body
+.ie-table
+td:nth-child(5) {
+
+  width:
+    24%;
+}
 
 
 /* ---------------------------------------------------------
@@ -1771,14 +2510,36 @@ td {
 .ie-table
 thead
 th {
+
   background:
     var(--ie-blue-light);
 
   color:
-    var(--ie-red);
+    var(--ie-navy);
 
   font-weight:
     700;
+}
+
+
+/* ---------------------------------------------------------
+   Modal table body
+--------------------------------------------------------- */
+
+.ie-courses-page
+.ie-modal-body
+.ie-table
+tbody
+td {
+
+  padding:
+    12px;
+
+  background:
+    #fff;
+
+  color:
+    var(--ie-text);
 }
 
 
@@ -1787,47 +2548,54 @@ th {
 --------------------------------------------------------- */
 
 .ie-courses-page .ie-modal-description {
+
   margin-top:
-    10px;
+    20px;
 
   padding:
-    12px 15px;
-}
+    20px;
 
-.ie-courses-page .ie-modal-description p {
-  margin:
-    0;
+  border:
+    1px solid var(--ie-border);
 
-  color:
-    var(--ie-text);
+  border-left:
+    4px solid var(--ie-blue);
 
-  font-size:
-    12.5px;
+  border-radius:
+    12px;
 
-  line-height:
-    1.55;
+  background:
+    #f8fbff;
 }
 
 .ie-courses-page .ie-modal-description h3 {
-  margin:
-    0 0 6px;
+
+  margin-bottom:
+    8px;
 
   color:
-    var(--ie-blue);
+    var(--ie-navy);
 
   font-size:
-    17px;
+    18px;
+}
+
+.ie-courses-page .ie-modal-description p {
+
+  font-size:
+    14px;
 
   line-height:
-    1.25;
+    1.65;
 }
 
 
 /* =========================================================
-   25. MODAL PILL BUTTON
+   30. MODAL PILL BUTTON
 ========================================================= */
 
 .ie-modal-pill-button {
+
   display:
     inline-flex;
 
@@ -1838,22 +2606,22 @@ th {
     center;
 
   min-height:
-    30px;
+    36px;
 
   padding:
-    5px 16px;
+    7px 16px;
 
   border:
-    1px solid var(--ie-border-dark);
+    1px solid rgba(23, 105, 255, 0.30);
 
   border-radius:
     50px;
 
   background:
-    transparent;
+    #fff;
 
   color:
-    var(--ie-muted);
+    var(--ie-blue);
 
   font-size:
     11.5px;
@@ -1872,17 +2640,21 @@ th {
 }
 
 .ie-modal-pill-button:hover {
+
+  background:
+    var(--ie-blue);
+
   border-color:
     var(--ie-blue);
 
-  background:
-    var(--ie-blue-light);
-
   color:
-    var(--ie-blue);
+    #fff;
 
   transform:
     translateY(-1px);
+
+  box-shadow:
+    0 5px 12px rgba(23, 105, 255, 0.20);
 }
 
 
@@ -1891,790 +2663,20 @@ th {
 ========================================================= */
 
 .ie-courses-page .ie-modal-footer {
+
   display:
     none;
 }
 
 
 /* =========================================================
-   26. TABLET
-========================================================= */
-
-@media (max-width: 991.98px) {
-
-  /* -------------------------------------------------------
-     Page
-  ------------------------------------------------------- */
-
-  .ie-page {
-    padding:
-      16px 0 60px;
-  }
-
-  .ie-section {
-    padding:
-      35px 0;
-  }
-
-
-  /* -------------------------------------------------------
-     Titles
-  ------------------------------------------------------- */
-
-  .ie-title-red,
-  .ie-title-blue {
-    font-size:
-      30px;
-  }
-
-
-  /* -------------------------------------------------------
-     Intro
-  ------------------------------------------------------- */
-
-  .ie-intro {
-    min-height:
-      auto;
-  }
-
-  .ie-section-heading {
-    margin-top:
-      40px;
-  }
-
-
-  /* -------------------------------------------------------
-     Modal information
-  ------------------------------------------------------- */
-
-  .ie-modal-info-grid {
-    grid-template-columns:
-      repeat(3, 1fr);
-  }
-
-
-  /* -------------------------------------------------------
-     Course header
-  ------------------------------------------------------- */
-
-  .ie-courses-page .ie-course-card .ie-card-header {
-    padding:
-      17px 18px;
-  }
-
-  .ie-courses-page .ie-course-header-row {
-    gap:
-      12px;
-  }
-
-  .ie-courses-page .ie-course-card .ie-card-title {
-    font-size:
-      18px;
-  }
-
-
-  /* -------------------------------------------------------
-     View button
-  ------------------------------------------------------- */
-
-  .ie-courses-page .ie-course-read-more {
-    height:
-      29px;
-
-    min-height:
-      29px;
-
-    padding:
-      5px 12px;
-
-    font-size:
-      11px;
-  }
-
-
-  /* -------------------------------------------------------
-     Hover description
-  ------------------------------------------------------- */
-
-  .ie-courses-page
-  .ie-course-description-overlay {
-    height:
-      82%;
-
-    max-height:
-      82%;
-
-    padding:
-      18px 20px;
-  }
-
-  .ie-courses-page
-  .ie-course-description-content p {
-    font-size:
-      0.82rem;
-
-    line-height:
-      1.5;
-  }
-}
-
-
-/* =========================================================
-   27. MOBILE
-========================================================= */
-
-@media (max-width: 767.98px) {
-
-  /* -------------------------------------------------------
-     Page
-  ------------------------------------------------------- */
-
-  .ie-page {
-    padding:
-      10px 0 45px;
-  }
-
-  .ie-section {
-    padding:
-      30px 0;
-  }
-
-  .ie-section-sm {
-    padding:
-      25px 0;
-  }
-
-  .ie-section-lg {
-    padding:
-      45px 0;
-  }
-
-
-  /* -------------------------------------------------------
-     Titles
-  ------------------------------------------------------- */
-
-  .ie-title-red,
-  .ie-title-blue {
-    font-size:
-      27px;
-  }
-
-  .ie-intro-heading-group {
-    min-height:65px;
-  }
-
-
-  /* -------------------------------------------------------
-     Content
-  ------------------------------------------------------- */
-
-  .ie-content-list {
-    font-size:
-      13px;
-
-    line-height:
-      1.7;
-  }
-
-
-  /* -------------------------------------------------------
-     Feature
-  ------------------------------------------------------- */
-
-  .ie-feature-title {
-    margin-top:
-      25px;
-
-    font-size:
-      23px;
-  }
-
-
-  /* -------------------------------------------------------
-     Intro image
-  ------------------------------------------------------- */
-
-  .ie-intro-image {
-    width:
-      100%;
-
-    margin-top:
-      25px;
-  }
-
-
-  /* -------------------------------------------------------
-     Feature images
-  ------------------------------------------------------- */
-
-  .ie-feature-image-sm,
-  .ie-feature-image-md,
-  .ie-feature-image-lg {
-    width:
-      55%;
-  }
-
-
-  /* -------------------------------------------------------
-     Card
-  ------------------------------------------------------- */
-
-  .ie-card-body {
-    padding:
-      18px;
-  }
-
-
-  /* =======================================================
-     COURSE CARD
-     MOBILE HEIGHT RESET
-     -------------------------------------------------------
-     On mobile the image and details are stacked.
-     They should use natural heights.
-  ======================================================= */
-
-  .ie-courses-page
-  .ie-course-card
-  .ie-card-body
-  > .row
-  > [class*="col-"] {
-    display:
-      block;
-  }
-
-
-  /* -------------------------------------------------------
-     Course image
-  ------------------------------------------------------- */
-
-  .ie-courses-page
-  .ie-course-card
-  .course-image {
-    width:
-      100%;
-
-    max-width:
-      100%;
-
-    height:220px;
-
-    object-fit:cover;
-  }
-
-
-  /* -------------------------------------------------------
-     Course information panel
-  ------------------------------------------------------- */
-
-  .ie-courses-page
-  .ie-course-card
-  .ie-info-panel {
-    width:
-      100%;
-
-    height:
-      auto;
-  }
-
-
-  /* =======================================================
-     COURSE INFORMATION ROWS
-     -------------------------------------------------------
-     IMPORTANT:
-     Label and value stay on the SAME ROW.
-  ======================================================= */
-
-  .ie-courses-page .ie-info-row {
-    display:
-      flex;
-
-    flex-direction:
-      row;
-
-    align-items:
-      center;
-
-    justify-content:
-      space-between;
-
-    gap:
-      12px;
-  }
-
-
-  /* -------------------------------------------------------
-     Information label
-  ------------------------------------------------------- */
-
-  .ie-courses-page .ie-info-label {
-    flex:
-      0 0 35%;
-
-    min-width:
-      0;
-
-    text-align:
-      left;
-  }
-
-
-  /* -------------------------------------------------------
-     Information value
-  ------------------------------------------------------- */
-
-  .ie-courses-page .ie-info-value {
-    flex:
-      1 1 auto;
-
-    min-width:
-      0;
-
-    text-align:
-      right;
-
-    overflow-wrap:
-      anywhere;
-  }
-
-
-  /* -------------------------------------------------------
-     Course header
-  ------------------------------------------------------- */
-
-  .ie-courses-page
-  .ie-course-card
-  .ie-card-header {
-    padding:
-      15px 16px;
-  }
-
-  .ie-courses-page
-  .ie-course-header-row {
-    gap:
-      10px;
-  }
-
-  .ie-courses-page
-  .ie-course-card
-  .ie-card-title {
-    font-size:
-      17px;
-
-    line-height:
-      1.25;
-  }
-
-
-  /* -------------------------------------------------------
-     View button
-  ------------------------------------------------------- */
-
-  .ie-courses-page .ie-course-read-more {
-    height:
-      28px;
-
-    min-height:
-      28px;
-
-    padding:
-      5px 10px;
-
-    font-size:
-      10.5px;
-  }
-
-
-  /* -------------------------------------------------------
-     Disable hover overlay on mobile
-  ------------------------------------------------------- */
-
-  .ie-courses-page
-  .ie-course-description-overlay {
-    display:
-      none;
-  }
-
-
-  /* =======================================================
-     MODAL
-  ======================================================= */
-
-  .ie-courses-page
-  .ie-modal-header,
-  .ie-courses-page
-  .modal-header {
-    padding:
-      7px 14px 2px;
-
-    border-bottom:
-      0;
-  }
-
-  .ie-courses-page
-  .ie-modal-header
-  .ie-title-blue {
-    font-size:
-      21px;
-  }
-
-  .ie-courses-page
-  .ie-modal-body {
-    padding:
-      0 14px 14px;
-  }
-
-
-  /* -------------------------------------------------------
-     Modal description
-  ------------------------------------------------------- */
-
-  .ie-courses-page
-  .ie-modal-description {
-    margin-top:
-      8px;
-
-    padding:
-      11px 13px;
-  }
-
-  .ie-courses-page
-  .ie-modal-description p {
-    font-size:
-      12px;
-
-    line-height:
-      1.55;
-  }
-
-  .ie-courses-page
-  .ie-modal-description h3 {
-    font-size:
-      17px;
-  }
-
-
-  /* -------------------------------------------------------
-     Modal button
-  ------------------------------------------------------- */
-
-  .ie-modal-pill-button {
-    min-height:
-      30px;
-
-    padding:
-      5px 15px;
-
-    font-size:
-      11.5px;
-  }
-
-  .ie-modal-close {
-    min-width:
-      40px;
-
-    height:
-      27px;
-
-    padding:
-      3px 11px;
-
-    font-size:
-      16px;
-  }
-}
-
-
-/* =========================================================
-   28. SMALL MOBILE
-========================================================= */
-
-@media (max-width: 575.98px) {
-
-  /* -------------------------------------------------------
-     Page
-  ------------------------------------------------------- */
-
-  .ie-page {
-    padding:
-      8px 0 40px;
-  }
-
-
-  /* -------------------------------------------------------
-     Titles
-  ------------------------------------------------------- */
-
-  .ie-title-red,
-  .ie-title-blue {
-    font-size:
-      24px;
-  }
-
-
-  /* -------------------------------------------------------
-     Content
-  ------------------------------------------------------- */
-
-  .ie-content-list {
-    font-size:
-      13px;
-
-    line-height:
-      1.7;
-  }
-
-
-  /* -------------------------------------------------------
-     Feature
-  ------------------------------------------------------- */
-
-  .ie-feature-title {
-    font-size:
-      21px;
-  }
-
-
-  /* -------------------------------------------------------
-     Generic cards
-  ------------------------------------------------------- */
-
-  .ie-card-header {
-    padding:
-      15px;
-  }
-
-  .ie-card-body {
-    padding:
-      15px;
-  }
-
-  .ie-card-title {
-    font-size:
-      18px;
-  }
-
-
-  /* =======================================================
-     COURSE INFORMATION
-     -------------------------------------------------------
-     Keep label + value on same row.
-     DO NOT use column layout here.
-  ======================================================= */
-
-  .ie-courses-page .ie-info-row {
-    display:
-      flex;
-
-    flex-direction:
-      row;
-
-    align-items:
-      center;
-
-    justify-content:
-      space-between;
-
-    gap:
-      10px;
-
-    padding:
-      10px 12px;
-  }
-
-  .ie-courses-page .ie-info-label {
-    flex:
-      0 0 35%;
-
-    text-align:
-      left;
-
-    white-space:
-      nowrap;
-  }
-
-  .ie-courses-page .ie-info-value {
-    flex:
-      1 1 auto;
-
-    text-align:
-      right;
-
-    overflow-wrap:
-      anywhere;
-  }
-
-
-  /* -------------------------------------------------------
-     Course header
-  ------------------------------------------------------- */
-
-  .ie-courses-page
-  .ie-course-card
-  .ie-card-header {
-    padding:
-      14px;
-  }
-
-  .ie-courses-page
-  .ie-course-header-row {
-    gap:
-      8px;
-  }
-
-  .ie-courses-page
-  .ie-course-card
-  .ie-card-title {
-    font-size:
-      15.5px;
-
-    line-height:
-      1.25;
-  }
-
-
-  /* -------------------------------------------------------
-     View button
-  ------------------------------------------------------- */
-
-  .ie-courses-page .ie-course-read-more {
-    height:
-      27px;
-
-    min-height:
-      27px;
-
-    padding:
-      5px 9px;
-
-    font-size:
-      10px;
-  }
-
-
-  /* =======================================================
-     SMALL MOBILE MODAL
-  ======================================================= */
-
-  .ie-courses-page
-  .ie-modal-header,
-  .ie-courses-page
-  .modal-header {
-    padding:
-      6px 12px 1px;
-
-    border-bottom:
-      0;
-  }
-
-  .ie-courses-page
-  .ie-modal-header
-  .ie-title-blue {
-    font-size:
-      19px;
-  }
-
-
-  /* -------------------------------------------------------
-     Modal body
-  ------------------------------------------------------- */
-
-  .ie-courses-page
-  .ie-modal-body {
-    padding:
-      0 10px 12px;
-  }
-
-
-  /* -------------------------------------------------------
-     Modal table
-  ------------------------------------------------------- */
-
-  .ie-courses-page
-  .ie-modal-body
-  .ie-table
-  th,
-  .ie-courses-page
-  .ie-modal-body
-  .ie-table
-  td {
-    padding:
-      7px 10px;
-
-    font-size:
-      11.5px;
-  }
-
-
-  /* -------------------------------------------------------
-     Modal description
-  ------------------------------------------------------- */
-
-  .ie-courses-page
-  .ie-modal-description {
-    margin-top:
-      7px;
-
-    padding:
-      10px 12px;
-  }
-
-  .ie-courses-page
-  .ie-modal-description p {
-    font-size:
-      11.5px;
-
-    line-height:
-      1.5;
-  }
-
-  .ie-courses-page
-  .ie-modal-description h3 {
-    font-size:
-      16px;
-
-    margin-bottom:
-      5px;
-  }
-
-
-  /* -------------------------------------------------------
-     Modal close
-  ------------------------------------------------------- */
-
-  .ie-courses-page
-  .ie-modal-close {
-    min-width:
-      36px;
-
-    height:
-      25px;
-
-    padding:
-      3px 10px;
-
-    font-size:
-      15px;
-  }
-
-
-  /* -------------------------------------------------------
-     Management image
-  ------------------------------------------------------- */
-
-  .ie-management-profile-image {
-    max-width:
-      120px;
-  }
-}
-
-/* =========================================================
-   23. FAQ PAGE
-   INTERNATIONAL ECADEMY
+   31. FAQ PAGE
 ========================================================= */
 
 .faq-page {
-  width: 100%;
+
+  width:
+    100%;
 }
 
 
@@ -2683,21 +2685,31 @@ th {
 ========================================================= */
 
 .faq-page .ie-page-header {
-  margin: 0 auto;
-  max-width: 850px;
+
+  margin:
+    0 auto;
+
+  max-width:
+    850px;
 }
 
 .faq-page .ie-page-header .ie-title-red,
 .faq-page .ie-page-header .ie-title-blue {
-  margin: 0;
+
+  margin:
+    0;
 }
 
 .faq-page .ie-page-header .ie-title-blue {
-  margin-top: 2px;
+
+  margin-top:
+    2px;
 }
 
 .faq-page .ie-page-header .ie-muted-text {
-  margin-bottom: 0;
+
+  margin-bottom:
+    0;
 }
 
 
@@ -2706,10 +2718,18 @@ th {
 ========================================================= */
 
 .faq-page .ie-faq {
-  width: 100%;
-  max-width: 1050px;
-  margin-left: auto;
-  margin-right: auto;
+
+  width:
+    100%;
+
+  max-width:
+    1050px;
+
+  margin-left:
+    auto;
+
+  margin-right:
+    auto;
 }
 
 
@@ -2718,7 +2738,9 @@ th {
 ========================================================= */
 
 .faq-page .accordion {
-  width: 100%;
+
+  width:
+    100%;
 }
 
 
@@ -2727,16 +2749,24 @@ th {
 ========================================================= */
 
 .faq-page .ie-faq-item {
-  margin-bottom: 12px;
 
-  border: 1px solid var(--ie-border);
-  border-radius: var(--ie-radius);
+  margin-bottom:
+    12px;
 
-  background: var(--ie-white);
+  border:
+    1px solid var(--ie-border);
 
-  overflow: hidden;
+  border-radius:
+    var(--ie-radius);
 
-  box-shadow: var(--ie-shadow-soft);
+  background:
+    var(--ie-white);
+
+  overflow:
+    hidden;
+
+  box-shadow:
+    var(--ie-shadow-soft);
 
   transition:
     border-color 0.25s ease,
@@ -2745,11 +2775,15 @@ th {
 }
 
 .faq-page .ie-faq-item:last-child {
-  margin-bottom: 0;
+
+  margin-bottom:
+    0;
 }
 
 .faq-page .ie-faq-item:hover {
-  border-color: rgba(23, 105, 255, 0.25);
+
+  border-color:
+    rgba(23, 105, 255, 0.25);
 
   box-shadow:
     0 8px 24px rgba(16, 42, 67, 0.09);
@@ -2761,37 +2795,56 @@ th {
 ========================================================= */
 
 .faq-page .ie-faq-button {
-  position: relative;
 
-  display: flex;
-  align-items: center;
+  position:
+    relative;
 
-  width: 100%;
+  display:
+    flex;
 
-  min-height: 58px;
+  align-items:
+    center;
 
-  padding: 15px 58px 15px 20px;
+  width:
+    100%;
 
-  border: 0 !important;
-  border-radius: 0 !important;
+  min-height:
+    58px;
 
-  background: var(--ie-white) !important;
+  padding:
+    15px 58px 15px 20px;
 
-  color: var(--ie-blue) !important;
+  border:
+    0 !important;
+
+  border-radius:
+    0 !important;
+
+  background:
+    var(--ie-white) !important;
+
+  color:
+    var(--ie-blue) !important;
 
   font-family:
     "Segoe UI",
     Arial,
     sans-serif;
 
-  font-size: 16px;
-  font-weight: 700;
+  font-size:
+    16px;
 
-  line-height: 1.4;
+  font-weight:
+    700;
 
-  text-align: left;
+  line-height:
+    1.4;
 
-  box-shadow: none !important;
+  text-align:
+    left;
+
+  box-shadow:
+    none !important;
 
   transition:
     background-color 0.2s ease,
@@ -2800,23 +2853,34 @@ th {
 
 
 /* =========================================================
-   FAQ BUTTON - REMOVE BOOTSTRAP DEFAULT
+   FAQ BUTTON ARROW
 ========================================================= */
 
 .faq-page .ie-faq-button::after {
-  position: absolute;
 
-  right: 20px;
+  position:
+    absolute;
 
-  width: 10px;
-  height: 10px;
+  right:
+    20px;
 
-  margin-left: 0;
+  width:
+    10px;
 
-  border: solid var(--ie-blue);
-  border-width: 0 2px 2px 0;
+  height:
+    10px;
 
-  background-image: none !important;
+  margin-left:
+    0;
+
+  border:
+    solid var(--ie-blue);
+
+  border-width:
+    0 2px 2px 0;
+
+  background-image:
+    none !important;
 
   transform:
     rotate(45deg)
@@ -2826,24 +2890,31 @@ th {
     transform 0.25s ease,
     border-color 0.25s ease;
 
-  content: "";
+  content:
+    "";
 }
 
 
 /* =========================================================
-   FAQ BUTTON - OPEN STATE
+   FAQ OPEN STATE
 ========================================================= */
 
 .faq-page .ie-faq-button:not(.collapsed) {
-  background: var(--ie-blue-light) !important;
 
-  color: var(--ie-blue) !important;
+  background:
+    var(--ie-blue-light) !important;
 
-  box-shadow: none !important;
+  color:
+    var(--ie-blue) !important;
+
+  box-shadow:
+    none !important;
 }
 
 .faq-page .ie-faq-button:not(.collapsed)::after {
-  border-color: var(--ie-red);
+
+  border-color:
+    var(--ie-red);
 
   transform:
     rotate(225deg)
@@ -2852,23 +2923,28 @@ th {
 
 
 /* =========================================================
-   FAQ BUTTON HOVER
+   FAQ HOVER
 ========================================================= */
 
 .faq-page .ie-faq-button:hover {
-  background: var(--ie-blue-light) !important;
 
-  color: var(--ie-blue) !important;
+  background:
+    var(--ie-blue-light) !important;
+
+  color:
+    var(--ie-blue) !important;
 }
 
 
 /* =========================================================
-   FAQ BUTTON FOCUS
+   FAQ FOCUS
 ========================================================= */
 
 .faq-page .ie-faq-button:focus,
 .faq-page .ie-faq-button:focus-visible {
-  outline: none !important;
+
+  outline:
+    none !important;
 
   box-shadow:
     inset 0 0 0 2px rgba(23, 105, 255, 0.12) !important;
@@ -2880,19 +2956,27 @@ th {
 ========================================================= */
 
 .faq-page .ie-faq-body {
-  padding: 20px 22px 21px;
 
-  border-top: 1px solid var(--ie-border);
+  padding:
+    20px 22px 21px;
 
-  background: var(--ie-white);
+  border-top:
+    1px solid var(--ie-border);
 
-  color: var(--ie-text);
+  background:
+    var(--ie-white);
 
-  font-size: 14px;
+  color:
+    var(--ie-text);
 
-  line-height: 1.7;
+  font-size:
+    14px;
 
-  text-align: justify;
+  line-height:
+    1.7;
+
+  text-align:
+    justify;
 }
 
 
@@ -2901,17 +2985,24 @@ th {
 ========================================================= */
 
 .faq-page .ie-faq-body p {
-  margin: 0 0 13px;
 
-  color: var(--ie-text);
+  margin:
+    0 0 13px;
 
-  font-size: 14px;
+  color:
+    var(--ie-text);
 
-  line-height: 1.7;
+  font-size:
+    14px;
+
+  line-height:
+    1.7;
 }
 
 .faq-page .ie-faq-body p:last-child {
-  margin-bottom: 0;
+
+  margin-bottom:
+    0;
 }
 
 
@@ -2920,189 +3011,53 @@ th {
 ========================================================= */
 
 .faq-page .ie-faq-body .ie-link {
-  color: var(--ie-blue);
 
-  font-weight: 700;
+  color:
+    var(--ie-blue);
 
-  text-decoration: none;
+  font-weight:
+    700;
+
+  text-decoration:
+    none;
 
   transition:
     color 0.2s ease;
 }
 
 .faq-page .ie-faq-body .ie-link:hover {
-  color: var(--ie-red);
 
-  text-decoration: underline;
+  color:
+    var(--ie-red);
+
+  text-decoration:
+    underline;
 }
 
 
 /* =========================================================
-   FAQ TABLET
-========================================================= */
-
-@media (max-width: 991.98px) {
-
-  .faq-page .ie-faq {
-    max-width: 100%;
-  }
-
-  .faq-page .ie-faq-button {
-    min-height: 56px;
-
-    padding: 14px 54px 14px 18px;
-
-    font-size: 15.5px;
-  }
-
-  .faq-page .ie-faq-button::after {
-    right: 19px;
-  }
-
-  .faq-page .ie-faq-body {
-    padding: 18px 20px 19px;
-
-    font-size: 13.5px;
-  }
-
-  .faq-page .ie-faq-body p {
-    font-size: 13.5px;
-    line-height: 1.7;
-  }
-}
-
-
-/* =========================================================
-   FAQ MOBILE
-========================================================= */
-
-@media (max-width: 767.98px) {
-
-  .faq-page .ie-page-header {
-    padding: 0 8px;
-  }
-
-  .faq-page .ie-faq {
-    margin-top: 30px !important;
-  }
-
-  .faq-page .ie-faq-item {
-    margin-bottom: 10px;
-
-    border-radius: 9px;
-  }
-
-  .faq-page .ie-faq-button {
-    min-height: 54px;
-
-    padding: 13px 48px 13px 16px;
-
-    font-size: 14.5px;
-
-    line-height: 1.4;
-  }
-
-  .faq-page .ie-faq-button::after {
-    right: 17px;
-
-    width: 9px;
-    height: 9px;
-  }
-
-  .faq-page .ie-faq-body {
-    padding: 16px 17px 17px;
-
-    font-size: 13px;
-
-    line-height: 1.65;
-
-    text-align: left;
-  }
-
-  .faq-page .ie-faq-body p {
-    margin-bottom: 12px;
-
-    font-size: 13px;
-
-    line-height: 1.65;
-  }
-}
-
-
-/* =========================================================
-   FAQ SMALL MOBILE
-========================================================= */
-
-@media (max-width: 575.98px) {
-
-  .faq-page .ie-faq {
-    margin-top: 25px !important;
-  }
-
-  .faq-page .ie-faq-item {
-    margin-bottom: 8px;
-
-    border-radius: 8px;
-  }
-
-  .faq-page .ie-faq-button {
-    min-height: 52px;
-
-    padding: 12px 44px 12px 14px;
-
-    font-size: 14px;
-
-    line-height: 1.4;
-  }
-
-  .faq-page .ie-faq-button::after {
-    right: 15px;
-
-    width: 8px;
-    height: 8px;
-  }
-
-  .faq-page .ie-faq-body {
-    padding: 14px 15px 15px;
-
-    font-size: 12.5px;
-
-    line-height: 1.6;
-  }
-
-  .faq-page .ie-faq-body p {
-    margin-bottom: 11px;
-
-    font-size: 12.5px;
-
-    line-height: 1.6;
-  }
-}
-
-/* =========================================================
-   INTERNATIONAL ECADEMY
-   CONTACT PAGE
-   PREMIUM CLASSIC / GLASS DESIGN
-   COMPACT ROW VERSION
-========================================================= */
-
-
-/* =========================================================
-   CONTACT IMAGE
+   32. CONTACT PAGE
 ========================================================= */
 
 .ie-contact-page .ie-contact-image {
 
-  display: block;
+  display:
+    block;
 
-  width: 82%;
-  max-width: 370px;
+  width:
+    82%;
 
-  height: auto;
+  max-width:
+    370px;
 
-  margin: 0 auto;
+  height:
+    auto;
 
-  border-radius: var(--ie-radius-lg);
+  margin:
+    0 auto;
+
+  border-radius:
+    var(--ie-radius-lg);
 
   box-shadow:
     0 12px 35px rgba(16, 42, 67, 0.14);
@@ -3127,9 +3082,11 @@ th {
 
 .ie-contact-page .ie-contact-card {
 
-  position: relative;
+  position:
+    relative;
 
-  overflow: hidden;
+  overflow:
+    hidden;
 
   background:
     linear-gradient(
@@ -3156,20 +3113,28 @@ th {
 
 
 /* =========================================================
-   SUBTLE TOP ACCENT
+   CONTACT TOP ACCENT
 ========================================================= */
 
 .ie-contact-page .ie-contact-card::before {
 
-  content: "";
+  content:
+    "";
 
-  position: absolute;
+  position:
+    absolute;
 
-  top: 0;
-  left: 0;
-  right: 0;
+  top:
+    0;
 
-  height: 4px;
+  left:
+    0;
+
+  right:
+    0;
+
+  height:
+    4px;
 
   background:
     linear-gradient(
@@ -3186,11 +3151,14 @@ th {
 
 .ie-contact-page .ie-contact-table-wrapper {
 
-  margin: 0;
+  margin:
+    0;
 
-  padding: 0;
+  padding:
+    0;
 
-  overflow: hidden;
+  overflow:
+    hidden;
 }
 
 
@@ -3200,22 +3168,28 @@ th {
 
 .ie-contact-page .ie-contact-table {
 
-  width: 100%;
+  width:
+    100%;
 
-  margin: 0;
+  margin:
+    0;
 
-  border: 0;
+  border:
+    0;
 
-  border-collapse: separate;
+  border-collapse:
+    separate;
 
-  border-spacing: 0;
+  border-spacing:
+    0;
 
-  background: transparent;
+  background:
+    transparent;
 }
 
 
 /* =========================================================
-   COMPACT TABLE CELLS
+   CONTACT TABLE CELLS
 ========================================================= */
 
 .ie-contact-page .ie-contact-table th,
@@ -3224,7 +3198,8 @@ th {
   padding:
     9px 16px;
 
-  border: 0;
+  border:
+    0;
 
   border-bottom:
     1px solid rgba(231, 235, 242, 0.85);
@@ -3235,7 +3210,7 @@ th {
 
 
 /* =========================================================
-   REMOVE LAST BORDER
+   CONTACT LAST ROW
 ========================================================= */
 
 .ie-contact-page .ie-contact-table tr:last-child th,
@@ -3247,7 +3222,7 @@ th {
 
 
 /* =========================================================
-   LABEL COLUMN
+   CONTACT LABEL COLUMN
 ========================================================= */
 
 .ie-contact-page .ie-contact-table th {
@@ -3276,7 +3251,7 @@ th {
 
 
 /* =========================================================
-   CLASSIC ICON CIRCLE
+   CONTACT ICON CIRCLE
 ========================================================= */
 
 .ie-contact-page .ie-contact-table th i {
@@ -3362,7 +3337,7 @@ th {
 
 
 /* =========================================================
-   TABLE VALUE
+   CONTACT VALUE
 ========================================================= */
 
 .ie-contact-page .ie-contact-table td {
@@ -3385,7 +3360,7 @@ th {
 
 
 /* =========================================================
-   ROW HOVER
+   CONTACT ROW HOVER
 ========================================================= */
 
 .ie-contact-page .ie-contact-table tr {
@@ -3608,10 +3583,121 @@ th {
 
 
 /* =========================================================
-   TABLET
+   33. TABLET
 ========================================================= */
 
 @media (max-width: 991.98px) {
+
+  .ie-page {
+
+    padding:
+      16px 0 60px;
+  }
+
+  .ie-section {
+
+    padding:
+      35px 0;
+  }
+
+  .ie-title-red,
+  .ie-title-blue {
+
+    font-size:
+      30px;
+  }
+
+  .ie-intro {
+
+    min-height:
+      auto;
+  }
+
+  .ie-section-heading {
+
+    margin-top:
+      40px;
+  }
+
+  .ie-modal-info-grid {
+
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+
+  /* =======================================================
+     COURSE CARD
+  ======================================================= */
+
+  .ie-courses-page .ie-course-card .ie-card-header {
+
+    padding:
+      6px 11px !important;
+  }
+
+  .ie-courses-page .ie-course-header-row {
+
+    gap:
+      7px;
+  }
+
+  .ie-courses-page .ie-course-card .ie-card-title {
+
+    font-size:
+      18px;
+  }
+
+  .animated-course-code {
+
+    letter-spacing:
+      0.13em;
+  }
+
+  .ie-courses-page .ie-course-read-more {
+
+    height:
+      29px;
+
+    min-height:
+      29px;
+
+    padding:
+      5px 12px;
+
+    font-size:
+      11px;
+  }
+
+
+  /* -------------------------------------------------------
+     Course image
+  ------------------------------------------------------- */
+
+  .ie-courses-page .ie-course-card .course-image {
+
+    height:
+      240px;
+  }
+
+
+  /* -------------------------------------------------------
+     Description tooltip
+  ------------------------------------------------------- */
+
+  .ie-courses-page .ie-description-tooltip {
+
+    width:
+      320px;
+
+    max-width:
+      75vw;
+  }
+
+
+  /* =======================================================
+     CONTACT
+  ======================================================= */
 
   .ie-contact-page .ie-contact-image {
 
@@ -3628,15 +3714,550 @@ th {
     padding:
       8px 13px;
   }
-
 }
 
 
 /* =========================================================
-   MOBILE
+   34. MOBILE
 ========================================================= */
 
 @media (max-width: 767.98px) {
+
+  .ie-page {
+
+    padding:
+      10px 0 45px;
+  }
+
+  .ie-section {
+
+    padding:
+      30px 0;
+  }
+
+  .ie-section-sm {
+
+    padding:
+      25px 0;
+  }
+
+  .ie-section-lg {
+
+    padding:
+      45px 0;
+  }
+
+  .ie-title-red,
+  .ie-title-blue {
+
+    font-size:
+      27px;
+  }
+
+  .ie-intro-heading-group {
+
+    min-height:
+      65px;
+  }
+
+  .ie-content-list {
+
+    font-size:
+      13px;
+
+    line-height:
+      1.7;
+  }
+
+  .ie-feature-title {
+
+    margin-top:
+      25px;
+
+    font-size:
+      23px;
+  }
+
+  .ie-intro-image {
+
+    width:
+      100%;
+
+    margin-top:
+      25px;
+  }
+
+  .ie-feature-image-sm,
+  .ie-feature-image-md,
+  .ie-feature-image-lg {
+
+    width:
+      55%;
+  }
+
+  .ie-card-body {
+
+    padding:
+      18px;
+  }
+
+
+  /* =======================================================
+     COURSE CARD
+  ======================================================= */
+
+  .ie-courses-page
+  .ie-course-card
+  .ie-card-body
+  > .row
+  > [class*="col-"] {
+
+    display:
+      block;
+  }
+
+
+  /* -------------------------------------------------------
+     Course image
+  ------------------------------------------------------- */
+
+  .ie-courses-page
+  .ie-course-card
+  .course-image {
+
+    width:
+      100%;
+
+    max-width:
+      100%;
+
+    height:
+      220px;
+
+    object-fit:
+      cover;
+  }
+
+
+  /* -------------------------------------------------------
+     Course information panel
+  ------------------------------------------------------- */
+
+  .ie-courses-page
+  .ie-course-card
+  .ie-info-panel {
+
+    width:
+      100%;
+
+    height:
+      auto !important;
+  }
+
+
+  /* -------------------------------------------------------
+     Information rows
+  ------------------------------------------------------- */
+
+  .ie-courses-page .ie-info-row {
+
+    display:
+      flex;
+
+    flex-direction:
+      row;
+
+    align-items:
+      center;
+
+    justify-content:
+      flex-start;
+
+    gap:
+      8px;
+
+    padding:
+      9px 12px;
+  }
+
+
+  /* -------------------------------------------------------
+     Information label
+  ------------------------------------------------------- */
+
+  .ie-courses-page .ie-info-label {
+
+    flex:
+      0 0 85px;
+
+    min-width:
+      85px;
+
+    text-align:
+      left;
+  }
+
+
+  /* -------------------------------------------------------
+     Information value
+  ------------------------------------------------------- */
+
+  .ie-courses-page .ie-info-value {
+
+    flex:
+      0 0 auto;
+
+    min-width:
+      0;
+
+    text-align:
+      left;
+
+    overflow-wrap:
+      anywhere;
+  }
+
+
+  /* -------------------------------------------------------
+     Course header
+  ------------------------------------------------------- */
+
+  .ie-courses-page
+  .ie-course-card
+  .ie-card-header {
+
+    padding:
+      5px 10px !important;
+  }
+
+  .ie-courses-page
+  .ie-course-header-row {
+
+    gap:
+      6px;
+  }
+
+  .ie-courses-page
+  .ie-course-header-row
+  .ie-card-title {
+
+    width:
+      100%;
+
+    flex:
+      0 0 100% !important;
+
+    text-align:
+      center !important;
+
+    line-height:
+      1.15 !important;
+  }
+
+  .ie-courses-page
+  .ie-course-card
+  .ie-card-title {
+
+    font-size:
+      17px;
+
+    line-height:
+      1.25;
+  }
+
+
+  /* -------------------------------------------------------
+     Animated course code
+  ------------------------------------------------------- */
+
+  .animated-course-code {
+
+    letter-spacing:
+      0.10em;
+  }
+
+  .animated-course-letter {
+
+    font-size:
+      1.15em;
+
+    margin-right:
+      2px;
+
+    -webkit-text-stroke:
+      1px var(--ie-red);
+  }
+
+  .animated-course-code::before {
+
+    margin-right:
+      6px;
+  }
+
+  .animated-course-code::after {
+
+    margin-left:
+      5px;
+  }
+
+
+  /* -------------------------------------------------------
+     View button
+  ------------------------------------------------------- */
+
+  .ie-courses-page .ie-course-read-more {
+
+    height:
+      28px;
+
+    min-height:
+      28px;
+
+    padding:
+      3px 8px !important;
+
+    font-size:
+      10.5px;
+  }
+
+
+  /* -------------------------------------------------------
+     Bottom actions
+  ------------------------------------------------------- */
+
+  .ie-courses-page .ie-course-bottom-actions {
+
+    margin-top:
+      7px;
+
+    gap:
+      8px;
+  }
+
+  .ie-courses-page
+  .ie-course-bottom-actions
+  .ie-course-read-more {
+
+    padding:
+      3px 8px !important;
+  }
+
+
+  /* -------------------------------------------------------
+     Disable overlay on mobile
+  ------------------------------------------------------- */
+
+  .ie-courses-page
+  .ie-course-description-overlay {
+
+    display:
+      none;
+  }
+
+
+  /* =======================================================
+     DESCRIPTION TOOLTIP
+  ======================================================= */
+
+  .ie-courses-page .ie-description-tooltip {
+
+    left:
+      0;
+
+    width:
+      290px;
+
+    max-width:
+      75vw;
+  }
+
+  .ie-courses-page .ie-description-tooltip-text {
+
+    max-height:
+      160px;
+
+    overflow-y:
+      auto;
+  }
+
+
+  /* =======================================================
+     MODAL
+  ======================================================= */
+
+  .ie-courses-page
+  .ie-modal-header {
+
+    padding:
+      18px 18px 15px;
+
+    border-bottom:
+      1px solid var(--ie-border);
+  }
+
+  .ie-courses-page
+  .ie-modal-header
+  .ie-card-title {
+
+    font-size:
+      19px;
+  }
+
+  .ie-courses-page
+  .ie-modal-body {
+
+    padding:
+      18px;
+  }
+
+
+  /* -------------------------------------------------------
+     Modal description
+  ------------------------------------------------------- */
+
+  .ie-courses-page
+  .ie-modal-description {
+
+    margin-top:
+      12px;
+
+    padding:
+      16px;
+  }
+
+  .ie-courses-page
+  .ie-modal-description p {
+
+    font-size:
+      12px;
+
+    line-height:
+      1.55;
+  }
+
+  .ie-courses-page
+  .ie-modal-description h3 {
+
+    font-size:
+      17px;
+  }
+
+
+  /* -------------------------------------------------------
+     Modal button
+  ------------------------------------------------------- */
+
+  .ie-modal-pill-button {
+
+    min-height:
+      30px;
+
+    padding:
+      5px 15px;
+
+    font-size:
+      11.5px;
+  }
+
+  .ie-modal-close {
+
+    min-width:
+      40px;
+
+    height:
+      27px;
+
+    padding:
+      3px 11px;
+
+    font-size:
+      16px;
+  }
+
+
+  /* =======================================================
+     FAQ
+  ======================================================= */
+
+  .faq-page .ie-page-header {
+
+    padding:
+      0 8px;
+  }
+
+  .faq-page .ie-faq {
+
+    margin-top:
+      30px !important;
+  }
+
+  .faq-page .ie-faq-item {
+
+    margin-bottom:
+      10px;
+
+    border-radius:
+      9px;
+  }
+
+  .faq-page .ie-faq-button {
+
+    min-height:
+      54px;
+
+    padding:
+      13px 48px 13px 16px;
+
+    font-size:
+      14.5px;
+
+    line-height:
+      1.4;
+  }
+
+  .faq-page .ie-faq-button::after {
+
+    right:
+      17px;
+
+    width:
+      9px;
+
+    height:
+      9px;
+  }
+
+  .faq-page .ie-faq-body {
+
+    padding:
+      16px 17px 17px;
+
+    font-size:
+      13px;
+
+    line-height:
+      1.65;
+
+    text-align:
+      left;
+  }
+
+  .faq-page .ie-faq-body p {
+
+    margin-bottom:
+      12px;
+
+    font-size:
+      13px;
+
+    line-height:
+      1.65;
+  }
+
+
+  /* =======================================================
+     CONTACT
+  ======================================================= */
 
   .ie-contact-page .ie-contact-image {
 
@@ -3692,15 +4313,397 @@ th {
     font-size:
       13px;
   }
-
 }
 
 
 /* =========================================================
-   SMALL MOBILE
+   35. SMALL MOBILE
 ========================================================= */
 
 @media (max-width: 575.98px) {
+
+  .ie-page {
+
+    padding:
+      8px 0 40px;
+  }
+
+  .ie-title-red,
+  .ie-title-blue {
+
+    font-size:
+      24px;
+  }
+
+  .ie-content-list {
+
+    font-size:
+      13px;
+
+    line-height:
+      1.7;
+  }
+
+  .ie-feature-title {
+
+    font-size:
+      21px;
+  }
+
+  .ie-card-header {
+
+    padding:
+      15px;
+  }
+
+  .ie-card-body {
+
+    padding:
+      15px;
+  }
+
+  .ie-card-title {
+
+    font-size:
+      18px;
+  }
+
+
+  /* =======================================================
+     COURSE INFORMATION
+  ======================================================= */
+
+  .ie-courses-page .ie-info-row {
+
+    display:
+      flex;
+
+    flex-direction:
+      row;
+
+    align-items:
+      center;
+
+    justify-content:
+      flex-start;
+
+    gap:
+      7px;
+
+    padding:
+      9px 12px;
+  }
+
+  .ie-courses-page .ie-info-label {
+
+    flex:
+      0 0 80px;
+
+    min-width:
+      80px;
+
+    text-align:
+      left;
+
+    white-space:
+      nowrap;
+  }
+
+  .ie-courses-page .ie-info-value {
+
+    flex:
+      0 0 auto;
+
+    min-width:
+      0;
+
+    text-align:
+      left;
+
+    overflow-wrap:
+      anywhere;
+  }
+
+
+  /* -------------------------------------------------------
+     Course header
+  ------------------------------------------------------- */
+
+  .ie-courses-page
+  .ie-course-card
+  .ie-card-header {
+
+    padding:
+      5px 9px !important;
+  }
+
+  .ie-courses-page
+  .ie-course-header-row {
+
+    gap:
+      5px;
+  }
+
+  .ie-courses-page
+  .ie-course-header-row
+  .ie-card-title {
+
+    font-size:
+      15.5px;
+
+    line-height:
+      1.15 !important;
+  }
+
+
+  /* -------------------------------------------------------
+     Animated course code
+  ------------------------------------------------------- */
+
+  .animated-course-code {
+
+    letter-spacing:
+      0.07em;
+  }
+
+  .animated-course-letter {
+
+    font-size:
+      1.10em;
+
+    margin-right:
+      2px;
+
+    -webkit-text-stroke:
+      1px var(--ie-red);
+  }
+
+  .animated-course-code::before,
+  .animated-course-code::after {
+
+    font-size:
+      0.65em;
+  }
+
+  .animated-course-code::before {
+
+    margin-right:
+      5px;
+  }
+
+  .animated-course-code::after {
+
+    margin-left:
+      5px;
+  }
+
+
+  /* -------------------------------------------------------
+     View button
+  ------------------------------------------------------- */
+
+  .ie-courses-page .ie-course-read-more {
+
+    height:
+      27px;
+
+    min-height:
+      27px;
+
+    padding:
+      5px 9px !important;
+
+    font-size:
+      10px;
+  }
+
+
+  /* =======================================================
+     SMALL MOBILE MODAL
+  ======================================================= */
+
+  .ie-courses-page
+  .ie-modal-header {
+
+    padding:
+      15px 12px 12px;
+
+    border-bottom:
+      1px solid var(--ie-border);
+  }
+
+  .ie-courses-page
+  .ie-modal-header
+  .ie-card-title {
+
+    font-size:
+      19px;
+  }
+
+
+  /* -------------------------------------------------------
+     Modal body
+  ------------------------------------------------------- */
+
+  .ie-courses-page
+  .ie-modal-body {
+
+    padding:
+      12px 10px;
+  }
+
+
+  /* -------------------------------------------------------
+     Modal table
+  ------------------------------------------------------- */
+
+  .ie-courses-page
+  .ie-modal-body
+  .ie-table
+  th,
+  .ie-courses-page
+  .ie-modal-body
+  .ie-table
+  td {
+
+    padding:
+      7px 10px;
+
+    font-size:
+      11.5px;
+  }
+
+
+  /* -------------------------------------------------------
+     Modal description
+  ------------------------------------------------------- */
+
+  .ie-courses-page
+  .ie-modal-description {
+
+    margin-top:
+      10px;
+
+    padding:
+      10px 12px;
+  }
+
+  .ie-courses-page
+  .ie-modal-description p {
+
+    font-size:
+      11.5px;
+
+    line-height:
+      1.5;
+  }
+
+  .ie-courses-page
+  .ie-modal-description h3 {
+
+    font-size:
+      16px;
+
+    margin-bottom:
+      5px;
+  }
+
+
+  /* -------------------------------------------------------
+     Modal close
+  ------------------------------------------------------- */
+
+  .ie-courses-page
+  .ie-modal-close {
+
+    min-width:
+      36px;
+
+    height:
+      25px;
+
+    padding:
+      3px 10px;
+
+    font-size:
+      15px;
+  }
+
+
+  /* =======================================================
+     FAQ
+  ======================================================= */
+
+  .faq-page .ie-faq {
+
+    margin-top:
+      25px !important;
+  }
+
+  .faq-page .ie-faq-item {
+
+    margin-bottom:
+      8px;
+
+    border-radius:
+      8px;
+  }
+
+  .faq-page .ie-faq-button {
+
+    min-height:
+      52px;
+
+    padding:
+      12px 44px 12px 14px;
+
+    font-size:
+      14px;
+
+    line-height:
+      1.4;
+  }
+
+  .faq-page .ie-faq-button::after {
+
+    right:
+      15px;
+
+    width:
+      8px;
+
+    height:
+      8px;
+  }
+
+  .faq-page .ie-faq-body {
+
+    padding:
+      14px 15px 15px;
+
+    font-size:
+      12.5px;
+
+    line-height:
+      1.6;
+  }
+
+  .faq-page .ie-faq-body p {
+
+    margin-bottom:
+      11px;
+
+    font-size:
+      12.5px;
+
+    line-height:
+      1.6;
+  }
+
+
+  /* =======================================================
+     CONTACT
+  ======================================================= */
 
   .ie-contact-page .ie-contact-image {
 
@@ -3760,136 +4763,41 @@ th {
       12px;
   }
 
+
+  /* -------------------------------------------------------
+     Management image
+  ------------------------------------------------------- */
+
+  .ie-management-profile-image {
+
+    max-width:
+      120px;
+  }
 }
 
 
 /* =========================================================
-   COURSE CARD HOVER REFINEMENT
-   Course descriptions are shown in the View modal, so cards
-   use a light interaction instead of a content-covering overlay.
+   36. ACCESSIBILITY
 ========================================================= */
 
-.ie-courses-page .ie-course-description-overlay {
-  display:none;
-}
+@media (prefers-reduced-motion: reduce) {
 
-.ie-courses-page .ie-course-card {
-  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-}
-
-.ie-courses-page .ie-course-card:hover {
-  transform:translateY(-4px);
-  border-color:rgba(23,105,255,.35);
-  box-shadow:0 14px 28px rgba(16,42,67,.12);
-}
-
-.ie-courses-page .ie-course-card:hover .course-image {
-  transform:scale(1.015);
-}
-
-
-/* =========================================================
-   COURSE DETAILS MODAL REFINEMENT
-========================================================= */
-
-.ie-courses-page .modal-content {
-  border:1px solid var(--ie-border);
-  border-radius:20px;
-  box-shadow:0 20px 52px rgba(16,42,67,.18);
-}
-
-.ie-courses-page .ie-course-modal {
-  background:#fff;
-}
-
-.ie-courses-page .ie-modal-header {
-  padding:22px 24px 18px;
-  border-bottom:1px solid var(--ie-border);
-  background:linear-gradient(135deg,#fff 0%,var(--ie-blue-light) 100%);
-}
-
-.ie-courses-page .ie-modal-header .ie-card-title {
-  max-width:calc(100% - 86px);
-  color:var(--ie-navy);
-  font-size:22px;
-  line-height:1.25;
-}
-
-.ie-courses-page .ie-modal-body {
-  padding:22px 24px 26px;
-}
-
-.ie-courses-page .ie-modal-body .ie-table-wrapper {
-  border:1px solid var(--ie-border);
-  border-radius:12px;
-  background:#fff;
-}
-
-.ie-courses-page .ie-modal-body .ie-table {
-  margin:0 auto;
-}
-
-.ie-courses-page .ie-modal-body .ie-table thead th {
-  padding:11px 12px;
-  background:var(--ie-blue-light);
-  color:var(--ie-navy);
-}
-
-.ie-courses-page .ie-modal-body .ie-table tbody td {
-  padding:12px;
-  background:#fff;
-  color:var(--ie-text);
-}
-
-.ie-courses-page .ie-modal-description {
-  margin-top:20px;
-  padding:20px;
-  border:1px solid var(--ie-border);
-  border-left:4px solid var(--ie-blue);
-  border-radius:12px;
-  background:#f8fbff;
-}
-
-.ie-courses-page .ie-modal-description h3 {
-  margin-bottom:8px;
-  color:var(--ie-navy);
-  font-size:18px;
-}
-
-.ie-courses-page .ie-modal-description p {
-  font-size:14px;
-  line-height:1.65;
-}
-
-.ie-courses-page .ie-modal-pill-button {
-  min-height:36px;
-  padding:7px 16px;
-  border-color:rgba(23,105,255,.3);
-  background:#fff;
-  color:var(--ie-blue);
-}
-
-.ie-courses-page .ie-modal-pill-button:hover {
-  background:var(--ie-blue);
-  border-color:var(--ie-blue);
-  color:#fff;
-  box-shadow:0 5px 12px rgba(23,105,255,.2);
-}
-
-@media (max-width:767.98px) {
-  .ie-courses-page .ie-modal-header {
-    padding:18px 18px 15px;
+  html {
+    scroll-behavior:
+      auto;
   }
 
-  .ie-courses-page .ie-modal-header .ie-card-title {
-    font-size:19px;
-  }
+  *,
+  *::before,
+  *::after {
 
-  .ie-courses-page .ie-modal-body {
-    padding:18px;
-  }
+    animation-duration:
+      0.01ms !important;
 
-  .ie-courses-page .ie-modal-description {
-    padding:16px;
+    animation-iteration-count:
+      1 !important;
+
+    transition-duration:
+      0.01ms !important;
   }
 }

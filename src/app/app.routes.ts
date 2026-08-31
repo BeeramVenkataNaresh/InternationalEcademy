@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-import { HomeComponent } from './_components/Home/home.component';
+import { Home1Component } from './_components/Home1/home1.component';
 import { ContactComponent } from './_components/Contact/contact.component';
 import { AboutComponent } from './_components/About/about.component';
 import { RegisterComponent } from './_components/Register/register.component';
@@ -14,11 +14,11 @@ import { VisionComponent } from './_components/Vision/vision.component';
 import { ManagementComponent } from './_components/Management/management.component';
 import { FaqsComponent } from './_components/Faqs/faqs.component';
 import { TestComponent } from './_components/Test/test.component';
-import { Home1 } from './_components/home1/home1';
+import { Home } from './_components/home/home';
 
 export const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'home1', component: Home1 },
+  { path: 'home1', component: Home1Component },
+  { path: 'home', component: Home },
   { path: 'about', component: AboutComponent },
   { path: 'vision', component: VisionComponent },
   { path: 'management', component: ManagementComponent },

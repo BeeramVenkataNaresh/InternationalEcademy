@@ -15,7 +15,7 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-home1',
   standalone: true,
   imports: [
     CommonModule,
@@ -23,10 +23,10 @@ import {
     CarouselModule,
     NgbModalModule
   ],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  templateUrl: './home1.component.html',
+  styleUrls: ['./home1.component.css']
 })
-export class HomeComponent implements OnInit {
+export class Home1Component implements OnInit {
 
   title: any;
   closeResult: any;
