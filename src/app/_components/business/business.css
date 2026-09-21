@@ -1,0 +1,976 @@
+/* =========================================================
+   INTERNATIONAL ECADEMY
+   BUSINESS SERVICES PAGE
+========================================================= */
+
+.ie-business-page {
+  --business-navy: #102a43;
+  --business-blue: #1769ff;
+  --business-red: #ec1d23;
+  --business-orange: #f4a261;
+
+  --business-text: #243b53;
+  --business-muted: #627d98;
+  --business-border: #dce6f0;
+  --business-light: #f3f8ff;
+  --business-white: #ffffff;
+
+  color: var(--business-text);
+  background: var(--business-white);
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.ie-business-page .container {
+  position: relative;
+}
+
+.ie-business-page .ie-section-label {
+  margin-bottom: 14px;
+
+  color: var(--business-blue);
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ie-business-section-title {
+  margin: 0;
+
+  color: var(--business-navy);
+
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.ie-business-section-title span {
+  color: var(--business-blue);
+}
+
+.ie-business-body-text {
+  max-width: 620px;
+
+  margin: 26px 0 0;
+
+  color: var(--business-muted);
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.ie-business-hero {
+  position: relative;
+
+  padding: 150px 0 100px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f7fbff 100%
+    );
+}
+
+.ie-business-eyebrow {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 20px;
+
+  color: var(--business-blue);
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.ie-business-eyebrow::before {
+  content: "";
+
+  width: 28px;
+  height: 2px;
+
+  margin-right: 10px;
+
+  background: var(--business-red);
+}
+
+.ie-business-hero-title {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: var(--business-navy);
+
+  font-size: clamp(46px, 6vw, 76px);
+  font-weight: 750;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.ie-business-hero-title span {
+  display: block;
+
+  color: var(--business-blue);
+}
+
+.ie-business-hero-text {
+  max-width: 610px;
+
+  margin: 28px 0 0;
+
+  color: var(--business-muted);
+
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.ie-business-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-top: 32px;
+}
+
+.ie-business-primary-btn,
+.ie-business-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 46px;
+
+  padding: 11px 20px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.ie-business-primary-btn {
+  border: 1px solid var(--business-blue);
+
+  background: var(--business-blue);
+
+  color: #ffffff;
+
+  box-shadow: 0 8px 22px rgba(23, 105, 255, 0.16);
+}
+
+.ie-business-primary-btn:hover {
+  background: var(--business-navy);
+  border-color: var(--business-navy);
+
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+.ie-business-secondary-btn {
+  border: 1px solid var(--business-border);
+
+  background: #ffffff;
+
+  color: var(--business-navy);
+}
+
+.ie-business-secondary-btn:hover {
+  border-color: var(--business-blue);
+
+  background: var(--business-light);
+
+  color: var(--business-blue);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.ie-business-hero-visual {
+  position: relative;
+
+  min-height: 500px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ie-business-hero-shape {
+  position: absolute;
+
+  border-radius: 28px;
+}
+
+.ie-business-shape-blue {
+  top: 35px;
+  right: 25px;
+
+  width: 76%;
+  height: 80%;
+
+  background: var(--business-blue);
+
+  opacity: 0.12;
+
+  transform: rotate(5deg);
+}
+
+.ie-business-shape-orange {
+  right: 5px;
+  bottom: 35px;
+
+  width: 68%;
+  height: 46%;
+
+  background: var(--business-orange);
+
+  opacity: 0.28;
+
+  transform: rotate(-5deg);
+}
+
+.ie-business-hero-image-wrap {
+  position: relative;
+
+  width: 88%;
+
+  padding: 8px;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(16, 42, 67, 0.08);
+
+  box-shadow: 0 24px 60px rgba(16, 42, 67, 0.14);
+
+  transform: rotate(-2deg);
+}
+
+.ie-business-hero-image {
+  display: block;
+
+  width: 100%;
+  height: 480px;
+
+  object-fit: cover;
+}
+
+.ie-business-image-label {
+  position: absolute;
+
+  left: 24px;
+  bottom: 20px;
+
+  padding: 8px 12px;
+
+  background: #ffffff;
+
+  color: var(--business-navy);
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+
+  box-shadow: 0 8px 24px rgba(16, 42, 67, 0.12);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.ie-business-intro {
+  padding: 105px 0;
+
+  background: #ffffff;
+}
+
+.ie-business-intro-copy {
+  max-width: 720px;
+}
+
+.ie-business-intro-copy p {
+  margin: 0 0 20px;
+
+  color: var(--business-muted);
+
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+.ie-business-intro-copy p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   BUSINESS SERVICES
+========================================================= */
+
+.ie-business-services {
+  padding: 105px 0;
+
+  background: var(--business-light);
+}
+
+.ie-business-section-heading {
+  max-width: 760px;
+
+  margin-bottom: 55px;
+}
+
+.ie-business-service-list {
+  border-top: 1px solid var(--business-border);
+}
+
+.ie-business-service {
+  display: grid;
+
+  grid-template-columns: 70px 1fr 40px;
+
+  gap: 25px;
+
+  align-items: center;
+
+  padding: 27px 0;
+
+  border-bottom: 1px solid var(--business-border);
+
+  transition:
+    padding 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.ie-business-service:hover {
+  padding-left: 14px;
+  padding-right: 14px;
+
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.ie-business-service-number {
+  color: var(--business-red);
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.ie-business-service-content h3 {
+  margin: 0 0 7px;
+
+  color: var(--business-navy);
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ie-business-service-content p {
+  max-width: 720px;
+
+  margin: 0;
+
+  color: var(--business-muted);
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.ie-business-service-arrow {
+  color: var(--business-blue);
+
+  font-size: 23px;
+
+  transition: transform 0.2s ease;
+}
+
+.ie-business-service:hover .ie-business-service-arrow {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   BUSINESS JOURNEY
+========================================================= */
+
+.ie-business-journey {
+  padding: 110px 0;
+
+  background: #ffffff;
+}
+
+.ie-business-journey-box {
+  padding: 30px;
+
+  border: 1px solid var(--business-border);
+
+  background: #ffffff;
+
+  box-shadow: 0 18px 50px rgba(16, 42, 67, 0.07);
+}
+
+.ie-business-journey-item {
+  display: grid;
+
+  grid-template-columns: 42px 150px 1fr;
+
+  gap: 15px;
+
+  align-items: center;
+
+  padding: 18px 0;
+
+  border-bottom: 1px solid var(--business-border);
+}
+
+.ie-business-journey-item:last-child {
+  border-bottom: 0;
+}
+
+.ie-business-journey-item span {
+  color: var(--business-red);
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.ie-business-journey-item strong {
+  color: var(--business-navy);
+
+  font-size: 17px;
+}
+
+.ie-business-journey-item p {
+  margin: 0;
+
+  color: var(--business-muted);
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   WHO WE SUPPORT
+========================================================= */
+
+.ie-business-support {
+  padding: 105px 0;
+
+  background: var(--business-light);
+}
+
+.ie-business-support-item {
+  height: 100%;
+
+  padding: 28px;
+
+  border: 1px solid var(--business-border);
+
+  background: #ffffff;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ie-business-support-item:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 16px 35px rgba(16, 42, 67, 0.08);
+}
+
+.ie-business-support-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  margin-bottom: 24px;
+
+  border-radius: 50%;
+
+  background: var(--business-light);
+
+  color: var(--business-blue);
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.ie-business-support-item h3 {
+  margin: 0 0 10px;
+
+  color: var(--business-navy);
+
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.ie-business-support-item p {
+  margin: 0;
+
+  color: var(--business-muted);
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   BUSINESS DEVELOPMENT
+========================================================= */
+
+.ie-business-development {
+  padding: 110px 0;
+
+  background: #ffffff;
+}
+
+.ie-business-development-panel {
+  position: relative;
+
+  padding: 45px;
+
+  overflow: hidden;
+
+  background: var(--business-navy);
+
+  box-shadow: 0 22px 55px rgba(16, 42, 67, 0.14);
+}
+
+.ie-business-development-panel::after {
+  content: "";
+
+  position: absolute;
+
+  right: -70px;
+  bottom: -90px;
+
+  width: 230px;
+  height: 230px;
+
+  border-radius: 50%;
+
+  background: var(--business-blue);
+
+  opacity: 0.18;
+}
+
+.ie-business-development-tag {
+  position: relative;
+  z-index: 1;
+
+  color: #8bb7ff;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.ie-business-development-line {
+  position: relative;
+  z-index: 1;
+
+  width: 42px;
+  height: 2px;
+
+  margin: 22px 0;
+
+  background: var(--business-red);
+}
+
+.ie-business-development-panel h3 {
+  position: relative;
+  z-index: 1;
+
+  max-width: 520px;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.ie-business-development-panel h3 span {
+  display: block;
+
+  color: #8bb7ff;
+}
+
+.ie-business-development-panel p {
+  position: relative;
+  z-index: 1;
+
+  max-width: 540px;
+
+  margin: 24px 0 0;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.ie-business-inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 28px;
+
+  color: var(--business-blue);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-decoration: none;
+}
+
+.ie-business-inline-link span {
+  font-size: 18px;
+
+  transition: transform 0.2s ease;
+}
+
+.ie-business-inline-link:hover {
+  color: var(--business-navy);
+}
+
+.ie-business-inline-link:hover span {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   HOW WE HELP
+========================================================= */
+
+.ie-business-process {
+  padding: 110px 0;
+
+  background: var(--business-light);
+}
+
+.ie-business-process-list {
+  border-top: 1px solid var(--business-border);
+}
+
+.ie-business-process-item {
+  display: grid;
+
+  grid-template-columns: 55px 1fr;
+
+  gap: 20px;
+
+  padding: 23px 0;
+
+  border-bottom: 1px solid var(--business-border);
+}
+
+.ie-business-process-number {
+  padding-top: 3px;
+
+  color: var(--business-red);
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.ie-business-process-item h3 {
+  margin: 0 0 6px;
+
+  color: var(--business-navy);
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.ie-business-process-item p {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: var(--business-muted);
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.ie-business-cta {
+  padding: 90px 0;
+
+  background: var(--business-navy);
+}
+
+.ie-business-cta-inner {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+.ie-business-cta .ie-section-label {
+  color: #8bb7ff;
+}
+
+.ie-business-cta h2 {
+  max-width: 720px;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.ie-business-cta h2 span {
+  color: #8bb7ff;
+}
+
+.ie-business-cta p {
+  max-width: 650px;
+
+  margin: 20px 0 0;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.ie-business-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  min-height: 48px;
+
+  padding: 12px 20px;
+
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: var(--business-navy);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.ie-business-cta-button span {
+  font-size: 18px;
+}
+
+.ie-business-cta-button:hover {
+  transform: translateY(-2px);
+
+  background: var(--business-light);
+
+  color: var(--business-navy);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991.98px) {
+
+  .ie-business-hero {
+    padding: 125px 0 75px;
+  }
+
+  .ie-business-hero-title {
+    font-size: clamp(42px, 8vw, 62px);
+  }
+
+  .ie-business-hero-visual {
+    min-height: 430px;
+  }
+
+  .ie-business-hero-image {
+    height: 410px;
+  }
+
+  .ie-business-intro,
+  .ie-business-services,
+  .ie-business-journey,
+  .ie-business-support,
+  .ie-business-development,
+  .ie-business-process {
+    padding: 80px 0;
+  }
+
+  .ie-business-cta-inner {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767.98px) {
+
+  .ie-business-hero {
+    padding: 110px 0 55px;
+  }
+
+  .ie-business-hero-title {
+    font-size: 42px;
+  }
+
+  .ie-business-hero-text {
+    font-size: 15px;
+  }
+
+  .ie-business-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ie-business-primary-btn,
+  .ie-business-secondary-btn {
+    width: 100%;
+  }
+
+  .ie-business-hero-visual {
+    min-height: 340px;
+
+    margin-top: 20px;
+  }
+
+  .ie-business-hero-image-wrap {
+    width: 92%;
+  }
+
+  .ie-business-hero-image {
+    height: 320px;
+  }
+
+  .ie-business-image-label {
+    left: 15px;
+    bottom: 15px;
+
+    font-size: 8px;
+  }
+
+  .ie-business-section-title {
+    font-size: 34px;
+  }
+
+  .ie-business-intro-copy p,
+  .ie-business-body-text {
+    font-size: 15px;
+  }
+
+  .ie-business-service {
+    grid-template-columns: 38px 1fr 25px;
+
+    gap: 12px;
+
+    padding: 22px 0;
+  }
+
+  .ie-business-service:hover {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .ie-business-service-content h3 {
+    font-size: 17px;
+  }
+
+  .ie-business-service-content p {
+    font-size: 13px;
+  }
+
+  .ie-business-journey-box {
+    padding: 20px;
+  }
+
+  .ie-business-journey-item {
+    grid-template-columns: 35px 1fr;
+
+    gap: 8px;
+  }
+
+  .ie-business-journey-item p {
+    grid-column: 2;
+  }
+
+  .ie-business-development-panel {
+    padding: 30px;
+  }
+
+  .ie-business-cta {
+    padding: 70px 0;
+  }
+
+  .ie-business-cta h2 {
+    font-size: 36px;
+  }
+
+  .ie-business-cta-button {
+    width: 100%;
+  }
+
+}

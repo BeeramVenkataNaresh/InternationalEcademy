@@ -1,0 +1,885 @@
+/* =========================================================
+   INTERNATIONAL ECADEMY
+   INTERNATIONAL OPPORTUNITIES & SETTLEMENT
+========================================================= */
+
+.ie-international-page {
+  --international-navy: #102a43;
+  --international-blue: #1769ff;
+  --international-blue-dark: #1254d6;
+  --international-blue-light: #f3f8ff;
+  --international-orange: #f4a261;
+  --international-red: #ec1d23;
+  --international-text: #243b53;
+  --international-muted: #627d98;
+  --international-border: #dce6f0;
+  --international-white: #ffffff;
+
+  color: var(--international-text);
+  background: var(--international-white);
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.ie-international-page .container {
+  max-width: 1200px;
+}
+
+.ie-international-section-label {
+  margin-bottom: 14px;
+
+  color: var(--international-blue);
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.ie-international-section-title {
+  margin: 0;
+
+  color: var(--international-navy);
+
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.ie-international-section-title span {
+  color: var(--international-blue);
+}
+
+.ie-international-page p {
+  color: var(--international-muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.ie-international-hero {
+  position: relative;
+
+  padding: 145px 0 105px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 8% 20%,
+      rgba(23, 105, 255, 0.07),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #f7faff 0%,
+      #ffffff 100%
+    );
+}
+
+.ie-international-eyebrow {
+  display: inline-flex;
+
+  margin-bottom: 22px;
+  padding: 7px 12px;
+
+  border: 1px solid rgba(23, 105, 255, 0.15);
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.8);
+
+  color: var(--international-blue);
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.ie-international-hero-title {
+  max-width: 620px;
+
+  margin: 0 0 25px;
+
+  color: var(--international-navy);
+
+  font-size: clamp(48px, 6vw, 76px);
+  line-height: 0.98;
+  font-weight: 750;
+  letter-spacing: -0.055em;
+}
+
+.ie-international-hero-title span {
+  color: var(--international-blue);
+}
+
+.ie-international-hero-text {
+  max-width: 570px;
+
+  margin-bottom: 32px;
+
+  color: var(--international-muted);
+
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.ie-international-hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ie-international-primary-btn,
+.ie-international-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+  padding: 12px 20px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ie-international-primary-btn {
+  color: var(--international-white);
+
+  background: var(--international-blue);
+
+  box-shadow: 0 10px 25px rgba(23, 105, 255, 0.18);
+}
+
+.ie-international-primary-btn:hover {
+  color: var(--international-white);
+
+  background: var(--international-blue-dark);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 14px 30px rgba(23, 105, 255, 0.23);
+}
+
+.ie-international-secondary-btn {
+  color: var(--international-navy);
+
+  background: var(--international-white);
+
+  border: 1px solid var(--international-border);
+}
+
+.ie-international-secondary-btn:hover {
+  color: var(--international-blue);
+
+  border-color: rgba(23, 105, 255, 0.25);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.ie-international-hero-visual {
+  position: relative;
+
+  min-height: 470px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ie-international-hero-shape {
+  position: absolute;
+
+  width: 220px;
+  height: 360px;
+
+  border-radius: 28px;
+
+  transform: rotate(8deg);
+}
+
+.ie-international-shape-blue {
+  top: 25px;
+  right: 30px;
+
+  background: var(--international-navy);
+}
+
+.ie-international-shape-orange {
+  right: 125px;
+  bottom: 25px;
+
+  background: var(--international-orange);
+
+  opacity: 0.9;
+}
+
+.ie-international-hero-image-wrap {
+  position: relative;
+  z-index: 2;
+
+  width: min(100%, 455px);
+
+  padding: 8px;
+
+  background: var(--international-white);
+
+  border-radius: 18px;
+
+  box-shadow: 0 25px 55px rgba(16, 42, 67, 0.15);
+
+  transform: rotate(-3deg);
+}
+
+.ie-international-hero-image {
+  display: block;
+
+  width: 100%;
+  height: 430px;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+}
+
+.ie-international-image-label {
+  position: absolute;
+
+  left: 25px;
+  bottom: 18px;
+
+  padding: 9px 13px;
+
+  border-radius: 6px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  color: var(--international-navy);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+
+  box-shadow: 0 8px 22px rgba(16, 42, 67, 0.12);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.ie-international-intro {
+  padding: 105px 0;
+}
+
+.ie-international-intro-copy {
+  max-width: 680px;
+}
+
+.ie-international-intro-copy p {
+  margin-bottom: 22px;
+}
+
+.ie-international-intro-highlight {
+  margin-top: 28px;
+  padding-left: 20px;
+
+  border-left: 3px solid var(--international-orange);
+
+  color: var(--international-navy);
+
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.ie-international-services {
+  padding: 105px 0;
+
+  background: var(--international-blue-light);
+}
+
+.ie-international-section-heading {
+  max-width: 760px;
+
+  margin-bottom: 50px;
+}
+
+.ie-international-section-heading > p {
+  max-width: 650px;
+
+  margin-top: 20px;
+}
+
+.ie-international-service-list {
+  border-top: 1px solid var(--international-border);
+}
+
+.ie-international-service {
+  display: grid;
+
+  grid-template-columns: 80px 1fr 40px;
+
+  gap: 25px;
+
+  align-items: center;
+
+  padding: 27px 5px;
+
+  border-bottom: 1px solid var(--international-border);
+
+  transition:
+    padding-left 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.ie-international-service:hover {
+  padding-left: 15px;
+
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.ie-international-service-number {
+  color: var(--international-blue);
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.ie-international-service-content h3 {
+  margin: 0 0 7px;
+
+  color: var(--international-navy);
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ie-international-service-content p {
+  max-width: 720px;
+
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.ie-international-service-arrow {
+  color: var(--international-blue);
+
+  font-size: 23px;
+
+  transition: transform 0.2s ease;
+}
+
+.ie-international-service:hover .ie-international-service-arrow {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   PATHWAY
+========================================================= */
+
+.ie-international-pathway {
+  padding: 105px 0;
+}
+
+.ie-international-pathway-box {
+  padding: 65px;
+
+  border: 1px solid var(--international-border);
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f6faff 100%
+    );
+}
+
+.ie-international-pathway-list {
+  border-top: 1px solid var(--international-border);
+}
+
+.ie-international-pathway-item {
+  display: grid;
+
+  grid-template-columns: 55px 1fr;
+
+  gap: 20px;
+
+  padding: 22px 0;
+
+  border-bottom: 1px solid var(--international-border);
+}
+
+.ie-international-pathway-number {
+  color: var(--international-blue);
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.ie-international-pathway-item h3 {
+  margin: 0 0 6px;
+
+  color: var(--international-navy);
+
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.ie-international-pathway-item p {
+  margin: 0;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   SUPPORT
+========================================================= */
+
+.ie-international-support {
+  padding: 105px 0;
+
+  background: #ffffff;
+}
+
+.ie-international-support-item {
+  height: 100%;
+
+  padding: 30px;
+
+  border: 1px solid var(--international-border);
+
+  background: var(--international-white);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ie-international-support-item:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(23, 105, 255, 0.25);
+
+  box-shadow: 0 15px 35px rgba(16, 42, 67, 0.08);
+}
+
+.ie-international-support-icon {
+  display: inline-block;
+
+  margin-bottom: 35px;
+  padding: 6px 9px;
+
+  border-radius: 4px;
+
+  background: var(--international-blue-light);
+
+  color: var(--international-blue);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.ie-international-support-item h3 {
+  margin-bottom: 10px;
+
+  color: var(--international-navy);
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ie-international-support-item p {
+  margin: 0;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   CAREER CONNECTION
+========================================================= */
+
+.ie-international-career {
+  padding: 105px 0;
+
+  background: var(--international-blue-light);
+}
+
+.ie-international-career-panel {
+  padding: 65px;
+
+  border-radius: 24px;
+
+  background: var(--international-navy);
+
+  box-shadow: 0 25px 55px rgba(16, 42, 67, 0.12);
+}
+
+.ie-international-career-tag {
+  margin-bottom: 18px;
+
+  color: #8eb7ff;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.ie-international-career-panel h2 {
+  margin: 0;
+
+  color: var(--international-white);
+
+  font-size: clamp(34px, 4vw, 50px);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.ie-international-career-panel h2 span {
+  color: #79a7ff;
+}
+
+.ie-international-career-copy p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.ie-international-inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 8px;
+
+  color: var(--international-white);
+
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.ie-international-inline-link span {
+  color: #79a7ff;
+
+  font-size: 18px;
+
+  transition: transform 0.2s ease;
+}
+
+.ie-international-inline-link:hover {
+  color: var(--international-white);
+}
+
+.ie-international-inline-link:hover span {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.ie-international-process {
+  padding: 105px 0;
+}
+
+.ie-international-process-list {
+  border-top: 1px solid var(--international-border);
+}
+
+.ie-international-process-item {
+  display: grid;
+
+  grid-template-columns: 60px 1fr;
+
+  gap: 20px;
+
+  padding: 25px 0;
+
+  border-bottom: 1px solid var(--international-border);
+}
+
+.ie-international-process-number {
+  color: var(--international-blue);
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.ie-international-process-item h3 {
+  margin: 0 0 7px;
+
+  color: var(--international-navy);
+
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.ie-international-process-item p {
+  margin: 0;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.ie-international-cta {
+  padding: 105px 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f4f8ff 0%,
+      #ffffff 100%
+    );
+}
+
+.ie-international-cta-inner {
+  max-width: 850px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.ie-international-cta-inner h2 {
+  margin: 0 0 20px;
+
+  color: var(--international-navy);
+
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 1;
+  font-weight: 750;
+  letter-spacing: -0.045em;
+}
+
+.ie-international-cta-inner h2 span {
+  color: var(--international-blue);
+}
+
+.ie-international-cta-inner p {
+  max-width: 700px;
+
+  margin: 0 auto 30px;
+}
+
+.ie-international-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 22px;
+
+  border-radius: 8px;
+
+  color: var(--international-white);
+  background: var(--international-blue);
+
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+
+  box-shadow: 0 10px 25px rgba(23, 105, 255, 0.18);
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.ie-international-cta-button:hover {
+  color: var(--international-white);
+
+  background: var(--international-blue-dark);
+
+  transform: translateY(-2px);
+}
+
+.ie-international-cta-button span {
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991.98px) {
+
+  .ie-international-hero {
+    padding: 125px 0 80px;
+  }
+
+  .ie-international-hero-visual {
+    min-height: 430px;
+  }
+
+  .ie-international-hero-image {
+    height: 390px;
+  }
+
+  .ie-international-intro,
+  .ie-international-services,
+  .ie-international-pathway,
+  .ie-international-support,
+  .ie-international-career,
+  .ie-international-process,
+  .ie-international-cta {
+    padding: 80px 0;
+  }
+
+  .ie-international-pathway-box,
+  .ie-international-career-panel {
+    padding: 45px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767.98px) {
+
+  .ie-international-hero {
+    padding: 105px 0 65px;
+  }
+
+  .ie-international-hero-title {
+    font-size: 46px;
+  }
+
+  .ie-international-hero-text {
+    font-size: 15px;
+  }
+
+  .ie-international-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ie-international-primary-btn,
+  .ie-international-secondary-btn {
+    width: 100%;
+  }
+
+  .ie-international-hero-visual {
+    min-height: 350px;
+  }
+
+  .ie-international-hero-image-wrap {
+    width: 92%;
+  }
+
+  .ie-international-hero-image {
+    height: 330px;
+  }
+
+  .ie-international-hero-shape {
+    width: 150px;
+    height: 270px;
+  }
+
+  .ie-international-shape-blue {
+    right: 5px;
+  }
+
+  .ie-international-shape-orange {
+    right: 60px;
+  }
+
+  .ie-international-intro,
+  .ie-international-services,
+  .ie-international-pathway,
+  .ie-international-support,
+  .ie-international-career,
+  .ie-international-process,
+  .ie-international-cta {
+    padding: 65px 0;
+  }
+
+  .ie-international-section-title {
+    font-size: 36px;
+  }
+
+  .ie-international-service {
+    grid-template-columns: 45px 1fr 25px;
+    gap: 12px;
+
+    padding: 22px 0;
+  }
+
+  .ie-international-service-content h3 {
+    font-size: 17px;
+  }
+
+  .ie-international-service-content p {
+    font-size: 13px;
+  }
+
+  .ie-international-pathway-box,
+  .ie-international-career-panel {
+    padding: 30px 22px;
+
+    border-radius: 18px;
+  }
+
+  .ie-international-pathway-item {
+    grid-template-columns: 40px 1fr;
+    gap: 12px;
+  }
+
+  .ie-international-career-panel h2 {
+    font-size: 35px;
+  }
+
+  .ie-international-process-item {
+    grid-template-columns: 45px 1fr;
+    gap: 12px;
+  }
+
+  .ie-international-cta-inner h2 {
+    font-size: 42px;
+  }
+
+}

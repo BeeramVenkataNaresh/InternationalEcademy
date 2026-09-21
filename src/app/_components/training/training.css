@@ -1,0 +1,888 @@
+/* =========================================================
+   INTERNATIONAL ECADEMY
+   TRAINING & PROFESSIONAL DEVELOPMENT
+========================================================= */
+
+.ie-training-page {
+  --training-navy: #102a43;
+  --training-blue: #1769ff;
+  --training-blue-dark: #1254d6;
+  --training-blue-light: #f3f8ff;
+  --training-orange: #f4a261;
+  --training-red: #ec1d23;
+  --training-text: #243b53;
+  --training-muted: #627d98;
+  --training-border: #dce6f0;
+  --training-white: #ffffff;
+
+  color: var(--training-text);
+  background: var(--training-white);
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.ie-training-page .container {
+  max-width: 1200px;
+}
+
+.ie-training-section-label {
+  margin-bottom: 14px;
+
+  color: var(--training-blue);
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.ie-training-section-title {
+  margin: 0;
+
+  color: var(--training-navy);
+
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.ie-training-section-title span {
+  color: var(--training-blue);
+}
+
+.ie-training-page p {
+  color: var(--training-muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.ie-training-hero {
+  position: relative;
+
+  padding: 145px 0 105px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 8% 20%,
+      rgba(23, 105, 255, 0.07),
+      transparent 30%
+    ),
+    linear-gradient(
+      180deg,
+      #f7faff 0%,
+      #ffffff 100%
+    );
+}
+
+.ie-training-eyebrow {
+  display: inline-flex;
+
+  margin-bottom: 22px;
+  padding: 7px 12px;
+
+  border: 1px solid rgba(23, 105, 255, 0.15);
+  border-radius: 30px;
+
+  background: rgba(255, 255, 255, 0.8);
+
+  color: var(--training-blue);
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.ie-training-hero-title {
+  max-width: 620px;
+
+  margin: 0 0 25px;
+
+  color: var(--training-navy);
+
+  font-size: clamp(48px, 6vw, 76px);
+  line-height: 0.98;
+  font-weight: 750;
+  letter-spacing: -0.055em;
+}
+
+.ie-training-hero-title span {
+  color: var(--training-blue);
+}
+
+.ie-training-hero-text {
+  max-width: 570px;
+
+  margin-bottom: 32px;
+
+  color: var(--training-muted);
+
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.ie-training-hero-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.ie-training-primary-btn,
+.ie-training-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+  padding: 12px 20px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ie-training-primary-btn {
+  color: var(--training-white);
+
+  background: var(--training-blue);
+
+  box-shadow: 0 10px 25px rgba(23, 105, 255, 0.18);
+}
+
+.ie-training-primary-btn:hover {
+  color: var(--training-white);
+
+  background: var(--training-blue-dark);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 14px 30px rgba(23, 105, 255, 0.23);
+}
+
+.ie-training-secondary-btn {
+  color: var(--training-navy);
+
+  background: var(--training-white);
+
+  border: 1px solid var(--training-border);
+}
+
+.ie-training-secondary-btn:hover {
+  color: var(--training-blue);
+
+  border-color: rgba(23, 105, 255, 0.25);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO VISUAL
+========================================================= */
+
+.ie-training-hero-visual {
+  position: relative;
+
+  min-height: 470px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ie-training-hero-shape {
+  position: absolute;
+
+  width: 220px;
+  height: 360px;
+
+  border-radius: 28px;
+
+  transform: rotate(8deg);
+}
+
+.ie-training-shape-blue {
+  top: 25px;
+  right: 30px;
+
+  background: var(--training-navy);
+}
+
+.ie-training-shape-orange {
+  right: 125px;
+  bottom: 25px;
+
+  background: var(--training-orange);
+
+  opacity: 0.9;
+}
+
+.ie-training-hero-image-wrap {
+  position: relative;
+  z-index: 2;
+
+  width: min(100%, 455px);
+
+  padding: 8px;
+
+  background: var(--training-white);
+
+  border-radius: 18px;
+
+  box-shadow: 0 25px 55px rgba(16, 42, 67, 0.15);
+
+  transform: rotate(-3deg);
+}
+
+.ie-training-hero-image {
+  display: block;
+
+  width: 100%;
+  height: 430px;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+}
+
+.ie-training-image-label {
+  position: absolute;
+
+  left: 25px;
+  bottom: 18px;
+
+  padding: 9px 13px;
+
+  border-radius: 6px;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  color: var(--training-navy);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+
+  box-shadow: 0 8px 22px rgba(16, 42, 67, 0.12);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.ie-training-intro {
+  padding: 105px 0;
+}
+
+.ie-training-intro-copy {
+  max-width: 680px;
+}
+
+.ie-training-intro-copy p {
+  margin-bottom: 22px;
+}
+
+.ie-training-intro-highlight {
+  margin-top: 28px;
+  padding-left: 20px;
+
+  border-left: 3px solid var(--training-orange);
+
+  color: var(--training-navy);
+
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.ie-training-services {
+  padding: 105px 0;
+
+  background: var(--training-blue-light);
+}
+
+.ie-training-section-heading {
+  max-width: 760px;
+
+  margin-bottom: 50px;
+}
+
+.ie-training-section-heading > p {
+  max-width: 650px;
+
+  margin-top: 20px;
+}
+
+.ie-training-service-list {
+  border-top: 1px solid var(--training-border);
+}
+
+.ie-training-service {
+  display: grid;
+
+  grid-template-columns: 80px 1fr 40px;
+
+  gap: 25px;
+
+  align-items: center;
+
+  padding: 27px 5px;
+
+  border-bottom: 1px solid var(--training-border);
+
+  transition:
+    padding-left 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.ie-training-service:hover {
+  padding-left: 15px;
+
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.ie-training-service-number {
+  color: var(--training-blue);
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.ie-training-service-content h3 {
+  margin: 0 0 7px;
+
+  color: var(--training-navy);
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ie-training-service-content p {
+  max-width: 720px;
+
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.ie-training-service-arrow {
+  color: var(--training-blue);
+
+  font-size: 23px;
+
+  transition: transform 0.2s ease;
+}
+
+.ie-training-service:hover .ie-training-service-arrow {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   LEARNING JOURNEY
+========================================================= */
+
+.ie-training-journey {
+  padding: 105px 0;
+}
+
+.ie-training-journey-box {
+  padding: 65px;
+
+  border: 1px solid var(--training-border);
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f6faff 100%
+    );
+}
+
+.ie-training-journey-list {
+  border-top: 1px solid var(--training-border);
+}
+
+.ie-training-journey-item {
+  display: grid;
+
+  grid-template-columns: 55px 1fr;
+
+  gap: 20px;
+
+  padding: 22px 0;
+
+  border-bottom: 1px solid var(--training-border);
+}
+
+.ie-training-journey-number {
+  color: var(--training-blue);
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.ie-training-journey-item h3 {
+  margin: 0 0 6px;
+
+  color: var(--training-navy);
+
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.ie-training-journey-item p {
+  margin: 0;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   DEVELOPMENT AREAS
+========================================================= */
+
+.ie-training-development {
+  padding: 105px 0;
+
+  background: #ffffff;
+}
+
+.ie-training-development-item {
+  height: 100%;
+
+  padding: 30px;
+
+  border: 1px solid var(--training-border);
+
+  background: var(--training-white);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ie-training-development-item:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(23, 105, 255, 0.25);
+
+  box-shadow: 0 15px 35px rgba(16, 42, 67, 0.08);
+}
+
+.ie-training-development-icon {
+  display: inline-block;
+
+  margin-bottom: 35px;
+  padding: 6px 9px;
+
+  border-radius: 4px;
+
+  background: var(--training-blue-light);
+
+  color: var(--training-blue);
+
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.ie-training-development-item h3 {
+  margin-bottom: 10px;
+
+  color: var(--training-navy);
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ie-training-development-item p {
+  margin: 0;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   CAREER CONNECTION
+========================================================= */
+
+.ie-training-career {
+  padding: 105px 0;
+
+  background: var(--training-blue-light);
+}
+
+.ie-training-career-panel {
+  padding: 65px;
+
+  border-radius: 24px;
+
+  background: var(--training-navy);
+
+  box-shadow: 0 25px 55px rgba(16, 42, 67, 0.12);
+}
+
+.ie-training-career-tag {
+  margin-bottom: 18px;
+
+  color: #8eb7ff;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.ie-training-career-panel h2 {
+  margin: 0;
+
+  color: var(--training-white);
+
+  font-size: clamp(34px, 4vw, 50px);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+
+.ie-training-career-panel h2 span {
+  color: #79a7ff;
+}
+
+.ie-training-career-copy p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.ie-training-inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 8px;
+
+  color: var(--training-white);
+
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.ie-training-inline-link span {
+  color: #79a7ff;
+
+  font-size: 18px;
+
+  transition: transform 0.2s ease;
+}
+
+.ie-training-inline-link:hover {
+  color: var(--training-white);
+}
+
+.ie-training-inline-link:hover span {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
+.ie-training-process {
+  padding: 105px 0;
+}
+
+.ie-training-process-list {
+  border-top: 1px solid var(--training-border);
+}
+
+.ie-training-process-item {
+  display: grid;
+
+  grid-template-columns: 60px 1fr;
+
+  gap: 20px;
+
+  padding: 25px 0;
+
+  border-bottom: 1px solid var(--training-border);
+}
+
+.ie-training-process-number {
+  color: var(--training-blue);
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.ie-training-process-item h3 {
+  margin: 0 0 7px;
+
+  color: var(--training-navy);
+
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.ie-training-process-item p {
+  margin: 0;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.ie-training-cta {
+  padding: 105px 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f4f8ff 0%,
+      #ffffff 100%
+    );
+}
+
+.ie-training-cta-inner {
+  max-width: 850px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.ie-training-cta-inner h2 {
+  margin: 0 0 20px;
+
+  color: var(--training-navy);
+
+  font-size: clamp(42px, 5vw, 64px);
+  line-height: 1;
+  font-weight: 750;
+  letter-spacing: -0.045em;
+}
+
+.ie-training-cta-inner h2 span {
+  color: var(--training-blue);
+}
+
+.ie-training-cta-inner p {
+  max-width: 700px;
+
+  margin: 0 auto 30px;
+}
+
+.ie-training-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 22px;
+
+  border-radius: 8px;
+
+  color: var(--training-white);
+  background: var(--training-blue);
+
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+
+  box-shadow: 0 10px 25px rgba(23, 105, 255, 0.18);
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.ie-training-cta-button:hover {
+  color: var(--training-white);
+
+  background: var(--training-blue-dark);
+
+  transform: translateY(-2px);
+}
+
+.ie-training-cta-button span {
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991.98px) {
+
+  .ie-training-hero {
+    padding: 125px 0 80px;
+  }
+
+  .ie-training-hero-visual {
+    min-height: 430px;
+  }
+
+  .ie-training-hero-image {
+    height: 390px;
+  }
+
+  .ie-training-intro,
+  .ie-training-services,
+  .ie-training-journey,
+  .ie-training-development,
+  .ie-training-career,
+  .ie-training-process,
+  .ie-training-cta {
+    padding: 80px 0;
+  }
+
+  .ie-training-journey-box,
+  .ie-training-career-panel {
+    padding: 45px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767.98px) {
+
+  .ie-training-hero {
+    padding: 105px 0 65px;
+  }
+
+  .ie-training-hero-title {
+    font-size: 46px;
+  }
+
+  .ie-training-hero-text {
+    font-size: 15px;
+  }
+
+  .ie-training-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ie-training-primary-btn,
+  .ie-training-secondary-btn {
+    width: 100%;
+  }
+
+  .ie-training-hero-visual {
+    min-height: 350px;
+  }
+
+  .ie-training-hero-image-wrap {
+    width: 92%;
+  }
+
+  .ie-training-hero-image {
+    height: 330px;
+  }
+
+  .ie-training-hero-shape {
+    width: 150px;
+    height: 270px;
+  }
+
+  .ie-training-shape-blue {
+    right: 5px;
+  }
+
+  .ie-training-shape-orange {
+    right: 60px;
+  }
+
+  .ie-training-intro,
+  .ie-training-services,
+  .ie-training-journey,
+  .ie-training-development,
+  .ie-training-career,
+  .ie-training-process,
+  .ie-training-cta {
+    padding: 65px 0;
+  }
+
+  .ie-training-section-title {
+    font-size: 36px;
+  }
+
+  .ie-training-service {
+    grid-template-columns: 45px 1fr 25px;
+
+    gap: 12px;
+
+    padding: 22px 0;
+  }
+
+  .ie-training-service-content h3 {
+    font-size: 17px;
+  }
+
+  .ie-training-service-content p {
+    font-size: 13px;
+  }
+
+  .ie-training-journey-box,
+  .ie-training-career-panel {
+    padding: 30px 22px;
+
+    border-radius: 18px;
+  }
+
+  .ie-training-journey-item {
+    grid-template-columns: 40px 1fr;
+
+    gap: 12px;
+  }
+
+  .ie-training-career-panel h2 {
+    font-size: 35px;
+  }
+
+  .ie-training-process-item {
+    grid-template-columns: 45px 1fr;
+
+    gap: 12px;
+  }
+
+  .ie-training-cta-inner h2 {
+    font-size: 42px;
+  }
+
+}

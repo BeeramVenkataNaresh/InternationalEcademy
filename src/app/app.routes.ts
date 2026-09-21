@@ -15,11 +15,23 @@ import { ManagementComponent } from './_components/Management/management.compone
 import { FaqsComponent } from './_components/Faqs/faqs.component';
 import { TestComponent } from './_components/Test/test.component';
 import { Home } from './_components/home/home';
+import { About1Component } from './_components/About1/about1.component';
+import { Education } from './_components/education/education';
+import { Business } from './_components/business/business';
+import { Careers } from './_components/careers/careers';
+import { International } from './_components/international/international';
+import { Training } from './_components/training/training';
 
 export const routes: Routes = [
   { path: 'home1', component: Home1Component },
   { path: 'home', component: Home },
+  { path: 'about1', component: About1Component },
   { path: 'about', component: AboutComponent },
+  { path: 'education', component: Education },
+  { path: 'business', component: Business },
+  { path: 'careers', component: Careers },
+  { path: 'international', component: International },
+  { path: 'training', component: Training },
   { path: 'vision', component: VisionComponent },
   { path: 'management', component: ManagementComponent },
   { path: 'faqs', component: FaqsComponent },

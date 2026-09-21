@@ -10,13 +10,13 @@
       class="navbar-brand"
       routerLink="/home"
       (click)="collapseNavbar()"
-      aria-label="International Ecademy Home"
-    >
+      aria-label="International Ecademy Home">
+
       <img
         src="assets/images/companylogo.png"
         alt="International Ecademy"
-        class="navbar-logo"
-      />
+        class="navbar-logo" />
+
     </a>
 
 
@@ -31,9 +31,10 @@
       data-bs-target="#navmenu"
       aria-controls="navmenu"
       aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+      aria-label="Toggle navigation">
+
       <span class="navbar-toggler-icon"></span>
+
     </button>
 
 
@@ -41,10 +42,7 @@
          NAVIGATION
     ====================================================== -->
 
-    <div
-      class="collapse navbar-collapse"
-      id="navmenu"
-    >
+    <div class="collapse navbar-collapse" id="navmenu">
 
       <ul class="navbar-nav ms-auto align-items-lg-center">
 
@@ -56,15 +54,17 @@
         <li
           class="nav-item"
           routerLinkActive="nav-active"
-          [routerLinkActiveOptions]="{ exact: true }"
-        >
+          [routerLinkActiveOptions]="{ exact: true }">
+
           <a
             class="nav-link"
             routerLink="/home"
-            (click)="collapseNavbar()"
-          >
+            (click)="collapseNavbar()">
+
             Home
+
           </a>
+
         </li>
 
 
@@ -72,65 +72,17 @@
              ABOUT US
         ================================================== -->
 
-        <li class="nav-item dropdown">
+        <li class="nav-item">
 
           <a
-            class="nav-link dropdown-toggle"
-            href="#"
-            id="aboutDropdown"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
+            class="nav-link"
+            routerLink="/about"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">
+
             About Us
+
           </a>
-
-          <ul
-            class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="aboutDropdown"
-          >
-
-            <li>
-              <a
-                class="dropdown-item"
-                routerLink="/about"
-                (click)="collapseNavbar()"
-              >
-                About International Ecademy
-              </a>
-            </li>
-
-            <li>
-              <a
-                class="dropdown-item"
-                routerLink="/vision"
-                (click)="collapseNavbar()"
-              >
-                Vision, Mission &amp; Goals
-              </a>
-            </li>
-
-            <li>
-              <a
-                class="dropdown-item"
-                routerLink="/management"
-                (click)="collapseNavbar()"
-              >
-                Management
-              </a>
-            </li>
-
-            <li>
-              <a
-                class="dropdown-item"
-                routerLink="/approach"
-                (click)="collapseNavbar()"
-              >
-                Our Approach
-              </a>
-            </li>
-
-          </ul>
 
         </li>
 
@@ -147,64 +99,84 @@
             id="servicesDropdown"
             role="button"
             data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
+            aria-expanded="false">
+
             Services
+
           </a>
+
 
           <ul
             class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="servicesDropdown"
-          >
+            aria-labelledby="servicesDropdown">
 
             <li>
+
               <a
                 class="dropdown-item"
-                routerLink="/education-career-consultation"
-                (click)="collapseNavbar()"
-              >
-                Education &amp; Career Consultation
+                routerLink="/education"
+                (click)="collapseNavbar()">
+
+                Education
+
               </a>
+
             </li>
 
-            <li>
-              <a
-                class="dropdown-item"
-                routerLink="/business-consultation"
-                (click)="collapseNavbar()"
-              >
-                Business &amp; Entrepreneurship
-              </a>
-            </li>
 
             <li>
+
               <a
                 class="dropdown-item"
-                routerLink="/professional-career-services"
-                (click)="collapseNavbar()"
-              >
-                Professional &amp; Career Services
+                routerLink="/business"
+                (click)="collapseNavbar()">
+
+                Business
+
               </a>
+
             </li>
 
-            <li>
-              <a
-                class="dropdown-item"
-                routerLink="/international-settlement-services"
-                (click)="collapseNavbar()"
-              >
-                International &amp; Settlement Services
-              </a>
-            </li>
 
             <li>
+
               <a
                 class="dropdown-item"
-                routerLink="/training-professional-development"
-                (click)="collapseNavbar()"
-              >
-                Training &amp; Professional Development
+                routerLink="/careers"
+                (click)="collapseNavbar()">
+
+                Careers
+
               </a>
+
+            </li>
+
+
+            <li>
+
+              <a
+                class="dropdown-item"
+                routerLink="/international"
+                (click)="collapseNavbar()">
+
+                International
+
+              </a>
+
+            </li>
+
+
+            <li>
+
+              <a
+                class="dropdown-item"
+                routerLink="/training"
+                (click)="collapseNavbar()">
+
+                Training
+
+              </a>
+
             </li>
 
           </ul>
@@ -224,64 +196,84 @@
             id="expertiseDropdown"
             role="button"
             data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
+            aria-expanded="false">
+
             Expertise
+
           </a>
+
 
           <ul
             class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="expertiseDropdown"
-          >
+            aria-labelledby="expertiseDropdown">
 
             <li>
+
               <a
                 class="dropdown-item"
                 routerLink="/expertise/education"
-                (click)="collapseNavbar()"
-              >
+                (click)="collapseNavbar()">
+
                 Education
+
               </a>
+
             </li>
 
+
             <li>
+
               <a
                 class="dropdown-item"
                 routerLink="/expertise/career-development"
-                (click)="collapseNavbar()"
-              >
+                (click)="collapseNavbar()">
+
                 Career Development
+
               </a>
+
             </li>
 
+
             <li>
+
               <a
                 class="dropdown-item"
                 routerLink="/expertise/business"
-                (click)="collapseNavbar()"
-              >
+                (click)="collapseNavbar()">
+
                 Business &amp; Entrepreneurship
+
               </a>
+
             </li>
 
+
             <li>
+
               <a
                 class="dropdown-item"
                 routerLink="/expertise/professional-development"
-                (click)="collapseNavbar()"
-              >
+                (click)="collapseNavbar()">
+
                 Professional Development
+
               </a>
+
             </li>
 
+
             <li>
+
               <a
                 class="dropdown-item"
                 routerLink="/expertise/international-opportunities"
-                (click)="collapseNavbar()"
-              >
+                (click)="collapseNavbar()">
+
                 International Opportunities
+
               </a>
+
             </li>
 
           </ul>
@@ -301,54 +293,70 @@
             id="knowledgeDropdown"
             role="button"
             data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
+            aria-expanded="false">
+
             Knowledge Centre
+
           </a>
+
 
           <ul
             class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="knowledgeDropdown"
-          >
+            aria-labelledby="knowledgeDropdown">
 
             <li>
+
               <a
                 class="dropdown-item"
                 routerLink="/articles"
-                (click)="collapseNavbar()"
-              >
+                (click)="collapseNavbar()">
+
                 Insights &amp; Articles
+
               </a>
+
             </li>
 
+
             <li>
+
               <a
                 class="dropdown-item"
                 routerLink="/guides"
-                (click)="collapseNavbar()"
-              >
+                (click)="collapseNavbar()">
+
                 Guides
+
               </a>
+
             </li>
 
+
             <li>
+
               <a
                 class="dropdown-item"
                 routerLink="/faqs"
-                (click)="collapseNavbar()"
-              >
+                (click)="collapseNavbar()">
+
                 Frequently Asked Questions
+
               </a>
+
             </li>
 
+
             <li>
+
               <a
                 class="dropdown-item"
                 routerLink="/resources"
-                (click)="collapseNavbar()"
-              >
+                (click)="collapseNavbar()">
+
                 Resources
+
               </a>
+
             </li>
 
           </ul>
@@ -365,9 +373,10 @@
           <a
             class="nav-link"
             routerLink="/contact"
-            (click)="collapseNavbar()"
-          >
+            (click)="collapseNavbar()">
+
             Contact
+
           </a>
 
         </li>
@@ -382,9 +391,10 @@
           <a
             class="btn consultation-button"
             routerLink="/contact"
-            (click)="collapseNavbar()"
-          >
+            (click)="collapseNavbar()">
+
             Book a Consultation
+
           </a>
 
         </li>

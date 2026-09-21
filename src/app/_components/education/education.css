@@ -1,0 +1,887 @@
+/* =========================================================
+   INTERNATIONAL ECADEMY
+   EDUCATION SERVICES PAGE
+========================================================= */
+
+.ie-education-page {
+  --education-navy: #102a43;
+  --education-blue: #1769ff;
+  --education-red: #ec1d23;
+  --education-orange: #f4a261;
+
+  --education-text: #243b53;
+  --education-muted: #627d98;
+  --education-border: #dce6f0;
+  --education-light: #f3f8ff;
+  --education-white: #ffffff;
+
+  color: var(--education-text);
+  background: var(--education-white);
+}
+
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.ie-education-page .container {
+  position: relative;
+}
+
+.ie-section-label {
+  margin-bottom: 14px;
+
+  color: var(--education-blue);
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ie-education-section-title {
+  margin: 0;
+
+  color: var(--education-navy);
+
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.ie-education-section-title span {
+  color: var(--education-blue);
+}
+
+.ie-education-body-text {
+  max-width: 600px;
+
+  margin: 26px 0 0;
+
+  color: var(--education-muted);
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.ie-education-hero {
+  position: relative;
+
+  padding: 150px 0 100px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #f7fbff 100%
+    );
+}
+
+.ie-education-eyebrow {
+  display: inline-flex;
+  align-items: center;
+
+  margin-bottom: 20px;
+
+  color: var(--education-blue);
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.ie-education-eyebrow::before {
+  content: "";
+
+  width: 28px;
+  height: 2px;
+
+  margin-right: 10px;
+
+  background: var(--education-red);
+}
+
+.ie-education-hero-title {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: var(--education-navy);
+
+  font-size: clamp(46px, 6vw, 76px);
+  font-weight: 750;
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.ie-education-hero-title span {
+  display: block;
+
+  color: var(--education-blue);
+}
+
+.ie-education-hero-text {
+  max-width: 610px;
+
+  margin: 28px 0 0;
+
+  color: var(--education-muted);
+
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.ie-education-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-top: 32px;
+}
+
+.ie-education-primary-btn,
+.ie-education-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 46px;
+
+  padding: 11px 20px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.ie-education-primary-btn {
+  border: 1px solid var(--education-blue);
+
+  background: var(--education-blue);
+
+  color: #ffffff;
+
+  box-shadow: 0 8px 22px rgba(23, 105, 255, 0.16);
+}
+
+.ie-education-primary-btn:hover {
+  background: var(--education-navy);
+  border-color: var(--education-navy);
+
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+.ie-education-secondary-btn {
+  border: 1px solid var(--education-border);
+
+  background: #ffffff;
+
+  color: var(--education-navy);
+}
+
+.ie-education-secondary-btn:hover {
+  border-color: var(--education-blue);
+
+  background: var(--education-light);
+
+  color: var(--education-blue);
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+.ie-education-hero-visual {
+  position: relative;
+
+  min-height: 500px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ie-education-hero-shape {
+  position: absolute;
+
+  border-radius: 28px;
+
+  transform: rotate(-5deg);
+}
+
+.ie-shape-blue {
+  top: 45px;
+  right: 20px;
+
+  width: 78%;
+  height: 80%;
+
+  background: var(--education-blue);
+  opacity: 0.12;
+}
+
+.ie-shape-orange {
+  right: 5px;
+  bottom: 35px;
+
+  width: 70%;
+  height: 48%;
+
+  background: var(--education-orange);
+  opacity: 0.25;
+
+  transform: rotate(4deg);
+}
+
+.ie-education-hero-image-wrap {
+  position: relative;
+
+  width: 88%;
+
+  padding: 8px;
+
+  background: #ffffff;
+
+  border: 1px solid rgba(16, 42, 67, 0.08);
+
+  box-shadow: 0 24px 60px rgba(16, 42, 67, 0.14);
+
+  transform: rotate(2deg);
+}
+
+.ie-education-hero-image {
+  display: block;
+
+  width: 100%;
+  height: 480px;
+
+  object-fit: cover;
+}
+
+.ie-education-image-label {
+  position: absolute;
+
+  left: 24px;
+  bottom: 20px;
+
+  padding: 8px 12px;
+
+  background: #ffffff;
+
+  color: var(--education-navy);
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+
+  box-shadow: 0 8px 24px rgba(16, 42, 67, 0.12);
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.ie-education-intro {
+  padding: 105px 0;
+
+  background: #ffffff;
+}
+
+.ie-education-intro-copy {
+  max-width: 720px;
+}
+
+.ie-education-intro-copy p {
+  margin: 0 0 20px;
+
+  color: var(--education-muted);
+
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+.ie-education-intro-copy p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   EDUCATION SERVICES
+========================================================= */
+
+.ie-education-services {
+  padding: 105px 0;
+
+  background: var(--education-light);
+}
+
+.ie-education-section-heading {
+  max-width: 760px;
+
+  margin-bottom: 55px;
+}
+
+.ie-education-service-list {
+  border-top: 1px solid var(--education-border);
+}
+
+.ie-education-service {
+  display: grid;
+
+  grid-template-columns: 70px 1fr 40px;
+  gap: 25px;
+
+  align-items: center;
+
+  padding: 27px 0;
+
+  border-bottom: 1px solid var(--education-border);
+
+  transition:
+    padding 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.ie-education-service:hover {
+  padding-left: 14px;
+  padding-right: 14px;
+
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.ie-education-service-number {
+  color: var(--education-red);
+
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.ie-education-service-content h3 {
+  margin: 0 0 7px;
+
+  color: var(--education-navy);
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ie-education-service-content p {
+  max-width: 720px;
+
+  margin: 0;
+
+  color: var(--education-muted);
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.ie-education-service-arrow {
+  color: var(--education-blue);
+
+  font-size: 23px;
+  font-weight: 400;
+
+  transition: transform 0.2s ease;
+}
+
+.ie-education-service:hover .ie-education-service-arrow {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   EDUCATION & CAREER
+========================================================= */
+
+.ie-education-career {
+  padding: 110px 0;
+
+  background: #ffffff;
+}
+
+.ie-education-pathway {
+  padding: 36px;
+
+  border: 1px solid var(--education-border);
+
+  background: #ffffff;
+
+  box-shadow: 0 18px 50px rgba(16, 42, 67, 0.07);
+}
+
+.ie-pathway-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px 0;
+}
+
+.ie-pathway-item span {
+  color: var(--education-red);
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.ie-pathway-item strong {
+  color: var(--education-navy);
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.ie-pathway-line {
+  height: 1px;
+
+  background: var(--education-border);
+}
+
+
+/* =========================================================
+   WHO WE SUPPORT
+========================================================= */
+
+.ie-education-support {
+  padding: 105px 0;
+
+  background: var(--education-light);
+}
+
+.ie-support-item {
+  height: 100%;
+
+  padding: 28px;
+
+  border: 1px solid var(--education-border);
+
+  background: #ffffff;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.ie-support-item:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 16px 35px rgba(16, 42, 67, 0.08);
+}
+
+.ie-support-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+
+  margin-bottom: 24px;
+
+  border-radius: 50%;
+
+  background: var(--education-light);
+
+  color: var(--education-blue);
+
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.ie-support-item h3 {
+  margin: 0 0 10px;
+
+  color: var(--education-navy);
+
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.ie-support-item p {
+  margin: 0;
+
+  color: var(--education-muted);
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   HOW WE HELP
+========================================================= */
+
+.ie-education-process {
+  padding: 110px 0;
+
+  background: #ffffff;
+}
+
+.ie-process-list {
+  border-top: 1px solid var(--education-border);
+}
+
+.ie-process-item {
+  display: grid;
+
+  grid-template-columns: 55px 1fr;
+
+  gap: 20px;
+
+  padding: 23px 0;
+
+  border-bottom: 1px solid var(--education-border);
+}
+
+.ie-process-number {
+  padding-top: 3px;
+
+  color: var(--education-red);
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.ie-process-item h3 {
+  margin: 0 0 6px;
+
+  color: var(--education-navy);
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.ie-process-item p {
+  margin: 0;
+
+  color: var(--education-muted);
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   EDUCATION OPPORTUNITIES
+========================================================= */
+
+.ie-education-opportunities {
+  padding: 105px 0;
+
+  background: var(--education-light);
+}
+
+.ie-opportunity-item {
+  position: relative;
+
+  height: 100%;
+
+  padding: 32px 32px 32px 38px;
+
+  border: 1px solid var(--education-border);
+
+  background: #ffffff;
+}
+
+.ie-opportunity-accent {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 4px;
+  height: 100%;
+
+  background: var(--education-blue);
+}
+
+.ie-opportunity-item:nth-child(odd) .ie-opportunity-accent {
+  background: var(--education-red);
+}
+
+.ie-opportunity-item h3 {
+  margin: 0 0 10px;
+
+  color: var(--education-navy);
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ie-opportunity-item p {
+  max-width: 600px;
+
+  margin: 0;
+
+  color: var(--education-muted);
+
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.ie-education-cta {
+  padding: 90px 0;
+
+  background: var(--education-navy);
+}
+
+.ie-education-cta-inner {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+.ie-education-cta .ie-section-label {
+  color: #8bb7ff;
+}
+
+.ie-education-cta h2 {
+  max-width: 720px;
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.ie-education-cta h2 span {
+  color: #8bb7ff;
+}
+
+.ie-education-cta p {
+  max-width: 650px;
+
+  margin: 20px 0 0;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.ie-education-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  min-height: 48px;
+
+  padding: 12px 20px;
+
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: var(--education-navy);
+
+  font-size: 13px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.ie-education-cta-button span {
+  font-size: 18px;
+}
+
+.ie-education-cta-button:hover {
+  transform: translateY(-2px);
+
+  background: var(--education-light);
+
+  color: var(--education-navy);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991.98px) {
+
+  .ie-education-hero {
+    padding: 125px 0 75px;
+  }
+
+  .ie-education-hero-title {
+    font-size: clamp(42px, 8vw, 62px);
+  }
+
+  .ie-education-hero-visual {
+    min-height: 430px;
+  }
+
+  .ie-education-hero-image {
+    height: 410px;
+  }
+
+  .ie-education-intro,
+  .ie-education-services,
+  .ie-education-career,
+  .ie-education-support,
+  .ie-education-process,
+  .ie-education-opportunities {
+    padding: 80px 0;
+  }
+
+  .ie-education-cta-inner {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767.98px) {
+
+  .ie-education-hero {
+    padding: 110px 0 55px;
+  }
+
+  .ie-education-hero-title {
+    font-size: 42px;
+  }
+
+  .ie-education-hero-text {
+    font-size: 15px;
+  }
+
+  .ie-education-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ie-education-primary-btn,
+  .ie-education-secondary-btn {
+    width: 100%;
+  }
+
+  .ie-education-hero-visual {
+    min-height: 340px;
+
+    margin-top: 20px;
+  }
+
+  .ie-education-hero-image-wrap {
+    width: 92%;
+  }
+
+  .ie-education-hero-image {
+    height: 320px;
+  }
+
+  .ie-education-image-label {
+    left: 15px;
+    bottom: 15px;
+
+    font-size: 8px;
+  }
+
+  .ie-education-section-title {
+    font-size: 34px;
+  }
+
+  .ie-education-intro-copy p,
+  .ie-education-body-text {
+    font-size: 15px;
+  }
+
+  .ie-education-service {
+    grid-template-columns: 38px 1fr 25px;
+
+    gap: 12px;
+
+    padding: 22px 0;
+  }
+
+  .ie-education-service:hover {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .ie-education-service-content h3 {
+    font-size: 17px;
+  }
+
+  .ie-education-service-content p {
+    font-size: 13px;
+  }
+
+  .ie-education-pathway {
+    padding: 22px;
+  }
+
+  .ie-pathway-item strong {
+    font-size: 18px;
+  }
+
+  .ie-support-item {
+    padding: 24px;
+  }
+
+  .ie-education-cta {
+    padding: 70px 0;
+  }
+
+  .ie-education-cta h2 {
+    font-size: 36px;
+  }
+
+  .ie-education-cta-button {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+}
