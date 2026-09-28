@@ -1,5 +1,5 @@
 <!-- =========================================================
-     INTERNATIONAL ECADEMY - FOOTER
+     INTERNATIONAL ECADEMY - PROFESSIONAL FOOTER
 ========================================================= -->
 
 <footer class="site-footer">
@@ -8,124 +8,209 @@
 
     <div class="footer-main">
 
-      <!-- Brand -->
+      <!-- ===================================================
+           BRAND
+      ==================================================== -->
+
       <div class="footer-brand">
 
-        <img
-          src="assets/images/logo.png"
-          alt="International Ecademy"
-          class="footer-logo"
-        />
+        <img src="assets/images/logo.png" alt="International Ecademy" class="footer-logo" />
 
         <p>
-          Supporting students and graduates through education,
-          university admissions, career preparation and
-          opportunities in Canada.
+          Empowering education, business, careers, and global opportunities for lasting growth and success.
         </p>
 
       </div>
 
 
-      <!-- Contact -->
-      <div class="footer-contact">
+      <!-- ===================================================
+           QUICK LINKS
+      ==================================================== -->
 
-        <h4>Contact</h4>
+      <div class="footer-column footer-links">
 
-        <a href="tel:+16476413585">
-          <i class="fa fa-phone"></i>
-          +1 (647) 641-3585
+        <h4>Quick Links</h4>
+
+        <a routerLink="/home">
+          Home
         </a>
 
-        <a href="tel:+917093541984">
-          <i class="fa fa-phone"></i>
-          +91 70935 41984
+        <a routerLink="/about">
+          About Us
         </a>
 
-        <a href="mailto:internationalecademy@gmail.com">
-          <i class="fa fa-envelope"></i>
-          internationalecademy@gmail.com
+        <a routerLink="/register">
+          Register
+        </a>
+
+        <a routerLink="/contact">
+          Contact Us
+        </a>
+
+        <a routerLink="/faqs">
+          FAQs
         </a>
 
       </div>
 
 
-      <!-- Canada -->
-      <div class="footer-office">
+      <!-- ===================================================
+           SERVICES
+      ==================================================== -->
 
-        <h4>Canada Office</h4>
+      <div class="footer-column footer-links">
 
-        <p>
-          Unit No. 406,<br>
-          1833 Bayview Avenue,<br>
-          East York, Toronto,<br>
-          Ontario, Canada<br>
-          M4G 3E2
-        </p>
+        <h4>Our Services</h4>
+
+        <a routerLink="/education">
+          Education Consulting
+        </a>
+
+        <a routerLink="/business">
+          Business Consulting
+        </a>
+
+        <a routerLink="/careers">
+          Career Consulting
+        </a>
+
+        <a routerLink="/international">
+          International Consulting
+        </a>
+
+        <a routerLink="/training">
+          Training & Development
+        </a>
 
       </div>
 
 
-      <!-- India -->
-      <div class="footer-office">
+      <!-- ===================================================
+           GET IN TOUCH
+      ==================================================== -->
 
-        <h4>India Office</h4>
+      <div class="footer-column footer-contact">
 
-        <p>
-          Plot No. 21, 1st Floor,<br>
-          Sardar Patel Road,<br>
-          Paigah Colony,<br>
-          Hyderabad, Telangana,<br>
-          India - 500003
-        </p>
+        <h4>Get in Touch</h4>
+
+
+        <!-- Contact Pills -->
+
+        <div class="contact-pills">
+
+          <!-- Canada Phone -->
+
+          <a href="tel:+16476413585" class="contact-pill" aria-label="Call International Ecademy Canada">
+            <i class="fa fa-phone"></i>
+
+            <span>
+              +1 (647) 641-3585
+            </span>
+          </a>
+
+
+          <!-- India WhatsApp -->
+
+          <a href="https://wa.me/917093541984" target="_blank" rel="noopener" class="contact-pill whatsapp-pill"
+            aria-label="Chat with International Ecademy on WhatsApp">
+            <i class="fa fa-whatsapp"></i>
+
+            <span>
+              +91 70935 41984
+            </span>
+          </a>
+
+
+          <!-- Email -->
+
+          <a href="mailto:internationalecademy@gmail.com" class="contact-pill email-pill"
+            aria-label="Email International Ecademy">
+            <i class="fa fa-envelope"></i>
+
+            <span>
+              internationalecademy@gmail.com
+            </span>
+          </a>
+
+
+          <!-- Toronto Location -->
+
+          <a routerLink="/contact" class="contact-pill location-pill" aria-label="Toronto Canada location">
+            <i class="fa fa-map-marker"></i>
+
+            <span>
+              Toronto, Canada
+            </span>
+          </a>
+
+
+          <!-- Hyderabad Location -->
+
+          <a routerLink="/contact" class="contact-pill location-pill" aria-label="Hyderabad India location">
+            <i class="fa fa-map-marker"></i>
+
+            <span>
+              Hyderabad, India
+            </span>
+          </a>
+
+        </div>
 
       </div>
 
     </div>
 
 
-    <!-- Message -->
-    <div class="footer-message">
+    <!-- =====================================================
+         FOOTER DIVIDER
+    ====================================================== -->
 
-      <app-message></app-message>
-
-    </div>
-
-
-    <!-- Divider -->
     <div class="footer-divider"></div>
 
 
-    <!-- Bottom -->
+    <!-- =====================================================
+         FOOTER BOTTOM
+    ====================================================== -->
+
     <div class="footer-bottom">
 
-      <div>
-        © {{ year }} {{ title }}. ® All Rights Reserved.
+      <div class="footer-copyright">
+        © {{ year }} {{ title }}. All Rights Reserved.
       </div>
+
+
+      <div class="footer-legal">
+
+        <a routerLink="/privacy-policy">
+          Privacy Policy
+        </a>
+
+        <a routerLink="/terms">
+          Terms & Conditions
+        </a>
+
+      </div>
+
 
       <div class="footer-socials">
 
-        <span>Follow Us</span>
+        <span>
+          Follow Us
+        </span>
 
-        <a
-          href="#"
-          aria-label="Facebook"
-        >
+        <a href="#" aria-label="Facebook">
           <i class="fa fa-facebook"></i>
         </a>
 
-        <a
-          href="https://www.instagram.com/internationalecademy/"
-          target="_blank"
-          rel="noopener"
-          aria-label="Instagram"
-        >
+        <a href="https://www.instagram.com/internationalecademy/" target="_blank" rel="noopener" aria-label="Instagram">
           <i class="fa fa-instagram"></i>
         </a>
 
-        <a
-          href="#"
-          aria-label="YouTube"
-        >
+        <a href="#" aria-label="LinkedIn">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+        <a href="#" aria-label="YouTube">
           <i class="fa fa-youtube-play"></i>
         </a>
 
