@@ -21,10 +21,12 @@ import { Business } from './_components/business/business';
 import { Careers } from './_components/careers/careers';
 import { International } from './_components/international/international';
 import { Training } from './_components/training/training';
+import { Home2 } from './_components/home2/home2';
 
 export const routes: Routes = [
-  { path: 'home1', component: Home1Component },
   { path: 'home', component: Home },
+  { path: 'home1', component: Home1Component },
+  { path: 'home2', component: Home2 },
   { path: 'about1', component: About1Component },
   { path: 'about', component: AboutComponent },
   { path: 'education', component: Education },
