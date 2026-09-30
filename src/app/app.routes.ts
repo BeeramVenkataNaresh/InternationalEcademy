@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 
-import { Home1Component } from './_components/Home1/home1.component';
 import { ContactComponent } from './_components/Contact/contact.component';
 import { AboutComponent } from './_components/About/about.component';
 import { RegisterComponent } from './_components/Register/register.component';
@@ -21,12 +20,11 @@ import { Business } from './_components/business/business';
 import { Careers } from './_components/careers/careers';
 import { International } from './_components/international/international';
 import { Training } from './_components/training/training';
-import { Home2 } from './_components/home2/home2';
+import { Home1 } from './_components/home1/home1';
 
 export const routes: Routes = [
   { path: 'home', component: Home },
-  { path: 'home1', component: Home1Component },
-  { path: 'home2', component: Home2 },
+  { path: 'home1', component: Home1},
   { path: 'about1', component: About1Component },
   { path: 'about', component: AboutComponent },
   { path: 'education', component: Education },

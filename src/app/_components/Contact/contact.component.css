@@ -1,0 +1,897 @@
+/* =========================================================
+   INTERNATIONAL ECADEMY
+   CONTACT US BANNER
+   BALANCED SPACING + NO FOOTER GAP
+========================================================= */
+
+
+/* =========================================================
+   MAIN CONTACT BANNER
+========================================================= */
+
+.ie-contact-banner {
+    position: relative;
+    width: 100%;
+
+    /* IMPORTANT:
+       Let the content determine the banner height.
+       This prevents empty space before the footer.
+    */
+    min-height: 0 !important;
+    height: auto !important;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================================================
+   BACKGROUND IMAGE
+========================================================= */
+
+.ie-contact-background {
+    position: absolute;
+    inset: 0;
+
+    background-image: url('/assets/images/contact.webp');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter: none;
+    transform: none;
+
+    z-index: 0;
+}
+
+
+/* =========================================================
+   BACKGROUND OVERLAY
+   LEFT SIDE SHARP / RIGHT SIDE LIGHT
+========================================================= */
+
+.ie-contact-overlay {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+
+            rgba(255,255,255,0.00) 0%,
+            rgba(255,255,255,0.00) 30%,
+
+            rgba(255,255,255,0.08) 38%,
+            rgba(255,255,255,0.28) 45%,
+
+            rgba(255,255,255,0.62) 56%,
+            rgba(255,255,255,0.87) 72%,
+            rgba(255,255,255,0.95) 100%
+        );
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.ie-contact-container {
+    position: relative;
+    z-index: 2;
+
+    width: min(1220px, 92%);
+
+    margin: 0 auto !important;
+    padding: 0 !important;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+/* =========================================================
+   CONTACT CONTENT
+========================================================= */
+
+.ie-contact-content {
+    width: 57%;
+    max-width: 720px;
+
+    /*
+       Enough space around content,
+       but no excessive bottom gap.
+    */
+    padding: 34px 10px 26px 45px;
+
+    margin: 0 !important;
+}
+
+
+/* =========================================================
+   HEADING BLOCK
+========================================================= */
+
+.contact-heading-block {
+    max-width: 720px;
+
+    margin: 0 0 6px 0;
+    padding: 0;
+}
+
+
+/* =========================================================
+   GET IN TOUCH
+========================================================= */
+
+.contact-kicker {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin: 0 0 15px 0;
+
+    color: #00427C;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 2.3px;
+
+    text-transform: uppercase;
+}
+
+
+/* ORANGE LINE */
+
+.contact-line {
+    width: 52px;
+    height: 4px;
+
+    flex-shrink: 0;
+
+    background: #f58220;
+
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   CONTACT US TITLE
+========================================================= */
+
+.contact-main-title {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-size: clamp(58px, 6vw, 88px);
+
+    line-height: 0.94;
+
+    font-weight: 800;
+
+    letter-spacing: -4px;
+}
+
+
+/* CONTACT */
+
+.contact-title-blue {
+    color: #00427C;
+}
+
+
+/* US */
+
+.contact-title-orange {
+    color: #f58220;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.contact-subtitle {
+    max-width: 640px;
+
+    margin: 21px 0 16px 0 !important;
+    padding: 0 !important;
+
+    color: #3f5871;
+
+    font-size: 16px;
+    line-height: 1.55;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   CONTACT ROWS
+   PHONE / WHATSAPP / EMAIL / CANADA / INDIA
+========================================================= */
+
+.ie-contact-row {
+    display: grid;
+
+    grid-template-columns:
+        42px
+        108px
+        1fr;
+
+    align-items: center;
+
+    gap: 12px;
+
+    /*
+       Comfortable vertical spacing
+    */
+    padding: 12px 0;
+
+    margin: 0 !important;
+
+    border-bottom:
+        1px solid rgba(6,60,120,0.12);
+}
+
+
+/* =========================================================
+   CONTACT ICONS
+========================================================= */
+
+.ie-contact-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.86);
+
+    border:
+        1px solid rgba(0,105,232,0.18);
+
+    box-shadow:
+        0 3px 10px rgba(6,60,120,0.07);
+}
+
+
+.ie-contact-icon svg {
+    width: 18px;
+    height: 18px;
+
+    display: block;
+
+    fill: currentColor;
+}
+
+
+/* =========================================================
+   ICON COLORS
+========================================================= */
+
+
+/* PHONE / EMAIL */
+
+.ie-icon-blue {
+    color: #086ce5;
+}
+
+
+/* WHATSAPP */
+
+.ie-icon-whatsapp {
+    color: #16a65a;
+
+    background:
+        rgba(240,255,246,0.94);
+
+    border-color:
+        rgba(22,166,90,0.20);
+}
+
+
+/* LOCATION */
+
+.ie-icon-location {
+    color: #ef2d32;
+
+    background:
+        rgba(255,244,244,0.95);
+
+    border-color:
+        rgba(239,45,50,0.18);
+}
+
+
+/* =========================================================
+   CONTACT LABEL
+========================================================= */
+
+.ie-contact-label {
+    color: #eb292e;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    line-height: 1.35;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* =========================================================
+   CONTACT VALUE
+========================================================= */
+
+.ie-contact-value {
+    color: #102f50;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    line-height: 1.45;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* =========================================================
+   CONTACT LINKS
+========================================================= */
+
+.ie-contact-value a {
+    color: #0968dc;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: color .2s ease;
+}
+
+
+.ie-contact-value a:hover {
+    color: #063c78;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   CONNECT / SOCIAL AREA
+========================================================= */
+
+.ie-connect-row {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    /*
+       Keep some breathing room above social icons,
+       but almost no space below.
+    */
+    padding: 16px 0 5px 0;
+
+    margin: 0 !important;
+}
+
+
+/* CONNECT TITLE */
+
+.ie-connect-title {
+    color: #eb292e;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* =========================================================
+   SOCIAL ICON CONTAINER
+========================================================= */
+
+.ie-social-icons {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* =========================================================
+   SOCIAL ICONS
+========================================================= */
+
+.ie-social-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.86);
+
+    border:
+        1px solid rgba(0,105,232,0.20);
+
+    color: #086ce5;
+
+    box-shadow:
+        0 3px 10px rgba(6,60,120,0.07);
+
+    text-decoration: none;
+
+    transition:
+        transform .20s ease,
+        background .20s ease,
+        color .20s ease,
+        box-shadow .20s ease;
+}
+
+
+.ie-social-icon svg {
+    width: 18px;
+    height: 18px;
+
+    display: block;
+
+    fill: currentColor;
+}
+
+
+.ie-social-icon:hover {
+    color: #ffffff;
+
+    background: #086ce5;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 14px rgba(0,105,232,0.20);
+}
+
+
+/* =========================================================
+   REMOVE DEFAULT ELEMENT SPACING
+========================================================= */
+
+.ie-contact-banner h1,
+.ie-contact-banner h2,
+.ie-contact-banner h3,
+.ie-contact-banner p {
+    padding-bottom: 0 !important;
+}
+
+
+.ie-contact-banner p:last-child {
+    margin-bottom: 0 !important;
+}
+
+
+.ie-contact-content > *:last-child {
+    margin-bottom: 0 !important;
+}
+
+
+.ie-contact-container > *:last-child {
+    margin-bottom: 0 !important;
+}
+
+
+/* =========================================================
+   CRITICAL - REMOVE GAP BETWEEN CONTACT & FOOTER
+========================================================= */
+
+/* Contact banner itself */
+
+.ie-contact-banner {
+    margin-bottom: 0 !important;
+}
+
+
+/* Container inside banner */
+
+.ie-contact-container {
+    margin-bottom: 0 !important;
+}
+
+
+/* Content inside banner */
+
+.ie-contact-content {
+    margin-bottom: 0 !important;
+}
+
+
+/* Last social row */
+
+.ie-connect-row {
+    margin-bottom: 0 !important;
+}
+
+
+/* Whatever Elementor places directly after contact */
+
+.ie-contact-banner + * {
+    margin-top: 0 !important;
+}
+
+
+/* =========================================================
+   FOOTER GAP FIX
+========================================================= */
+
+footer,
+.site-footer,
+.elementor-location-footer {
+    margin-top: 0 !important;
+}
+
+
+/*
+   IMPORTANT:
+   Do NOT remove footer's normal internal padding.
+   We only remove external margin that could create a gap.
+*/
+
+.elementor-location-footer > .elementor-element:first-child,
+.elementor-location-footer > .e-con:first-child {
+    margin-top: 0 !important;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    .ie-contact-banner {
+        min-height: 0 !important;
+        height: auto !important;
+    }
+
+
+    .ie-contact-background {
+        background-position: 42% center;
+    }
+
+
+    .ie-contact-overlay {
+        background:
+            linear-gradient(
+                90deg,
+
+                rgba(255,255,255,0.00) 0%,
+
+                rgba(255,255,255,0.03) 25%,
+
+                rgba(255,255,255,0.35) 42%,
+
+                rgba(255,255,255,0.79) 58%,
+
+                rgba(255,255,255,0.95) 100%
+            );
+    }
+
+
+    .ie-contact-content {
+        width: 64%;
+
+        padding:
+            30px 5px
+            23px 30px;
+    }
+
+
+    .contact-main-title {
+        font-size:
+            clamp(54px, 8vw, 80px);
+    }
+
+
+    .contact-subtitle {
+        margin:
+            19px 0 14px 0 !important;
+
+        font-size: 15px;
+
+        line-height: 1.5;
+    }
+
+
+    .ie-contact-row {
+        grid-template-columns:
+            40px
+            102px
+            1fr;
+
+        gap: 11px;
+
+        padding: 11px 0;
+    }
+
+
+    .ie-contact-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+
+    .ie-contact-icon svg {
+        width: 17px;
+        height: 17px;
+    }
+
+
+    .ie-connect-row {
+        padding-bottom: 4px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+    .ie-contact-banner {
+        min-height: 0 !important;
+        height: auto !important;
+
+        align-items: flex-end;
+    }
+
+
+    .ie-contact-background {
+        background-position: 27% center;
+    }
+
+
+    .ie-contact-overlay {
+        background:
+            linear-gradient(
+                180deg,
+
+                rgba(255,255,255,0.00) 0%,
+
+                rgba(255,255,255,0.03) 20%,
+
+                rgba(255,255,255,0.37) 35%,
+
+                rgba(255,255,255,0.90) 49%,
+
+                rgba(255,255,255,0.98) 100%
+            );
+    }
+
+
+    .ie-contact-container {
+        width: calc(100% - 30px);
+
+        margin: 0 auto !important;
+
+        justify-content: flex-start;
+    }
+
+
+    .ie-contact-content {
+        width: 100%;
+        max-width: none;
+
+        /*
+           Top padding keeps image visible.
+           Bottom is intentionally small.
+        */
+        padding:
+            220px 0
+            18px 0;
+    }
+
+
+    /* GET IN TOUCH */
+
+    .contact-kicker {
+        gap: 10px;
+
+        margin-bottom: 12px;
+
+        font-size: 11px;
+
+        letter-spacing: 1.7px;
+    }
+
+
+    .contact-line {
+        width: 38px;
+        height: 3px;
+    }
+
+
+    /* CONTACT US */
+
+    .contact-main-title {
+        font-size: 52px;
+
+        line-height: 0.95;
+
+        letter-spacing: -3px;
+    }
+
+
+    /* DESCRIPTION */
+
+    .contact-subtitle {
+        margin:
+            16px 0 12px 0 !important;
+
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
+
+
+    /* CONTACT ROW */
+
+    .ie-contact-row {
+        grid-template-columns:
+            40px
+            1fr;
+
+        gap:
+            4px 11px;
+
+        padding:
+            9px 0;
+    }
+
+
+    /* ICON */
+
+    .ie-contact-icon {
+        grid-row:
+            1 / span 2;
+
+        width: 36px;
+        height: 36px;
+    }
+
+
+    .ie-contact-icon svg {
+        width: 17px;
+        height: 17px;
+    }
+
+
+    /* LABEL */
+
+    .ie-contact-label {
+        font-size: 13.5px;
+
+        line-height: 1.35;
+    }
+
+
+    /* VALUE */
+
+    .ie-contact-value {
+        grid-column: 2;
+
+        font-size: 13px;
+
+        line-height: 1.4;
+    }
+
+
+    /* SOCIAL */
+
+    .ie-connect-row {
+        flex-wrap: wrap;
+
+        gap: 12px;
+
+        padding:
+            13px 0
+            2px 0;
+    }
+
+
+    .ie-connect-title {
+        font-size: 13.5px;
+    }
+
+
+    .ie-social-icons {
+        gap: 9px;
+    }
+
+
+    .ie-social-icon {
+        width: 36px;
+        height: 36px;
+    }
+
+
+    .ie-social-icon svg {
+        width: 17px;
+        height: 17px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .ie-contact-banner {
+        min-height: 0 !important;
+        height: auto !important;
+    }
+
+
+    .ie-contact-content {
+        padding:
+            200px 0
+            16px 0;
+    }
+
+
+    .contact-main-title {
+        font-size: 47px;
+    }
+
+
+    .contact-subtitle {
+        font-size: 13.5px;
+    }
+
+
+    .ie-contact-row {
+        padding: 8px 0;
+    }
+
+
+    .ie-contact-value {
+        font-size: 12.5px;
+    }
+
+
+    .ie-connect-row {
+        padding-bottom: 2px;
+    }
+}
