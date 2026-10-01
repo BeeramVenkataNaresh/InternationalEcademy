@@ -1,35 +1,41 @@
 <div class="education-page">
 
   <!-- =========================================================
-       HERO SECTION
+       HERO
   ========================================================== -->
+
   <section class="education-hero">
 
     <div class="education-hero__overlay"></div>
 
-    <div class="education-hero__content">
+    <div class="education-hero__container">
 
-      <div class="education-hero__text-wrap">
+      <div class="education-hero__content">
 
-        <div class="education-hero__breadcrumb">
-          <span>HOME</span>
-          <span class="breadcrumb-dot">•</span>
+        <!-- EYEBROW -->
+        <div class="education-eyebrow">
+          <span class="education-orange-line"></span>
           <span>EDUCATIONAL SERVICES</span>
         </div>
 
+
+        <!-- HEADING -->
         <h1>
-          Educational Services<br>
-          That Move You
-          <span>Forward.</span>
+          Learning pathways
+          <span>built around your goals.</span>
         </h1>
 
+
+        <!-- DESCRIPTION -->
         <p class="education-hero__description">
-          Explore flexible academic programs, tutoring, test preparation,
-          language training, and personalized educational support designed
-          to help every learner succeed.
+          Explore secondary school courses, elementary learning,
+          AP programs, test preparation, language training and
+          personalized academic support designed to help learners
+          move forward with confidence.
         </p>
 
-        <!-- Search -->
+
+        <!-- SEARCH -->
         <div class="education-search">
 
           <div class="education-search__field">
@@ -47,7 +53,7 @@
               type="text"
               placeholder="Search programs, courses or services..."
               aria-label="Search educational services"
-            />
+            >
 
           </div>
 
@@ -58,109 +64,15 @@
         </div>
 
 
-        <!-- Quick Links -->
-        <div class="education-quick-links">
+        <!-- CTA -->
+        <div class="education-hero__actions">
 
           <a
-            routerLink="/education"
-            fragment="academic-programs"
-            class="education-service-card"
+            routerLink="/contact"
+            class="education-primary-button"
           >
-            <div class="education-service-card__icon">
-
-              <svg viewBox="0 0 64 64" aria-hidden="true">
-                <path d="M4 24L32 10l28 14-28 14L4 24Z"></path>
-                <path d="M15 31v14c8 7 26 7 34 0V31"></path>
-                <path d="M56 27v17"></path>
-                <circle cx="56" cy="47" r="3"></circle>
-              </svg>
-
-            </div>
-
-            <div class="education-service-card__title">
-              Academic<br>
-              Programs
-            </div>
-
-            <span class="education-service-card__line"></span>
-          </a>
-
-
-          <a
-            routerLink="/education"
-            fragment="online-learning"
-            class="education-service-card"
-          >
-            <div class="education-service-card__icon">
-
-              <svg viewBox="0 0 64 64" aria-hidden="true">
-                <rect
-                  x="10"
-                  y="13"
-                  width="44"
-                  height="30"
-                  rx="3"
-                ></rect>
-
-                <path d="M26 48h12"></path>
-                <path d="M21 53h22"></path>
-
-                <path
-                  class="play-icon"
-                  d="M27 21l15 7-15 7Z"
-                ></path>
-              </svg>
-
-            </div>
-
-            <div class="education-service-card__title">
-              Online<br>
-              Learning
-            </div>
-
-            <span class="education-service-card__line"></span>
-          </a>
-
-
-          <a
-            routerLink="/education"
-            fragment="student-support"
-            class="education-service-card"
-          >
-            <div class="education-service-card__icon">
-
-              <svg viewBox="0 0 64 64" aria-hidden="true">
-                <circle
-                  class="student-main"
-                  cx="32"
-                  cy="18"
-                  r="7"
-                ></circle>
-
-                <circle cx="17" cy="23" r="5"></circle>
-                <circle cx="47" cy="23" r="5"></circle>
-
-                <path
-                  d="M20 49c0-10 5-16 12-16s12 6 12 16"
-                ></path>
-
-                <path
-                  d="M6 47c0-8 4-13 11-13"
-                ></path>
-
-                <path
-                  d="M58 47c0-8-4-13-11-13"
-                ></path>
-              </svg>
-
-            </div>
-
-            <div class="education-service-card__title">
-              Student<br>
-              Support
-            </div>
-
-            <span class="education-service-card__line"></span>
+            Speak With Our Team
+            <span>→</span>
           </a>
 
         </div>
@@ -172,525 +84,502 @@
   </section>
 
 
+
   <!-- =========================================================
-       CATEGORY NAVIGATION
+       INTRODUCTION
   ========================================================== -->
-  <section class="education-categories">
 
-    <div class="page-container">
+  <section class="education-intro">
 
-      <div class="education-category-tabs">
+    <div class="page-container education-intro__layout">
 
-        <button class="education-category-tab active">
-          <strong>All Services</strong>
-          <span>Explore Everything</span>
-        </button>
+      <div>
 
-        <button class="education-category-tab">
-          <strong>Secondary School</strong>
-          <span>Grades 9–12</span>
-        </button>
+        <div class="education-section-label">
+          OUR EDUCATIONAL SERVICES
+        </div>
 
-        <button class="education-category-tab">
-          <strong>Elementary</strong>
-          <span>Grades 1–8</span>
-        </button>
-
-        <button class="education-category-tab">
-          <strong>Test Preparation</strong>
-          <span>IELTS • AP • More</span>
-        </button>
-
-        <button class="education-category-tab">
-          <strong>Language Programs</strong>
-          <span>English • French</span>
-        </button>
+        <h2>
+          Find the right
+          <span>learning pathway.</span>
+        </h2>
 
       </div>
 
-    </div>
 
-  </section>
-
-
-  <!-- =========================================================
-       SERVICES SECTION
-  ========================================================== -->
-  <section class="education-services-section">
-
-    <div class="page-container">
-
-      <div class="education-section-heading">
-
-        <div>
-          <span class="education-eyebrow">
-            OUR EDUCATIONAL SERVICES
-          </span>
-
-          <h2>
-            Find the Right Learning<br>
-            Path for You
-          </h2>
-        </div>
+      <div class="education-intro__copy">
 
         <p>
-          International Ecademy provides flexible, personalized,
-          and accessible educational opportunities designed to
-          support learners at every stage of their academic journey.
+          International Ecademy provides flexible educational
+          opportunities for learners at different stages of their
+          academic journey.
+        </p>
+
+        <p>
+          Whether you are completing secondary school credits,
+          strengthening foundational skills, preparing for an
+          important examination or developing language proficiency,
+          our goal is to help you identify a pathway that supports
+          your academic objectives.
         </p>
 
       </div>
 
+    </div>
 
-      <div class="education-services-layout">
-
-        <!-- Sidebar -->
-        <aside class="education-filter-sidebar">
-
-          <div class="filter-header">
-            <h3>Filter Services</h3>
-            <button type="button">Clear All</button>
-          </div>
-
-          <div class="filter-group">
-
-            <label class="filter-label">
-              Student Level
-            </label>
-
-            <select>
-              <option>All Levels</option>
-              <option>Elementary School</option>
-              <option>Secondary School</option>
-              <option>Adult Learners</option>
-            </select>
-
-          </div>
-
-          <div class="filter-group">
-
-            <label class="filter-label">
-              Service Type
-            </label>
-
-            <label class="filter-checkbox">
-              <input type="checkbox">
-              <span>Academic Courses</span>
-            </label>
-
-            <label class="filter-checkbox">
-              <input type="checkbox">
-              <span>Tutoring</span>
-            </label>
-
-            <label class="filter-checkbox">
-              <input type="checkbox">
-              <span>Test Preparation</span>
-            </label>
-
-            <label class="filter-checkbox">
-              <input type="checkbox">
-              <span>Language Training</span>
-            </label>
-
-            <label class="filter-checkbox">
-              <input type="checkbox">
-              <span>Academic Support</span>
-            </label>
-
-          </div>
-
-          <button
-            class="filter-apply-button"
-            type="button"
-          >
-            Apply Filters
-          </button>
-
-        </aside>
+  </section>
 
 
-        <!-- Services -->
-        <main class="education-services-content">
 
-          <div class="education-services-toolbar">
+  <!-- =========================================================
+       PROGRAMS
+  ========================================================== -->
 
-            <div>
-              <span>EDUCATIONAL SERVICES</span>
-              <h3>Explore Our Programs</h3>
-            </div>
+  <section class="education-programs">
 
-            <select>
-              <option>Sort by: Featured</option>
-              <option>Name A–Z</option>
-              <option>Newest</option>
-            </select>
-
-          </div>
+    <div class="page-container">
 
 
-          <article
-            class="education-program-card"
-            id="academic-programs"
+      <!-- =====================================================
+           SECONDARY SCHOOL
+      ====================================================== -->
+
+      <article
+        class="education-program-row"
+        id="academic-programs"
+      >
+
+        <div class="education-program-image">
+
+          <img
+            src="/assets/images/services/secondary-school.webp"
+            alt="Ontario secondary school learning"
           >
 
-            <div class="education-program-image">
-              <img
-                src="/assets/images/services/secondary-school.webp"
-                alt="Secondary school education"
-              >
-            </div>
+        </div>
 
-            <div class="education-program-info">
 
-              <span class="program-category">
-                SECONDARY SCHOOL
-              </span>
+        <div class="education-program-content">
 
-              <h3>
-                Ontario Secondary School Courses
-              </h3>
+          <div class="education-program-label">
+            SECONDARY SCHOOL
+          </div>
 
-              <p>
-                Study flexible Ontario secondary school courses
-                designed to support academic progress, credit
-                completion, and future educational goals.
-              </p>
+          <h3>
+            Ontario Secondary School Courses
+          </h3>
 
-              <div class="education-program-buttons">
+          <p>
+            Flexible Ontario secondary school courses designed
+            to support academic progress, credit completion and
+            future educational goals.
+          </p>
 
-                <a
-                  href="#"
-                  class="program-primary-button"
-                >
-                  Explore Courses
-                </a>
 
-                <a
-                  href="#"
-                  class="program-secondary-button"
-                >
-                  Learn More
-                </a>
-
-              </div>
+          <div class="education-program-details">
 
-            </div>
-
-            <div class="education-program-meta">
-              <span>Grades 9–12</span>
-              <span>Online</span>
-              <span>Flexible</span>
-            </div>
-
-          </article>
-
+            <span>Grades 9–12</span>
+            <span>Online</span>
+            <span>Flexible</span>
 
-          <article class="education-program-card">
-
-            <div class="education-program-image">
-              <img
-                src="/assets/images/services/elementary.webp"
-                alt="Elementary education"
-              >
-            </div>
+          </div>
 
-            <div class="education-program-info">
 
-              <span class="program-category">
-                ELEMENTARY EDUCATION
-              </span>
+          <div class="education-program-actions">
 
-              <h3>
-                Elementary Learning Programs
-              </h3>
+            <a
+              routerLink="/courses"
+              class="education-program-primary"
+            >
+              Explore Courses
+              <span>→</span>
+            </a>
 
-              <p>
-                Engaging programs for younger learners that support
-                literacy, mathematics, science, creativity, and
-                academic confidence.
-              </p>
+            <a
+              routerLink="/contact"
+              class="education-program-link"
+            >
+              Get Guidance
+            </a>
 
-              <div class="education-program-buttons">
+          </div>
 
-                <a
-                  href="#"
-                  class="program-primary-button"
-                >
-                  View Programs
-                </a>
+        </div>
 
-                <a
-                  href="#"
-                  class="program-secondary-button"
-                >
-                  Learn More
-                </a>
+      </article>
 
-              </div>
 
-            </div>
 
-            <div class="education-program-meta">
-              <span>Grades 1–8</span>
-              <span>Academic</span>
-              <span>Support</span>
-            </div>
+      <!-- =====================================================
+           ELEMENTARY
+      ====================================================== -->
 
-          </article>
+      <article class="education-program-row">
 
+        <div class="education-program-image">
 
-          <article class="education-program-card">
-
-            <div class="education-program-image">
-              <img
-                src="/assets/images/services/ap-courses.webp"
-                alt="AP courses"
-              >
-            </div>
-
-            <div class="education-program-info">
-
-              <span class="program-category">
-                ADVANCED LEARNING
-              </span>
-
-              <h3>
-                AP Courses
-              </h3>
-
-              <p>
-                Advanced academic programs for students seeking
-                challenging coursework and stronger preparation
-                for future post-secondary studies.
-              </p>
-
-              <div class="education-program-buttons">
-
-                <a
-                  href="#"
-                  class="program-primary-button"
-                >
-                  Explore AP Courses
-                </a>
-
-                <a
-                  href="#"
-                  class="program-secondary-button"
-                >
-                  Learn More
-                </a>
-
-              </div>
-
-            </div>
-
-            <div class="education-program-meta">
-              <span>Advanced</span>
-              <span>Academic</span>
-              <span>Online</span>
-            </div>
-
-          </article>
-
-
-          <article class="education-program-card">
-
-            <div class="education-program-image">
-              <img
-                src="/assets/images/services/test-preparation.webp"
-                alt="Test preparation"
-              >
-            </div>
-
-            <div class="education-program-info">
-
-              <span class="program-category">
-                TEST PREPARATION
-              </span>
-
-              <h3>
-                Exam &amp; Test Preparation
-              </h3>
-
-              <p>
-                Structured preparation programs help learners build
-                knowledge, strengthen exam strategies, and approach
-                important assessments with confidence.
-              </p>
-
-              <div class="education-program-buttons">
-
-                <a
-                  href="#"
-                  class="program-primary-button"
-                >
-                  Explore Programs
-                </a>
-
-                <a
-                  href="#"
-                  class="program-secondary-button"
-                >
-                  Learn More
-                </a>
-
-              </div>
-
-            </div>
-
-            <div class="education-program-meta">
-              <span>IELTS</span>
-              <span>PTE</span>
-              <span>CELPIP</span>
-            </div>
-
-          </article>
-
-
-          <article class="education-program-card">
-
-            <div class="education-program-image">
-              <img
-                src="/assets/images/services/language-programs.webp"
-                alt="Language programs"
-              >
-            </div>
-
-            <div class="education-program-info">
-
-              <span class="program-category">
-                LANGUAGE LEARNING
-              </span>
-
-              <h3>
-                English &amp; French Language Programs
-              </h3>
-
-              <p>
-                Develop stronger reading, writing, listening,
-                speaking, and communication skills through structured
-                language learning programs.
-              </p>
-
-              <div class="education-program-buttons">
-
-                <a
-                  href="#"
-                  class="program-primary-button"
-                >
-                  View Programs
-                </a>
-
-                <a
-                  href="#"
-                  class="program-secondary-button"
-                >
-                  Learn More
-                </a>
-
-              </div>
-
-            </div>
-
-            <div class="education-program-meta">
-              <span>English</span>
-              <span>French</span>
-              <span>Online</span>
-            </div>
-
-          </article>
-
-
-          <article
-            class="education-program-card"
-            id="student-support"
+          <img
+            src="/assets/images/services/elementary.webp"
+            alt="Elementary learning program"
           >
 
-            <div class="education-program-image">
-              <img
-                src="/assets/images/services/tutoring.webp"
-                alt="Tutoring and academic support"
-              >
-            </div>
+        </div>
 
-            <div class="education-program-info">
 
-              <span class="program-category">
-                STUDENT SUPPORT
-              </span>
+        <div class="education-program-content">
 
-              <h3>
-                Tutoring &amp; Academic Support
-              </h3>
+          <div class="education-program-label">
+            ELEMENTARY EDUCATION
+          </div>
 
-              <p>
-                Personalized educational support helps learners
-                strengthen challenging concepts, improve study
-                skills, and make steady academic progress.
-              </p>
+          <h3>
+            Elementary Learning Programs
+          </h3>
 
-              <div class="education-program-buttons">
+          <p>
+            Engaging academic support for younger learners that
+            strengthens literacy, mathematics, science, creativity
+            and overall academic confidence.
+          </p>
 
-                <a
-                  href="#"
-                  class="program-primary-button"
-                >
-                  Explore Tutoring
-                </a>
 
-                <a
-                  href="#"
-                  class="program-secondary-button"
-                >
-                  Learn More
-                </a>
+          <div class="education-program-details">
 
-              </div>
+            <span>Grades 1–8</span>
+            <span>Academic</span>
+            <span>Support</span>
 
-            </div>
+          </div>
 
-            <div class="education-program-meta">
-              <span>Personalized</span>
-              <span>Flexible</span>
-              <span>Support</span>
-            </div>
 
-          </article>
+          <div class="education-program-actions">
 
-        </main>
+            <a
+              routerLink="/contact"
+              class="education-program-primary"
+            >
+              View Programs
+              <span>→</span>
+            </a>
 
-      </div>
+            <a
+              routerLink="/contact"
+              class="education-program-link"
+            >
+              Ask About Options
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- =====================================================
+           AP
+      ====================================================== -->
+
+      <article class="education-program-row">
+
+        <div class="education-program-image">
+
+          <img
+            src="/assets/images/services/ap-courses.webp"
+            alt="Advanced Placement courses"
+          >
+
+        </div>
+
+
+        <div class="education-program-content">
+
+          <div class="education-program-label">
+            ADVANCED LEARNING
+          </div>
+
+          <h3>
+            AP Courses
+          </h3>
+
+          <p>
+            Advanced academic programs for students seeking
+            challenging coursework and stronger preparation
+            for future post-secondary studies.
+          </p>
+
+
+          <div class="education-program-details">
+
+            <span>Advanced</span>
+            <span>Academic</span>
+            <span>Online</span>
+
+          </div>
+
+
+          <div class="education-program-actions">
+
+            <a
+              routerLink="/ap-courses"
+              class="education-program-primary"
+            >
+              Explore AP Courses
+              <span>→</span>
+            </a>
+
+            <a
+              routerLink="/contact"
+              class="education-program-link"
+            >
+              Get Guidance
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- =====================================================
+           TEST PREPARATION
+      ====================================================== -->
+
+      <article class="education-program-row">
+
+        <div class="education-program-image">
+
+          <img
+            src="/assets/images/services/test-preparation.webp"
+            alt="Test preparation program"
+          >
+
+        </div>
+
+
+        <div class="education-program-content">
+
+          <div class="education-program-label">
+            TEST PREPARATION
+          </div>
+
+          <h3>
+            Exam &amp; Test Preparation
+          </h3>
+
+          <p>
+            Structured preparation programs help learners
+            strengthen subject knowledge, develop examination
+            strategies and approach important assessments with
+            greater confidence.
+          </p>
+
+
+          <div class="education-program-details">
+
+            <span>IELTS</span>
+            <span>PTE</span>
+            <span>CELPIP</span>
+
+          </div>
+
+
+          <div class="education-program-actions">
+
+            <a
+              routerLink="/contact"
+              class="education-program-primary"
+            >
+              Explore Programs
+              <span>→</span>
+            </a>
+
+            <a
+              routerLink="/contact"
+              class="education-program-link"
+            >
+              Ask About Preparation
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- =====================================================
+           LANGUAGE PROGRAMS
+      ====================================================== -->
+
+      <article class="education-program-row">
+
+        <div class="education-program-image">
+
+          <img
+            src="/assets/images/services/language-programs.webp"
+            alt="English and French language learning"
+          >
+
+        </div>
+
+
+        <div class="education-program-content">
+
+          <div class="education-program-label">
+            LANGUAGE LEARNING
+          </div>
+
+          <h3>
+            English &amp; French Language Programs
+          </h3>
+
+          <p>
+            Develop stronger reading, writing, listening,
+            speaking and communication skills through structured
+            language-learning programs.
+          </p>
+
+
+          <div class="education-program-details">
+
+            <span>English</span>
+            <span>French</span>
+            <span>Online</span>
+
+          </div>
+
+
+          <div class="education-program-actions">
+
+            <a
+              routerLink="/contact"
+              class="education-program-primary"
+            >
+              View Programs
+              <span>→</span>
+            </a>
+
+            <a
+              routerLink="/contact"
+              class="education-program-link"
+            >
+              Get Guidance
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- =====================================================
+           TUTORING
+      ====================================================== -->
+
+      <article
+        class="education-program-row"
+        id="student-support"
+      >
+
+        <div class="education-program-image">
+
+          <img
+            src="/assets/images/services/tutoring.webp"
+            alt="Tutoring and personalized academic support"
+          >
+
+        </div>
+
+
+        <div class="education-program-content">
+
+          <div class="education-program-label">
+            STUDENT SUPPORT
+          </div>
+
+          <h3>
+            Tutoring &amp; Academic Support
+          </h3>
+
+          <p>
+            Personalized academic support helps learners
+            strengthen challenging concepts, improve study skills
+            and make steady progress towards their academic goals.
+          </p>
+
+
+          <div class="education-program-details">
+
+            <span>Personalized</span>
+            <span>Flexible</span>
+            <span>Support</span>
+
+          </div>
+
+
+          <div class="education-program-actions">
+
+            <a
+              routerLink="/contact"
+              class="education-program-primary"
+            >
+              Explore Tutoring
+              <span>→</span>
+            </a>
+
+            <a
+              routerLink="/contact"
+              class="education-program-link"
+            >
+              Speak With Us
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
 
     </div>
 
   </section>
 
 
+
   <!-- =========================================================
-       CTA
+       FINAL CTA
   ========================================================== -->
+
   <section class="education-cta">
 
     <div class="page-container education-cta__content">
 
       <div>
 
-        <span class="education-cta__eyebrow">
-          START YOUR LEARNING JOURNEY
-        </span>
+        <div class="education-cta__eyebrow">
+          YOUR NEXT STEP
+        </div>
 
         <h2>
-          Not Sure Which Program<br>
-          Is Right for You?
+          Not sure which program
+          <span>is right for you?</span>
         </h2>
 
         <p>
-          Our educational team can help you explore the available
-          options and find a learning path that matches your goals.
+          Tell us what you want to achieve and our team can help
+          you understand the available educational options.
         </p>
 
       </div>
+
 
       <a
         routerLink="/contact"

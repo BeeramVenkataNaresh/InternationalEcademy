@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 
 import { ContactComponent } from './_components/Contact/contact.component';
-import { AboutComponent } from './_components/About/about.component';
 import { RegisterComponent } from './_components/Register/register.component';
 import { MessageComponent } from './_components/Message/message.component';
 import { Grade9 } from './_components/Grade9/grade9';
@@ -21,13 +20,20 @@ import { Careers } from './_components/careers/careers';
 import { International } from './_components/international/international';
 import { Training } from './_components/training/training';
 import { Home1 } from './_components/home1/home1';
+import { About2Component } from './_components/About2/about2.component';
+import { About } from './_components/about/about';
+import { Education1 } from './_components/education1/education1';
+import { Home2 } from './_components/home2/home2';
 
 export const routes: Routes = [
   { path: 'home', component: Home },
   { path: 'home1', component: Home1},
+  { path: 'home2', component: Home2},
+  { path: 'about', component: About },
   { path: 'about1', component: About1Component },
-  { path: 'about', component: AboutComponent },
+  { path: 'about2', component: About2Component },
   { path: 'education', component: Education },
+  { path: 'education1', component: Education1 },
   { path: 'business', component: Business },
   { path: 'careers', component: Careers },
   { path: 'international', component: International },

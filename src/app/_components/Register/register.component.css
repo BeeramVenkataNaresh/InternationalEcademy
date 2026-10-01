@@ -6,14 +6,11 @@
 .ie-registration-hero {
     position: relative;
     width: 100%;
-    min-height: 600px;
 
     display: flex;
     align-items: center;
 
-    background-image:
-        url('/assets/images/registration.webp');
-
+    background-image: url('/assets/images/registration.webp');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -48,7 +45,7 @@
     width: 48%;
     max-width: 575px;
 
-    padding: 62px 0 68px;
+    padding: 58px 0;
 }
 
 
@@ -158,15 +155,12 @@
 }
 
 
-/* Feature 2 and 3 */
-
 .ie-feature + .ie-feature {
     margin-left: 18px;
 
     padding-left: 18px;
 
-    border-left:
-        1px solid rgba(0, 66, 124, 0.18);
+    border-left: 1px solid rgba(0, 66, 124, 0.18);
 }
 
 
@@ -220,8 +214,6 @@
 }
 
 
-/* FIRST LINE */
-
 .ie-feature-text strong {
     display: block;
 
@@ -237,8 +229,6 @@
     white-space: nowrap;
 }
 
-
-/* SECOND LINE */
 
 .ie-feature-text span {
     display: block;
@@ -360,8 +350,6 @@
 @media (max-width: 1100px) {
 
     .ie-registration-hero {
-        min-height: 570px;
-
         background-position: 58% center;
     }
 
@@ -374,6 +362,8 @@
     .ie-registration-content {
         width: 51%;
         max-width: 530px;
+
+        padding: 54px 0;
     }
 
 
@@ -474,8 +464,6 @@
 @media (max-width: 767px) {
 
     .ie-registration-hero {
-        min-height: auto;
-
         background-image: none;
 
         background:

@@ -19,15 +19,20 @@
 
   /*
    * Navbar is fixed.
-   * Keep content below the navbar.
+   * Keep page content below the navbar.
    */
   padding-top: 66px;
 
-  min-height: calc(100vh - 66px);
+  width: 100%;
 
   margin: 0;
 
-  width: 100%;
+  /*
+   * Important:
+   * Do not force the page to fill the viewport.
+   * This allows the footer to follow the actual page content.
+   */
+  min-height: 0;
 }
 
 
@@ -36,33 +41,27 @@
 ========================================================= */
 
 .scroll-top {
-
   position: fixed;
 
   right: 24px;
-
   bottom: 24px;
 
   z-index: 1020;
 
   width: 42px;
-
   height: 42px;
 
   padding: 0;
 
-  border:
-    1px solid #e7ebf2;
-
+  border: 1px solid #e7ebf2;
   border-radius: 50%;
 
-  background: #fff;
+  background: #ffffff;
 
   color: #1769ff;
 
   box-shadow:
-    0 10px 30px
-    rgba(16, 42, 67, 0.12);
+    0 10px 30px rgba(16, 42, 67, 0.12);
 
   cursor: pointer;
 
@@ -74,39 +73,37 @@
 
 
 .scroll-top:hover {
-
   background: #1769ff;
 
-  color: #fff;
+  color: #ffffff;
 
-  transform:
-    translateY(-3px);
+  transform: translateY(-3px);
 }
 
 
 /* =========================================================
-   MOBILE
+   TABLET
 ========================================================= */
 
 @media (max-width: 991.98px) {
 
   .site-main {
-
     padding-top: 60px;
 
-    min-height:
-      calc(100vh - 60px);
+    min-height: 0;
   }
 
 }
 
 
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
 @media (max-width: 575.98px) {
 
   .scroll-top {
-
     right: 15px;
-
     bottom: 15px;
   }
 
