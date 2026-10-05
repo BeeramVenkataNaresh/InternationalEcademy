@@ -42,7 +42,9 @@
          NAVIGATION
     ====================================================== -->
 
-    <div class="collapse navbar-collapse" id="navmenu">
+    <div
+      class="collapse navbar-collapse"
+      id="navmenu">
 
       <ul class="navbar-nav ms-auto align-items-lg-center">
 
@@ -72,13 +74,15 @@
              ABOUT US
         ================================================== -->
 
-        <li class="nav-item">
+        <li
+          class="nav-item"
+          routerLinkActive="nav-active"
+          [routerLinkActiveOptions]="{ exact: true }">
 
           <a
             class="nav-link"
             routerLink="/about"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }">
+            (click)="collapseNavbar()">
 
             About Us
 
@@ -111,7 +115,6 @@
             aria-labelledby="servicesDropdown">
 
             <li>
-
               <a
                 class="dropdown-item"
                 routerLink="/education"
@@ -120,12 +123,10 @@
                 Education
 
               </a>
-
             </li>
 
 
             <li>
-
               <a
                 class="dropdown-item"
                 routerLink="/business"
@@ -134,12 +135,10 @@
                 Business
 
               </a>
-
             </li>
 
 
             <li>
-
               <a
                 class="dropdown-item"
                 routerLink="/careers"
@@ -148,12 +147,10 @@
                 Careers
 
               </a>
-
             </li>
 
 
             <li>
-
               <a
                 class="dropdown-item"
                 routerLink="/international"
@@ -162,12 +159,10 @@
                 International
 
               </a>
-
             </li>
 
 
             <li>
-
               <a
                 class="dropdown-item"
                 routerLink="/training"
@@ -176,24 +171,26 @@
                 Training
 
               </a>
-
             </li>
 
           </ul>
 
         </li>
 
-  <!-- =================================================
-             Register
+
+        <!-- =================================================
+             REGISTER
         ================================================== -->
 
-        <li class="nav-item">
+        <li
+          class="nav-item"
+          routerLinkActive="nav-active"
+          [routerLinkActiveOptions]="{ exact: true }">
 
           <a
             class="nav-link"
             routerLink="/register"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }">
+            (click)="collapseNavbar()">
 
             Register
 
@@ -201,11 +198,15 @@
 
         </li>
 
+
         <!-- =================================================
              CONTACT
         ================================================== -->
 
-        <li class="nav-item">
+        <li
+          class="nav-item"
+          routerLinkActive="nav-active"
+          [routerLinkActiveOptions]="{ exact: true }">
 
           <a
             class="nav-link"

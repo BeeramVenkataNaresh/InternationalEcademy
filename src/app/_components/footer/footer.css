@@ -16,14 +16,15 @@
   width: 100%;
   margin: 0;
 
-  /* 40px top / 20px bottom */
   padding: 40px 0 20px;
 
   background:
-    linear-gradient(120deg,
+    linear-gradient(
+      120deg,
       #f7faff 0%,
       #ffffff 52%,
-      #fff9f3 100%);
+      #fff9f3 100%
+    );
 
   border-top: 1px solid #e7ebf2;
 
@@ -55,7 +56,6 @@
   max-width: 345px;
 }
 
-
 .footer-logo {
   display: block;
 
@@ -65,14 +65,13 @@
   margin-bottom: 18px;
 }
 
-
 .footer-brand p {
   margin: 0;
 
   color: #333333;
 
   font-size: 13px;
-
+  font-weight: 400;
   line-height: 1.8;
 }
 
@@ -96,7 +95,6 @@
 
   letter-spacing: 0.2px;
 }
-
 
 .footer-column h4::after {
   content: "";
@@ -127,7 +125,6 @@
   align-items: flex-start;
 }
 
-
 .footer-links a {
   display: inline-block;
 
@@ -136,6 +133,8 @@
   color: #333333;
 
   font-size: 13px;
+
+  font-weight: 400;
 
   line-height: 1.45;
 
@@ -146,17 +145,16 @@
     transform 0.2s ease;
 }
 
-
 .footer-links a:last-child {
   margin-bottom: 0;
 }
-
 
 .footer-links a:hover {
   color: #1769ff;
 
   transform: translateX(3px);
 }
+
 
 /* =========================================================
    GET IN TOUCH
@@ -173,6 +171,7 @@
 
 .contact-pills {
   display: flex;
+
   flex-direction: column;
 
   gap: 12px;
@@ -188,7 +187,8 @@
 .contact-country {
   display: grid;
 
-  grid-template-columns: 32px minmax(0, 1fr);
+  grid-template-columns:
+    32px minmax(0, 1fr);
 
   align-items: center;
 
@@ -204,9 +204,9 @@
   display: flex;
 
   align-items: center;
+
   justify-content: flex-start;
 }
-
 
 .country-flag {
   display: block;
@@ -268,7 +268,6 @@
   transition: color 0.2s ease;
 }
 
-
 .contact-detail:hover {
   color: #1769ff;
 }
@@ -282,6 +281,7 @@
   display: inline-flex;
 
   align-items: center;
+
   justify-content: center;
 
   width: 20px;
@@ -302,11 +302,9 @@
   line-height: 1;
 }
 
-
 .contact-icon i {
   line-height: 1;
 }
-
 
 .contact-detail:hover .contact-icon {
   border-color: #c9d8ee;
@@ -316,7 +314,7 @@
 
 
 /* =========================================================
-   TEXT
+   CONTACT TEXT
 ========================================================= */
 
 .contact-text {
@@ -342,11 +340,9 @@
   color: #25d366;
 }
 
-
 .whatsapp-detail:hover {
   color: #159447;
 }
-
 
 .whatsapp-detail:hover .contact-icon {
   border-color: rgba(37, 211, 102, 0.35);
@@ -359,6 +355,7 @@
 
 /* =========================================================
    EMAIL
+   Align with phone/address icons
 ========================================================= */
 
 .contact-email {
@@ -368,24 +365,36 @@
 
   gap: 7px;
 
+  /*
+   * Skip the flag column so email begins
+   * with the same alignment as phone/address.
+   */
+  margin-left: 32px;
+
   min-width: 0;
 
-  color: #344b61;
+  color: #333333;
 
-  font-size: 10.5px;
+  /*
+   * Same typography as Quick Links / Services.
+   */
+  font-size: 13px;
 
-  font-weight: 600;
+  font-weight: 400;
 
-  line-height: 1.3;
+  line-height: 1.45;
 
   text-decoration: none;
 
-  transition: color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
-
 
 .contact-email:hover {
   color: #1769ff;
+
+  transform: translateX(3px);
 }
 
 
@@ -394,33 +403,39 @@
 ========================================================= */
 
 .contact-email .contact-icon {
+  width: 20px;
+  height: 20px;
+
   flex: 0 0 20px;
+
+  font-size: 9px;
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   EMAIL TEXT
 ========================================================= */
 
-@media (max-width: 575.98px) {
+.contact-email .contact-text {
+  min-width: 0;
 
-  .contact-pills {
-    gap: 14px;
-  }
+  padding-left: 0;
 
-  .country-flag {
-    width: 25px;
-    height: 25px;
+  color: inherit;
 
-    flex-basis: 25px;
-  }
+  font-size: 13px;
 
-  .contact-detail,
-  .contact-email {
-    font-size: 11px;
-  }
+  font-weight: 400;
 
+  line-height: 1.45;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
 }
+
 
 /* =========================================================
    FOOTER DIVIDER
@@ -429,7 +444,6 @@
 .footer-divider {
   height: 1px;
 
-  /* 20px before / 20px after */
   margin: 20px 0;
 
   background: #e7ebf2;
@@ -481,7 +495,6 @@
   flex-wrap: wrap;
 }
 
-
 .footer-legal a {
   position: relative;
 
@@ -491,17 +504,14 @@
 
   text-decoration: none;
 
-  transition:
-    color 0.2s ease;
+  transition: color 0.2s ease;
 }
-
 
 .footer-legal a:hover {
   color: #1769ff;
 }
 
-
-.footer-legal a+a::before {
+.footer-legal a + a::before {
   content: "";
 
   position: absolute;
@@ -533,7 +543,6 @@
   gap: 8px;
 }
 
-
 .footer-socials span {
   margin-right: 4px;
 
@@ -541,7 +550,6 @@
 
   font-size: 12px;
 }
-
 
 .footer-socials a {
   display: inline-flex;
@@ -576,7 +584,6 @@
     box-shadow 0.2s ease;
 }
 
-
 .footer-socials a:hover {
   background: #1769ff;
 
@@ -604,17 +611,8 @@
     gap: 30px;
   }
 
-
   .contact-pills {
     gap: 7px;
-  }
-
-
-  .contact-pill {
-    padding:
-      7px 9px;
-
-    font-size: 10.5px;
   }
 
 }
@@ -631,7 +629,6 @@
       40px 0 20px;
   }
 
-
   .footer-main {
     grid-template-columns:
       1fr 1fr;
@@ -640,25 +637,14 @@
       32px 50px;
   }
 
-
   .footer-brand {
     max-width: 100%;
   }
-
-
-  .contact-pill {
-    padding:
-      8px 11px;
-
-    font-size: 11px;
-  }
-
 
   .footer-divider {
     margin:
       20px 0;
   }
-
 
   .footer-bottom {
     grid-template-columns:
@@ -667,7 +653,6 @@
     gap:
       18px 24px;
   }
-
 
   .footer-legal {
     grid-column:
@@ -692,7 +677,6 @@
       32px 0 18px;
   }
 
-
   .footer-main {
     grid-template-columns:
       1fr;
@@ -700,49 +684,55 @@
     gap: 28px;
   }
 
-
   .footer-logo {
     width: 135px;
   }
-
 
   .footer-brand p {
     font-size: 12.5px;
   }
 
-
-  /* Contact pills - single column */
-
   .contact-pills {
-    grid-template-columns:
-      1fr;
+    display: flex;
 
-    gap: 8px;
+    flex-direction: column;
+
+    gap: 14px;
   }
 
+  .contact-country {
+    grid-template-columns:
+      32px minmax(0, 1fr);
+  }
 
-  .contact-pill {
-    width: 100%;
+  .country-flag {
+    width: 25px;
+    height: 25px;
 
-    padding:
-      8px 11px;
+    flex-basis: 25px;
+  }
 
+  .contact-detail {
     font-size: 11px;
   }
 
+  /*
+   * Keep email aligned with phone/address on mobile.
+   */
+  .contact-email {
+    margin-left: 32px;
 
-  .email-pill {
-    grid-column: auto;
-
-    width: 100%;
+    font-size: 13px;
   }
 
+  .contact-email .contact-text {
+    font-size: 13px;
+  }
 
   .footer-divider {
     margin:
       20px 0;
   }
-
 
   .footer-bottom {
     display: flex;
@@ -754,20 +744,17 @@
     gap: 15px;
   }
 
-
   .footer-copyright {
     white-space: normal;
 
     line-height: 1.6;
   }
 
-
   .footer-legal {
     justify-content: flex-start;
 
     gap: 14px;
   }
-
 
   .footer-socials {
     flex-wrap: wrap;

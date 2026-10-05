@@ -1,24 +1,17 @@
 /* =========================================================
    INTERNATIONAL ECADEMY
-   CONTACT US BANNER
-   BALANCED SPACING + NO FOOTER GAP
+   CONTACT US HERO
+   FINAL REFINED VERSION
 ========================================================= */
 
 
 /* =========================================================
-   MAIN CONTACT BANNER
+   HERO
 ========================================================= */
 
 .ie-contact-banner {
     position: relative;
     width: 100%;
-
-    /* IMPORTANT:
-       Let the content determine the banner height.
-       This prevents empty space before the footer.
-    */
-    min-height: 0 !important;
-    height: auto !important;
 
     display: flex;
     align-items: center;
@@ -33,7 +26,7 @@
 
 
 /* =========================================================
-   BACKGROUND IMAGE
+   BACKGROUND
 ========================================================= */
 
 .ie-contact-background {
@@ -41,21 +34,17 @@
     inset: 0;
 
     background-image: url('/assets/images/contact.webp');
-
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
-
-    filter: none;
-    transform: none;
 
     z-index: 0;
 }
 
 
 /* =========================================================
-   BACKGROUND OVERLAY
-   LEFT SIDE SHARP / RIGHT SIDE LIGHT
+   FADE
+   LEFT LIGHT / RIGHT CLEAR
 ========================================================= */
 
 .ie-contact-overlay {
@@ -63,69 +52,63 @@
     inset: 0;
 
     z-index: 1;
+    pointer-events: none;
 
     background:
         linear-gradient(
             90deg,
-
-            rgba(255,255,255,0.00) 0%,
-            rgba(255,255,255,0.00) 30%,
-
-            rgba(255,255,255,0.08) 38%,
-            rgba(255,255,255,0.28) 45%,
-
-            rgba(255,255,255,0.62) 56%,
-            rgba(255,255,255,0.87) 72%,
-            rgba(255,255,255,0.95) 100%
+            rgba(255,255,255,0.99) 0%,
+            rgba(255,255,255,0.98) 18%,
+            rgba(255,255,255,0.95) 30%,
+            rgba(255,255,255,0.86) 41%,
+            rgba(255,255,255,0.65) 52%,
+            rgba(255,255,255,0.36) 62%,
+            rgba(255,255,255,0.14) 71%,
+            rgba(255,255,255,0.03) 79%,
+            rgba(255,255,255,0) 86%,
+            rgba(255,255,255,0) 100%
         );
 }
 
 
 /* =========================================================
-   MAIN CONTAINER
+   CONTAINER
 ========================================================= */
 
 .ie-contact-container {
     position: relative;
     z-index: 2;
 
-    width: min(1220px, 92%);
+    width: 100%;
+    max-width: 1240px;
 
     margin: 0 auto !important;
-    padding: 0 !important;
-
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    padding: 0 30px !important;
 }
 
 
 /* =========================================================
-   CONTACT CONTENT
+   CONTENT
 ========================================================= */
 
 .ie-contact-content {
-    width: 57%;
-    max-width: 720px;
+    width: 48%;
+    max-width: 575px;
 
-    /*
-       Enough space around content,
-       but no excessive bottom gap.
-    */
-    padding: 34px 10px 26px 45px;
+    padding: 58px 0;
 
     margin: 0 !important;
 }
 
 
 /* =========================================================
-   HEADING BLOCK
+   HEADING AREA
 ========================================================= */
 
 .contact-heading-block {
-    max-width: 720px;
+    max-width: 575px;
 
-    margin: 0 0 6px 0;
+    margin: 0;
     padding: 0;
 }
 
@@ -138,61 +121,60 @@
     display: flex;
     align-items: center;
 
-    gap: 14px;
+    gap: 13px;
 
-    margin: 0 0 15px 0;
+    margin: 0 0 17px 0;
 
     color: #00427C;
 
-    font-size: 13px;
-    font-weight: 800;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
 
-    letter-spacing: 2.3px;
+    letter-spacing: 3.5px;
 
     text-transform: uppercase;
 }
 
 
-/* ORANGE LINE */
+/* =========================================================
+   ORANGE LINE
+========================================================= */
 
 .contact-line {
-    width: 52px;
+    display: block;
+
+    width: 48px;
     height: 4px;
 
     flex-shrink: 0;
 
     background: #f58220;
 
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 
 /* =========================================================
-   CONTACT US TITLE
+   HEADING
 ========================================================= */
 
 .contact-main-title {
-    margin: 0 !important;
+    margin: 0 0 20px !important;
     padding: 0 !important;
 
-    font-size: clamp(58px, 6vw, 88px);
-
-    line-height: 0.94;
+    font-size: 64px;
+    line-height: 1;
 
     font-weight: 800;
-
-    letter-spacing: -4px;
+    letter-spacing: -2px;
 }
 
-
-/* CONTACT */
 
 .contact-title-blue {
     color: #00427C;
 }
 
-
-/* US */
 
 .contact-title-orange {
     color: #f58220;
@@ -200,60 +182,176 @@
 
 
 /* =========================================================
-   DESCRIPTION
+   RUNNING TEXT
 ========================================================= */
 
 .contact-subtitle {
-    max-width: 640px;
+    display: block;
 
-    margin: 21px 0 16px 0 !important;
+    max-width: 555px;
+
+    margin:
+        0 0 40px !important;
+
     padding: 0 !important;
 
-    color: #3f5871;
+    color: #344b61;
 
-    font-size: 16px;
-    line-height: 1.55;
+    font-size: 17px;
+    line-height: 1.6;
 
-    font-weight: 500;
+    font-weight: 400;
 }
 
 
 /* =========================================================
-   CONTACT ROWS
-   PHONE / WHATSAPP / EMAIL / CANADA / INDIA
+   CONTACT STACK
 ========================================================= */
 
-.ie-contact-row {
+.hero-contact-stack {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* =========================================================
+   COUNTRY GROUP
+========================================================= */
+
+.hero-country-group {
     display: grid;
 
     grid-template-columns:
-        42px
-        108px
-        1fr;
+        52px minmax(0,1fr);
 
-    align-items: center;
+    grid-template-rows:
+        auto auto;
 
-    gap: 12px;
+    column-gap: 14px;
+    row-gap: 9px;
 
-    /*
-       Comfortable vertical spacing
-    */
-    padding: 12px 0;
+    align-items: start;
 
-    margin: 0 !important;
+    padding: 16px 0;
+
+    margin: 0;
 
     border-bottom:
-        1px solid rgba(6,60,120,0.12);
+        1px solid rgba(0,66,124,0.14);
 }
 
 
 /* =========================================================
-   CONTACT ICONS
+   FLAG
 ========================================================= */
 
-.ie-contact-icon {
+.hero-flag-column {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+}
+
+
+.hero-country-flag {
+    display: block;
+
     width: 38px;
     height: 38px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    border:
+        2px solid rgba(255,255,255,0.96);
+
+    box-shadow:
+        0 3px 10px rgba(0,66,124,0.07);
+}
+
+
+/* =========================================================
+   DETAIL ROWS
+========================================================= */
+
+.hero-country-row {
+    grid-column: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        28px minmax(0,1fr);
+
+    gap: 9px;
+
+    align-items: center;
+
+    margin: 0;
+    padding: 0;
+
+    color: #344b61;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    line-height: 1.55;
+}
+
+
+.hero-address-row {
+    align-items: start;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.hero-country-row a {
+    color: #0968dc;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    line-height: 1.55;
+
+    text-decoration: none !important;
+
+    transition: color .2s ease;
+}
+
+
+.hero-country-row a:hover,
+.hero-country-row a:focus,
+.hero-country-row a:active,
+.hero-country-row a:visited {
+    text-decoration: none !important;
+}
+
+
+.hero-country-row a:hover,
+.hero-country-row a:focus {
+    color: #00427C;
+}
+
+
+/* =========================================================
+   DETAIL ICONS
+========================================================= */
+
+.hero-row-icon {
+    width: 27px;
+    height: 27px;
 
     display: flex;
     align-items: center;
@@ -264,175 +362,200 @@
     border-radius: 50%;
 
     background:
-        rgba(255,255,255,0.86);
+        rgba(255,255,255,0.78);
 
     border:
-        1px solid rgba(0,105,232,0.18);
-
-    box-shadow:
-        0 3px 10px rgba(6,60,120,0.07);
+        1px solid rgba(0,105,232,0.14);
 }
 
 
-.ie-contact-icon svg {
-    width: 18px;
-    height: 18px;
-
+.hero-row-icon svg {
     display: block;
+
+    width: 13px;
+    height: 13px;
 
     fill: currentColor;
 }
 
 
-/* =========================================================
-   ICON COLORS
-========================================================= */
-
-
-/* PHONE / EMAIL */
-
-.ie-icon-blue {
+.hero-phone-icon {
     color: #086ce5;
 }
 
 
-/* WHATSAPP */
-
-.ie-icon-whatsapp {
+.hero-whatsapp-icon {
     color: #16a65a;
 
     background:
-        rgba(240,255,246,0.94);
+        rgba(240,255,246,0.80);
 
     border-color:
-        rgba(22,166,90,0.20);
+        rgba(22,166,90,0.17);
 }
 
 
-/* LOCATION */
-
-.ie-icon-location {
+.hero-location-icon {
     color: #ef2d32;
 
     background:
-        rgba(255,244,244,0.95);
+        rgba(255,245,245,0.84);
 
     border-color:
-        rgba(239,45,50,0.18);
+        rgba(239,45,50,0.15);
 }
 
 
 /* =========================================================
-   CONTACT LABEL
+   EMAIL
 ========================================================= */
 
-.ie-contact-label {
-    color: #eb292e;
+.hero-email-row {
+    display: grid;
 
-    font-size: 15px;
-    font-weight: 800;
+    grid-template-columns:
+        52px minmax(0,1fr);
 
-    line-height: 1.35;
+    column-gap: 14px;
 
-    margin: 0 !important;
-    padding: 0 !important;
+    align-items: center;
+
+    padding: 15px 0;
+
+    margin: 0;
+
+    border-bottom:
+        1px solid rgba(0,66,124,0.14);
 }
 
 
-/* =========================================================
-   CONTACT VALUE
-========================================================= */
+.hero-email-icon {
+    width: 27px;
+    height: 27px;
 
-.ie-contact-value {
-    color: #102f50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    font-size: 15px;
-    font-weight: 600;
+    justify-self: center;
 
-    line-height: 1.45;
+    border-radius: 50%;
 
-    margin: 0 !important;
-    padding: 0 !important;
+    color: #086ce5;
+
+    background:
+        rgba(255,255,255,0.78);
+
+    border:
+        1px solid rgba(0,105,232,0.14);
 }
 
 
-/* =========================================================
-   CONTACT LINKS
-========================================================= */
+.hero-email-icon svg {
+    display: block;
 
-.ie-contact-value a {
+    width: 13px;
+    height: 13px;
+
+    fill: currentColor;
+}
+
+
+.hero-email-row a {
+    min-width: 0;
+
     color: #0968dc;
 
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 500;
 
-    text-decoration: none;
+    line-height: 1.55;
+
+    text-decoration: none !important;
+
+    overflow-wrap: anywhere;
 
     transition: color .2s ease;
 }
 
 
-.ie-contact-value a:hover {
-    color: #063c78;
+.hero-email-row a:hover,
+.hero-email-row a:focus,
+.hero-email-row a:active,
+.hero-email-row a:visited {
+    text-decoration: none !important;
+}
 
-    text-decoration: underline;
+
+.hero-email-row a:hover,
+.hero-email-row a:focus {
+    color: #00427C;
 }
 
 
 /* =========================================================
-   CONNECT / SOCIAL AREA
+   SOCIAL
 ========================================================= */
 
-.ie-connect-row {
+.hero-social-row {
+    display: grid;
+
+    grid-template-columns:
+        52px minmax(0,1fr);
+
+    column-gap: 14px;
+
+    align-items: center;
+
+    padding: 15px 0 4px;
+
+    margin: 0;
+}
+
+
+.hero-social-lead-icon {
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    justify-self: center;
+
+    border-radius: 50%;
+
+    color: #f58220;
+
+    background:
+        rgba(255,248,241,0.84);
+
+    border:
+        1px solid rgba(245,130,32,0.18);
+}
+
+
+.hero-social-lead-icon svg {
+    display: block;
+
+    width: 13px;
+    height: 13px;
+
+    fill: currentColor;
+}
+
+
+.hero-social-icons {
     display: flex;
     align-items: center;
 
-    gap: 15px;
-
-    /*
-       Keep some breathing room above social icons,
-       but almost no space below.
-    */
-    padding: 16px 0 5px 0;
-
-    margin: 0 !important;
+    gap: 9px;
 }
 
 
-/* CONNECT TITLE */
-
-.ie-connect-title {
-    color: #eb292e;
-
-    font-size: 15px;
-    font-weight: 800;
-
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-
-/* =========================================================
-   SOCIAL ICON CONTAINER
-========================================================= */
-
-.ie-social-icons {
-    display: flex;
-    align-items: center;
-
-    gap: 10px;
-
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-
-/* =========================================================
-   SOCIAL ICONS
-========================================================= */
-
-.ie-social-icon {
-    width: 38px;
-    height: 38px;
+.hero-social-icon {
+    width: 33px;
+    height: 33px;
 
     display: flex;
     align-items: center;
@@ -440,38 +563,36 @@
 
     border-radius: 50%;
 
-    background:
-        rgba(255,255,255,0.86);
-
-    border:
-        1px solid rgba(0,105,232,0.20);
-
     color: #086ce5;
 
-    box-shadow:
-        0 3px 10px rgba(6,60,120,0.07);
+    background:
+        rgba(255,255,255,0.78);
 
-    text-decoration: none;
+    border:
+        1px solid rgba(0,105,232,0.16);
+
+    text-decoration: none !important;
 
     transition:
-        transform .20s ease,
-        background .20s ease,
-        color .20s ease,
-        box-shadow .20s ease;
+        transform .2s ease,
+        background .2s ease,
+        color .2s ease,
+        box-shadow .2s ease;
 }
 
 
-.ie-social-icon svg {
-    width: 18px;
-    height: 18px;
-
+.hero-social-icon svg {
     display: block;
+
+    width: 15px;
+    height: 15px;
 
     fill: currentColor;
 }
 
 
-.ie-social-icon:hover {
+.hero-social-icon:hover,
+.hero-social-icon:focus {
     color: #ffffff;
 
     background: #086ce5;
@@ -479,79 +600,49 @@
     transform: translateY(-2px);
 
     box-shadow:
-        0 6px 14px rgba(0,105,232,0.20);
+        0 5px 12px rgba(0,105,232,0.18);
+
+    text-decoration: none !important;
 }
 
 
 /* =========================================================
-   REMOVE DEFAULT ELEMENT SPACING
+   REMOVE LINK UNDERLINES
 ========================================================= */
 
-.ie-contact-banner h1,
-.ie-contact-banner h2,
-.ie-contact-banner h3,
-.ie-contact-banner p {
+.ie-contact-banner a,
+.ie-contact-banner a:hover,
+.ie-contact-banner a:focus,
+.ie-contact-banner a:active,
+.ie-contact-banner a:visited {
+    text-decoration: none !important;
+}
+
+
+/* =========================================================
+   CLEAN DEFAULT SPACING
+========================================================= */
+
+.ie-contact-banner h1 {
     padding-bottom: 0 !important;
 }
 
 
-.ie-contact-banner p:last-child {
-    margin-bottom: 0 !important;
-}
-
-
-.ie-contact-content > *:last-child {
-    margin-bottom: 0 !important;
-}
-
-
-.ie-contact-container > *:last-child {
-    margin-bottom: 0 !important;
-}
-
-
 /* =========================================================
-   CRITICAL - REMOVE GAP BETWEEN CONTACT & FOOTER
+   REMOVE GAP BEFORE FOOTER
 ========================================================= */
 
-/* Contact banner itself */
-
-.ie-contact-banner {
-    margin-bottom: 0 !important;
-}
-
-
-/* Container inside banner */
-
-.ie-contact-container {
-    margin-bottom: 0 !important;
-}
-
-
-/* Content inside banner */
-
+.ie-contact-banner,
+.ie-contact-container,
 .ie-contact-content {
     margin-bottom: 0 !important;
 }
 
 
-/* Last social row */
-
-.ie-connect-row {
-    margin-bottom: 0 !important;
-}
-
-
-/* Whatever Elementor places directly after contact */
-
 .ie-contact-banner + * {
     margin-top: 0 !important;
 }
 
-
-/* =========================================================
-   FOOTER GAP FIX
-========================================================= */
 
 footer,
 .site-footer,
@@ -560,12 +651,6 @@ footer,
 }
 
 
-/*
-   IMPORTANT:
-   Do NOT remove footer's normal internal padding.
-   We only remove external margin that could create a gap.
-*/
-
 .elementor-location-footer > .elementor-element:first-child,
 .elementor-location-footer > .e-con:first-child {
     margin-top: 0 !important;
@@ -573,282 +658,305 @@ footer,
 
 
 /* =========================================================
+   LARGE DESKTOP
+========================================================= */
+
+@media (min-width: 1440px) {
+
+    .ie-contact-container {
+        max-width: 1280px;
+    }
+
+}
+
+
+/* =========================================================
    TABLET
 ========================================================= */
 
-@media (max-width: 1024px) {
-
-    .ie-contact-banner {
-        min-height: 0 !important;
-        height: auto !important;
-    }
-
+@media (max-width: 1100px) {
 
     .ie-contact-background {
-        background-position: 42% center;
+        background-position: 58% center;
     }
 
 
-    .ie-contact-overlay {
-        background:
-            linear-gradient(
-                90deg,
-
-                rgba(255,255,255,0.00) 0%,
-
-                rgba(255,255,255,0.03) 25%,
-
-                rgba(255,255,255,0.35) 42%,
-
-                rgba(255,255,255,0.79) 58%,
-
-                rgba(255,255,255,0.95) 100%
-            );
+    .ie-contact-container {
+        padding: 0 32px !important;
     }
 
 
     .ie-contact-content {
-        width: 64%;
+        width: 51%;
+        max-width: 530px;
 
-        padding:
-            30px 5px
-            23px 30px;
+        padding: 54px 0;
     }
 
 
     .contact-main-title {
-        font-size:
-            clamp(54px, 8vw, 80px);
+        font-size: 56px;
     }
 
 
     .contact-subtitle {
-        margin:
-            19px 0 14px 0 !important;
+        font-size: 16px;
 
-        font-size: 15px;
-
-        line-height: 1.5;
+        margin-bottom:
+            36px !important;
     }
 
 
-    .ie-contact-row {
+    .hero-country-group {
         grid-template-columns:
-            40px
-            102px
-            1fr;
+            49px minmax(0,1fr);
 
-        gap: 11px;
+        column-gap: 12px;
+        row-gap: 8px;
 
-        padding: 11px 0;
+        padding: 14px 0;
     }
 
 
-    .ie-contact-icon {
-        width: 36px;
-        height: 36px;
+    .hero-country-flag {
+        width: 35px;
+        height: 35px;
     }
 
 
-    .ie-contact-icon svg {
-        width: 17px;
-        height: 17px;
+    .hero-country-row,
+    .hero-country-row a,
+    .hero-email-row a {
+        font-size: 14px;
     }
 
 
-    .ie-connect-row {
-        padding-bottom: 4px;
+    .hero-email-row,
+    .hero-social-row {
+        grid-template-columns:
+            49px minmax(0,1fr);
+
+        column-gap: 12px;
     }
+
+
+    .hero-email-row {
+        padding: 14px 0;
+    }
+
+
+    .hero-social-row {
+        padding: 14px 0 3px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .ie-contact-background {
+        background-position: 63% center;
+    }
+
+
+    .ie-contact-content {
+        width: 54%;
+    }
+
+
+    .contact-main-title {
+        font-size: 49px;
+    }
+
+
+    .contact-kicker {
+        font-size: 12px;
+
+        letter-spacing: 2.5px;
+    }
+
 }
 
 
 /* =========================================================
    MOBILE
+   MATCH REGISTRATION HERO
 ========================================================= */
 
 @media (max-width: 767px) {
 
     .ie-contact-banner {
-        min-height: 0 !important;
-        height: auto !important;
+        align-items: flex-start;
 
-        align-items: flex-end;
-    }
-
-
-    .ie-contact-background {
-        background-position: 27% center;
-    }
-
-
-    .ie-contact-overlay {
         background:
             linear-gradient(
                 180deg,
-
-                rgba(255,255,255,0.00) 0%,
-
-                rgba(255,255,255,0.03) 20%,
-
-                rgba(255,255,255,0.37) 35%,
-
-                rgba(255,255,255,0.90) 49%,
-
-                rgba(255,255,255,0.98) 100%
+                #ffffff 0%,
+                #f5f9fd 100%
             );
     }
 
 
+    /* REMOVE HERO IMAGE ON MOBILE */
+
+    .ie-contact-background {
+        display: none;
+    }
+
+
+    /* REMOVE IMAGE FADE ON MOBILE */
+
+    .ie-contact-overlay {
+        display: none;
+    }
+
+
     .ie-contact-container {
-        width: calc(100% - 30px);
+        width: 100%;
 
         margin: 0 auto !important;
 
-        justify-content: flex-start;
+        padding:
+            0 22px !important;
     }
 
+
+    /*
+       STARTS FROM TOP
+       SAME BEHAVIOUR AS REGISTRATION HERO
+    */
 
     .ie-contact-content {
         width: 100%;
         max-width: none;
 
-        /*
-           Top padding keeps image visible.
-           Bottom is intentionally small.
-        */
         padding:
-            220px 0
-            18px 0;
+            48px 0;
     }
 
 
-    /* GET IN TOUCH */
-
     .contact-kicker {
-        gap: 10px;
+        margin-bottom: 15px;
 
-        margin-bottom: 12px;
+        font-size: 12px;
 
-        font-size: 11px;
-
-        letter-spacing: 1.7px;
+        letter-spacing: 2.5px;
     }
 
 
     .contact-line {
-        width: 38px;
+        width: 40px;
         height: 3px;
     }
 
 
-    /* CONTACT US */
-
     .contact-main-title {
-        font-size: 52px;
+        margin-bottom: 18px !important;
 
-        line-height: 0.95;
+        font-size: 46px;
 
-        letter-spacing: -3px;
+        letter-spacing: -1.5px;
     }
 
-
-    /* DESCRIPTION */
 
     .contact-subtitle {
-        margin:
-            16px 0 12px 0 !important;
+        font-size: 16px;
 
-        font-size: 14px;
+        line-height: 1.6;
 
-        line-height: 1.5;
+        margin-bottom:
+            26px !important;
     }
 
 
-    /* CONTACT ROW */
+    .hero-contact-stack {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
 
-    .ie-contact-row {
+
+    .hero-country-group {
         grid-template-columns:
-            40px
-            1fr;
+            45px minmax(0,1fr);
 
-        gap:
-            4px 11px;
+        column-gap: 10px;
+        row-gap: 7px;
 
-        padding:
-            9px 0;
+        padding: 13px 0;
     }
 
 
-    /* ICON */
-
-    .ie-contact-icon {
-        grid-row:
-            1 / span 2;
-
-        width: 36px;
-        height: 36px;
+    .hero-country-flag {
+        width: 32px;
+        height: 32px;
     }
 
 
-    .ie-contact-icon svg {
-        width: 17px;
-        height: 17px;
-    }
+    .hero-country-row {
+        grid-template-columns:
+            25px minmax(0,1fr);
 
-
-    /* LABEL */
-
-    .ie-contact-label {
-        font-size: 13.5px;
-
-        line-height: 1.35;
-    }
-
-
-    /* VALUE */
-
-    .ie-contact-value {
-        grid-column: 2;
+        gap: 7px;
 
         font-size: 13px;
 
-        line-height: 1.4;
+        line-height: 1.45;
     }
 
 
-    /* SOCIAL */
-
-    .ie-connect-row {
-        flex-wrap: wrap;
-
-        gap: 12px;
-
-        padding:
-            13px 0
-            2px 0;
+    .hero-country-row a,
+    .hero-email-row a {
+        font-size: 13px;
     }
 
 
-    .ie-connect-title {
-        font-size: 13.5px;
+    .hero-row-icon {
+        width: 24px;
+        height: 24px;
     }
 
 
-    .ie-social-icons {
-        gap: 9px;
+    .hero-row-icon svg {
+        width: 11px;
+        height: 11px;
     }
 
 
-    .ie-social-icon {
-        width: 36px;
-        height: 36px;
+    .hero-email-row,
+    .hero-social-row {
+        grid-template-columns:
+            45px minmax(0,1fr);
+
+        column-gap: 10px;
     }
 
 
-    .ie-social-icon svg {
-        width: 17px;
-        height: 17px;
+    .hero-email-row {
+        padding: 13px 0;
     }
+
+
+    .hero-social-row {
+        padding: 13px 0 2px;
+    }
+
+
+    .hero-email-icon,
+    .hero-social-lead-icon {
+        width: 25px;
+        height: 25px;
+    }
+
+
+    .hero-social-icon {
+        width: 31px;
+        height: 31px;
+    }
+
 }
 
 
@@ -856,42 +964,59 @@ footer,
    SMALL MOBILE
 ========================================================= */
 
-@media (max-width: 430px) {
-
-    .ie-contact-banner {
-        min-height: 0 !important;
-        height: auto !important;
-    }
-
+@media (max-width: 480px) {
 
     .ie-contact-content {
         padding:
-            200px 0
-            16px 0;
+            42px 0 28px;
     }
 
 
     .contact-main-title {
-        font-size: 47px;
+        font-size: 41px;
     }
 
 
     .contact-subtitle {
-        font-size: 13.5px;
+        margin-bottom:
+            24px !important;
     }
 
 
-    .ie-contact-row {
-        padding: 8px 0;
+    .hero-country-group {
+        grid-template-columns:
+            42px minmax(0,1fr);
+
+        column-gap: 8px;
+
+        padding: 12px 0;
     }
 
 
-    .ie-contact-value {
+    .hero-country-flag {
+        width: 30px;
+        height: 30px;
+    }
+
+
+    .hero-email-row,
+    .hero-social-row {
+        grid-template-columns:
+            42px minmax(0,1fr);
+
+        column-gap: 8px;
+    }
+
+
+    .hero-country-row,
+    .hero-country-row a,
+    .hero-email-row a {
         font-size: 12.5px;
     }
 
 
-    .ie-connect-row {
-        padding-bottom: 2px;
+    .hero-social-icons {
+        gap: 7px;
     }
+
 }
