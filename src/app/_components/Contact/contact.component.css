@@ -1,6 +1,8 @@
 /* =========================================================
    INTERNATIONAL ECADEMY
+
    CONTACT US HERO
+
    FINAL REFINED VERSION
 ========================================================= */
 
@@ -45,6 +47,7 @@
 /* =========================================================
    FADE
    LEFT LIGHT / RIGHT CLEAR
+   UPDATED FOR BETTER IMAGE CLARITY
 ========================================================= */
 
 .ie-contact-overlay {
@@ -57,16 +60,10 @@
     background:
         linear-gradient(
             90deg,
-            rgba(255,255,255,0.99) 0%,
-            rgba(255,255,255,0.98) 18%,
-            rgba(255,255,255,0.95) 30%,
-            rgba(255,255,255,0.86) 41%,
-            rgba(255,255,255,0.65) 52%,
-            rgba(255,255,255,0.36) 62%,
-            rgba(255,255,255,0.14) 71%,
-            rgba(255,255,255,0.03) 79%,
-            rgba(255,255,255,0) 86%,
-            rgba(255,255,255,0) 100%
+            rgba(255, 255, 255, .77) 0%,
+            rgba(255, 255, 255, .71) 42%,
+            rgba(255, 255, 255, .22) 72%,
+            rgba(255, 255, 255, 0) 100%
         );
 }
 
@@ -170,11 +167,9 @@
     letter-spacing: -2px;
 }
 
-
 .contact-title-blue {
     color: #00427C;
 }
-
 
 .contact-title-orange {
     color: #f58220;
@@ -190,8 +185,7 @@
 
     max-width: 555px;
 
-    margin:
-        0 0 40px !important;
+    margin: 0 0 40px !important;
 
     padding: 0 !important;
 
@@ -259,7 +253,6 @@
     height: 100%;
 }
 
-
 .hero-country-flag {
     display: block;
 
@@ -307,7 +300,6 @@
     line-height: 1.55;
 }
 
-
 .hero-address-row {
     align-items: start;
 }
@@ -330,14 +322,12 @@
     transition: color .2s ease;
 }
 
-
 .hero-country-row a:hover,
 .hero-country-row a:focus,
 .hero-country-row a:active,
 .hero-country-row a:visited {
     text-decoration: none !important;
 }
-
 
 .hero-country-row a:hover,
 .hero-country-row a:focus {
@@ -368,7 +358,6 @@
         1px solid rgba(0,105,232,0.14);
 }
 
-
 .hero-row-icon svg {
     display: block;
 
@@ -378,11 +367,9 @@
     fill: currentColor;
 }
 
-
 .hero-phone-icon {
     color: #086ce5;
 }
-
 
 .hero-whatsapp-icon {
     color: #16a65a;
@@ -393,7 +380,6 @@
     border-color:
         rgba(22,166,90,0.17);
 }
-
 
 .hero-location-icon {
     color: #ef2d32;
@@ -428,7 +414,6 @@
         1px solid rgba(0,66,124,0.14);
 }
 
-
 .hero-email-icon {
     width: 27px;
     height: 27px;
@@ -450,7 +435,6 @@
         1px solid rgba(0,105,232,0.14);
 }
 
-
 .hero-email-icon svg {
     display: block;
 
@@ -459,7 +443,6 @@
 
     fill: currentColor;
 }
-
 
 .hero-email-row a {
     min-width: 0;
@@ -478,14 +461,12 @@
     transition: color .2s ease;
 }
 
-
 .hero-email-row a:hover,
 .hero-email-row a:focus,
 .hero-email-row a:active,
 .hero-email-row a:visited {
     text-decoration: none !important;
 }
-
 
 .hero-email-row a:hover,
 .hero-email-row a:focus {
@@ -512,7 +493,6 @@
     margin: 0;
 }
 
-
 .hero-social-lead-icon {
     width: 27px;
     height: 27px;
@@ -534,7 +514,6 @@
         1px solid rgba(245,130,32,0.18);
 }
 
-
 .hero-social-lead-icon svg {
     display: block;
 
@@ -544,14 +523,12 @@
     fill: currentColor;
 }
 
-
 .hero-social-icons {
     display: flex;
     align-items: center;
 
     gap: 9px;
 }
-
 
 .hero-social-icon {
     width: 33px;
@@ -580,7 +557,6 @@
         box-shadow .2s ease;
 }
 
-
 .hero-social-icon svg {
     display: block;
 
@@ -589,7 +565,6 @@
 
     fill: currentColor;
 }
-
 
 .hero-social-icon:hover,
 .hero-social-icon:focus {
@@ -638,18 +613,15 @@
     margin-bottom: 0 !important;
 }
 
-
 .ie-contact-banner + * {
     margin-top: 0 !important;
 }
-
 
 footer,
 .site-footer,
 .elementor-location-footer {
     margin-top: 0 !important;
 }
-
 
 .elementor-location-footer > .elementor-element:first-child,
 .elementor-location-footer > .e-con:first-child {
@@ -680,11 +652,9 @@ footer,
         background-position: 58% center;
     }
 
-
     .ie-contact-container {
         padding: 0 32px !important;
     }
-
 
     .ie-contact-content {
         width: 51%;
@@ -693,11 +663,9 @@ footer,
         padding: 54px 0;
     }
 
-
     .contact-main-title {
         font-size: 56px;
     }
-
 
     .contact-subtitle {
         font-size: 16px;
@@ -705,7 +673,6 @@ footer,
         margin-bottom:
             36px !important;
     }
-
 
     .hero-country-group {
         grid-template-columns:
@@ -717,19 +684,16 @@ footer,
         padding: 14px 0;
     }
 
-
     .hero-country-flag {
         width: 35px;
         height: 35px;
     }
-
 
     .hero-country-row,
     .hero-country-row a,
     .hero-email-row a {
         font-size: 14px;
     }
-
 
     .hero-email-row,
     .hero-social-row {
@@ -739,11 +703,9 @@ footer,
         column-gap: 12px;
     }
 
-
     .hero-email-row {
         padding: 14px 0;
     }
-
 
     .hero-social-row {
         padding: 14px 0 3px;
@@ -762,16 +724,13 @@ footer,
         background-position: 63% center;
     }
 
-
     .ie-contact-content {
         width: 54%;
     }
 
-
     .contact-main-title {
         font-size: 49px;
     }
-
 
     .contact-kicker {
         font-size: 12px;
@@ -784,36 +743,33 @@ footer,
 
 /* =========================================================
    MOBILE
-   MATCH REGISTRATION HERO
+   KEEP HERO IMAGE + MATCH REGISTRATION STYLE
 ========================================================= */
 
 @media (max-width: 767px) {
 
     .ie-contact-banner {
         align-items: flex-start;
+    }
+
+    .ie-contact-background {
+        display: block;
+
+        background-size: cover;
+        background-position: 63% center;
+        background-repeat: no-repeat;
+    }
+
+    .ie-contact-overlay {
+        display: block;
 
         background:
             linear-gradient(
-                180deg,
-                #ffffff 0%,
-                #f5f9fd 100%
+                90deg,
+                rgba(255, 255, 255, .77),
+                rgba(255, 255, 255, .66)
             );
     }
-
-
-    /* REMOVE HERO IMAGE ON MOBILE */
-
-    .ie-contact-background {
-        display: none;
-    }
-
-
-    /* REMOVE IMAGE FADE ON MOBILE */
-
-    .ie-contact-overlay {
-        display: none;
-    }
-
 
     .ie-contact-container {
         width: 100%;
@@ -824,12 +780,6 @@ footer,
             0 22px !important;
     }
 
-
-    /*
-       STARTS FROM TOP
-       SAME BEHAVIOUR AS REGISTRATION HERO
-    */
-
     .ie-contact-content {
         width: 100%;
         max-width: none;
@@ -837,7 +787,6 @@ footer,
         padding:
             48px 0;
     }
-
 
     .contact-kicker {
         margin-bottom: 15px;
@@ -847,12 +796,10 @@ footer,
         letter-spacing: 2.5px;
     }
 
-
     .contact-line {
         width: 40px;
         height: 3px;
     }
-
 
     .contact-main-title {
         margin-bottom: 18px !important;
@@ -861,7 +808,6 @@ footer,
 
         letter-spacing: -1.5px;
     }
-
 
     .contact-subtitle {
         font-size: 16px;
@@ -872,12 +818,10 @@ footer,
             26px !important;
     }
 
-
     .hero-contact-stack {
         margin: 0 !important;
         padding: 0 !important;
     }
-
 
     .hero-country-group {
         grid-template-columns:
@@ -889,12 +833,10 @@ footer,
         padding: 13px 0;
     }
 
-
     .hero-country-flag {
         width: 32px;
         height: 32px;
     }
-
 
     .hero-country-row {
         grid-template-columns:
@@ -907,24 +849,20 @@ footer,
         line-height: 1.45;
     }
 
-
     .hero-country-row a,
     .hero-email-row a {
         font-size: 13px;
     }
-
 
     .hero-row-icon {
         width: 24px;
         height: 24px;
     }
 
-
     .hero-row-icon svg {
         width: 11px;
         height: 11px;
     }
-
 
     .hero-email-row,
     .hero-social-row {
@@ -934,23 +872,19 @@ footer,
         column-gap: 10px;
     }
 
-
     .hero-email-row {
         padding: 13px 0;
     }
 
-
     .hero-social-row {
         padding: 13px 0 2px;
     }
-
 
     .hero-email-icon,
     .hero-social-lead-icon {
         width: 25px;
         height: 25px;
     }
-
 
     .hero-social-icon {
         width: 31px;
@@ -971,17 +905,14 @@ footer,
             42px 0 28px;
     }
 
-
     .contact-main-title {
         font-size: 41px;
     }
-
 
     .contact-subtitle {
         margin-bottom:
             24px !important;
     }
-
 
     .hero-country-group {
         grid-template-columns:
@@ -992,12 +923,10 @@ footer,
         padding: 12px 0;
     }
 
-
     .hero-country-flag {
         width: 30px;
         height: 30px;
     }
-
 
     .hero-email-row,
     .hero-social-row {
@@ -1007,13 +936,11 @@ footer,
         column-gap: 8px;
     }
 
-
     .hero-country-row,
     .hero-country-row a,
     .hero-email-row a {
         font-size: 12.5px;
     }
-
 
     .hero-social-icons {
         gap: 7px;

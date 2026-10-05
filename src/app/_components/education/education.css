@@ -33,7 +33,6 @@
 
 .education-page {
     width: 100%;
-
     overflow-x: hidden;
 
     background: #ffffff;
@@ -52,14 +51,12 @@
 
     margin: 0 auto;
 
-    padding:
-        0 30px;
+    padding: 0 30px;
 }
 
 
 /* =========================================================
    HERO
-   REGISTRATION-STYLE STRUCTURE
 ========================================================= */
 
 .education-hero {
@@ -90,6 +87,7 @@
 
 /* =========================================================
    HERO OVERLAY
+   UPDATED TO MATCH WEBSITE HERO STYLE
 ========================================================= */
 
 .education-hero__overlay {
@@ -97,18 +95,13 @@
 
     inset: 0;
 
-    /*
-     * Registration page does not heavily wash out its image.
-     * This overlay is intentionally very light.
-     */
     background:
         linear-gradient(
             90deg,
-            rgba(255, 255, 255, 0.42) 0%,
-            rgba(255, 255, 255, 0.30) 25%,
-            rgba(255, 255, 255, 0.14) 42%,
-            rgba(255, 255, 255, 0.04) 57%,
-            rgba(255, 255, 255, 0) 72%
+            rgba(255, 255, 255, .77) 0%,
+            rgba(255, 255, 255, .71) 42%,
+            rgba(255, 255, 255, .22) 72%,
+            rgba(255, 255, 255, 0) 100%
         );
 
     pointer-events: none;
@@ -923,12 +916,10 @@
             0 32px;
     }
 
-
     .education-hero {
         background-position:
             58% center;
     }
-
 
     .education-hero__content {
         width: 51%;
@@ -939,16 +930,13 @@
             54px 0;
     }
 
-
     .education-hero h1 {
         font-size: 56px;
     }
 
-
     .education-hero__description {
         font-size: 16px;
     }
-
 
     .education-program-row {
         grid-template-columns:
@@ -956,7 +944,6 @@
 
         gap: 38px;
     }
-
 
     .education-program-content h3 {
         font-size: 24px;
@@ -976,16 +963,13 @@
             63% center;
     }
 
-
     .education-hero__content {
         width: 54%;
     }
 
-
     .education-hero h1 {
         font-size: 49px;
     }
-
 
     .education-eyebrow {
         font-size: 12px;
@@ -994,11 +978,9 @@
             2.5px;
     }
 
-
     .education-intro__layout {
         gap: 45px;
     }
-
 
     .education-program-row {
         grid-template-columns:
@@ -1012,6 +994,7 @@
 
 /* =========================================================
    MOBILE
+   KEEP EXISTING EDUCATION IMAGE-TOP STRUCTURE
 ========================================================= */
 
 @media (max-width: 767px) {
@@ -1047,7 +1030,6 @@
             #ffffff;
     }
 
-
     .education-hero__overlay {
         background:
             linear-gradient(
@@ -1060,7 +1042,6 @@
             );
     }
 
-
     .education-hero__content {
         width: 100%;
 
@@ -1070,7 +1051,6 @@
             32px 0 48px;
     }
 
-
     .education-hero h1 {
         font-size: 43px;
 
@@ -1078,11 +1058,9 @@
             -1.5px;
     }
 
-
     .education-hero__description {
         font-size: 16px;
     }
-
 
     .education-search {
         max-width: 100%;
@@ -1096,14 +1074,12 @@
             65px 0 50px;
     }
 
-
     .education-intro__layout {
         grid-template-columns:
             1fr;
 
         gap: 28px;
     }
-
 
     .education-intro h2 {
         font-size: 37px;
@@ -1116,7 +1092,6 @@
         padding-bottom: 65px;
     }
 
-
     .education-program-row {
         grid-template-columns:
             1fr;
@@ -1127,13 +1102,11 @@
             32px 0;
     }
 
-
     .education-program-image {
         min-height: 220px;
 
         height: 220px;
     }
-
 
     .education-program-content h3 {
         font-size: 23px;
@@ -1147,7 +1120,6 @@
             65px 0;
     }
 
-
     .education-cta__content {
         flex-direction:
             column;
@@ -1157,7 +1129,6 @@
 
         gap: 30px;
     }
-
 
     .education-cta__button {
         width: 100%;
@@ -1180,11 +1151,9 @@
             auto 275px;
     }
 
-
     .education-hero h1 {
         font-size: 39px;
     }
-
 
     .education-eyebrow {
         font-size: 11px;
@@ -1192,7 +1161,6 @@
         letter-spacing:
             1.8px;
     }
-
 
     .education-search {
         height: auto;
@@ -1211,7 +1179,6 @@
             none;
     }
 
-
     .education-search__field {
         min-height: 50px;
 
@@ -1228,7 +1195,6 @@
             rgba(0, 66, 124, 0.08);
     }
 
-
     .education-search button {
         width: 100%;
 
@@ -1241,11 +1207,9 @@
         border-radius: 8px;
     }
 
-
     .education-primary-button {
         width: 100%;
     }
-
 
     .education-program-image {
         min-height: 195px;
@@ -1253,14 +1217,12 @@
         height: 195px;
     }
 
-
     .education-program-details span {
         padding:
             0 10px;
 
         font-size: 11px;
     }
-
 
     .education-program-actions {
         flex-direction:
@@ -1272,12 +1234,10 @@
         gap: 13px;
     }
 
-
     .education-program-primary {
         justify-content:
             center;
     }
-
 
     .education-program-link {
         justify-content:
