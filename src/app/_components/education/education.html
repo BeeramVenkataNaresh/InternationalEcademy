@@ -1,7 +1,9 @@
 <div class="education-page">
 
   <!-- =========================================================
+
        HERO
+
   ========================================================== -->
 
   <section class="education-hero">
@@ -13,66 +15,97 @@
       <div class="education-hero__content">
 
         <!-- EYEBROW -->
+
         <div class="education-eyebrow">
+
           <span class="education-orange-line"></span>
+
           <span>EDUCATIONAL SERVICES</span>
+
         </div>
 
-
         <!-- HEADING -->
+
         <h1>
+
           Learning pathways
+
           <span>built around your goals.</span>
+
         </h1>
 
-
         <!-- DESCRIPTION -->
+
         <p class="education-hero__description">
+
           Explore secondary school courses, elementary learning,
+
           AP programs, test preparation, language training and
+
           personalized academic support designed to help learners
+
           move forward with confidence.
+
         </p>
 
-
         <!-- SEARCH -->
+
         <div class="education-search">
 
           <div class="education-search__field">
 
             <svg
+
               class="education-search__icon"
+
               viewBox="0 0 24 24"
+
               aria-hidden="true"
+
             >
+
               <circle cx="11" cy="11" r="7"></circle>
+
               <path d="M20 20l-4-4"></path>
+
             </svg>
 
             <input
+
               type="text"
+
               placeholder="Search programs, courses or services..."
+
               aria-label="Search educational services"
+
             >
 
           </div>
 
           <button type="button">
+
             Search
+
           </button>
 
         </div>
 
-
         <!-- CTA -->
+
         <div class="education-hero__actions">
 
           <a
+
             routerLink="/contact"
+
             class="education-primary-button"
+
           >
+
             Speak With Our Team
+
             <span>→</span>
+
           </a>
 
         </div>
@@ -83,10 +116,308 @@
 
   </section>
 
+  <!-- =========================================================
+       GLOBAL UNIVERSITY RECOGNITION
+  ========================================================== -->
+
+  <section class="education-universities">
+    <div class="page-container">
+
+      <div class="education-universities__heading">
+        <div class="education-section-label">GLOBAL RECOGNITION</div>
+        <h2>
+          Your Canadian Education.
+          <span>Recognized Worldwide.</span>
+        </h2>
+        <p>
+          The Ontario Secondary School Diploma (OSSD) provides students with a strong academic pathway
+          toward universities and post-secondary institutions around the world. Explore leading universities
+          by country and review OSSD recognition and admission information.
+        </p>
+      </div>
+
+      <div class="education-country-tabs">
+        <button
+          *ngFor="let country of countries; let i = index"
+          type="button"
+          class="education-country-tab"
+          [class.active]="universityTabActiveIndex === i"
+          (click)="universityTabActiveIndex = i"
+        >
+          <img
+            [src]="'assets/images/universites/' + country.imageName + '.png'"
+            [alt]="country.name"
+          >
+          <span>{{ country.name }}</span>
+        </button>
+      </div>
+
+      <ng-container *ngFor="let country of countries; let i = index">
+        <div
+          class="education-university-panel"
+          [class.active]="universityTabActiveIndex === i"
+        >
+          <div class="education-university-panel__header">
+            <div>
+              <span class="education-university-small-label">UNIVERSITY PATHWAYS</span>
+              <h3>Top Universities in {{ country.name }}</h3>
+              <p>
+                Explore selected universities and review OSSD recognition and minimum admission entry information.
+              </p>
+            </div>
+
+            <img
+              class="education-university-country-flag"
+              [src]="'assets/images/universites/' + country.imageName + '.png'"
+              [alt]="country.name"
+            >
+          </div>
+
+          <div class="education-university-table-wrapper">
+            <table class="education-university-table">
+              <thead>
+                <tr>
+                  <th class="education-university-number">#</th>
+                  <th>University</th>
+                  <th>OSSD Recognition</th>
+                  <th>Admission Information</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr *ngFor="let uni of country.universities; let universityIndex = index">
+                  <td class="education-university-number">{{ universityIndex + 1 }}</td>
+                  <td><strong>{{ uni.name }}</strong></td>
+                  <td>
+                    <span
+                      class="education-recognition-badge"
+                      [class.not-recognized]="!uni.ossdRecognized"
+                    >
+                      <i
+                        class="fa"
+                        [ngClass]="uni.ossdRecognized ? 'fa-check-circle' : 'fa-times-circle'"
+                      ></i>
+                      {{ uni.ossdRecognized ? 'Recognized' : 'Check Requirements' }}
+                    </span>
+                  </td>
+                  <td>
+                    <a
+                      [href]="uni.minEntryLink"
+                      target="_blank"
+                      rel="noopener"
+                      class="education-entry-link"
+                    >
+                      {{ uni.minEntry }}
+                      <span>→</span>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="education-university-note">
+        <div class="education-university-note__icon">
+          <i class="fa fa-info-circle"></i>
+        </div>
+        <div>
+          <strong>Admission requirements may vary.</strong>
+          <p>
+            University admission requirements, prerequisites, program requirements and minimum averages may change.
+            Students should confirm current requirements directly with the university before applying.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
 
   <!-- =========================================================
+       UNIVERSITY PRESENTATION - PROPOSAL A
+       COMPACT CARD VIEW
+       TEMPORARY COMPARISON SECTION
+  ========================================================== -->
+
+  <section class="education-university-cards-demo">
+    <div class="page-container">
+
+      <div class="education-alt-heading">
+        <div class="education-section-label">ALTERNATIVE PRESENTATION A</div>
+        <h2>
+          University Pathways.
+          <span>At a Glance.</span>
+        </h2>
+        <p>
+          A shorter card-based presentation showing selected universities for the chosen country.
+        </p>
+      </div>
+
+      <div class="education-alt-country-tabs">
+        <button
+          *ngFor="let country of countries; let i = index"
+          type="button"
+          class="education-alt-country-tab"
+          [class.active]="universityTabActiveIndex === i"
+          (click)="universityTabActiveIndex = i"
+        >
+          <img
+            [src]="'assets/images/universites/' + country.imageName + '.png'"
+            [alt]="country.name"
+          >
+          <span>{{ country.name }}</span>
+        </button>
+      </div>
+
+      <ng-container *ngFor="let country of countries; let i = index">
+        <div
+          class="education-alt-card-panel"
+          [class.active]="universityTabActiveIndex === i"
+        >
+          <div class="education-alt-card-panel__top">
+            <div>
+              <span class="education-alt-kicker">SELECTED UNIVERSITIES</span>
+              <h3>{{ country.name }}</h3>
+            </div>
+            <div class="education-alt-count">Top 5 shown</div>
+          </div>
+
+          <div class="education-alt-university-grid">
+            <article
+              class="education-alt-university-card"
+              *ngFor="let uni of (country.universities | slice:0:5)"
+            >
+              <div class="education-alt-university-card__icon">
+                <i class="fa fa-university"></i>
+              </div>
+
+              <div class="education-alt-university-card__content">
+                <h4>{{ uni.name }}</h4>
+
+                <div class="education-alt-meta">
+                  <span class="education-alt-recognized" *ngIf="uni.ossdRecognized">
+                    <i class="fa fa-check-circle"></i>
+                    OSSD Recognized
+                  </span>
+
+                  <span class="education-alt-entry" *ngIf="uni.minEntry && uni.minEntry !== 'Find'">
+                    Entry: {{ uni.minEntry }}
+                  </span>
+                </div>
+
+                <a
+                  [href]="uni.minEntryLink"
+                  target="_blank"
+                  rel="noopener"
+                  class="education-alt-link"
+                >
+                  Admission Information
+                  <span>→</span>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div class="education-alt-card-note">
+            Showing 5 of {{ country.universities.length }} universities to keep the section concise.
+          </div>
+        </div>
+      </ng-container>
+
+    </div>
+  </section>
+
+
+  <!-- =========================================================
+       UNIVERSITY PRESENTATION - PROPOSAL B
+       COLLAPSIBLE COUNTRY VIEW
+       TEMPORARY COMPARISON SECTION
+  ========================================================== -->
+
+  <section class="education-university-accordion-demo">
+    <div class="page-container">
+
+      <div class="education-alt-heading education-alt-heading--light">
+        <div class="education-section-label">ALTERNATIVE PRESENTATION B</div>
+        <h2>
+          Explore Universities
+          <span>by Country.</span>
+        </h2>
+        <p>
+          A compact expandable layout that keeps all university information available without a long table.
+        </p>
+      </div>
+
+      <div class="education-country-accordion-list">
+        <details
+          class="education-country-accordion"
+          *ngFor="let country of countries; let i = index"
+          [attr.open]="i === 0 ? '' : null"
+        >
+          <summary>
+            <div class="education-country-accordion__title">
+              <img
+                [src]="'assets/images/universites/' + country.imageName + '.png'"
+                [alt]="country.name"
+              >
+              <div>
+                <strong>{{ country.name }}</strong>
+                <span>{{ country.universities.length }} universities</span>
+              </div>
+            </div>
+
+            <span class="education-country-accordion__action">
+              View universities
+              <i class="fa fa-chevron-down"></i>
+            </span>
+          </summary>
+
+          <div class="education-country-accordion__body">
+            <div
+              class="education-country-accordion__row"
+              *ngFor="let uni of country.universities; let universityIndex = index"
+            >
+              <div class="education-country-accordion__number">
+                {{ universityIndex + 1 }}
+              </div>
+
+              <div class="education-country-accordion__university">
+                <strong>{{ uni.name }}</strong>
+                <span *ngIf="uni.ossdRecognized">
+                  <i class="fa fa-check-circle"></i>
+                  OSSD Recognized
+                </span>
+              </div>
+
+              <div class="education-country-accordion__entry">
+                <span *ngIf="uni.minEntry && uni.minEntry !== 'Find'">
+                  {{ uni.minEntry }}
+                </span>
+
+                <a
+                  [href]="uni.minEntryLink"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="View admission information"
+                >
+                  Admission Info
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+
        INTRODUCTION
+
   ========================================================== -->
 
   <section class="education-intro">
@@ -96,31 +427,45 @@
       <div>
 
         <div class="education-section-label">
+
           OUR EDUCATIONAL SERVICES
+
         </div>
 
         <h2>
+
           Find the right
+
           <span>learning pathway.</span>
+
         </h2>
 
       </div>
 
-
       <div class="education-intro__copy">
 
         <p>
+
           International Ecademy provides flexible educational
+
           opportunities for learners at different stages of their
+
           academic journey.
+
         </p>
 
         <p>
+
           Whether you are completing secondary school credits,
+
           strengthening foundational skills, preparing for an
+
           important examination or developing language proficiency,
+
           our goal is to help you identify a pathway that supports
+
           your academic objectives.
+
         </p>
 
       </div>
@@ -129,77 +474,102 @@
 
   </section>
 
-
-
   <!-- =========================================================
+
        PROGRAMS
+
   ========================================================== -->
 
   <section class="education-programs">
 
     <div class="page-container">
 
-
       <!-- =====================================================
+
            SECONDARY SCHOOL
+
       ====================================================== -->
 
       <article
+
         class="education-program-row"
+
         id="academic-programs"
+
       >
 
         <div class="education-program-image">
 
           <img
+
             src="/assets/images/services/secondary-school.webp"
+
             alt="Ontario secondary school learning"
+
           >
 
         </div>
 
-
         <div class="education-program-content">
 
           <div class="education-program-label">
+
             SECONDARY SCHOOL
+
           </div>
 
           <h3>
+
             Ontario Secondary School Courses
+
           </h3>
 
           <p>
-            Flexible Ontario secondary school courses designed
-            to support academic progress, credit completion and
-            future educational goals.
-          </p>
 
+            Flexible Ontario secondary school courses designed
+
+            to support academic progress, credit completion and
+
+            future educational goals.
+
+          </p>
 
           <div class="education-program-details">
 
             <span>Grades 9–12</span>
+
             <span>Online</span>
+
             <span>Flexible</span>
 
           </div>
 
-
           <div class="education-program-actions">
 
             <a
+
               routerLink="/courses"
+
               class="education-program-primary"
+
             >
+
               Explore Courses
+
               <span>→</span>
+
             </a>
 
             <a
+
               routerLink="/contact"
+
               class="education-program-link"
+
             >
+
               Get Guidance
+
             </a>
 
           </div>
@@ -208,10 +578,10 @@
 
       </article>
 
-
-
       <!-- =====================================================
+
            ELEMENTARY
+
       ====================================================== -->
 
       <article class="education-program-row">
@@ -219,54 +589,75 @@
         <div class="education-program-image">
 
           <img
+
             src="/assets/images/services/elementary.webp"
+
             alt="Elementary learning program"
+
           >
 
         </div>
 
-
         <div class="education-program-content">
 
           <div class="education-program-label">
+
             ELEMENTARY EDUCATION
+
           </div>
 
           <h3>
+
             Elementary Learning Programs
+
           </h3>
 
           <p>
-            Engaging academic support for younger learners that
-            strengthens literacy, mathematics, science, creativity
-            and overall academic confidence.
-          </p>
 
+            Engaging academic support for younger learners that
+
+            strengthens literacy, mathematics, science, creativity
+
+            and overall academic confidence.
+
+          </p>
 
           <div class="education-program-details">
 
             <span>Grades 1–8</span>
+
             <span>Academic</span>
+
             <span>Support</span>
 
           </div>
 
-
           <div class="education-program-actions">
 
             <a
+
               routerLink="/contact"
+
               class="education-program-primary"
+
             >
+
               View Programs
+
               <span>→</span>
+
             </a>
 
             <a
+
               routerLink="/contact"
+
               class="education-program-link"
+
             >
+
               Ask About Options
+
             </a>
 
           </div>
@@ -275,10 +666,10 @@
 
       </article>
 
-
-
       <!-- =====================================================
+
            AP
+
       ====================================================== -->
 
       <article class="education-program-row">
@@ -286,54 +677,75 @@
         <div class="education-program-image">
 
           <img
+
             src="/assets/images/services/ap-courses.webp"
+
             alt="Advanced Placement courses"
+
           >
 
         </div>
 
-
         <div class="education-program-content">
 
           <div class="education-program-label">
+
             ADVANCED LEARNING
+
           </div>
 
           <h3>
+
             AP Courses
+
           </h3>
 
           <p>
-            Advanced academic programs for students seeking
-            challenging coursework and stronger preparation
-            for future post-secondary studies.
-          </p>
 
+            Advanced academic programs for students seeking
+
+            challenging coursework and stronger preparation
+
+            for future post-secondary studies.
+
+          </p>
 
           <div class="education-program-details">
 
             <span>Advanced</span>
+
             <span>Academic</span>
+
             <span>Online</span>
 
           </div>
 
-
           <div class="education-program-actions">
 
             <a
+
               routerLink="/ap-courses"
+
               class="education-program-primary"
+
             >
+
               Explore AP Courses
+
               <span>→</span>
+
             </a>
 
             <a
+
               routerLink="/contact"
+
               class="education-program-link"
+
             >
+
               Get Guidance
+
             </a>
 
           </div>
@@ -342,10 +754,10 @@
 
       </article>
 
-
-
       <!-- =====================================================
+
            TEST PREPARATION
+
       ====================================================== -->
 
       <article class="education-program-row">
@@ -353,55 +765,77 @@
         <div class="education-program-image">
 
           <img
+
             src="/assets/images/services/test-preparation.webp"
+
             alt="Test preparation program"
+
           >
 
         </div>
 
-
         <div class="education-program-content">
 
           <div class="education-program-label">
+
             TEST PREPARATION
+
           </div>
 
           <h3>
-            Exam &amp; Test Preparation
+
+            Exam & Test Preparation
+
           </h3>
 
           <p>
-            Structured preparation programs help learners
-            strengthen subject knowledge, develop examination
-            strategies and approach important assessments with
-            greater confidence.
-          </p>
 
+            Structured preparation programs help learners
+
+            strengthen subject knowledge, develop examination
+
+            strategies and approach important assessments with
+
+            greater confidence.
+
+          </p>
 
           <div class="education-program-details">
 
             <span>IELTS</span>
+
             <span>PTE</span>
+
             <span>CELPIP</span>
 
           </div>
 
-
           <div class="education-program-actions">
 
             <a
+
               routerLink="/contact"
+
               class="education-program-primary"
+
             >
+
               Explore Programs
+
               <span>→</span>
+
             </a>
 
             <a
+
               routerLink="/contact"
+
               class="education-program-link"
+
             >
+
               Ask About Preparation
+
             </a>
 
           </div>
@@ -410,10 +844,10 @@
 
       </article>
 
-
-
       <!-- =====================================================
+
            LANGUAGE PROGRAMS
+
       ====================================================== -->
 
       <article class="education-program-row">
@@ -421,54 +855,75 @@
         <div class="education-program-image">
 
           <img
+
             src="/assets/images/services/language-programs.webp"
+
             alt="English and French language learning"
+
           >
 
         </div>
 
-
         <div class="education-program-content">
 
           <div class="education-program-label">
+
             LANGUAGE LEARNING
+
           </div>
 
           <h3>
-            English &amp; French Language Programs
+
+            English & French Language Programs
+
           </h3>
 
           <p>
-            Develop stronger reading, writing, listening,
-            speaking and communication skills through structured
-            language-learning programs.
-          </p>
 
+            Develop stronger reading, writing, listening,
+
+            speaking and communication skills through structured
+
+            language-learning programs.
+
+          </p>
 
           <div class="education-program-details">
 
             <span>English</span>
+
             <span>French</span>
+
             <span>Online</span>
 
           </div>
 
-
           <div class="education-program-actions">
 
             <a
+
               routerLink="/contact"
+
               class="education-program-primary"
+
             >
+
               View Programs
+
               <span>→</span>
+
             </a>
 
             <a
+
               routerLink="/contact"
+
               class="education-program-link"
+
             >
+
               Get Guidance
+
             </a>
 
           </div>
@@ -477,68 +932,92 @@
 
       </article>
 
-
-
       <!-- =====================================================
+
            TUTORING
+
       ====================================================== -->
 
       <article
+
         class="education-program-row"
+
         id="student-support"
+
       >
 
         <div class="education-program-image">
 
           <img
+
             src="/assets/images/services/tutoring.webp"
+
             alt="Tutoring and personalized academic support"
+
           >
 
         </div>
 
-
         <div class="education-program-content">
 
           <div class="education-program-label">
+
             STUDENT SUPPORT
+
           </div>
 
           <h3>
-            Tutoring &amp; Academic Support
+
+            Tutoring & Academic Support
+
           </h3>
 
           <p>
-            Personalized academic support helps learners
-            strengthen challenging concepts, improve study skills
-            and make steady progress towards their academic goals.
-          </p>
 
+            Personalized academic support helps learners
+
+            strengthen challenging concepts, improve study skills
+
+            and make steady progress towards their academic goals.
+
+          </p>
 
           <div class="education-program-details">
 
             <span>Personalized</span>
+
             <span>Flexible</span>
+
             <span>Support</span>
 
           </div>
 
-
           <div class="education-program-actions">
 
             <a
+
               routerLink="/contact"
+
               class="education-program-primary"
+
             >
+
               Explore Tutoring
+
               <span>→</span>
+
             </a>
 
             <a
+
               routerLink="/contact"
+
               class="education-program-link"
+
             >
+
               Speak With Us
+
             </a>
 
           </div>
@@ -546,16 +1025,15 @@
         </div>
 
       </article>
-
 
     </div>
 
   </section>
 
-
-
   <!-- =========================================================
+
        FINAL CTA
+
   ========================================================== -->
 
   <section class="education-cta">
@@ -565,28 +1043,41 @@
       <div>
 
         <div class="education-cta__eyebrow">
+
           YOUR NEXT STEP
+
         </div>
 
         <h2>
+
           Not sure which program
+
           <span>is right for you?</span>
+
         </h2>
 
         <p>
+
           Tell us what you want to achieve and our team can help
+
           you understand the available educational options.
+
         </p>
 
       </div>
 
-
       <a
+
         routerLink="/contact"
+
         class="education-cta__button"
+
       >
+
         Speak With Our Team
+
         <span>→</span>
+
       </a>
 
     </div>
