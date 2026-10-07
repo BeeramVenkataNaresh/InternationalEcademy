@@ -10,19 +10,13 @@
 
     <div class="education-hero__overlay"></div>
 
-    <div class="education-hero__container">
+    <div class="ie-container education-hero__container">
 
       <div class="education-hero__content">
 
         <!-- EYEBROW -->
 
-        <div class="education-eyebrow">
-
-          <span class="education-orange-line"></span>
-
-          <span>EDUCATIONAL SERVICES</span>
-
-        </div>
+        <div class="ie-section-label education-eyebrow">EDUCATIONAL SERVICES</div>
 
         <!-- HEADING -->
 
@@ -82,7 +76,7 @@
 
           </div>
 
-          <button type="button">
+          <button type="button" class="education-search__button">
 
             Search
 
@@ -98,7 +92,7 @@
 
             routerLink="/contact"
 
-            class="education-primary-button"
+            class="ie-btn ie-btn-orange education-primary-button"
 
           >
 
@@ -117,301 +111,535 @@
   </section>
 
   <!-- =========================================================
+
        GLOBAL UNIVERSITY RECOGNITION
+
   ========================================================== -->
 
   <section class="education-universities">
-    <div class="page-container">
+
+    <div class="ie-container">
 
       <div class="education-universities__heading">
-        <div class="education-section-label">GLOBAL RECOGNITION</div>
+
+        <div class="ie-section-label education-section-label">GLOBAL RECOGNITION</div>
+
         <h2>
+
           Your Canadian Education.
+
           <span>Recognized Worldwide.</span>
+
         </h2>
+
         <p>
+
           The Ontario Secondary School Diploma (OSSD) provides students with a strong academic pathway
+
           toward universities and post-secondary institutions around the world. Explore leading universities
+
           by country and review OSSD recognition and admission information.
+
         </p>
+
       </div>
 
       <div class="education-country-tabs">
+
         <button
+
           *ngFor="let country of countries; let i = index"
+
           type="button"
+
           class="education-country-tab"
+
           [class.active]="universityTabActiveIndex === i"
+
           (click)="universityTabActiveIndex = i"
+
         >
+
           <img
-            [src]="'assets/images/universites/' + country.imageName + '.png'"
+
+            class="education-country-flag"
+
+            [src]="'assets/images/' + country.imageName + '.png'"
+
             [alt]="country.name"
+
           >
+
           <span>{{ country.name }}</span>
+
         </button>
+
       </div>
 
       <ng-container *ngFor="let country of countries; let i = index">
+
         <div
+
           class="education-university-panel"
+
           [class.active]="universityTabActiveIndex === i"
+
         >
+
           <div class="education-university-panel__header">
+
             <div>
+
               <span class="education-university-small-label">UNIVERSITY PATHWAYS</span>
+
               <h3>Top Universities in {{ country.name }}</h3>
+
               <p>
+
                 Explore selected universities and review OSSD recognition and minimum admission entry information.
+
               </p>
+
             </div>
 
             <img
-              class="education-university-country-flag"
-              [src]="'assets/images/universites/' + country.imageName + '.png'"
+
+              class="education-country-flag education-university-country-flag"
+
+              [src]="'assets/images/' + country.imageName + '.png'"
+
               [alt]="country.name"
+
             >
+
           </div>
 
           <div class="education-university-table-wrapper">
+
             <table class="education-university-table">
               <thead>
+
                 <tr>
-                  <th class="education-university-number">#</th>
-                  <th>University</th>
-                  <th>OSSD Recognition</th>
-                  <th>Admission Information</th>
+
+                  <th class="education-university-number">No.</th>
+
+                  <th class="education-university-name">University Name</th>
+
+                  <th class="education-university-recognition">OSSD Recognition</th>
+
+                  <th class="education-university-entry">Entry %</th>
+
+                  <th class="education-university-admission">Admission Info</th>
+
                 </tr>
+
               </thead>
 
               <tbody>
+
                 <tr *ngFor="let uni of country.universities; let universityIndex = index">
-                  <td class="education-university-number">{{ universityIndex + 1 }}</td>
-                  <td><strong>{{ uni.name }}</strong></td>
-                  <td>
+
+                  <td class="education-university-number"><span class="education-number-badge">{{ universityIndex + 1 }}</span></td>
+
+                  <td class="education-university-name"><strong>{{ uni.name }}</strong></td>
+
+                  <td class="education-university-recognition">
+
                     <span
+
                       class="education-recognition-badge"
+
                       [class.not-recognized]="!uni.ossdRecognized"
+
                     >
+
                       <i
+
                         class="fa"
+
                         [ngClass]="uni.ossdRecognized ? 'fa-check-circle' : 'fa-times-circle'"
+
                       ></i>
-                      {{ uni.ossdRecognized ? 'Recognized' : 'Check Requirements' }}
+
+                      {{ uni.ossdRecognized ? 'Recognized' : 'Check' }}
+
                     </span>
+
                   </td>
-                  <td>
+
+                  <td class="education-university-entry">
+
+                    {{ uni.minEntry === 'Find' ? 'Check' : uni.minEntry + '%' }}
+
+                  </td>
+
+                  <td class="education-university-admission">
+
                     <a
+
                       [href]="uni.minEntryLink"
+
                       target="_blank"
+
                       rel="noopener"
+
                       class="education-entry-link"
+
                     >
-                      {{ uni.minEntry }}
+
+                      View
+
                       <span>→</span>
+
                     </a>
+
                   </td>
+
                 </tr>
+
               </tbody>
+
             </table>
+
           </div>
+
         </div>
+
       </ng-container>
 
       <div class="education-university-note">
+
         <div class="education-university-note__icon">
+
           <i class="fa fa-info-circle"></i>
+
         </div>
+
         <div>
+
           <strong>Admission requirements may vary.</strong>
+
           <p>
+
             University admission requirements, prerequisites, program requirements and minimum averages may change.
+
             Students should confirm current requirements directly with the university before applying.
+
           </p>
+
         </div>
+
       </div>
 
     </div>
+
   </section>
 
-
   <!-- =========================================================
+
        UNIVERSITY PRESENTATION - PROPOSAL A
+
        COMPACT CARD VIEW
+
        TEMPORARY COMPARISON SECTION
+
   ========================================================== -->
 
   <section class="education-university-cards-demo">
-    <div class="page-container">
+
+    <div class="ie-container">
 
       <div class="education-alt-heading">
-        <div class="education-section-label">ALTERNATIVE PRESENTATION A</div>
+
+        <div class="ie-section-label education-section-label">ALTERNATIVE PRESENTATION A</div>
+
         <h2>
+
           University Pathways.
+
           <span>At a Glance.</span>
+
         </h2>
+
         <p>
+
           A shorter card-based presentation showing selected universities for the chosen country.
+
         </p>
+
       </div>
 
       <div class="education-alt-country-tabs">
+
         <button
+
           *ngFor="let country of countries; let i = index"
+
           type="button"
+
           class="education-alt-country-tab"
+
           [class.active]="universityTabActiveIndex === i"
+
           (click)="universityTabActiveIndex = i"
+
         >
+
           <img
-            [src]="'assets/images/universites/' + country.imageName + '.png'"
+
+            class="education-country-flag"
+
+            [src]="'assets/images/' + country.imageName + '.png'"
+
             [alt]="country.name"
+
           >
+
           <span>{{ country.name }}</span>
+
         </button>
+
       </div>
 
       <ng-container *ngFor="let country of countries; let i = index">
+
         <div
+
           class="education-alt-card-panel"
+
           [class.active]="universityTabActiveIndex === i"
+
         >
+
           <div class="education-alt-card-panel__top">
+
             <div>
+
               <span class="education-alt-kicker">SELECTED UNIVERSITIES</span>
+
               <h3>{{ country.name }}</h3>
+
             </div>
+
             <div class="education-alt-count">Top 5 shown</div>
+
           </div>
 
           <div class="education-alt-university-grid">
+
             <article
+
               class="education-alt-university-card"
+
               *ngFor="let uni of (country.universities | slice:0:5)"
+
             >
+
               <div class="education-alt-university-card__icon">
+
                 <i class="fa fa-university"></i>
+
               </div>
 
               <div class="education-alt-university-card__content">
+
                 <h4>{{ uni.name }}</h4>
 
                 <div class="education-alt-meta">
+
                   <span class="education-alt-recognized" *ngIf="uni.ossdRecognized">
+
                     <i class="fa fa-check-circle"></i>
+
                     OSSD Recognized
+
                   </span>
 
                   <span class="education-alt-entry" *ngIf="uni.minEntry && uni.minEntry !== 'Find'">
+
                     Entry: {{ uni.minEntry }}
+
                   </span>
+
                 </div>
 
                 <a
+
                   [href]="uni.minEntryLink"
+
                   target="_blank"
+
                   rel="noopener"
+
                   class="education-alt-link"
+
                 >
+
                   Admission Information
+
                   <span>→</span>
+
                 </a>
+
               </div>
+
             </article>
+
           </div>
 
           <div class="education-alt-card-note">
+
             Showing 5 of {{ country.universities.length }} universities to keep the section concise.
+
           </div>
+
         </div>
+
       </ng-container>
 
     </div>
+
   </section>
 
-
   <!-- =========================================================
+
        UNIVERSITY PRESENTATION - PROPOSAL B
+
        COLLAPSIBLE COUNTRY VIEW
+
        TEMPORARY COMPARISON SECTION
+
   ========================================================== -->
 
   <section class="education-university-accordion-demo">
-    <div class="page-container">
+
+    <div class="ie-container">
 
       <div class="education-alt-heading education-alt-heading--light">
-        <div class="education-section-label">ALTERNATIVE PRESENTATION B</div>
+
+        <div class="ie-section-label education-section-label">ALTERNATIVE PRESENTATION B</div>
+
         <h2>
+
           Explore Universities
+
           <span>by Country.</span>
+
         </h2>
+
         <p>
+
           A compact expandable layout that keeps all university information available without a long table.
+
         </p>
+
       </div>
 
       <div class="education-country-accordion-list">
+
         <details
+
           class="education-country-accordion"
+
           *ngFor="let country of countries; let i = index"
+
           [attr.open]="i === 0 ? '' : null"
+
         >
+
           <summary>
+
             <div class="education-country-accordion__title">
+
               <img
-                [src]="'assets/images/universites/' + country.imageName + '.png'"
+
+                class="education-country-flag"
+
+                [src]="'assets/images/' + country.imageName + '.png'"
+
                 [alt]="country.name"
+
               >
+
               <div>
+
                 <strong>{{ country.name }}</strong>
+
                 <span>{{ country.universities.length }} universities</span>
+
               </div>
+
             </div>
 
             <span class="education-country-accordion__action">
+
               View universities
+
               <i class="fa fa-chevron-down"></i>
+
             </span>
+
           </summary>
 
           <div class="education-country-accordion__body">
+
+            <div class="education-country-accordion__table-head" aria-hidden="true">
+              <div>No.</div>
+              <div>University Name</div>
+              <div>OSSD Recognition</div>
+              <div>Entry %</div>
+              <div>Admission Info</div>
+            </div>
+
             <div
               class="education-country-accordion__row"
               *ngFor="let uni of country.universities; let universityIndex = index"
             >
               <div class="education-country-accordion__number">
-                {{ universityIndex + 1 }}
+                <span class="education-number-badge">{{ universityIndex + 1 }}</span>
               </div>
 
               <div class="education-country-accordion__university">
                 <strong>{{ uni.name }}</strong>
-                <span *ngIf="uni.ossdRecognized">
-                  <i class="fa fa-check-circle"></i>
-                  OSSD Recognized
+              </div>
+
+              <div class="education-country-accordion__recognition">
+                <span
+                  class="education-recognition-badge"
+                  [class.not-recognized]="!uni.ossdRecognized"
+                >
+                  <i
+                    class="fa"
+                    [ngClass]="uni.ossdRecognized ? 'fa-check-circle' : 'fa-times-circle'"
+                  ></i>
+                  {{ uni.ossdRecognized ? 'Recognized' : 'Check' }}
                 </span>
               </div>
 
-              <div class="education-country-accordion__entry">
-                <span *ngIf="uni.minEntry && uni.minEntry !== 'Find'">
-                  {{ uni.minEntry }}
-                </span>
+              <div class="education-country-accordion__entry-percent">
+                {{ uni.minEntry === 'Find' ? 'Check' : uni.minEntry + '%' }}
+              </div>
 
+              <div class="education-country-accordion__entry">
                 <a
                   [href]="uni.minEntryLink"
                   target="_blank"
                   rel="noopener"
                   aria-label="View admission information"
                 >
-                  Admission Info
-                  <span>→</span>
+                  View <span>→</span>
                 </a>
               </div>
             </div>
+
           </div>
+
         </details>
+
       </div>
 
     </div>
+
   </section>
 
   <!-- =========================================================
@@ -422,11 +650,11 @@
 
   <section class="education-intro">
 
-    <div class="page-container education-intro__layout">
+    <div class="ie-container education-intro__layout">
 
       <div>
 
-        <div class="education-section-label">
+        <div class="ie-section-label education-section-label">
 
           OUR EDUCATIONAL SERVICES
 
@@ -482,13 +710,13 @@
 
   <section class="education-programs">
 
-    <div class="page-container">
+    <div class="ie-container">
 
       <!-- =====================================================
 
            SECONDARY SCHOOL
 
-      ====================================================== -->
+      \====================================================== -->
 
       <article
 
@@ -550,7 +778,7 @@
 
               routerLink="/courses"
 
-              class="education-program-primary"
+              class="ie-btn ie-btn-orange education-program-primary"
 
             >
 
@@ -582,7 +810,7 @@
 
            ELEMENTARY
 
-      ====================================================== -->
+      \====================================================== -->
 
       <article class="education-program-row">
 
@@ -638,7 +866,7 @@
 
               routerLink="/contact"
 
-              class="education-program-primary"
+              class="ie-btn ie-btn-orange education-program-primary"
 
             >
 
@@ -670,7 +898,7 @@
 
            AP
 
-      ====================================================== -->
+      \====================================================== -->
 
       <article class="education-program-row">
 
@@ -726,7 +954,7 @@
 
               routerLink="/ap-courses"
 
-              class="education-program-primary"
+              class="ie-btn ie-btn-orange education-program-primary"
 
             >
 
@@ -758,7 +986,7 @@
 
            TEST PREPARATION
 
-      ====================================================== -->
+      \====================================================== -->
 
       <article class="education-program-row">
 
@@ -816,7 +1044,7 @@
 
               routerLink="/contact"
 
-              class="education-program-primary"
+              class="ie-btn ie-btn-orange education-program-primary"
 
             >
 
@@ -848,7 +1076,7 @@
 
            LANGUAGE PROGRAMS
 
-      ====================================================== -->
+      \====================================================== -->
 
       <article class="education-program-row">
 
@@ -904,7 +1132,7 @@
 
               routerLink="/contact"
 
-              class="education-program-primary"
+              class="ie-btn ie-btn-orange education-program-primary"
 
             >
 
@@ -936,7 +1164,7 @@
 
            TUTORING
 
-      ====================================================== -->
+      \====================================================== -->
 
       <article
 
@@ -998,7 +1226,7 @@
 
               routerLink="/contact"
 
-              class="education-program-primary"
+              class="ie-btn ie-btn-orange education-program-primary"
 
             >
 
@@ -1038,7 +1266,7 @@
 
   <section class="education-cta">
 
-    <div class="page-container education-cta__content">
+    <div class="ie-container education-cta__content">
 
       <div>
 
@@ -1070,7 +1298,7 @@
 
         routerLink="/contact"
 
-        class="education-cta__button"
+        class="ie-btn ie-btn-orange education-cta__button"
 
       >
 

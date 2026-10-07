@@ -11,6 +11,7 @@ import { RouterLink } from '@angular/router';
 })
 export class Education {
   universityTabActiveIndex = 0;
+
  countries = [
 
     {
@@ -99,15 +100,15 @@ export class Education {
 
         { name: "The Australian National University (ANU)", ossdRecognized: true, minEntry: "77-96", minEntryLink: "https://www.anu.edu.au/files/resource/2018%20International%20Student%20Qualifications%20Table.pdf" },
 
-        { name: "The University of New South Wales (UNSW)", ossdRecognized: true, minEntry: "75-88", minEntryLink: "https://www.international.unsw\.edu.au/sites/default/files/2017_int_ug_direct_entry_table.pdf" },
+        { name: "The University of New South Wales (UNSW)", ossdRecognized: true, minEntry: "75-88", minEntryLink: "https://www.international.unsw\\.edu.au/sites/default/files/2017_int_ug_direct_entry_table.pdf" },
 
         { name: "The University of Queensland (UQ)", ossdRecognized: true, minEntry: "60-80", minEntryLink: "https://study.uq.edu.au/admissions/undergraduate/review-entry-requirements" },
 
         { name: "The University of Sydney", ossdRecognized: true, minEntry: "72-91", minEntryLink: "https://www.sydney.edu.au/content/dam/corporate/documents/study/admissions/apply/entry-requirements/ug-academic-requirements/Sydney_Uni_Americas_Entry_Qualifications.pdf" },
 
-        { name: "The University of Western Australia (UWA)", ossdRecognized: true, minEntry: "70", minEntryLink: "https://www.uwa.edu.au/study/how-to-apply/entry-requirements%20&%20https\:/study.uwa.edu.au/how-to-apply/entry-requirements/international-and-overseas-qualifications/canadian-matriculation-except-quebec" },
+        { name: "The University of Western Australia (UWA)", ossdRecognized: true, minEntry: "70", minEntryLink: "https://www.uwa.edu.au/study/how-to-apply/entry-requirements%20&%20https\\:/study.uwa.edu.au/how-to-apply/entry-requirements/international-and-overseas-qualifications/canadian-matriculation-except-quebec" },
 
-        { name: "The University of Adelaide", ossdRecognized: true, minEntry: "Find", minEntryLink: "https://www.adelaide.edu.au/degree-finder/?_ga=2.214355991.1652114793.1518427153-1834300548.1518427153" },
+        { name: "The University of Adelaide", ossdRecognized: true, minEntry: "Find", minEntryLink: "https://www.adelaide.edu.au/degree-finder/?\_ga=2.214355991.1652114793.1518427153-1834300548.1518427153" },
 
         { name: "University of Technology, Sydney (UTS)", ossdRecognized: true, minEntry: "Find", minEntryLink: "https://www.uts.edu.au/study/international/essential-information/academic-requirements#international-entry-scores" },
 
@@ -115,7 +116,7 @@ export class Education {
 
         { name: "Curtin University", ossdRecognized: true, minEntry: "60", minEntryLink: "https://www.curtin.edu.au/study/undergraduate/" },
 
-        { name: "Macquarie University", ossdRecognized: true, minEntry: "60-80", minEntryLink: "https://www.mq.edu.au/__data/assets/pdf_file/0006/740481/2009128-Academic-Requirements-Tables_Mar21_UG-Single_FA_DIGITAL.pdf" }
+        { name: "Macquarie University", ossdRecognized: true, minEntry: "60-80", minEntryLink: "https://www.mq.edu.au/\_\_data/assets/pdf_file/0006/740481/2009128-Academic-Requirements-Tables_Mar21_UG-Single_FA_DIGITAL.pdf" }
 
       ]
 
@@ -194,8 +195,6 @@ export class Education {
     }
 
   ];
-
-
 
   universities = [
 
