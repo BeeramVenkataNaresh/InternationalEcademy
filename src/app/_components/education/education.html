@@ -1,11 +1,5 @@
 <div class="education-page">
 
-  <!-- =========================================================
-
-       HERO
-
-  ========================================================== -->
-
   <section class="education-hero">
 
     <div class="education-hero__overlay"></div>
@@ -14,11 +8,7 @@
 
       <div class="education-hero__content">
 
-        <!-- EYEBROW -->
-
         <div class="ie-section-label education-eyebrow">EDUCATIONAL SERVICES</div>
-
-        <!-- HEADING -->
 
         <h1>
 
@@ -27,8 +17,6 @@
           <span>built around your goals.</span>
 
         </h1>
-
-        <!-- DESCRIPTION -->
 
         <p class="education-hero__description">
 
@@ -41,8 +29,6 @@
           move forward with confidence.
 
         </p>
-
-        <!-- SEARCH -->
 
         <div class="education-search">
 
@@ -84,8 +70,6 @@
 
         </div>
 
-        <!-- CTA -->
-
         <div class="education-hero__actions">
 
           <a
@@ -109,12 +93,6 @@
     </div>
 
   </section>
-
-  <!-- =========================================================
-
-       GLOBAL UNIVERSITY RECOGNITION
-
-  ========================================================== -->
 
   <section class="education-universities">
 
@@ -144,7 +122,7 @@
 
       </div>
 
-      <div class="education-country-tabs">
+      <div class="education-country-tabs" role="tablist" aria-label="University countries">
 
         <button
 
@@ -153,6 +131,8 @@
           type="button"
 
           class="education-country-tab"
+        role="tab"
+        [attr.aria-selected]="universityTabActiveIndex === i"
 
           [class.active]="universityTabActiveIndex === i"
 
@@ -181,6 +161,8 @@
         <div
 
           class="education-university-panel"
+        role="tabpanel"
+        [attr.aria-hidden]="universityTabActiveIndex !== i"
 
           [class.active]="universityTabActiveIndex === i"
 
@@ -216,7 +198,8 @@
 
           <div class="education-university-table-wrapper">
 
-            <table class="education-university-table">
+            <table class="education-university-table" aria-label="Universities and OSSD admission information">
+
               <thead>
 
                 <tr>
@@ -281,7 +264,7 @@
 
                       target="_blank"
 
-                      rel="noopener"
+                      rel="noopener noreferrer"
 
                       class="education-entry-link"
 
@@ -335,16 +318,6 @@
 
   </section>
 
-  <!-- =========================================================
-
-       UNIVERSITY PRESENTATION - PROPOSAL A
-
-       COMPACT CARD VIEW
-
-       TEMPORARY COMPARISON SECTION
-
-  ========================================================== -->
-
   <section class="education-university-cards-demo">
 
     <div class="ie-container">
@@ -369,7 +342,7 @@
 
       </div>
 
-      <div class="education-alt-country-tabs">
+      <div class="education-alt-country-tabs" role="tablist" aria-label="Card view university countries">
 
         <button
 
@@ -378,6 +351,8 @@
           type="button"
 
           class="education-alt-country-tab"
+        role="tab"
+        [attr.aria-selected]="universityTabActiveIndex === i"
 
           [class.active]="universityTabActiveIndex === i"
 
@@ -406,6 +381,8 @@
         <div
 
           class="education-alt-card-panel"
+        role="tabpanel"
+        [attr.aria-hidden]="universityTabActiveIndex !== i"
 
           [class.active]="universityTabActiveIndex === i"
 
@@ -469,7 +446,7 @@
 
                   target="_blank"
 
-                  rel="noopener"
+                  rel="noopener noreferrer"
 
                   class="education-alt-link"
 
@@ -500,16 +477,6 @@
     </div>
 
   </section>
-
-  <!-- =========================================================
-
-       UNIVERSITY PRESENTATION - PROPOSAL B
-
-       COLLAPSIBLE COUNTRY VIEW
-
-       TEMPORARY COMPARISON SECTION
-
-  ========================================================== -->
 
   <section class="education-university-accordion-demo">
 
@@ -584,52 +551,89 @@
           <div class="education-country-accordion__body">
 
             <div class="education-country-accordion__table-head" aria-hidden="true">
+
               <div>No.</div>
+
               <div>University Name</div>
+
               <div>OSSD Recognition</div>
+
               <div>Entry %</div>
+
               <div>Admission Info</div>
+
             </div>
 
             <div
+
               class="education-country-accordion__row"
+
               *ngFor="let uni of country.universities; let universityIndex = index"
+
             >
+
               <div class="education-country-accordion__number">
+
                 <span class="education-number-badge">{{ universityIndex + 1 }}</span>
+
               </div>
 
               <div class="education-country-accordion__university">
+
                 <strong>{{ uni.name }}</strong>
+
               </div>
 
               <div class="education-country-accordion__recognition">
+
                 <span
+
                   class="education-recognition-badge"
+
                   [class.not-recognized]="!uni.ossdRecognized"
+
                 >
+
                   <i
+
                     class="fa"
+
                     [ngClass]="uni.ossdRecognized ? 'fa-check-circle' : 'fa-times-circle'"
+
                   ></i>
+
                   {{ uni.ossdRecognized ? 'Recognized' : 'Check' }}
+
                 </span>
+
               </div>
 
               <div class="education-country-accordion__entry-percent">
+
                 {{ uni.minEntry === 'Find' ? 'Check' : uni.minEntry + '%' }}
+
               </div>
 
               <div class="education-country-accordion__entry">
+
                 <a
+
                   [href]="uni.minEntryLink"
+
                   target="_blank"
-                  rel="noopener"
+
+                  rel="noopener noreferrer"
+
                   aria-label="View admission information"
+
                 >
+
                   View <span>→</span>
+
                 </a>
+
               </div>
+
             </div>
 
           </div>
@@ -641,12 +645,6 @@
     </div>
 
   </section>
-
-  <!-- =========================================================
-
-       INTRODUCTION
-
-  ========================================================== -->
 
   <section class="education-intro">
 
@@ -702,21 +700,9 @@
 
   </section>
 
-  <!-- =========================================================
-
-       PROGRAMS
-
-  ========================================================== -->
-
   <section class="education-programs">
 
     <div class="ie-container">
-
-      <!-- =====================================================
-
-           SECONDARY SCHOOL
-
-      \====================================================== -->
 
       <article
 
@@ -806,12 +792,6 @@
 
       </article>
 
-      <!-- =====================================================
-
-           ELEMENTARY
-
-      \====================================================== -->
-
       <article class="education-program-row">
 
         <div class="education-program-image">
@@ -894,12 +874,6 @@
 
       </article>
 
-      <!-- =====================================================
-
-           AP
-
-      \====================================================== -->
-
       <article class="education-program-row">
 
         <div class="education-program-image">
@@ -981,12 +955,6 @@
         </div>
 
       </article>
-
-      <!-- =====================================================
-
-           TEST PREPARATION
-
-      \====================================================== -->
 
       <article class="education-program-row">
 
@@ -1072,12 +1040,6 @@
 
       </article>
 
-      <!-- =====================================================
-
-           LANGUAGE PROGRAMS
-
-      \====================================================== -->
-
       <article class="education-program-row">
 
         <div class="education-program-image">
@@ -1159,12 +1121,6 @@
         </div>
 
       </article>
-
-      <!-- =====================================================
-
-           TUTORING
-
-      \====================================================== -->
 
       <article
 
@@ -1257,12 +1213,6 @@
     </div>
 
   </section>
-
-  <!-- =========================================================
-
-       FINAL CTA
-
-  ========================================================== -->
 
   <section class="education-cta">
 
