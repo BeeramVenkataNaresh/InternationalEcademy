@@ -1253,14 +1253,14 @@ select {
 
 
 /* =========================================================
-   15. GOLD SPARKLE ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â BOTH SIDES
+   15. GOLD SPARKLE ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬ ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â BOTH SIDES
 ========================================================= */
 
 .animated-course-code::before,
 .animated-course-code::after {
 
   content:
-    "ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¦";
+    "ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬ ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦ÃƒÂ¢Ã¢â€šÂ¬Ã…â€œÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¦";
 
   display:
     inline-block;
@@ -5143,6 +5143,14 @@ td {
   background: var(--ie-blue-light) url('/assets/images/home.webp') center / cover no-repeat;
 }
 
+/* Business hero: same homepage styling, dedicated image. */
+.ie-business-home-page .ie-home-hero {
+  background-image: url('/assets/images/business.webp');
+}
+.ie-careers-home-page .ie-home-hero {
+  background-image: url('/assets/images/career.webp');
+}
+
 .ie-home-hero-overlay {
   position: absolute;
   inset: 0;
@@ -6535,7 +6543,7 @@ td {
   margin-top: 22px;
 }
 
-/* About responsive ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â uses site-wide breakpoints only */
+/* About responsive ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬ ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Â¦Ãƒâ€šÃ‚Â¡ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â uses site-wide breakpoints only */
 @media (max-width: 991.98px) {
   .ie-about-difference-grid {
     grid-template-columns: 1fr;
@@ -7071,7 +7079,7 @@ td {
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: var(--ie-blue-light) url('/assets/images/services/education-banner.webp') center / cover no-repeat;
+  background: var(--ie-blue-light) url('/assets/images/education.webp') center / cover no-repeat;
 }
 
 .education-hero__overlay {
@@ -9625,3 +9633,96 @@ app-footer .footer-socials a:focus-visible { outline: 2px solid var(--ie-orange,
 /* Device categories: desktop >= 992px, tablet 768-991.98px,
    mobile 576-767.98px, small mobile <= 575.98px.
    Existing shared responsive rules above implement these levels. */
+
+/* International Ecademy Business page: minimal additions to the EXISTING master styles.css.
+   All visual components and background images are inherited from the homepage classes. */
+.ie-business-home-page .ie-business-overview-secondary {
+  margin: 0 0 22px;
+  color: var(--ie-body);
+  font-size: 15px;
+  line-height: var(--ie-line-height-base);
+}
+.ie-business-home-page .ie-business-audience-lead,
+.ie-business-home-page .ie-business-approach-lead {
+  max-width: 720px;
+  margin: 14px auto 0;
+  color: var(--ie-body);
+  font-size: 15px;
+  line-height: var(--ie-line-height-base);
+  text-align: center;
+}
+/* Four audience cards instead of the homepage's five. */
+.ie-business-home-page .ie-home-clients .ie-business-client-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+@media (max-width: 1024px) {
+  .ie-business-home-page .ie-home-clients .ie-business-client-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .ie-business-home-page .ie-home-clients .ie-business-client-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+/* Careers: only page-specific layout refinements; shared visuals use homepage rules. */
+.ie-careers-home-page .ie-careers-client-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.ie-careers-home-page .ie-careers-development-text {
+  margin: 0 0 26px;
+  color: var(--ie-body);
+  font-size: 15px;
+  line-height: var(--ie-line-height-base);
+}
+.ie-careers-home-page .ie-home-approach-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+.ie-careers-home-page .ie-home-approach-grid > .ie-home-process-arrow { display: none; }
+.ie-careers-home-page .ie-careers-step-detail {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(40, 70, 100, .14);
+}
+@media (max-width: 1024px) {
+  .ie-careers-home-page .ie-careers-client-grid,
+  .ie-careers-home-page .ie-home-approach-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .ie-careers-home-page .ie-careers-client-grid,
+  .ie-careers-home-page .ie-home-approach-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* International Opportunities: page-specific image and four-step layout. */
+.ie-international-home-page .ie-home-hero {
+  background-image: url('/assets/images/international.webp');
+}
+.ie-international-home-page .ie-home-approach-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+.ie-international-home-page .ie-international-step-support {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(40, 70, 100, .14);
+}
+.ie-international-home-page .ie-international-career-secondary {
+  margin-bottom: 26px;
+}
+@media (max-width: 1024px) {
+  .ie-international-home-page .ie-home-approach-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .ie-international-home-page .ie-home-approach-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Training & Professional Development: shared homepage styling, dedicated hero. */
+.ie-training-home-page .ie-home-hero { background-image: url('/assets/images/training.webp'); }
+.ie-training-home-page .ie-home-approach-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.ie-training-home-page .ie-training-step-detail { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(40, 70, 100, .14); }
+.ie-training-home-page .ie-training-career-secondary { margin-bottom: 26px; }
+@media (max-width: 1024px) { .ie-training-home-page .ie-home-approach-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .ie-training-home-page .ie-home-approach-grid { grid-template-columns: minmax(0, 1fr); } }
