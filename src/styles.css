@@ -82,6 +82,7 @@
   --ie-space-xl: 32px;
   --ie-space-2xl: 48px;
   --ie-space-3xl: 70px;
+  --ie-section-space: 45px;
 
   /* Layout */
   --ie-container-max: 1240px;
@@ -258,7 +259,7 @@ select {
 }
 
 .ie-section-heading {
-  margin: 45px 0 25px;
+  margin: 0 0 25px;
 }
 
 .ie-section-centered {
@@ -477,15 +478,15 @@ select {
 --------------------------------------------------------- */
 
 .ie-section {
-  padding: 40px 0;
+  padding-block: var(--ie-section-space);
 }
 
 .ie-section-sm {
-  padding: 30px 0;
+  padding-block: var(--ie-section-space);
 }
 
 .ie-section-lg {
-  padding: 70px 0;
+  padding-block: var(--ie-section-space);
 }
 
 
@@ -3907,8 +3908,7 @@ td {
 
   .ie-section {
 
-    padding:
-      35px 0;
+    padding-block: var(--ie-section-space);
   }
 
   .ie-title-red,
@@ -3926,8 +3926,7 @@ td {
 
   .ie-section-heading {
 
-    margin-top:
-      40px;
+    margin-top: 0;
   }
 
   .ie-modal-info-grid {
@@ -4042,20 +4041,17 @@ td {
 
   .ie-section {
 
-    padding:
-      30px 0;
+    padding-block: var(--ie-section-space);
   }
 
   .ie-section-sm {
 
-    padding:
-      25px 0;
+    padding-block: var(--ie-section-space);
   }
 
   .ie-section-lg {
 
-    padding:
-      45px 0;
+    padding-block: var(--ie-section-space);
   }
 
   .ie-title-red,
@@ -6121,7 +6117,7 @@ td {
 /* Shared About sections */
 .ie-about-section {
   position: relative;
-  padding-block: 50px;
+  padding-block: var(--ie-section-space);
   background: var(--ie-white);
 }
 
@@ -6260,7 +6256,7 @@ td {
   width: 100%;
   min-height: 380px;
   margin: 0;
-  padding-block: 50px;
+  padding-block: var(--ie-section-space);
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -6488,7 +6484,7 @@ td {
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding-block: 52px;
+  padding-block: var(--ie-section-space);
   background:
     linear-gradient(
       90deg,
@@ -6592,7 +6588,7 @@ td {
   }
 
   .ie-about-final-cta {
-    padding-block: 48px;
+    padding-block: var(--ie-section-space);
   }
 
   .ie-about-final-copy {
@@ -6607,7 +6603,7 @@ td {
 
 @media (max-width: 767.98px) {
   .ie-about-section {
-    padding-block: 50px;
+    padding-block: var(--ie-section-space);
   }
 
   .ie-about-hero {
@@ -6663,7 +6659,7 @@ td {
 
   .ie-about-vision {
     min-height: auto;
-    padding-block: 50px;
+    padding-block: var(--ie-section-space);
   }
 
   .ie-about-vision-content {
@@ -6692,7 +6688,7 @@ td {
   }
 
   .ie-about-final-cta {
-    padding-block: 45px;
+    padding-block: var(--ie-section-space);
     background:
       linear-gradient(
         90deg,
@@ -7846,7 +7842,7 @@ td {
 }
 
 .education-country-accordion__row {
-  padding: 8px 14px;
+  padding: 5px 12px;
   border-bottom: 1px solid var(--ie-border);
   transition: background var(--ie-duration-fast) var(--ie-ease);
 }
@@ -7866,9 +7862,9 @@ td {
 }
 
 .education-country-accordion__number .education-number-badge {
-  width: 36px;
-  height: 36px;
-  font-size: 13px;
+  width: 30px;
+  height: 30px;
+  font-size: 12px;
 }
 
 .education-country-accordion__university {
@@ -8075,56 +8071,6 @@ td {
 }
 
 /* =========================================================
-   FINAL CTA
-========================================================= */
-
-.education-cta {
-  padding: 70px 0;
-  background: var(--ie-blue-dark);
-}
-
-.education-cta__content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 60px;
-}
-
-.education-cta__eyebrow {
-  margin-bottom: 12px;
-  color: rgba(var(--ie-white-rgb), .68);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-.education-cta h2 {
-  margin: 0 0 15px;
-  color: var(--ie-white);
-  font-size: clamp(34px, 4vw, 46px);
-  line-height: 1.1;
-  font-weight: 700;
-}
-
-.education-cta h2 span {
-  display: block;
-  color: var(--ie-orange);
-}
-
-.education-cta p {
-  max-width: 660px;
-  margin: 0;
-  color: rgba(var(--ie-white-rgb), .78);
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-.education-cta__button {
-  min-width: 210px;
-  white-space: nowrap;
-}
-
-/* =========================================================
    TABLET
 ========================================================= */
 
@@ -8289,19 +8235,6 @@ td {
     font-size: 23px;
   }
 
-  .education-cta {
-    padding: 60px 0;
-  }
-
-  .education-cta__content {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
-  }
-
-  .education-cta__button {
-    width: 100%;
-  }
 }
 
 /* =========================================================
@@ -8788,7 +8721,7 @@ td {
    All rules scoped to the final homepage CTA.
 ========================================================= */
 .ie-home-final-cta {
-  padding-block: clamp(56px, 5vw, 76px);
+  padding-block: var(--ie-section-space);
 }
 .ie-home-final-cta .ie-home-final-cta-content {
   width: 100%;
@@ -8807,7 +8740,7 @@ td {
 
 /* Tablet */
 @media (min-width: 768px) and (max-width: 991.98px) {
-  .ie-home-final-cta { padding-block: 60px; }
+  .ie-home-final-cta { padding-block: var(--ie-section-space); }
   .ie-home-final-cta .ie-home-final-cta-content { max-width: 660px; }
   .ie-home-final-cta .ie-home-final-cta-overlay {
     background: linear-gradient(90deg, rgba(3,45,89,.97), rgba(3,45,89,.82) 65%, rgba(3,45,89,.46));
@@ -8817,7 +8750,7 @@ td {
 
 /* Mobile */
 @media (min-width: 576px) and (max-width: 767.98px) {
-  .ie-home-final-cta { padding-block: 50px; }
+  .ie-home-final-cta { padding-block: var(--ie-section-space); }
   .ie-home-final-cta .ie-home-final-cta-background { background-position: 65% center; }
   .ie-home-final-cta .ie-home-final-cta-overlay {
     background: linear-gradient(90deg, rgba(3,45,89,.96), rgba(3,45,89,.80));
@@ -8828,7 +8761,7 @@ td {
 
 /* Small mobile */
 @media (max-width: 575.98px) {
-  .ie-home-final-cta { padding-block: 42px; }
+  .ie-home-final-cta { padding-block: var(--ie-section-space); }
   .ie-home-final-cta .ie-home-final-cta-background { background-position: 68% center; }
   .ie-home-final-cta .ie-home-final-cta-overlay {
     background: rgba(3,45,89,.90);
@@ -9726,3 +9659,282 @@ app-footer .footer-socials a:focus-visible { outline: 2px solid var(--ie-orange,
 .ie-training-home-page .ie-training-career-secondary { margin-bottom: 26px; }
 @media (max-width: 1024px) { .ie-training-home-page .ie-home-approach-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .ie-training-home-page .ie-home-approach-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Shared content sections and secondary service-page CTA spacing. */
+.ie-business-home-page .ie-home-final-cta,
+.ie-careers-home-page .ie-home-final-cta,
+.ie-international-home-page .ie-home-final-cta,
+.ie-training-home-page .ie-home-final-cta,
+.education-page .education-intro,
+.education-page .education-universities,
+.education-page .education-university-cards-demo,
+.education-page .education-university-accordion-demo,
+.education-page .education-programs {
+  box-sizing: border-box;
+  padding-block: var(--ie-section-space);
+}
+
+.ie-business-home-page .ie-home-hero,
+.ie-careers-home-page .ie-home-hero,
+.ie-international-home-page .ie-home-hero,
+.ie-training-home-page .ie-home-hero {
+  padding-block: 0;
+}
+
+/* Support remains white; development features use the shared soft surface. */
+.ie-careers-home-page .ie-home-clients,
+.ie-international-home-page .ie-home-clients,
+.ie-training-home-page .ie-home-clients {
+  background: var(--ie-white);
+}
+
+.ie-careers-home-page .ie-careers-development,
+.ie-international-home-page .ie-international-career,
+.ie-training-home-page .ie-training-career {
+  background: var(--ie-surface-soft);
+}
+
+.ie-careers-home-page .ie-home-approach,
+.ie-international-home-page .ie-home-approach,
+.ie-training-home-page .ie-home-approach {
+  background: var(--ie-white);
+}
+
+.ie-careers-home-page .ie-careers-development .ie-home-who-two-column,
+.ie-international-home-page .ie-international-career .ie-home-who-two-column,
+.ie-training-home-page .ie-training-career .ie-home-who-two-column {
+  align-items: center;
+}
+
+/* Education presentation D: one horizontal row of expandable country pills. */
+.education-university-pill-accordion {
+  padding-block: var(--ie-section-space);
+  background: var(--ie-white);
+}
+
+.education-country-pill-list {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 0;
+  padding: 4px 2px 0;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--ie-blue-rgb), .28) transparent;
+}
+
+.education-country-pill {
+  flex: 1 0 205px;
+  min-width: 0;
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 13px;
+  border: 1px solid var(--ie-border);
+  border-radius: 999px;
+  background: var(--ie-white);
+  color: var(--ie-blue-dark);
+  box-shadow: 0 5px 16px rgba(var(--ie-blue-rgb), .06);
+  cursor: pointer;
+  text-align: left;
+  transition: color var(--ie-duration-fast) var(--ie-ease),
+    background var(--ie-duration-fast) var(--ie-ease),
+    border-color var(--ie-duration-fast) var(--ie-ease),
+    box-shadow var(--ie-duration-fast) var(--ie-ease);
+}
+
+.education-country-pill:hover {
+  border-color: rgba(var(--ie-blue-rgb), .35);
+  box-shadow: 0 6px 18px rgba(var(--ie-blue-rgb), .09);
+}
+
+.education-country-pill:focus-visible {
+  outline: 3px solid rgba(var(--ie-orange-rgb), .45);
+  outline-offset: 3px;
+}
+
+.education-country-pill.active {
+  border-color: var(--ie-blue);
+  background: linear-gradient(135deg, var(--ie-blue-dark), var(--ie-blue));
+  color: var(--ie-white);
+  box-shadow: 0 10px 24px rgba(var(--ie-blue-rgb), .2);
+  position: relative;
+  z-index: 1;
+  margin-bottom: -1px;
+  border-radius: 18px 18px 8px 8px;
+}
+
+.education-country-pill img {
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  border: 2px solid rgba(var(--ie-white-rgb), .8);
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 7px rgba(var(--ie-navy-rgb), .12);
+}
+
+.education-country-pill__copy {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.education-country-pill__copy strong {
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.education-country-pill__copy small {
+  color: var(--ie-muted);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.education-country-pill.active .education-country-pill__copy small {
+  color: rgba(var(--ie-white-rgb), .76);
+}
+
+.education-country-pill__action {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: var(--ie-surface-soft);
+  color: var(--ie-blue);
+  font-size: 11px;
+  transition: background var(--ie-duration-fast) var(--ie-ease),
+    color var(--ie-duration-fast) var(--ie-ease);
+}
+
+.education-country-pill__action i {
+  transition: transform var(--ie-duration-fast) var(--ie-ease);
+}
+
+.education-country-pill.active .education-country-pill__action {
+  background: rgba(var(--ie-white-rgb), .16);
+  color: var(--ie-white);
+}
+
+.education-country-pill.active .education-country-pill__action i { transform: rotate(180deg); }
+
+.education-pill-country-panel {
+  overflow: hidden;
+  border: 1px solid rgba(var(--ie-blue-rgb), .12);
+  border-radius: 14px;
+  background: var(--ie-white);
+  box-shadow: 0 18px 45px rgba(var(--ie-navy-rgb), .09);
+}
+
+.education-pill-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 23px 26px;
+  background: linear-gradient(135deg, var(--ie-white), var(--ie-surface-blue));
+}
+
+.education-pill-panel-heading > div:first-child > span {
+  color: var(--ie-orange);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+}
+
+.education-pill-panel-heading h3 {
+  margin: 5px 0 0;
+  color: var(--ie-blue-dark);
+  font-size: 24px;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.education-pill-panel-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 13px;
+  border: 1px solid rgba(var(--ie-blue-rgb), .1);
+  border-radius: 999px;
+  background: var(--ie-white);
+  color: var(--ie-blue-dark);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.education-pill-panel-count i { color: var(--ie-orange); }
+
+.education-pill-country-panel .education-country-accordion__body {
+  border-top: 1px solid var(--ie-border);
+}
+
+.education-pill-country-panel .education-country-accordion__row {
+  padding-block: 5px;
+}
+
+.education-admission-note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 6px 12px;
+  border-top: 1px solid var(--ie-border);
+  background: #f3f8fd;
+  box-shadow: inset 3px 0 0 rgba(var(--ie-blue-rgb), .24);
+  color: var(--ie-blue-dark);
+}
+
+.education-admission-note__icon {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ie-white);
+  color: var(--ie-blue);
+  font-size: 13px;
+}
+
+.education-admission-note__copy {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 8px;
+  row-gap: 2px;
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.education-admission-note strong {
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.education-admission-note__copy span {
+  color: var(--ie-muted);
+  font-size: 10px;
+}
+
+@media (max-width: 600px) {
+  .education-country-pill-list { gap: 9px; }
+  .education-country-pill { flex-basis: 190px; min-height: 46px; padding: 6px 10px; }
+  .education-country-pill img { flex-basis: 26px; width: 26px; height: 26px; }
+  .education-admission-note { align-items: flex-start; gap: 8px; padding: 7px 9px; }
+  .education-admission-note__copy { display: block; }
+  .education-admission-note strong { display: block; margin-bottom: 2px; }
+}

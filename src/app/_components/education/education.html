@@ -70,13 +70,13 @@
 
         </div>
 
-        <div class="education-hero__actions">
+        <div class="education-hero__actions ie-home-hero-actions">
 
           <a
 
             routerLink="/contact"
 
-            class="ie-btn ie-btn-orange education-primary-button"
+            class="ie-btn ie-btn-primary education-primary-button"
 
           >
 
@@ -641,6 +641,187 @@
         </details>
 
       </div>
+
+    </div>
+
+  </section>
+
+  <section class="education-university-pill-accordion">
+
+    <div class="ie-container">
+
+      <div class="education-alt-heading education-alt-heading--light">
+
+        <div class="ie-section-label education-section-label">ALTERNATIVE PRESENTATION C</div>
+
+        <h2>
+
+          Choose a country.
+
+          <span>Compare pathways.</span>
+
+        </h2>
+
+        <p>Select a country to expand its university admission information.</p>
+
+      </div>
+
+      <div class="education-country-pill-list" role="group" aria-label="Choose a country to view universities">
+
+        <button
+
+          *ngFor="let country of countries; let i = index"
+
+          type="button"
+
+          class="education-country-pill"
+
+          [class.active]="selectedPillCountryIndex === i"
+
+          [attr.aria-expanded]="selectedPillCountryIndex === i"
+
+          [attr.aria-controls]="'education-pill-panel-' + country.id"
+
+          (click)="selectedPillCountryIndex = selectedPillCountryIndex === i ? -1 : i"
+
+        >
+
+          <img
+
+            [src]="'assets/images/' + country.imageName + '.png'"
+
+            [alt]="''"
+
+          >
+
+          <span class="education-country-pill__copy">
+
+            <strong>{{ country.name }}</strong>
+
+            <small>View {{ country.universities.length }} universities</small>
+
+          </span>
+
+          <span class="education-country-pill__action">
+            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+
+          </span>
+
+        </button>
+
+      </div>
+
+      <ng-container *ngIf="selectedPillCountry as country">
+
+        <div
+
+          class="education-pill-country-panel"
+
+          @pillPanel
+
+          [id]="'education-pill-panel-' + country.id"
+
+          role="region"
+
+          [attr.aria-label]="country.name + ' university admission information'"
+
+        >
+
+          <div [@pillCountryChange]="country.id">
+
+          <div class="education-country-accordion__body">
+
+            <div class="education-country-accordion__table-head" aria-hidden="true">
+
+              <div>No.</div>
+
+              <div>University Name</div>
+
+              <div>OSSD Recognition</div>
+
+              <div>Entry %</div>
+
+              <div>Admission Info</div>
+
+            </div>
+
+            <div
+
+              class="education-country-accordion__row"
+
+              *ngFor="let uni of country.universities; let universityIndex = index"
+
+            >
+
+              <div class="education-country-accordion__number">
+
+                <span class="education-number-badge">{{ universityIndex + 1 }}</span>
+
+              </div>
+
+              <div class="education-country-accordion__university">
+
+                <strong>{{ uni.name }}</strong>
+
+              </div>
+
+              <div class="education-country-accordion__recognition">
+
+                <span class="education-recognition-badge" [class.not-recognized]="!uni.ossdRecognized">
+
+                  <i class="fa" [ngClass]="uni.ossdRecognized ? 'fa-check-circle' : 'fa-times-circle'"></i>
+
+                  {{ uni.ossdRecognized ? 'Recognized' : 'Check' }}
+
+                </span>
+
+              </div>
+
+              <div class="education-country-accordion__entry-percent">
+
+                {{ uni.minEntry === 'Find' ? 'Check' : uni.minEntry + '%' }}
+
+              </div>
+
+              <div class="education-country-accordion__entry">
+
+                <a [href]="uni.minEntryLink" target="_blank" rel="noopener noreferrer" aria-label="View admission information">
+
+                  View <span aria-hidden="true">→</span>
+
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <aside class="education-admission-note" aria-label="Admission requirements notice">
+
+            <span class="education-admission-note__icon" aria-hidden="true">
+              <i class="fa fa-info-circle"></i>
+            </span>
+
+            <div>
+
+              <div class="education-admission-note__copy">
+
+                <strong>Admission requirements may vary.</strong>
+
+                <span>Prerequisites, program requirements and minimum averages can change. Confirm current details with each university before applying.</span>
+
+              </div>
+
+            </div>
+
+          </aside>
+
+          </div>
+
+        </div>
+
+      </ng-container>
 
     </div>
 
@@ -1214,19 +1395,23 @@
 
   </section>
 
-  <section class="education-cta">
+  <section class="ie-home-final-cta" aria-labelledby="education-cta-title">
 
-    <div class="ie-container education-cta__content">
+    <div class="ie-home-final-cta-background" aria-hidden="true"></div>
 
-      <div>
+    <div class="ie-home-final-cta-overlay" aria-hidden="true"></div>
 
-        <div class="education-cta__eyebrow">
+    <div class="ie-container ie-home-final-cta-container">
+
+      <div class="ie-home-final-cta-content">
+
+        <div class="ie-home-cta-label">
 
           YOUR NEXT STEP
 
         </div>
 
-        <h2>
+        <h2 id="education-cta-title">
 
           Not sure which program
 
@@ -1242,13 +1427,13 @@
 
         </p>
 
-      </div>
+        <div class="ie-home-final-actions">
 
       <a
 
         routerLink="/contact"
 
-        class="ie-btn ie-btn-orange education-cta__button"
+        class="ie-btn ie-btn-orange"
 
       >
 
@@ -1257,6 +1442,10 @@
         <span>→</span>
 
       </a>
+
+        </div>
+
+      </div>
 
     </div>
 

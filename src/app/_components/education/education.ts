@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   standalone: true,
@@ -8,9 +9,28 @@ import { RouterLink } from '@angular/router';
   selector: 'app-education',
   styleUrl: './education.css',
   templateUrl: './education.html',
+  animations: [
+    trigger('pillPanel', [
+      transition(':enter', [
+        style({ height: 0, opacity: 0, overflow: 'hidden' }),
+        animate('280ms cubic-bezier(.2, .7, .2, 1)', style({ height: '*', opacity: 1 })),
+      ]),
+      transition(':leave', [
+        style({ height: '*', opacity: 1, overflow: 'hidden' }),
+        animate('220ms ease-in', style({ height: 0, opacity: 0 })),
+      ]),
+    ]),
+    trigger('pillCountryChange', [
+      transition('* => *', [
+        style({ opacity: 0.55 }),
+        animate('160ms ease-out', style({ opacity: 1 })),
+      ]),
+    ]),
+  ],
 })
 export class Education {
   universityTabActiveIndex = 0;
+  selectedPillCountryIndex = 0;
 
  countries = [
 
@@ -195,6 +215,10 @@ export class Education {
     }
 
   ];
+
+  get selectedPillCountry() {
+    return this.countries[this.selectedPillCountryIndex] ?? null;
+  }
 
   universities = [
 
