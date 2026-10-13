@@ -232,7 +232,7 @@
 
               <div class="education-country-accordion__entry-percent">
 
-                {{ uni.minEntry === 'Find' ? 'Check' : uni.minEntry + '%' }}
+                <span>{{ uni.minEntry === 'Find' ? 'Check' : uni.minEntry + '%' }}</span>
 
               </div>
 
@@ -333,16 +333,16 @@
               <tbody>
                 <ng-container *ngFor="let course of group.courses; let courseIndex = index">
                   <tr>
-                    <td class="education-course-table__number">{{ courseIndex + 1 }}</td>
-                    <td><span class="education-course-table__code">{{ course.code }}</span></td>
-                    <td class="education-course-table__name">{{ course.subject }}</td>
-                    <td class="education-course-table__center"><span class="education-course-credit-badge">{{ course.credits }}</span></td>
-                    <td class="education-course-table__center">
+                    <td data-label="No." class="education-course-table__number"><span>{{ courseIndex + 1 }}</span></td>
+                    <td data-label="Code"><span class="education-course-table__code">{{ course.code }}</span></td>
+                    <td data-label="Course" class="education-course-table__name"><span>{{ course.subject }}</span></td>
+                    <td data-label="Credits" class="education-course-table__center"><span class="education-course-credit-badge">{{ course.credits }}</span></td>
+                    <td data-label="Pathway" class="education-course-table__center">
                       <span class="education-recognition-badge education-course-pathway-badge">
                         {{ course.pathway }}
                       </span>
                     </td>
-                    <td>
+                    <td data-label="Description">
                       <button type="button" class="ie-btn ie-btn-light-blue ie-btn-compact education-course-view-pill"
                         [attr.aria-expanded]="expandedDescriptionCode === course.code"
                         [attr.aria-controls]="'course-description-' + course.code"
@@ -350,7 +350,7 @@
                         {{ expandedDescriptionCode === course.code ? 'Hide' : 'View' }}
                       </button>
                     </td>
-                    <td>
+                    <td data-label="Details">
                       <button type="button" class="education-course-details-button"
                         (click)="openSampleCourse(courseDetails, course)"
                         [attr.aria-label]="'Show details for ' + course.code + ' ' + course.subject">
