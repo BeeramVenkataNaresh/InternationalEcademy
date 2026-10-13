@@ -173,6 +173,17 @@
               </a>
             </li>
 
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="/faqs"
+                (click)="collapseNavbar()">
+
+                FAQs
+
+              </a>
+            </li>
+
           </ul>
 
         </li>
@@ -221,7 +232,7 @@
 
 
         <!-- =================================================
-             BOOK A CONSULTATION
+             LOGIN
         ================================================== -->
 
         <li class="nav-item consultation-nav-item">
@@ -231,7 +242,10 @@
             routerLink="/contact"
             (click)="collapseNavbar()">
 
-            Book a Consultation
+            <svg class="consultation-login-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M14 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-5M10 17l5-5-5-5M15 12H3" />
+            </svg>
+            <span>Login</span>
 
           </a>
 

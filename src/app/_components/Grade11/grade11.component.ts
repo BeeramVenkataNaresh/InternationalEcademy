@@ -34,7 +34,7 @@ export class Grade11Component {
      GRADE 11 COURSES
   ========================================================= */
 
-  courses = [
+  static readonly catalogCourses = [
     {
       img: 0,
       source: 'courses',
@@ -186,6 +186,8 @@ export class Grade11Component {
       description: '--'
     }
   ];
+
+  courses = Grade11Component.catalogCourses;
 
 
   /* =========================================================

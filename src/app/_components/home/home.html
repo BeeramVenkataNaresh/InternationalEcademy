@@ -42,7 +42,7 @@
 
         <div class="ie-home-hero-actions">
 
-          <a routerLink="/business" class="ie-btn ie-btn-primary">
+          <a href="#home-services" class="ie-btn ie-btn-primary" (click)="scrollToServices($event)">
 
             Explore Our Services
 
@@ -226,7 +226,7 @@
 
   ====================================================== -->
 
-  <section class="ie-section ie-home-services">
+  <section id="home-services" class="ie-section ie-home-services">
 
     <div class="ie-container">
 
@@ -264,6 +264,40 @@
 
       <div class="ie-grid ie-grid-3 ie-home-services-grid">
 
+          <article class="ie-card ie-home-service-card">
+
+          <div class="ie-home-service-header">
+
+            <div class="ie-home-service-icon">
+
+              <i class="fa fa-university"></i>
+
+            </div>
+
+            <h3>Education Consulting</h3>
+
+          </div>
+
+          <p>
+
+            Advisory services for educational organizations,
+
+            institutions, training providers and academic
+
+            development initiatives.
+
+          </p>
+
+          <a routerLink="/education" class="ie-btn ie-btn-light-blue ie-btn-compact">
+
+            Explore Education Consulting
+
+            <span class="ie-btn-arrow">→</span>
+
+          </a>
+
+        </article>
+
         <article class="ie-card ie-home-service-card">
 
           <div class="ie-home-service-header">
@@ -298,39 +332,6 @@
 
         </article>
 
-        <article class="ie-card ie-home-service-card">
-
-          <div class="ie-home-service-header">
-
-            <div class="ie-home-service-icon">
-
-              <i class="fa fa-university"></i>
-
-            </div>
-
-            <h3>Education Consulting</h3>
-
-          </div>
-
-          <p>
-
-            Advisory services for educational organizations,
-
-            institutions, training providers and academic
-
-            development initiatives.
-
-          </p>
-
-          <a routerLink="/education" class="ie-btn ie-btn-light-blue ie-btn-compact">
-
-            Explore Education Consulting
-
-            <span class="ie-btn-arrow">→</span>
-
-          </a>
-
-        </article>
 
         <article class="ie-card ie-home-service-card ie-home-service-featured">
 

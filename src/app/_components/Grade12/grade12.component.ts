@@ -39,7 +39,7 @@ export class Grade12Component {
    * =========================================================
    */
 
-  courses = [
+  static readonly catalogCourses = [
 
     {
       source: 'courses',
@@ -294,6 +294,8 @@ export class Grade12Component {
     }
 
   ];
+
+  courses = Grade12Component.catalogCourses;
 
 
   /*

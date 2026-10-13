@@ -82,563 +82,11 @@
 
             Speak With Our Team
 
-            <span>→</span>
+            <span>â†’</span>
 
           </a>
 
         </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="education-universities">
-
-    <div class="ie-container">
-
-      <div class="education-universities__heading">
-
-        <div class="ie-section-label education-section-label">GLOBAL RECOGNITION</div>
-
-        <h2>
-
-          Your Canadian Education.
-
-          <span>Recognized Worldwide.</span>
-
-        </h2>
-
-        <p>
-
-          The Ontario Secondary School Diploma (OSSD) provides students with a strong academic pathway
-
-          toward universities and post-secondary institutions around the world. Explore leading universities
-
-          by country and review OSSD recognition and admission information.
-
-        </p>
-
-      </div>
-
-      <div class="education-country-tabs" role="tablist" aria-label="University countries">
-
-        <button
-
-          *ngFor="let country of countries; let i = index"
-
-          type="button"
-
-          class="education-country-tab"
-        role="tab"
-        [attr.aria-selected]="universityTabActiveIndex === i"
-
-          [class.active]="universityTabActiveIndex === i"
-
-          (click)="universityTabActiveIndex = i"
-
-        >
-
-          <img
-
-            class="education-country-flag"
-
-            [src]="'assets/images/' + country.imageName + '.png'"
-
-            [alt]="country.name"
-
-          >
-
-          <span>{{ country.name }}</span>
-
-        </button>
-
-      </div>
-
-      <ng-container *ngFor="let country of countries; let i = index">
-
-        <div
-
-          class="education-university-panel"
-        role="tabpanel"
-        [attr.aria-hidden]="universityTabActiveIndex !== i"
-
-          [class.active]="universityTabActiveIndex === i"
-
-        >
-
-          <div class="education-university-panel__header">
-
-            <div>
-
-              <span class="education-university-small-label">UNIVERSITY PATHWAYS</span>
-
-              <h3>Top Universities in {{ country.name }}</h3>
-
-              <p>
-
-                Explore selected universities and review OSSD recognition and minimum admission entry information.
-
-              </p>
-
-            </div>
-
-            <img
-
-              class="education-country-flag education-university-country-flag"
-
-              [src]="'assets/images/' + country.imageName + '.png'"
-
-              [alt]="country.name"
-
-            >
-
-          </div>
-
-          <div class="education-university-table-wrapper">
-
-            <table class="education-university-table" aria-label="Universities and OSSD admission information">
-
-              <thead>
-
-                <tr>
-
-                  <th class="education-university-number">No.</th>
-
-                  <th class="education-university-name">University Name</th>
-
-                  <th class="education-university-recognition">OSSD Recognition</th>
-
-                  <th class="education-university-entry">Entry %</th>
-
-                  <th class="education-university-admission">Admission Info</th>
-
-                </tr>
-
-              </thead>
-
-              <tbody>
-
-                <tr *ngFor="let uni of country.universities; let universityIndex = index">
-
-                  <td class="education-university-number"><span class="education-number-badge">{{ universityIndex + 1 }}</span></td>
-
-                  <td class="education-university-name"><strong>{{ uni.name }}</strong></td>
-
-                  <td class="education-university-recognition">
-
-                    <span
-
-                      class="education-recognition-badge"
-
-                      [class.not-recognized]="!uni.ossdRecognized"
-
-                    >
-
-                      <i
-
-                        class="fa"
-
-                        [ngClass]="uni.ossdRecognized ? 'fa-check-circle' : 'fa-times-circle'"
-
-                      ></i>
-
-                      {{ uni.ossdRecognized ? 'Recognized' : 'Check' }}
-
-                    </span>
-
-                  </td>
-
-                  <td class="education-university-entry">
-
-                    {{ uni.minEntry === 'Find' ? 'Check' : uni.minEntry + '%' }}
-
-                  </td>
-
-                  <td class="education-university-admission">
-
-                    <a
-
-                      [href]="uni.minEntryLink"
-
-                      target="_blank"
-
-                      rel="noopener noreferrer"
-
-                      class="education-entry-link"
-
-                    >
-
-                      View
-
-                      <span>→</span>
-
-                    </a>
-
-                  </td>
-
-                </tr>
-
-              </tbody>
-
-            </table>
-
-          </div>
-
-        </div>
-
-      </ng-container>
-
-      <div class="education-university-note">
-
-        <div class="education-university-note__icon">
-
-          <i class="fa fa-info-circle"></i>
-
-        </div>
-
-        <div>
-
-          <strong>Admission requirements may vary.</strong>
-
-          <p>
-
-            University admission requirements, prerequisites, program requirements and minimum averages may change.
-
-            Students should confirm current requirements directly with the university before applying.
-
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="education-university-cards-demo">
-
-    <div class="ie-container">
-
-      <div class="education-alt-heading">
-
-        <div class="ie-section-label education-section-label">ALTERNATIVE PRESENTATION A</div>
-
-        <h2>
-
-          University Pathways.
-
-          <span>At a Glance.</span>
-
-        </h2>
-
-        <p>
-
-          A shorter card-based presentation showing selected universities for the chosen country.
-
-        </p>
-
-      </div>
-
-      <div class="education-alt-country-tabs" role="tablist" aria-label="Card view university countries">
-
-        <button
-
-          *ngFor="let country of countries; let i = index"
-
-          type="button"
-
-          class="education-alt-country-tab"
-        role="tab"
-        [attr.aria-selected]="universityTabActiveIndex === i"
-
-          [class.active]="universityTabActiveIndex === i"
-
-          (click)="universityTabActiveIndex = i"
-
-        >
-
-          <img
-
-            class="education-country-flag"
-
-            [src]="'assets/images/' + country.imageName + '.png'"
-
-            [alt]="country.name"
-
-          >
-
-          <span>{{ country.name }}</span>
-
-        </button>
-
-      </div>
-
-      <ng-container *ngFor="let country of countries; let i = index">
-
-        <div
-
-          class="education-alt-card-panel"
-        role="tabpanel"
-        [attr.aria-hidden]="universityTabActiveIndex !== i"
-
-          [class.active]="universityTabActiveIndex === i"
-
-        >
-
-          <div class="education-alt-card-panel__top">
-
-            <div>
-
-              <span class="education-alt-kicker">SELECTED UNIVERSITIES</span>
-
-              <h3>{{ country.name }}</h3>
-
-            </div>
-
-            <div class="education-alt-count">Top 5 shown</div>
-
-          </div>
-
-          <div class="education-alt-university-grid">
-
-            <article
-
-              class="education-alt-university-card"
-
-              *ngFor="let uni of (country.universities | slice:0:5)"
-
-            >
-
-              <div class="education-alt-university-card__icon">
-
-                <i class="fa fa-university"></i>
-
-              </div>
-
-              <div class="education-alt-university-card__content">
-
-                <h4>{{ uni.name }}</h4>
-
-                <div class="education-alt-meta">
-
-                  <span class="education-alt-recognized" *ngIf="uni.ossdRecognized">
-
-                    <i class="fa fa-check-circle"></i>
-
-                    OSSD Recognized
-
-                  </span>
-
-                  <span class="education-alt-entry" *ngIf="uni.minEntry && uni.minEntry !== 'Find'">
-
-                    Entry: {{ uni.minEntry }}
-
-                  </span>
-
-                </div>
-
-                <a
-
-                  [href]="uni.minEntryLink"
-
-                  target="_blank"
-
-                  rel="noopener noreferrer"
-
-                  class="education-alt-link"
-
-                >
-
-                  Admission Information
-
-                  <span>→</span>
-
-                </a>
-
-              </div>
-
-            </article>
-
-          </div>
-
-          <div class="education-alt-card-note">
-
-            Showing 5 of {{ country.universities.length }} universities to keep the section concise.
-
-          </div>
-
-        </div>
-
-      </ng-container>
-
-    </div>
-
-  </section>
-
-  <section class="education-university-accordion-demo">
-
-    <div class="ie-container">
-
-      <div class="education-alt-heading education-alt-heading--light">
-
-        <div class="ie-section-label education-section-label">ALTERNATIVE PRESENTATION B</div>
-
-        <h2>
-
-          Explore Universities
-
-          <span>by Country.</span>
-
-        </h2>
-
-        <p>
-
-          A compact expandable layout that keeps all university information available without a long table.
-
-        </p>
-
-      </div>
-
-      <div class="education-country-accordion-list">
-
-        <details
-
-          class="education-country-accordion"
-
-          *ngFor="let country of countries; let i = index"
-
-          [attr.open]="i === 0 ? '' : null"
-
-        >
-
-          <summary>
-
-            <div class="education-country-accordion__title">
-
-              <img
-
-                class="education-country-flag"
-
-                [src]="'assets/images/' + country.imageName + '.png'"
-
-                [alt]="country.name"
-
-              >
-
-              <div>
-
-                <strong>{{ country.name }}</strong>
-
-                <span>{{ country.universities.length }} universities</span>
-
-              </div>
-
-            </div>
-
-            <span class="education-country-accordion__action">
-
-              View universities
-
-              <i class="fa fa-chevron-down"></i>
-
-            </span>
-
-          </summary>
-
-          <div class="education-country-accordion__body">
-
-            <div class="education-country-accordion__table-head" aria-hidden="true">
-
-              <div>No.</div>
-
-              <div>University Name</div>
-
-              <div>OSSD Recognition</div>
-
-              <div>Entry %</div>
-
-              <div>Admission Info</div>
-
-            </div>
-
-            <div
-
-              class="education-country-accordion__row"
-
-              *ngFor="let uni of country.universities; let universityIndex = index"
-
-            >
-
-              <div class="education-country-accordion__number">
-
-                <span class="education-number-badge">{{ universityIndex + 1 }}</span>
-
-              </div>
-
-              <div class="education-country-accordion__university">
-
-                <strong>{{ uni.name }}</strong>
-
-              </div>
-
-              <div class="education-country-accordion__recognition">
-
-                <span
-
-                  class="education-recognition-badge"
-
-                  [class.not-recognized]="!uni.ossdRecognized"
-
-                >
-
-                  <i
-
-                    class="fa"
-
-                    [ngClass]="uni.ossdRecognized ? 'fa-check-circle' : 'fa-times-circle'"
-
-                  ></i>
-
-                  {{ uni.ossdRecognized ? 'Recognized' : 'Check' }}
-
-                </span>
-
-              </div>
-
-              <div class="education-country-accordion__entry-percent">
-
-                {{ uni.minEntry === 'Find' ? 'Check' : uni.minEntry + '%' }}
-
-              </div>
-
-              <div class="education-country-accordion__entry">
-
-                <a
-
-                  [href]="uni.minEntryLink"
-
-                  target="_blank"
-
-                  rel="noopener noreferrer"
-
-                  aria-label="View admission information"
-
-                >
-
-                  View <span>→</span>
-
-                </a>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </details>
 
       </div>
 
@@ -652,17 +100,19 @@
 
       <div class="education-alt-heading education-alt-heading--light">
 
-        <div class="ie-section-label education-section-label">ALTERNATIVE PRESENTATION C</div>
+        <div class="education-alt-heading__title">
 
-        <h2>
+          <div class="ie-section-label education-section-label">GLOBAL RECOGNITION</div>
 
-          Choose a country.
+          <h2>
 
-          <span>Compare pathways.</span>
+           Global Recognition<span>& Opportunities.</span>
 
-        </h2>
+          </h2>
 
-        <p>Select a country to expand its university admission information.</p>
+        </div>
+
+        <p>The Ontario Secondary School Diploma (OSSD) provides pathways to higher education worldwide. Explore universities by country, discover leading institutions, and review admission requirements and study opportunities across the globe.</p>
 
       </div>
 
@@ -682,6 +132,8 @@
 
           [attr.aria-controls]="'education-pill-panel-' + country.id"
 
+          [attr.aria-label]="country.name + (selectedPillCountryIndex === i ? ', hide universities' : ', view universities')"
+
           (click)="selectedPillCountryIndex = selectedPillCountryIndex === i ? -1 : i"
 
         >
@@ -698,11 +150,12 @@
 
             <strong>{{ country.name }}</strong>
 
-            <small>View {{ country.universities.length }} universities</small>
+            <small>{{ country.universities.length }} universities</small>
 
           </span>
 
           <span class="education-country-pill__action">
+            <span>{{ selectedPillCountryIndex === i ? 'Hide' : 'View' }}</span>
             <i class="fa fa-chevron-down" aria-hidden="true"></i>
 
           </span>
@@ -787,7 +240,7 @@
 
                 <a [href]="uni.minEntryLink" target="_blank" rel="noopener noreferrer" aria-label="View admission information">
 
-                  View <span aria-hidden="true">→</span>
+                  View <span aria-hidden="true">â†’</span>
 
                 </a>
 
@@ -827,569 +280,131 @@
 
   </section>
 
-  <section class="education-intro">
 
-    <div class="ie-container education-intro__layout">
-
-      <div>
-
-        <div class="ie-section-label education-section-label">
-
-          OUR EDUCATIONAL SERVICES
-
-        </div>
-
-        <h2>
-
-          Find the right
-
-          <span>learning pathway.</span>
-
-        </h2>
-
-      </div>
-
-      <div class="education-intro__copy">
-
-        <p>
-
-          International Ecademy provides flexible educational
-
-          opportunities for learners at different stages of their
-
-          academic journey.
-
-        </p>
-
-        <p>
-
-          Whether you are completing secondary school credits,
-
-          strengthening foundational skills, preparing for an
-
-          important examination or developing language proficiency,
-
-          our goal is to help you identify a pathway that supports
-
-          your academic objectives.
-
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <section class="education-programs">
+  <section class="education-course-sample" aria-labelledby="education-course-sample-title">
 
     <div class="ie-container">
 
-      <article
-
-        class="education-program-row"
-
-        id="academic-programs"
-
-      >
-
-        <div class="education-program-image">
-
-          <img
-
-            src="/assets/images/services/secondary-school.webp"
-
-            alt="Ontario secondary school learning"
-
-          >
-
+      <div class="education-alt-heading education-alt-heading--light education-course-sample__heading">
+        <div class="education-alt-heading__title">
+          <div class="ie-section-label education-section-label">OUR EDUCATIONAL SERVICES</div>
+          <h2 id="education-course-sample-title">Explore Courses <span>& Learning Pathways.</span></h2>
         </div>
+        <p>Discover educational opportunities designed to support your academic goals. Explore secondary school courses by grade, review course codes and credits, and find learning pathways suited to your educational needs. generate the new section combineing.</p>
+      </div>
 
-        <div class="education-program-content">
+      <div class="education-country-pill-list education-course-pill-list" role="group" aria-label="Choose a grade to view courses">
+        <button *ngFor="let group of courseGradeGroups; let i = index"
+          type="button" class="education-country-pill"
+          [class.active]="selectedCourseGrade === i"
+          [attr.aria-expanded]="selectedCourseGrade === i"
+          [attr.aria-controls]="'education-course-panel-' + group.grade"
+          [attr.aria-label]="group.label + (selectedCourseGrade === i ? ', hide courses' : ', view courses')"
+          (click)="toggleCourseGrade(i)">
+          <span class="education-grade-pill__badge" aria-hidden="true">{{ group.grade === 'others' ? 'OT' : group.grade }}</span>
+          <span class="education-country-pill__copy">
+            <strong>{{ group.grade === 'others' ? 'Other Courses' : 'Grade' }}</strong>
+            <small>{{ group.courses.length }} courses</small>
+          </span>
+          <span class="education-country-pill__action">
+            <span>{{ selectedCourseGrade === i ? 'Hide' : 'View' }}</span>
+            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
 
-          <div class="education-program-label">
-
-            SECONDARY SCHOOL
-
+      <div *ngFor="let group of courseGradeGroups; let i = index">
+        <div *ngIf="selectedCourseGrade === i" @pillPanel class="education-course-table-shell"
+          [id]="'education-course-panel-' + group.grade" role="region"
+          [attr.aria-label]="group.label + ' courses'">
+          <div class="education-course-table-scroll">
+            <table class="education-course-table">
+              <thead>
+                <tr>
+                  <th scope="col">S.No.</th>
+                  <th scope="col">Code</th>
+                  <th scope="col">Name of Course</th>
+                  <th scope="col" class="education-course-table__center">Credits</th>
+                  <th scope="col" class="education-course-table__center">Pathway</th>
+                  <th scope="col">Description</th>
+                  <th scope="col"><span class="visually-hidden">Course details</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let course of group.courses; let courseIndex = index">
+                  <tr>
+                    <td class="education-course-table__number">{{ courseIndex + 1 }}</td>
+                    <td><span class="education-course-table__code">{{ course.code }}</span></td>
+                    <td class="education-course-table__name">{{ course.subject }}</td>
+                    <td class="education-course-table__center"><span class="education-course-credit-badge">{{ course.credits }}</span></td>
+                    <td class="education-course-table__center">
+                      <span class="education-recognition-badge education-course-pathway-badge">
+                        {{ course.pathway }}
+                      </span>
+                    </td>
+                    <td>
+                      <button type="button" class="ie-btn ie-btn-light-blue ie-btn-compact education-course-view-pill"
+                        [attr.aria-expanded]="expandedDescriptionCode === course.code"
+                        [attr.aria-controls]="'course-description-' + course.code"
+                        (click)="toggleCourseDescription(course.code)">
+                        {{ expandedDescriptionCode === course.code ? 'Hide' : 'View' }}
+                      </button>
+                    </td>
+                    <td>
+                      <button type="button" class="education-course-details-button"
+                        (click)="openSampleCourse(courseDetails, course)"
+                        [attr.aria-label]="'Show details for ' + course.code + ' ' + course.subject">
+                        Show <span class="education-course-details-arrow" aria-hidden="true">&rarr;</span>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr *ngIf="expandedDescriptionCode === course.code" class="education-course-description-row">
+                    <td colspan="7">
+                      <div [id]="'course-description-' + course.code" @pillPanel>
+                        <strong>Description</strong>
+                        <p>{{ getCourseDescription(course) }}</p>
+                      </div>
+                    </td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
           </div>
-
-          <h3>
-
-            Ontario Secondary School Courses
-
-          </h3>
-
-          <p>
-
-            Flexible Ontario secondary school courses designed
-
-            to support academic progress, credit completion and
-
-            future educational goals.
-
-          </p>
-
-          <div class="education-program-details">
-
-            <span>Grades 9–12</span>
-
-            <span>Online</span>
-
-            <span>Flexible</span>
-
-          </div>
-
-          <div class="education-program-actions">
-
-            <a
-
-              routerLink="/courses"
-
-              class="ie-btn ie-btn-orange education-program-primary"
-
-            >
-
-              Explore Courses
-
-              <span>→</span>
-
-            </a>
-
-            <a
-
-              routerLink="/contact"
-
-              class="education-program-link"
-
-            >
-
-              Get Guidance
-
-            </a>
-
-          </div>
-
         </div>
+      </div>
 
-      </article>
-
-      <article class="education-program-row">
-
-        <div class="education-program-image">
-
-          <img
-
-            src="/assets/images/services/elementary.webp"
-
-            alt="Elementary learning program"
-
-          >
-
+      <ng-template #courseDetails let-modal>
+        <div class="ie-course-modal education-course-modal">
+          <div class="ie-modal-header">
+            <div class="education-course-modal__heading">
+              <span class="education-course-modal__eyebrow">COURSE DETAILS</span>
+              <h2>{{ selectedSampleCourse?.subject }}</h2>
+            </div>
+            <button type="button" class="education-course-modal__close" aria-label="Close course details"
+              (click)="modal.dismiss('Close button')">Close</button>
+          </div>
+          <div class="ie-modal-body">
+            <div class="education-course-modal__facts" aria-label="Course information">
+              <div class="education-course-modal__fact">
+                <span>Course code</span><strong>{{ selectedSampleCourse?.code }}</strong>
+              </div>
+              <div class="education-course-modal__fact">
+                <span>Credits</span><strong>{{ selectedSampleCourse?.credits }}</strong>
+              </div>
+              <div class="education-course-modal__fact">
+                <span>Grade</span><strong>{{ selectedSampleCourse?.grade }}</strong>
+              </div>
+              <div class="education-course-modal__fact">
+                <span>Pathway</span><strong>{{ selectedSampleCourse?.pathway }}</strong>
+              </div>
+            </div>
+            <div class="education-course-modal__description">
+              <h3>Course Description</h3>
+              <p>{{ getCourseDescription(selectedSampleCourse) }}</p>
+            </div>
+          </div>
         </div>
-
-        <div class="education-program-content">
-
-          <div class="education-program-label">
-
-            ELEMENTARY EDUCATION
-
-          </div>
-
-          <h3>
-
-            Elementary Learning Programs
-
-          </h3>
-
-          <p>
-
-            Engaging academic support for younger learners that
-
-            strengthens literacy, mathematics, science, creativity
-
-            and overall academic confidence.
-
-          </p>
-
-          <div class="education-program-details">
-
-            <span>Grades 1–8</span>
-
-            <span>Academic</span>
-
-            <span>Support</span>
-
-          </div>
-
-          <div class="education-program-actions">
-
-            <a
-
-              routerLink="/contact"
-
-              class="ie-btn ie-btn-orange education-program-primary"
-
-            >
-
-              View Programs
-
-              <span>→</span>
-
-            </a>
-
-            <a
-
-              routerLink="/contact"
-
-              class="education-program-link"
-
-            >
-
-              Ask About Options
-
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-      <article class="education-program-row">
-
-        <div class="education-program-image">
-
-          <img
-
-            src="/assets/images/services/ap-courses.webp"
-
-            alt="Advanced Placement courses"
-
-          >
-
-        </div>
-
-        <div class="education-program-content">
-
-          <div class="education-program-label">
-
-            ADVANCED LEARNING
-
-          </div>
-
-          <h3>
-
-            AP Courses
-
-          </h3>
-
-          <p>
-
-            Advanced academic programs for students seeking
-
-            challenging coursework and stronger preparation
-
-            for future post-secondary studies.
-
-          </p>
-
-          <div class="education-program-details">
-
-            <span>Advanced</span>
-
-            <span>Academic</span>
-
-            <span>Online</span>
-
-          </div>
-
-          <div class="education-program-actions">
-
-            <a
-
-              routerLink="/ap-courses"
-
-              class="ie-btn ie-btn-orange education-program-primary"
-
-            >
-
-              Explore AP Courses
-
-              <span>→</span>
-
-            </a>
-
-            <a
-
-              routerLink="/contact"
-
-              class="education-program-link"
-
-            >
-
-              Get Guidance
-
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-      <article class="education-program-row">
-
-        <div class="education-program-image">
-
-          <img
-
-            src="/assets/images/services/test-preparation.webp"
-
-            alt="Test preparation program"
-
-          >
-
-        </div>
-
-        <div class="education-program-content">
-
-          <div class="education-program-label">
-
-            TEST PREPARATION
-
-          </div>
-
-          <h3>
-
-            Exam & Test Preparation
-
-          </h3>
-
-          <p>
-
-            Structured preparation programs help learners
-
-            strengthen subject knowledge, develop examination
-
-            strategies and approach important assessments with
-
-            greater confidence.
-
-          </p>
-
-          <div class="education-program-details">
-
-            <span>IELTS</span>
-
-            <span>PTE</span>
-
-            <span>CELPIP</span>
-
-          </div>
-
-          <div class="education-program-actions">
-
-            <a
-
-              routerLink="/contact"
-
-              class="ie-btn ie-btn-orange education-program-primary"
-
-            >
-
-              Explore Programs
-
-              <span>→</span>
-
-            </a>
-
-            <a
-
-              routerLink="/contact"
-
-              class="education-program-link"
-
-            >
-
-              Ask About Preparation
-
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-      <article class="education-program-row">
-
-        <div class="education-program-image">
-
-          <img
-
-            src="/assets/images/services/language-programs.webp"
-
-            alt="English and French language learning"
-
-          >
-
-        </div>
-
-        <div class="education-program-content">
-
-          <div class="education-program-label">
-
-            LANGUAGE LEARNING
-
-          </div>
-
-          <h3>
-
-            English & French Language Programs
-
-          </h3>
-
-          <p>
-
-            Develop stronger reading, writing, listening,
-
-            speaking and communication skills through structured
-
-            language-learning programs.
-
-          </p>
-
-          <div class="education-program-details">
-
-            <span>English</span>
-
-            <span>French</span>
-
-            <span>Online</span>
-
-          </div>
-
-          <div class="education-program-actions">
-
-            <a
-
-              routerLink="/contact"
-
-              class="ie-btn ie-btn-orange education-program-primary"
-
-            >
-
-              View Programs
-
-              <span>→</span>
-
-            </a>
-
-            <a
-
-              routerLink="/contact"
-
-              class="education-program-link"
-
-            >
-
-              Get Guidance
-
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-      <article
-
-        class="education-program-row"
-
-        id="student-support"
-
-      >
-
-        <div class="education-program-image">
-
-          <img
-
-            src="/assets/images/services/tutoring.webp"
-
-            alt="Tutoring and personalized academic support"
-
-          >
-
-        </div>
-
-        <div class="education-program-content">
-
-          <div class="education-program-label">
-
-            STUDENT SUPPORT
-
-          </div>
-
-          <h3>
-
-            Tutoring & Academic Support
-
-          </h3>
-
-          <p>
-
-            Personalized academic support helps learners
-
-            strengthen challenging concepts, improve study skills
-
-            and make steady progress towards their academic goals.
-
-          </p>
-
-          <div class="education-program-details">
-
-            <span>Personalized</span>
-
-            <span>Flexible</span>
-
-            <span>Support</span>
-
-          </div>
-
-          <div class="education-program-actions">
-
-            <a
-
-              routerLink="/contact"
-
-              class="ie-btn ie-btn-orange education-program-primary"
-
-            >
-
-              Explore Tutoring
-
-              <span>→</span>
-
-            </a>
-
-            <a
-
-              routerLink="/contact"
-
-              class="education-program-link"
-
-            >
-
-              Speak With Us
-
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
+      </ng-template>
 
     </div>
 
@@ -1439,7 +454,7 @@
 
         Speak With Our Team
 
-        <span>→</span>
+        <span>â†’</span>
 
       </a>
 

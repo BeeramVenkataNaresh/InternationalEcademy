@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { NgbModal, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { Grade9 } from '../Grade9/grade9';
+import { Grade10 } from '../Grade10/grade10';
+import { Grade11Component } from '../Grade11/grade11.component';
+import { Grade12Component } from '../Grade12/grade12.component';
+import { Others } from '../Others/others';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, NgbModalModule],
   selector: 'app-education',
   styleUrl: './education.css',
   templateUrl: './education.html',
@@ -13,11 +19,11 @@ import { animate, style, transition, trigger } from '@angular/animations';
     trigger('pillPanel', [
       transition(':enter', [
         style({ height: 0, opacity: 0, overflow: 'hidden' }),
-        animate('280ms cubic-bezier(.2, .7, .2, 1)', style({ height: '*', opacity: 1 })),
+        animate('450ms ease-in-out', style({ height: '*', opacity: 1 })),
       ]),
       transition(':leave', [
         style({ height: '*', opacity: 1, overflow: 'hidden' }),
-        animate('220ms ease-in', style({ height: 0, opacity: 0 })),
+        animate('450ms ease-in-out', style({ height: 0, opacity: 0 })),
       ]),
     ]),
     trigger('pillCountryChange', [
@@ -30,7 +36,46 @@ import { animate, style, transition, trigger } from '@angular/animations';
 })
 export class Education {
   universityTabActiveIndex = 0;
-  selectedPillCountryIndex = 0;
+  selectedPillCountryIndex = -1;
+  selectedCourseGrade = -1;
+  expandedDescriptionCode: string | null = null;
+  selectedSampleCourse: any = null;
+
+  courseGradeGroups = [
+    { grade: '9', label: 'Grade 9', courses: Grade9.catalogCourses },
+    { grade: '10', label: 'Grade 10', courses: Grade10.catalogCourses },
+    { grade: '11', label: 'Grade 11', courses: Grade11Component.catalogCourses },
+    { grade: '12', label: 'Grade 12', courses: Grade12Component.catalogCourses },
+    { grade: 'others', label: 'Others', courses: Others.catalogCourses },
+  ];
+
+  constructor(private modalService: NgbModal) {}
+
+  openSampleCourse(content: any, item: any): void {
+    this.selectedSampleCourse = item;
+    this.modalService.open(content, {
+      centered: true,
+      size: 'lg',
+      scrollable: true,
+      windowClass: 'education-course-modal-window',
+    }).result.catch(() => undefined);
+  }
+
+  toggleCourseGrade(index: number): void {
+    this.selectedCourseGrade = this.selectedCourseGrade === index ? -1 : index;
+    this.expandedDescriptionCode = null;
+  }
+
+  toggleCourseDescription(code: string): void {
+    this.expandedDescriptionCode = this.expandedDescriptionCode === code ? null : code;
+  }
+
+  getCourseDescription(course: any): string {
+    const description = course?.description?.trim();
+    return description && description !== '-' && description !== '--'
+      ? description
+      : 'A course description is currently unavailable.';
+  }
 
  countries = [
 
@@ -146,7 +191,7 @@ export class Education {
 
       id: 'uk',
 
-      name: 'United Kingdom',
+      name: 'UK',
 
       imageName: 'uk',
 

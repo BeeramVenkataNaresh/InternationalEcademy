@@ -34,7 +34,7 @@ export class Grade10 {
      GRADE 10 COURSES
   ========================================================= */
 
-  courses = [
+  static readonly catalogCourses = [
 
     {
       img: 0,
@@ -193,6 +193,8 @@ export class Grade10 {
     }
 
   ];
+
+  courses = Grade10.catalogCourses;
 
 
   /* =========================================================

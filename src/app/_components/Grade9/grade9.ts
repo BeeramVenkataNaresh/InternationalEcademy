@@ -31,7 +31,7 @@ export class Grade9 {
      Image-related properties removed
   ========================================================= */
 
-  courses = [
+  static readonly catalogCourses = [
 
     /* =======================================================
        ENGLISH
@@ -232,6 +232,8 @@ export class Grade9 {
     }
 
   ];
+
+  courses = Grade9.catalogCourses;
 
 
   /* =========================================================

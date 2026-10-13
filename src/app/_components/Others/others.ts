@@ -36,7 +36,7 @@ export class Others {
   // COURSES
   // =========================================================
 
-  courses = [
+  static readonly catalogCourses = [
 
     {
       source: 'courses',
@@ -105,6 +105,8 @@ export class Others {
     }
 
   ];
+
+  courses = Others.catalogCourses;
 
 
   // =========================================================
