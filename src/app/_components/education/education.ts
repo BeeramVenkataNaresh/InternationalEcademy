@@ -36,8 +36,8 @@ import { Others } from '../Others/others';
 })
 export class Education {
   universityTabActiveIndex = 0;
-  selectedPillCountryIndex = -1;
-  selectedCourseGrade = -1;
+  selectedPillCountryIndex = 0;
+  selectedCourseGrade = 0;
   expandedDescriptionCode: string | null = null;
   selectedSampleCourse: any = null;
 
@@ -62,7 +62,7 @@ export class Education {
   }
 
   toggleCourseGrade(index: number): void {
-    this.selectedCourseGrade = this.selectedCourseGrade === index ? -1 : index;
+    this.selectedCourseGrade = index;
     this.expandedDescriptionCode = null;
   }
 
