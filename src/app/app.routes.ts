@@ -1,54 +1,25 @@
 import { Routes } from '@angular/router';
-
 import { ContactComponent } from './_components/Contact/contact.component';
 import { RegisterComponent } from './_components/Register/register.component';
-import { MessageComponent } from './_components/Message/message.component';
-import { Grade9 } from './_components/Grade9/grade9';
-import { Grade10 } from './_components/Grade10/grade10';
-import { Grade11Component } from './_components/Grade11/grade11.component';
-import { Grade12Component } from './_components/Grade12/grade12.component';
-import { Others } from './_components/Others/others';
-import { VisionComponent } from './_components/Vision/vision.component';
-import { ManagementComponent } from './_components/Management/management.component';
-import { FaqsComponent } from './_components/Faqs/faqs.component';
-import { TestComponent } from './_components/Test/test.component';
 import { Home } from './_components/home/home';
-import { About1Component } from './_components/About1/about1.component';
 import { Education } from './_components/education/education';
 import { Business } from './_components/business/business';
 import { Careers } from './_components/careers/careers';
 import { International } from './_components/international/international';
 import { Training } from './_components/training/training';
-import { Home1 } from './_components/home1/home1';
-import { About2Component } from './_components/About2/about2.component';
 import { About } from './_components/about/about';
-import { Education1 } from './_components/education1/education1';
-import { Home2 } from './_components/home2/home2';
+import { FaqsComponent } from './_components/Faqs/faqs.component';
 
 export const routes: Routes = [
   { path: 'home', component: Home },
-  { path: 'home1', component: Home1},
-  { path: 'home2', component: Home2},
   { path: 'about', component: About },
-  { path: 'about1', component: About1Component },
-  { path: 'about2', component: About2Component },
   { path: 'education', component: Education },
-  { path: 'education1', component: Education1 },
   { path: 'business', component: Business },
   { path: 'careers', component: Careers },
   { path: 'international', component: International },
   { path: 'training', component: Training },
-  { path: 'vision', component: VisionComponent },
-  { path: 'management', component: ManagementComponent },
   { path: 'faqs', component: FaqsComponent },
-  { path: 'grade9', component: Grade9 },
-  { path: 'grade10', component: Grade10 },
-  { path: 'grade11', component: Grade11Component },
-  { path: 'grade12', component: Grade12Component },
-  { path: 'others', component: Others },
   { path: 'contact', component: ContactComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'message', component: MessageComponent },
-  { path: 'test', component: TestComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];

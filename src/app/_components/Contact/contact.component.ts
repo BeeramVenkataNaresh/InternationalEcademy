@@ -36,9 +36,11 @@ export class ContactComponent {
     const { emailJsServiceId, emailJsTemplateId, emailJsPublicKey } = environment;
     if (!emailJsServiceId || !emailJsTemplateId || !emailJsPublicKey) {
       void Swal.fire({
-        icon: 'error',
-        title: 'Email service not configured',
-        text: 'Please email internationalecademy@gmail.com directly for now.'
+        icon: 'info',
+        title: 'Our contact form will be back soon!',
+        html: 'In the meantime, please send us an email at <a href="mailto:internationalecademy@gmail.com"><strong>internationalecademy@gmail.com</strong></a>. We\'ll be happy to assist you! 😊',
+        confirmButtonText: 'Understood',
+        confirmButtonColor: '#0d5399'
       });
       return;
     }
@@ -65,16 +67,16 @@ export class ContactComponent {
         this.submitted = false;
         void Swal.fire({
           icon: 'success',
-          title: 'Message sent',
-          text: 'Thank you for contacting us. Our team will get back to you.'
+          title: 'Thanks, we got it!',
+          text: 'Your message is on its way. We’ll be in touch soon.'
         });
       },
       error: () => {
         this.isSending = false;
         void Swal.fire({
           icon: 'error',
-          title: 'Message not sent',
-          text: 'Please try again or email internationalecademy@gmail.com.'
+          title: 'Oops, that didn’t go through',
+          text: 'Please try sending your message again. If it still doesn’t work, email us at internationalecademy@gmail.com.'
         });
       }
     });

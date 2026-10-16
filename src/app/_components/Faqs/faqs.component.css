@@ -7,7 +7,7 @@
 .faq-page .ie-page-header {
 
   margin:
-    0 auto;
+    0 auto 36px;
 
   max-width:
     850px;
@@ -192,7 +192,7 @@
     var(--ie-blue-light) !important;
 
   color:
-    var(--ie-blue) !important;
+    var(--ie-orange, #f58220) !important;
 
   box-shadow:
     none !important;
@@ -201,7 +201,7 @@
 .faq-page .ie-faq-button:not(.collapsed)::after {
 
   border-color:
-    var(--ie-red);
+    var(--ie-orange, #f58220);
 
   transform:
     rotate(225deg)
@@ -550,7 +550,10 @@
 .faq-page .ie-faq-button:hover,
 .faq-page .ie-faq-button:not(.collapsed) {
   background: var(--ie-blue-light) !important;
-  color: var(--ie-blue-dark) !important;
+}
+
+.faq-page .ie-faq-button:not(.collapsed) {
+  color: var(--ie-orange, #f58220) !important;
 }
 
 .faq-page .ie-faq-button::after {
@@ -558,7 +561,7 @@
 }
 
 .faq-page .ie-faq-button:not(.collapsed)::after {
-  border-color: var(--ie-orange-dark);
+  border-color: var(--ie-orange, #f58220);
 }
 
 .faq-page .ie-faq-button:focus-visible {
@@ -635,7 +638,7 @@
 }
 
 .faq-page__header {
-  margin-bottom: 25px;
+  margin-bottom: 52px;
 }
 
 .faq-page__header p {
@@ -672,7 +675,7 @@
 
 @media (max-width: 767.98px) {
   .faq-page__header {
-    margin-bottom: 21px;
+    margin-bottom: 36px;
   }
 
   .faq-page__header p {

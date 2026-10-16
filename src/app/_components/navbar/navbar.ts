@@ -10,6 +10,7 @@ import {
   RouterLink,
   RouterLinkActive
 } from '@angular/router';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 
 @Component({
@@ -28,6 +29,16 @@ import {
   styleUrls: ['./navbar.css']
 })
 export class NavbarComponent {
+
+  showLoginNotice(): void {
+    this.collapseNavbar();
+    void Swal.fire({
+      icon: 'info',
+      title: 'Login coming soon',
+      text: 'Online account login is not available yet. Please contact International Ecademy if you need assistance.',
+      confirmButtonText: 'Got it'
+    });
+  }
 
   collapseNavbar(): void {
 
