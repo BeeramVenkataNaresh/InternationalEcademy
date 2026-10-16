@@ -3,6 +3,11 @@ export const environment = {
   title: "InternationalEcademy",
   apiPath: "http://localhost:7099",
 
+  // EmailJS public configuration (safe to expose in the browser).
+  emailJsServiceId: "",
+  emailJsTemplateId: "",
+  emailJsPublicKey: "",
+
   // Mail settings
   toEmail: "eroboticsservices@gmail.com", //"info@erp.com", 
   ccEmail: null,

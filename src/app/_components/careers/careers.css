@@ -1,0 +1,64 @@
+.ie-careers-home-page .ie-home-hero {
+  background-image: url('/assets/images/career.webp');
+}
+
+.ie-careers-home-page .ie-careers-client-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.ie-careers-home-page .ie-careers-development-text {
+  margin: 0 0 26px;
+  color: var(--ie-body);
+  font-size: 15px;
+  line-height: var(--ie-line-height-base);
+}
+
+.ie-careers-home-page .ie-home-approach-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.ie-careers-home-page .ie-home-approach-grid > .ie-home-process-arrow { display: none; }
+
+.ie-careers-home-page .ie-careers-step-detail {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(40, 70, 100, .14);
+}
+
+@media (max-width: 1024px) {
+  .ie-careers-home-page .ie-careers-client-grid,
+.ie-careers-home-page .ie-home-approach-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .ie-careers-home-page .ie-careers-client-grid,
+.ie-careers-home-page .ie-home-approach-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+.ie-careers-home-page .ie-home-final-cta {
+  box-sizing: border-box;
+  padding-block: var(--ie-section-space);
+}
+
+.ie-careers-home-page .ie-home-hero {
+  padding-block: 0;
+}
+
+.ie-careers-home-page .ie-home-clients {
+  background: var(--ie-white);
+}
+
+.ie-careers-home-page .ie-careers-development {
+  background: var(--ie-surface-soft);
+}
+
+.ie-careers-home-page .ie-home-approach {
+  background: var(--ie-white);
+}
+
+.ie-careers-home-page .ie-careers-development .ie-home-who-two-column {
+  align-items: center;
+}
+

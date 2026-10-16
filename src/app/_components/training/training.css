@@ -1,0 +1,39 @@
+.ie-training-home-page .ie-home-hero { background-image: url('/assets/images/training.webp'); }
+
+.ie-training-home-page .ie-home-approach-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+
+.ie-training-home-page .ie-training-step-detail { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(40, 70, 100, .14); }
+
+.ie-training-home-page .ie-training-career-secondary { margin-bottom: 26px; }
+
+@media (max-width: 1024px) { .ie-training-home-page .ie-home-approach-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) { .ie-training-home-page .ie-home-approach-grid { grid-template-columns: minmax(0, 1fr); }
+}
+
+.ie-training-home-page .ie-home-final-cta {
+  box-sizing: border-box;
+  padding-block: var(--ie-section-space);
+}
+
+.ie-training-home-page .ie-home-hero {
+  padding-block: 0;
+}
+
+.ie-training-home-page .ie-home-clients {
+  background: var(--ie-white);
+}
+
+.ie-training-home-page .ie-training-career {
+  background: var(--ie-surface-soft);
+}
+
+.ie-training-home-page .ie-home-approach {
+  background: var(--ie-white);
+}
+
+.ie-training-home-page .ie-training-career .ie-home-who-two-column {
+  align-items: center;
+}
+

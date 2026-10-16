@@ -1,0 +1,47 @@
+.ie-business-home-page .ie-home-hero {
+  background-image: url('/assets/images/business.webp');
+}
+
+.ie-business-home-page .ie-business-overview-secondary {
+  margin: 0 0 22px;
+  color: var(--ie-body);
+  font-size: 15px;
+  line-height: var(--ie-line-height-base);
+}
+
+.ie-business-home-page .ie-business-audience-lead,
+.ie-business-home-page .ie-business-approach-lead {
+  max-width: 720px;
+  margin: 14px auto 0;
+  color: var(--ie-body);
+  font-size: 15px;
+  line-height: var(--ie-line-height-base);
+  text-align: center;
+}
+
+.ie-business-home-page .ie-home-clients .ie-business-client-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 1024px) {
+  .ie-business-home-page .ie-home-clients .ie-business-client-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .ie-business-home-page .ie-home-clients .ie-business-client-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.ie-business-home-page .ie-home-final-cta {
+  box-sizing: border-box;
+  padding-block: var(--ie-section-space);
+}
+
+.ie-business-home-page .ie-home-hero {
+  padding-block: 0;
+}
+

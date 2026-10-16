@@ -1,3 +1,81 @@
+.ie-management-intro {
+  padding-top: 0;
+  padding-bottom: 20px;
+}
+
+.ie-management-page {
+
+  width:
+    100%;
+}
+
+.ie-management-intro {
+
+  padding-bottom:
+    20px;
+}
+
+.ie-management-message {
+
+  padding:
+    30px 0;
+}
+
+.ie-management-profile-image {
+
+  display:
+    inline-block;
+
+  width:
+    100%;
+
+  max-width:
+    160px;
+
+  height:
+    auto;
+
+  border-radius:
+    10%;
+
+  box-shadow:
+    var(--ie-shadow);
+
+  transition:
+    var(--ie-transition);
+}
+
+.ie-management-profile-image:hover {
+
+  box-shadow:
+    var(--ie-shadow-hover);
+}
+
+.ie-management-page .ie-table-wrapper {
+
+  margin-top:
+    25px;
+}
+
+.ie-management-page .ie-table th:first-child,
+.ie-management-page .ie-table td:first-child {
+
+  width:
+    80px;
+
+  text-align:
+    center;
+}
+
+@media (max-width: 575.98px) {
+
+  .ie-management-profile-image {
+
+    max-width:
+      120px;
+  }
+}
+
 .ie-management-page .ie-management-intro {
   padding:24px 0 48px;
   align-items:flex-start !important;

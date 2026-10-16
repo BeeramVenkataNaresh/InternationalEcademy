@@ -5,6 +5,10 @@
 export const environment = {
   production: false,
   title: "International Ecademy",
+  // EmailJS public configuration (safe to expose in the browser).
+  emailJsServiceId: "",
+  emailJsTemplateId: "",
+  emailJsPublicKey: "",
  
   // Date settings
   todayDate: new Date(),

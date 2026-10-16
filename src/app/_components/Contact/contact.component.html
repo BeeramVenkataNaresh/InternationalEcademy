@@ -7,6 +7,7 @@
 
         <div class="ie-contact-content">
 
+            <div class="ie-contact-columns">
             <!-- HEADING -->
             <div class="ie-contact-heading-block">
 
@@ -189,6 +190,44 @@
 
             </div>
 
+            <form class="ie-contact-form" (ngSubmit)="sendMessage(contactForm)" #contactForm="ngForm" novalidate>
+                <h2>Send us a message</h2>
+                <p>Share a few details and our team will get back to you.</p>
+
+                <div class="ie-contact-form-row">
+                    <div class="ie-contact-field">
+                        <label for="contact-name">Your name <span class="ie-required-mark">*</span></label>
+                        <input id="contact-name" name="name" type="text" [(ngModel)]="message.name" required autocomplete="name" #nameField="ngModel" [class.ie-invalid]="(submitted || nameField.touched) && nameField.invalid">
+                        <small class="ie-field-error" *ngIf="(submitted || nameField.touched) && nameField.errors?.['required']">Please enter your name.</small>
+                    </div>
+
+                    <div class="ie-contact-field">
+                        <label for="contact-email">Email address <span class="ie-required-mark">*</span></label>
+                        <input id="contact-email" name="email" type="email" [(ngModel)]="message.email" required email autocomplete="email" #emailField="ngModel" [class.ie-invalid]="(submitted || emailField.touched) && emailField.invalid">
+                        <small class="ie-field-error" *ngIf="(submitted || emailField.touched) && emailField.errors?.['required']">Please enter your email address.</small>
+                        <small class="ie-field-error" *ngIf="(submitted || emailField.touched) && emailField.errors?.['email']">Enter a valid email address.</small>
+                    </div>
+                </div>
+
+                <div class="ie-contact-field">
+                    <label for="contact-phone">Phone number <span class="ie-required-mark">*</span></label>
+                        <input id="contact-phone" name="phone" type="tel" [(ngModel)]="message.phone" required pattern="^[0-9+()\s.-]{7,20}$" autocomplete="tel" #phoneField="ngModel" [class.ie-invalid]="(submitted || phoneField.touched) && phoneField.invalid">
+                    <small class="ie-field-error" *ngIf="(submitted || phoneField.touched) && phoneField.errors?.['required']">Please enter your phone number.</small>
+                    <small class="ie-field-error" *ngIf="(submitted || phoneField.touched) && phoneField.errors?.['pattern']">Enter a valid phone number.</small>
+                </div>
+
+                <div class="ie-contact-field">
+                    <label for="contact-body">Message <span class="ie-required-mark">*</span></label>
+                    <textarea id="contact-body" name="body" [(ngModel)]="message.body" rows="4" required #bodyField="ngModel" [class.ie-invalid]="(submitted || bodyField.touched) && bodyField.invalid"></textarea>
+                    <small class="ie-field-error" *ngIf="(submitted || bodyField.touched) && bodyField.invalid">Please write your message.</small>
+                </div>
+
+                <div class="ie-contact-form-actions">
+                    <button class="ie-contact-send ie-btn ie-btn-primary" type="submit" [disabled]="isSending">{{ isSending ? 'Sending…' : 'Send message' }}</button>
+                    <button class="ie-contact-clear ie-btn ie-btn-secondary" type="button" (click)="clearMessage(contactForm)" [disabled]="isSending">Clear</button>
+                </div>
+            </form>
+            </div>
         </div>
 
     </div>
