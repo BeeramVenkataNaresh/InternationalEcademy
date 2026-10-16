@@ -34,8 +34,8 @@ export class NavbarComponent {
     this.collapseNavbar();
     void Swal.fire({
       icon: 'info',
-      title: 'Login coming soon',
-      text: 'Online account login is not available yet. Please contact International Ecademy if you need assistance.',
+      title: 'Coming Soon! ✨',
+      text: 'Please Stay tuned..! We are always happy to help you.',
       confirmButtonText: 'Got it'
     });
   }

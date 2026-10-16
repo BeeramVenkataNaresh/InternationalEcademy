@@ -37,8 +37,8 @@ export class ContactComponent {
     if (!emailJsServiceId || !emailJsTemplateId || !emailJsPublicKey) {
       void Swal.fire({
         icon: 'info',
-        title: 'Our contact form will be back soon!',
-        html: 'In the meantime, please send us an email at <a href="mailto:internationalecademy@gmail.com"><strong>internationalecademy@gmail.com</strong></a>. We\'ll be happy to assist you! 😊',
+        title: 'It will be back soon! ✨',
+        html: 'Please email us at <a href="mailto:internationalecademy@gmail.com"><strong>internationalecademy@gmail.com</strong></a>. We are happy to assist you! 😊',
         confirmButtonText: 'Understood',
         confirmButtonColor: '#0d5399'
       });
